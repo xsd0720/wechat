@@ -1,0 +1,17 @@
+//
+//  ImitationWeChat-Prefix.pch
+//  ImitationWeChat
+//
+//  Created by wany on 14/12/12.
+//  Copyright (c) 2014年 wany. All rights reserved.
+//
+
+#ifndef ImitationWeChat_ImitationWeChat_Prefix_pch
+#define ImitationWeChat_ImitationWeChat_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import "Configuration.h"
+#endif

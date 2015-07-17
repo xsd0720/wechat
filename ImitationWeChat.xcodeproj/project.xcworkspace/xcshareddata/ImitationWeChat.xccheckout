@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>55BD33DA-2DDA-4151-BF0A-11C199964C1C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ImitationWeChat</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>292BD391C956587753A1182C26500F98515D4D80</key>
+		<string>https://github.com/xsd0720/wechat.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ImitationWeChat.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>292BD391C956587753A1182C26500F98515D4D80</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/xsd0720/wechat.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>292BD391C956587753A1182C26500F98515D4D80</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>292BD391C956587753A1182C26500F98515D4D80</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WeChat</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,125 @@
+//
+//  MyTabBarController.m
+//  FitTiger
+//
+//  Created by 李清青 on 15/6/2.
+//  Copyright (c) 2015年 PanghuKeji. All rights reserved.
+//
+
+#import "MyTabBarController.h"
+#import "WXViewController.h"
+#import "ContactViewController.h"
+#import "FoundViewController.h"
+#import "MyViewController.h"
+
+#import "MyNavViewController.h"
+
+#import "TabBarItem.h"
+#define BUTTONWIDTH         (SCREEN_WIDTH/self.viewControllers.count)
+
+
+@interface MyTabBarController ()
+{
+    WXViewController* wxVC;
+    ContactViewController *contactVC;
+    FoundViewController *foundVC;
+    MyViewController *myVC;
+
+    
+    UIImageView *tabbarImageView;
+}
+@property (nonatomic,strong) NSMutableArray *tabbarButtonArray;
+@property (nonatomic,strong) NSArray *tabbarNormalImageArray;
+@property (nonatomic,strong) NSArray *tabbarHlImageArray;
+@property (nonatomic,strong) NSArray *tabbarTitleArray;
+@end
+
+@implementation MyTabBarController
+
+
+-(NSArray *)tabbarNormalImageArray{
+    return @[@"tabbar_mainframe",@"tabbar_contacts",@"tabbar_discover",@"tabbar_me"];
+}
+-(NSArray *)tabbarHlImageArray{
+    return @[@"tabbar_mainframeHL",@"tabbar_contactsHL",@"tabbar_discoverHL",@"tabbar_meHL"];
+}
+-(NSArray *)tabbarTitleArray{
+    return @[@"微信",@"联系人",@"发现",@"我"];
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self createTabBarBackground];
+    [self createViewControllers];
+    [self createTabBarItems];
+}
+-(void)createTabBarBackground{
+    UIImageView  *customView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, self.tabBar.frame.size.width, self.tabBar.frame.size.height)];
+    customView.userInteractionEnabled = YES;
+    UIImage *tbbarBg = [UIImage imageWithContentsOfFile:@"tabbarBkg@2x.png"];
+    [tbbarBg stretchableImageWithLeftCapWidth:0.f topCapHeight:0.f];
+    customView.image = tbbarBg;
+    [self.tabBar addSubview:customView];
+}
+
+-(void)createTabBarItems{
+    _tabbarButtonArray = [NSMutableArray array];
+    for (int i=0 ; i<self.viewControllers.count; i++)
+    {
+        TabBarItem *tabbrItem = [[TabBarItem alloc] initWithFrame:CGRectMake(i*BUTTONWIDTH,0, BUTTONWIDTH, self.tabBar.frame.size.height)];
+        [tabbrItem addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+
+        tabbrItem.button.frame = CGRectMake(0,0, BUTTONWIDTH, self.tabBar.frame.size.height-12);
+        [tabbrItem.button setImage:[UIImage imageNamed:self.tabbarNormalImageArray[i]] forState:UIControlStateNormal];
+        [tabbrItem.button setImage:[UIImage imageNamed:self.tabbarHlImageArray[i]] forState:UIControlStateSelected];
+        tabbrItem.label.text = self.tabbarTitleArray[i];
+        tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-12, BUTTONWIDTH, 8);
+        [self.tabBar addSubview:tabbrItem];
+
+        
+        tabbrItem.tag = i;
+
+        [_tabbarButtonArray addObject:tabbrItem];
+        if (tabbrItem.tag == self.selectedIndex) {
+            tabbrItem.selected = YES;
+        }
+    }
+}
+-(void)buttonClick:(UIButton *)sender{
+    //选中当前
+    [_tabbarButtonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIButton *bt = (UIButton *)obj;
+        bt.selected = NO;
+    }];
+    
+    sender.selected = YES;
+    self.selectedIndex = sender.tag;
+}
+-(void)createViewControllers{
+    
+    //微信
+    wxVC=[[WXViewController alloc]init];
+    MyNavViewController *nc1=[[MyNavViewController alloc]initWithRootViewController:wxVC];
+    
+    //联系人
+    contactVC=[[ContactViewController alloc]init];
+    MyNavViewController *nc2=[[MyNavViewController alloc]initWithRootViewController:contactVC];
+    
+    //发现
+    foundVC=[[FoundViewController alloc]init];
+    MyNavViewController *nc3=[[MyNavViewController alloc]initWithRootViewController:foundVC];
+    
+    //我的
+    myVC=[[MyViewController alloc]init];
+    MyNavViewController *nc4=[[MyNavViewController alloc]initWithRootViewController:myVC];
+
+
+    //
+    self.viewControllers=@[nc1,nc2,nc3,nc4];
+}
+
+@end
+
+
+
+

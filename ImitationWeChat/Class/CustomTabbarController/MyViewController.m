@@ -7,6 +7,8 @@
 //
 
 #import "MyViewController.h"
+#import "TVViewController.h"
+
 
 static NSString *MYCELLIDENTIFIER = @"mycellidentifier";
 static NSString *MYHEADERCELLIDENTIFIER = @"mycellheadercellidentifier";
@@ -55,8 +57,9 @@ static float  MYHEADERCELLHEIGHT = 90.f;
              @[
                  
                  @{@"image":@"MoreSetting",
-                   @"text":@"设置"}
-
+                   @"text":@"设置"},
+                 @{@"image":@"MoreSetting",
+                   @"text":@"电视直播"}
                  ]
              
              ];
@@ -103,10 +106,7 @@ static float  MYHEADERCELLHEIGHT = 90.f;
     return 4;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 1) {
-        return 4;
-    }
-    return 1;
+    return [[self.myTableData objectAtIndex:section] count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -134,6 +134,41 @@ static float  MYHEADERCELLHEIGHT = 90.f;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //个人资料
+    if (indexPath.section == 0&&indexPath.row == 0) {
+        
+    }
+    //相册
+    else if (indexPath.section == 1&&indexPath.row == 0){
+        
+    }
+    //收藏
+    else if (indexPath.section == 1&&indexPath.row == 1){
+        
+    }
+    //钱包
+    else if (indexPath.section == 1&&indexPath.row == 2){
+        
+    }
+    //卡包
+    else if (indexPath.section == 1&&indexPath.row == 3){
+        
+    }
+    //表情
+    else if (indexPath.section == 2&&indexPath.row == 0){
+        
+    }
+    //设置
+    else if (indexPath.section == 3&&indexPath.row == 0){
+        
+    }
+    //电视直播
+    else if (indexPath.section == 3&&indexPath.row == 1){
+        TVViewController *tvVc = [[TVViewController alloc] init];
+        tvVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:tvVc animated:YES];
+    }
 }
 /*
 #pragma mark - Navigation

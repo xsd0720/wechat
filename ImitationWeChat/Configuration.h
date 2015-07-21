@@ -17,6 +17,7 @@
 #define IOS8 (BOOL)([[UIDevice currentDevice] systemVersion].intValue>=8)
 
 
+#define CustomTabarHeight       49
 // iOS系统版本
 #define SYSTEM_VERSION    [[[UIDevice currentDevice] systemVersion] doubleValue]
 // 标准系统状态栏高度

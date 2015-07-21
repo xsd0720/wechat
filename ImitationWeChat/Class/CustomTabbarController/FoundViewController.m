@@ -10,7 +10,7 @@
 
 
 #import "QRCodeViewController.h"
-
+#import "ShakeViewController.h"
 static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
 
 @interface FoundViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -109,7 +109,9 @@ static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
     }
     //摇一摇
     else if (indexPath.section == 1&&indexPath.row == 1){
-        
+        ShakeViewController *shakeVC = [[ShakeViewController alloc] init];
+        shakeVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:shakeVC animated:YES];
     }
     //附近的人
     else if (indexPath.section == 2&&indexPath.row == 0){

@@ -36,12 +36,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"LaunchImage@2x.png" ofType:nil];
     [imageLoading setImage:[UIImage imageWithContentsOfFile:path]];
     [self.view addSubview:imageLoading];
-    
-    
 
-
-    
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -66,13 +61,8 @@
     self.animator = nil;
 
 }
-//-(void)dealloc{
-//
-//}
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

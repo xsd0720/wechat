@@ -14,8 +14,11 @@
 
 #import "MyNavViewController.h"
 
+
+#import "KYCuteView.h"
 #import "TabBarItem.h"
 #define BUTTONWIDTH         (SCREEN_WIDTH/self.viewControllers.count)
+#define TABBARITEM_LABELHEIGHT      12
 
 
 @interface MyTabBarController ()
@@ -27,6 +30,8 @@
 
     
     UIImageView *tabbarImageView;
+    //可删除泡泡
+    KYCuteView *cuteView;
 }
 @property (nonatomic,strong) NSMutableArray *tabbarButtonArray;
 @property (nonatomic,strong) NSArray *tabbarNormalImageArray;
@@ -62,6 +67,8 @@
 }
 
 -(void)createTabBarItems{
+    
+
     _tabbarButtonArray = [NSMutableArray array];
     for (int i=0 ; i<self.viewControllers.count; i++)
     {
@@ -69,11 +76,11 @@
         [tabbrItem addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         
 
-        tabbrItem.button.frame = CGRectMake(0,0, BUTTONWIDTH, self.tabBar.frame.size.height-12);
+        tabbrItem.button.frame = CGRectMake(0,0, BUTTONWIDTH, self.tabBar.frame.size.height-TABBARITEM_LABELHEIGHT);
         [tabbrItem.button setImage:[UIImage imageNamed:self.tabbarNormalImageArray[i]] forState:UIControlStateNormal];
         [tabbrItem.button setImage:[UIImage imageNamed:self.tabbarHlImageArray[i]] forState:UIControlStateSelected];
         tabbrItem.label.text = self.tabbarTitleArray[i];
-        tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-12, BUTTONWIDTH, 8);
+        tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-TABBARITEM_LABELHEIGHT, BUTTONWIDTH, 8);
         [self.tabBar addSubview:tabbrItem];
 
         
@@ -83,9 +90,28 @@
         if (tabbrItem.tag == self.selectedIndex) {
             tabbrItem.selected = YES;
         }
+        if (i == 0) {
+            cuteView = [[KYCuteView alloc]initWithPoint:CGPointMake(tabbrItem.center.x+10.f, 0) superView:tabbrItem];
+            cuteView.viscosity  = 10;
+            cuteView.bubbleWidth = 20;
+            cuteView.bubbleColor = [UIColor redColor];
+            [cuteView setUp];
+            [cuteView addGesture];
+            
+            //注意：设置 'bubbleLabel.text' 一定要放在 '-setUp' 方法之后
+            //Tips:When you set the 'bubbleLabel.text',you must set it after '-setUp'
+            cuteView.bubbleLabel.text = @"3";
+
+        }
     }
 }
+
 -(void)buttonClick:(UIButton *)sender{
+    
+    if (sender.tag == self.selectedIndex) {
+        return;
+    }
+    
     //选中当前
     [_tabbarButtonArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIButton *bt = (UIButton *)obj;

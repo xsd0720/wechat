@@ -8,34 +8,82 @@
 
 #import "ContactViewController.h"
 
-@interface ContactViewController ()
+static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 
+
+
+@interface ContactViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *contactTableView;
+@property (nonatomic,strong) NSArray *contactData;
+@property (nonatomic,strong) NSArray *capIndexes;
 @end
 
 @implementation ContactViewController
 
+
+-(NSArray *)contactData{
+    return @[
+             
+             ];
+}
+-(NSArray *)capIndexes
+{
+    NSMutableArray *toBeReturned = [[NSMutableArray alloc]init];
+    
+    // [toBeReturned addObject:@"{search}"];
+    for(char x = 'A'; x <='Z';x++)
+        [toBeReturned addObject:[NSString stringWithFormat:@"%c",x]];
+    
+    [toBeReturned addObject:[NSString stringWithFormat:@"%c",'#']];
+    
+    return toBeReturned;
+}
+
+-(UITableView *)wxTableView{
+    if (!_contactTableView) {
+        _contactTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT-CustomTabarHeight) style:UITableViewStyleGrouped];
+        
+        
+        [self.view addSubview:_contactTableView];
+        
+        _contactTableView.delegate = self;
+        _contactTableView.dataSource = self;
+        _contactTableView.tableFooterView = [UIView new];
+        
+        [_contactTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CONTACTCELLIDENTIFIER];
+    }
+    return _contactTableView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self loadNav];
+    [self setupNav];
+    [self.contactTableView reloadData];
 }
--(void)loadNav{
+-(void)setupNav{
     self.navigationItem.title = @"通讯录";
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - TableView section
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return  self.capIndexes;
+}
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    return index;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - TableView Delegate
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
 }
-*/
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CONTACTCELLIDENTIFIER forIndexPath:indexPath];
+    return cell;
+}
+
+
 
 @end

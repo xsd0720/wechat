@@ -19,13 +19,30 @@
     // Do any additional setup after loading the view.
     
     self.navigationBar.barStyle = UIBarStyleBlackOpaque;
+  
+    //系统返回默认蓝色 改成白色
+    self.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*
+ A -> B
+ 此方法应该在 A 面的点击跳转方法中实现
+ */
+//设置返回按钮
+- (void)setNavigationBackButton:(NSString *)title image:(UIImage *)image viewController:(UIViewController *)viewController
+{
+    UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] init];
+    backBarBtn.title = [NSString stringWithFormat:@"%@",title];
+    UIImage *img = image;
+    img = [img resizableImageWithCapInsets:UIEdgeInsetsMake(0, 18, 0, 0)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:img forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    viewController.navigationItem.backBarButtonItem = backBarBtn;
 
+}
 /*
 #pragma mark - Navigation
 

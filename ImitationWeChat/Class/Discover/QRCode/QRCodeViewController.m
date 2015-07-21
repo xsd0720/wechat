@@ -27,6 +27,8 @@ static float QRBorderMarginTop = 80.f;
 
 @property (nonatomic,strong) NSArray *chooseSubViewData;
 
+@property (nonatomic,strong) NSMutableArray *chooseItemArray;
+
 @end
 
 @implementation QRCodeViewController
@@ -65,6 +67,7 @@ static float QRBorderMarginTop = 80.f;
     [self setUpQRCodeUI];
     [self setUpChooseView];
     [self startReading];
+
 }
 -(void)setupNav{
     self.navigationItem.title = @"二维码/条码";
@@ -127,6 +130,8 @@ static float QRBorderMarginTop = 80.f;
     
 
 }
+
+//加载功能选择
 -(void)setUpChooseView{
     chooseView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60)];
     chooseView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8f];
@@ -135,7 +140,11 @@ static float QRBorderMarginTop = 80.f;
 //    CGFloat padding = 10;
     CGFloat w = chooseView.frame.size.width/4;
     CGFloat h = chooseView.frame.size.height;
-    for (int i=0; i<3; i++) {
+    
+    
+    _chooseItemArray = [NSMutableArray array];
+    
+    for (int i=0; i<4; i++) {
         TabBarItem *tabbrItem = [[TabBarItem alloc] initWithFrame:CGRectMake(i*w,0, w, h)];
        // [tabbrItem addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -146,9 +155,52 @@ static float QRBorderMarginTop = 80.f;
         tabbrItem.label.text = self.chooseSubViewData[i][@"text"];
         tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-12, w, 8);
         [chooseView addSubview:tabbrItem];
+        tabbrItem.tag = i;
+        [tabbrItem addTarget:self action:@selector(chooseViewClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_chooseItemArray addObject:tabbrItem];
+        
+        if (i == 0) {
+            tabbrItem.selected = YES;
+        }
     }
     
+    
 }
+//功能选择
+-(void)chooseViewClick:(UIButton *)button{
+    
+    [_chooseItemArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL *stop) {
+        obj.selected = NO;
+    }];
+    button.selected = YES;
+    
+    switch (button.tag) {
+        case 0:
+        {
+             promptLabel.text = @"将二维码/条码放入框中,既可自动扫描";
+        }
+            break;
+        case 1:
+        {
+             promptLabel.text = @"将书、CD、电影海报放入框内，即可自动扫描";
+        }
+            break;
+        case 2:
+        {
+             promptLabel.text = @"扫一下周围环境，寻找附近街景";
+        }
+            break;
+        case 3:
+        {
+            promptLabel.text = @"将英文单词放入框内";
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 //开启二维码扫描
 - (BOOL)startReading {
     NSError *error;

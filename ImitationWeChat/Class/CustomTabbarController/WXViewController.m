@@ -24,7 +24,9 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 @implementation WXViewController
 -(UITableView *)wxTableView{
     if (!_wxTableView) {
-        _wxTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT-44)];
+        _wxTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT-CustomTabarHeight)];
+        
+  
         [self.view addSubview:_wxTableView];
         
         _wxTableView.delegate = self;

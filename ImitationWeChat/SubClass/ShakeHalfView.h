@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShakeHalfView : UIImageView
+typedef NS_ENUM(NSUInteger, ShakeDirection) {
+    ShakeDirectionUp,
+    ShakeDirectionDown
+};
 
-//@property (nonatomic,strong)UIImageView *
+@interface ShakeHalfView : UIView
 
+@property (nonatomic,strong) UIImageView *shakeLogoIV;
+@property (nonatomic,strong) UIImageView *shakeLineIV;
+
+
+-(instancetype)initWithFrame:(CGRect)frame direction:(ShakeDirection)direction shakeLogoIVName:(NSString *)logoName shakeLineIVName:(NSString *)lineName;
 @end

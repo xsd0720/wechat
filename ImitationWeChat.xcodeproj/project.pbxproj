@@ -26,6 +26,7 @@
 		2E6151331B5CE7D4007196E2 /* TVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6151321B5CE7D4007196E2 /* TVViewController.m */; };
 		2E6151351B5CEB6E007196E2 /* 150511_JiveBike.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2E6151341B5CEB6E007196E2 /* 150511_JiveBike.mov */; };
 		2E9700011B5E58C800CA2CF1 /* ShakeHalfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9700001B5E58C800CA2CF1 /* ShakeHalfView.m */; };
+		2E9700041B5E663F00CA2CF1 /* ChooseTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9700031B5E663F00CA2CF1 /* ChooseTabbar.m */; };
 		2E97FFE11B5E337900CA2CF1 /* Shake_Line_Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E97FFD91B5E337900CA2CF1 /* Shake_Line_Down@2x.png */; };
 		2E97FFE21B5E337900CA2CF1 /* Shake_Line_Up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E97FFDA1B5E337900CA2CF1 /* Shake_Line_Up@2x.png */; };
 		2E97FFE31B5E337900CA2CF1 /* Shake_Logo_Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E97FFDB1B5E337900CA2CF1 /* Shake_Logo_Down@2x.png */; };
@@ -76,6 +77,7 @@
 		2E9B7D981B57A6CC000D621E /* UIImage+imageNamed_Hack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9B7D971B57A6CC000D621E /* UIImage+imageNamed_Hack.m */; };
 		2E9B7D9F1B57B646000D621E /* WxTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9B7D9E1B57B646000D621E /* WxTableCell.m */; };
 		2E9B7DA21B57BEA2000D621E /* 000.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9B7DA11B57BEA1000D621E /* 000.png */; };
+		2EA5CB4C1B5E7E7400DCAA8E /* UIWindow+Motion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA5CB4B1B5E7E7400DCAA8E /* UIWindow+Motion.m */; };
 		2EBCAC211B589DE6006FF4B1 /* CustomSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCAC201B589DE6006FF4B1 /* CustomSearchViewController.m */; };
 		2EBCAC751B58AC2C006FF4B1 /* ff_IconAdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCAC5A1B58AC2C006FF4B1 /* ff_IconAdd.png */; };
 		2EBCAC761B58AC2C006FF4B1 /* ff_IconAdd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCAC5B1B58AC2C006FF4B1 /* ff_IconAdd@2x.png */; };
@@ -184,6 +186,8 @@
 		2E6151321B5CE7D4007196E2 /* TVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVViewController.m; sourceTree = "<group>"; };
 		2E6151341B5CEB6E007196E2 /* 150511_JiveBike.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 150511_JiveBike.mov; sourceTree = "<group>"; };
 		2E9700001B5E58C800CA2CF1 /* ShakeHalfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeHalfView.m; sourceTree = "<group>"; };
+		2E9700021B5E663F00CA2CF1 /* ChooseTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTabbar.h; sourceTree = "<group>"; };
+		2E9700031B5E663F00CA2CF1 /* ChooseTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTabbar.m; sourceTree = "<group>"; };
 		2E97FFD91B5E337900CA2CF1 /* Shake_Line_Down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shake_Line_Down@2x.png"; sourceTree = "<group>"; };
 		2E97FFDA1B5E337900CA2CF1 /* Shake_Line_Up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shake_Line_Up@2x.png"; sourceTree = "<group>"; };
 		2E97FFDB1B5E337900CA2CF1 /* Shake_Logo_Down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shake_Logo_Down@2x.png"; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 		2E9B7D9D1B57B646000D621E /* WxTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WxTableCell.h; sourceTree = "<group>"; };
 		2E9B7D9E1B57B646000D621E /* WxTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WxTableCell.m; sourceTree = "<group>"; };
 		2E9B7DA11B57BEA1000D621E /* 000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 000.png; sourceTree = "<group>"; };
+		2EA5CB4A1B5E7E7400DCAA8E /* UIWindow+Motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Motion.h"; sourceTree = "<group>"; };
+		2EA5CB4B1B5E7E7400DCAA8E /* UIWindow+Motion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Motion.m"; sourceTree = "<group>"; };
 		2EBCAC1F1B589DE6006FF4B1 /* CustomSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchViewController.h; sourceTree = "<group>"; };
 		2EBCAC201B589DE6006FF4B1 /* CustomSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchViewController.m; sourceTree = "<group>"; };
 		2EBCAC5A1B58AC2C006FF4B1 /* ff_IconAdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ff_IconAdd.png; sourceTree = "<group>"; };
@@ -438,8 +444,12 @@
 		2E97FFFE1B5E58A000CA2CF1 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				2E97FFFF1B5E58C800CA2CF1 /* ShakeHalfView.h */,
+				2E9700001B5E58C800CA2CF1 /* ShakeHalfView.m */,
 				2E61510A1B5CDE0F007196E2 /* KYCuteView.h */,
 				2E61510B1B5CDE0F007196E2 /* KYCuteView.m */,
+				2E9700021B5E663F00CA2CF1 /* ChooseTabbar.h */,
+				2E9700031B5E663F00CA2CF1 /* ChooseTabbar.m */,
 			);
 			name = UIView;
 			sourceTree = "<group>";
@@ -741,8 +751,6 @@
 		2EBCACFA1B58EAA6006FF4B1 /* SubClass */ = {
 			isa = PBXGroup;
 			children = (
-				2E97FFFF1B5E58C800CA2CF1 /* ShakeHalfView.h */,
-				2E9700001B5E58C800CA2CF1 /* ShakeHalfView.m */,
 				2E97FFFE1B5E58A000CA2CF1 /* UIView */,
 				2E97FFE91B5E33E700CA2CF1 /* NSobject */,
 				2E61510D1B5CDE2F007196E2 /* demo.png */,
@@ -844,6 +852,8 @@
 				2EBCACC41B58DEB0006FF4B1 /* NSStringCategory */,
 				2E9B7D951B57A6CC000D621E /* UIImageCategory */,
 				2E9B7D8C1B57A690000D621E /* UIViewCategory */,
+				2EA5CB4A1B5E7E7400DCAA8E /* UIWindow+Motion.h */,
+				2EA5CB4B1B5E7E7400DCAA8E /* UIWindow+Motion.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1088,7 +1098,9 @@
 				2E9B7D601B57A1CB000D621E /* MyViewController.m in Sources */,
 				2EBCACC71B58DEC0006FF4B1 /* NSString+URLParse.m in Sources */,
 				2EBCACCE1B58E08B006FF4B1 /* QRCodeViewController.m in Sources */,
+				2E9700041B5E663F00CA2CF1 /* ChooseTabbar.m in Sources */,
 				2EBCACCD1B58E08B006FF4B1 /* QrCodeHollowView.m in Sources */,
+				2EA5CB4C1B5E7E7400DCAA8E /* UIWindow+Motion.m in Sources */,
 				2EBCACFD1B58EB26006FF4B1 /* TabBarItem.m in Sources */,
 				2E9B7D8B1B57A4F5000D621E /* MyNavViewController.m in Sources */,
 				7B91C6421A3B2A5900394194 /* main.m in Sources */,

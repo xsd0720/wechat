@@ -11,16 +11,19 @@
 
 
 #import "QRCodeDetailViewController.h"
-#import "TabBarItem.h"
+
+//自定义tabbar
+#import "ChooseTabbar.h"
+
 static float QRBorderMarginTop = 80.f;
 
-@interface QRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate>
+@interface QRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate,ChooseTabbarDelegate>
 {
     CABasicAnimation *animation;
     QrCodeHollowView *hollowView;
     UILabel *promptLabel;
     
-    UIView *chooseView;
+    ChooseTabbar *chooseTabbar;
 }
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
@@ -131,64 +134,30 @@ static float QRBorderMarginTop = 80.f;
 
 }
 
+#pragma mark ChooseTabbar
+
 //加载功能选择
 -(void)setUpChooseView{
-    chooseView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60)];
-    chooseView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8f];
-    [self.view addSubview:chooseView];
-    
-//    CGFloat padding = 10;
-    CGFloat w = chooseView.frame.size.width/4;
-    CGFloat h = chooseView.frame.size.height;
-    
-    
-    _chooseItemArray = [NSMutableArray array];
-    
-    for (int i=0; i<4; i++) {
-        TabBarItem *tabbrItem = [[TabBarItem alloc] initWithFrame:CGRectMake(i*w,0, w, h)];
-       // [tabbrItem addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        tabbrItem.button.frame = CGRectMake(0,0, w, h-12);
-        [tabbrItem.button setImage:[UIImage imageNamed:self.chooseSubViewData[i][@"imageName"]] forState:UIControlStateNormal];
-        [tabbrItem.button setImage:[UIImage imageNamed:self.chooseSubViewData[i][@"imageName_HL"]] forState:UIControlStateSelected];
-        tabbrItem.label.text = self.chooseSubViewData[i][@"text"];
-        tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-12, w, 8);
-        [chooseView addSubview:tabbrItem];
-        tabbrItem.tag = i;
-        [tabbrItem addTarget:self action:@selector(chooseViewClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [_chooseItemArray addObject:tabbrItem];
-        
-        if (i == 0) {
-            tabbrItem.selected = YES;
-        }
-    }
-    
-    
+    chooseTabbar = [[ChooseTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60) subViewData:self.chooseSubViewData];
+    chooseTabbar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8f];
+    [self.view addSubview:chooseTabbar];
 }
-//功能选择
--(void)chooseViewClick:(UIButton *)button{
-    
-    [_chooseItemArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL *stop) {
-        obj.selected = NO;
-    }];
-    button.selected = YES;
-    
-    switch (button.tag) {
+//choosetabbar delegate
+-(void)ChooseTabbarDidSelectItem:(NSInteger)index{
+    switch (index) {
         case 0:
         {
-             promptLabel.text = @"将二维码/条码放入框中,既可自动扫描";
+            promptLabel.text = @"将二维码/条码放入框中,既可自动扫描";
         }
             break;
         case 1:
         {
-             promptLabel.text = @"将书、CD、电影海报放入框内，即可自动扫描";
+            promptLabel.text = @"将书、CD、电影海报放入框内，即可自动扫描";
         }
             break;
         case 2:
         {
-             promptLabel.text = @"扫一下周围环境，寻找附近街景";
+            promptLabel.text = @"扫一下周围环境，寻找附近街景";
         }
             break;
         case 3:
@@ -199,8 +168,11 @@ static float QRBorderMarginTop = 80.f;
         default:
             break;
     }
+
 }
 
+
+#pragma mark -  二维码扫描
 //开启二维码扫描
 - (BOOL)startReading {
     NSError *error;

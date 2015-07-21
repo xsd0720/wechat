@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#define LabelHeight 12
 @interface TabBarItem : UIButton
 @property (nonatomic,strong) UIButton *button;
 @property (nonatomic,strong) UILabel *label;

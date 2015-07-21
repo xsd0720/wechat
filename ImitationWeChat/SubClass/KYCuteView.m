@@ -23,7 +23,7 @@
     CADisplayLink *displayLink;
     
 
-    UIView *frontView;
+//    UIView *frontView;
     UIView *backView;
     CGFloat r1; // backView
     CGFloat r2; // frontView

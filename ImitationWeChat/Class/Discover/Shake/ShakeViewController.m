@@ -8,22 +8,22 @@
 
 #import "ShakeViewController.h"
 
-#import "TabBarItem.h"
+#import "ChooseTabbar.h"
+#import "ShakeHalfView.h"
 
-@interface ShakeViewController ()
+static CGFloat moveDistance = 100.f;
+static CGFloat moveAnimationDuring = 0.3f;
+static CGFloat moveAnimationStopDuring = 0.1f;
+
+@interface ShakeViewController ()<ChooseTabbarDelegate>
 {
     UIImageView *imageViewWomen;
     
-    UIImageView *shake_frameinfo_Up;
-    UIImageView *shake_frameinfo_Down;
+    ShakeHalfView *shake_frameinfo_Up;
+    ShakeHalfView *shake_frameinfo_Down;
     
-    UIImageView *shake_logo_Up;
-    UIImageView *shake_logo_Down;
     
-    UIImageView *shake_line_Up;
-    UIImageView *shake_line_Down;
-    
-    UIView *chooseView;
+    ChooseTabbar *chooseTabbar;
 }
 
 @property (nonatomic) BOOL isBeginShake;
@@ -63,10 +63,10 @@
     [self setUpShakeUI];
     [self setUpChooseView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginShakeing) name:@"shake" object:nil];
+    
 }
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self beginShakeing];
-}
+
 -(void)setUpNav{
     self.navigationItem.title = @"摇一摇";
     self.view.backgroundColor = RGBCOLOR(47, 50, 50);
@@ -76,108 +76,38 @@
     
     
     CGFloat CurrentScreenHeight = SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT;
-    CGFloat shakeLineHeight = (SCREEN_WIDTH/320.f)*20;
+    
     
     //背景小花
     imageViewWomen = [[UIImageView alloc] initWithFrame:CGRectMake(0, (CurrentScreenHeight-SCREEN_WIDTH)/2, SCREEN_WIDTH, SCREEN_WIDTH)];
     imageViewWomen.image = [UIImage imageNamed:@"ShakeHideImg_women"];
     [self.view addSubview:imageViewWomen];
     
-    
-    //frameinfo
-    UIImage *imageFrameInfo = [UIImage imageNamed:@"ShakeFrameInfo"];
-    imageFrameInfo = [imageFrameInfo stretchableImageWithLeftCapWidth:imageFrameInfo.size.width/2 topCapHeight:imageFrameInfo.size.height/2];
     //上frame
-    shake_frameinfo_Up = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CurrentScreenHeight/2)];
-    shake_frameinfo_Up.image = imageFrameInfo;
+    shake_frameinfo_Up = [[ShakeHalfView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CurrentScreenHeight/2) direction:ShakeDirectionUp shakeLogoIVName:@"Shake_Logo_Up" shakeLineIVName:@"Shake_Line_Up"];
+    
     [self.view addSubview:shake_frameinfo_Up];
     
     //下frame
-    shake_frameinfo_Down = [[UIImageView alloc] initWithFrame:CGRectMake(0,CurrentScreenHeight/2, SCREEN_WIDTH, CurrentScreenHeight/2)];
-    shake_frameinfo_Down.image = imageFrameInfo;
+    shake_frameinfo_Down = [[ShakeHalfView alloc] initWithFrame:CGRectMake(0,CurrentScreenHeight/2, SCREEN_WIDTH, CurrentScreenHeight/2) direction:ShakeDirectionDown shakeLogoIVName:@"Shake_Logo_Down" shakeLineIVName:@"Shake_Line_Down"];
     [self.view addSubview:shake_frameinfo_Down];
     
-//    //上logo
-//    UIImage *LogoUpImage = [UIImage imageNamed:@"Shake_Logo_Up"];
-//    CGFloat logoUpImageW = LogoUpImage.size.width;
-//    CGFloat logoUpImageH = LogoUpImage.size.height;
-//    shake_logo_Up = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-logoUpImageW)/2, CurrentScreenHeight/2-logoUpImageH, logoUpImageW, logoUpImageH)];
-//    shake_logo_Up.image = LogoUpImage;
-//    [self.view addSubview:shake_logo_Up];
-//    
-//    //上logo
-//    UIImage *LogoDownImage = [UIImage imageNamed:@"Shake_Logo_Down"];
-//    CGFloat logoDownImageW = LogoDownImage.size.width;
-//    CGFloat logoDownImageH = LogoDownImage.size.height;
-//    shake_logo_Down = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-logoDownImageW)/2, CurrentScreenHeight/2, logoDownImageW, logoDownImageH)];
-//    shake_logo_Down.image = LogoDownImage;
-//    [self.view addSubview:shake_logo_Down];
-//    
-//    //上line
-//    UIImage *lineUp = [UIImage imageNamed:@"Shake_Line_Up"];
-//    lineUp = [lineUp stretchableImageWithLeftCapWidth:lineUp.size.width/2 topCapHeight:lineUp.size.height/2];
-//    shake_line_Up = [[UIImageView alloc] initWithFrame:CGRectMake(-shake_logo_Up.originX, shake_logo_Up.height, SCREEN_WIDTH, shakeLineHeight)];
-//    shake_line_Up.image = lineUp;
-//    [shake_logo_Up addSubview:shake_line_Up];
-//    
-//    
-//    //下line
-//    
-//    UIImage *lineDown = [UIImage imageNamed:@"Shake_Line_Down"];
-//    lineDown = [lineDown stretchableImageWithLeftCapWidth:0 topCapHeight:0];
-//    shake_line_Down = [[UIImageView alloc] initWithFrame:CGRectMake(-shake_logo_Down.originX, -shakeLineHeight, SCREEN_WIDTH, shakeLineHeight)];
-//    shake_line_Down.image = lineDown;
-//    [shake_logo_Down addSubview:shake_line_Down];
     
     //没有开始晃动
     self.isBeginShake = NO;
     
 }
+
+#pragma mark - chooseTabbar
 //加载功能选择
 -(void)setUpChooseView{
-    chooseView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60)];
-//    chooseView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8f];
-    [self.view addSubview:chooseView];
-    
-    //    CGFloat padding = 10;
-    CGFloat w = chooseView.frame.size.width/self.chooseSubViewData.count;
-    CGFloat h = chooseView.frame.size.height;
-    
-    
-    _chooseItemArray = [NSMutableArray array];
-    
-    for (int i=0; i<self.chooseSubViewData.count; i++) {
-        TabBarItem *tabbrItem = [[TabBarItem alloc] initWithFrame:CGRectMake(i*w,0, w, h)];
-        // [tabbrItem addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        tabbrItem.button.frame = CGRectMake(0,0, w, h-12);
-        [tabbrItem.button setImage:[UIImage imageNamed:self.chooseSubViewData[i][@"imageName"]] forState:UIControlStateNormal];
-        [tabbrItem.button setImage:[UIImage imageNamed:self.chooseSubViewData[i][@"imageName_HL"]] forState:UIControlStateSelected];
-        tabbrItem.label.text = self.chooseSubViewData[i][@"text"];
-        tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-12, w, 8);
-        [chooseView addSubview:tabbrItem];
-        tabbrItem.tag = i;
-        [tabbrItem addTarget:self action:@selector(chooseViewClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [_chooseItemArray addObject:tabbrItem];
-        
-        if (i == 0) {
-            tabbrItem.selected = YES;
-        }
-    }
-    
+    chooseTabbar = [[ChooseTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-70, SCREEN_WIDTH, 60) subViewData:self.chooseSubViewData];
+    [self.view addSubview:chooseTabbar];
     
 }
-//功能选择
--(void)chooseViewClick:(UIButton *)button{
-    
-    [_chooseItemArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL *stop) {
-        obj.selected = NO;
-    }];
-    button.selected = YES;
-    
-    switch (button.tag) {
+
+-(void)ChooseTabbarDidSelectItem:(NSInteger)index{
+    switch (index) {
             //人
         case 0:
         {
@@ -199,55 +129,105 @@
         default:
             break;
     }
+
 }
+
 -(void)setIsBeginShake:(BOOL)isBeginShake{
     
     imageViewWomen.hidden = !isBeginShake;
-    shake_line_Up.hidden = !isBeginShake;
-    shake_line_Down.hidden = !isBeginShake;
+    shake_frameinfo_Up.shakeLineIV.hidden = !isBeginShake;
+    shake_frameinfo_Down.shakeLineIV.hidden = !isBeginShake;
 }
 
 
 //开始摇一摇
 -(void)beginShakeing{
+   
+    
+
+    
+//    //让shake_line_Up上下移动
+//    CABasicAnimation *translationUp = [CABasicAnimation animationWithKeyPath:@"position"];
+//    translationUp.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    translationUp.fromValue = [NSValue valueWithCGPoint:shake_frameinfo_Up.center];
+//    translationUp.toValue = [NSValue valueWithCGPoint:CGPointMake(shake_frameinfo_Up.center.x, shake_frameinfo_Up.center.y-moveDistance)];
+//    translationUp.duration = moveAnimationDuring;
+//    translationUp.repeatCount = 1;
+////    translationUp.fillMode = kCAFillModeForwards;
+//    translationUp.autoreverses = YES;
+//    
+//    //让shake_logo_Down上下移动
+//    CABasicAnimation *translationDown = [CABasicAnimation animationWithKeyPath:@"position"];
+//    translationDown.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    translationDown.fromValue = [NSValue valueWithCGPoint:shake_frameinfo_Down.center];
+//    translationDown.toValue = [NSValue valueWithCGPoint:CGPointMake(shake_frameinfo_Down.center.x, shake_frameinfo_Down.center.y+moveDistance)];
+//    translationDown.duration = moveAnimationDuring;
+//    translationDown.repeatCount = 1;
+//    translationDown.delegate = self;
+//    translationDown.autoreverses = YES;
+    
+    //每一帧的时间差时间差(某一帧时间为后者减前者)
+    /*
+     
+    keyTimes 该属性是一个数组，用以指定每个子路径(AB,BC,CD)的时间。如果你没有显式地对keyTimes进行设置，则系统会默认每条子路径的时间为：ti=duration/(5-1)，即每条子路径的duration相等，都为duration的1\4。当然，我们也可以传个数组让物体快慢结合。例如，你可以传入{0.0, 0.1,0.6,0.7,1.0}，其中首尾必须分别是0和1，因此tAB=0.1-0, tCB=0.6-0.1, tDC=0.7-0.6, tED=1-0.7.....
+     */
+    
+    
     self.isBeginShake = YES;
     
     [WHAudioTool systemPlay:@"shake_sound_male.wav"];
     
+    NSArray *keyTimes = @[
+                          [NSNumber numberWithFloat:0.0f],
+                          [NSNumber numberWithFloat:moveAnimationDuring],
+//                          [NSNumber numberWithFloat:moveAnimationDuring+moveAnimationStopDuring]
+                          ];
     
-    CGFloat moveDistance = 80;
+    CFTimeInterval duration = moveAnimationDuring+moveAnimationStopDuring;
+    
     
     //让shake_line_Up上下移动
-    CABasicAnimation *translationUp = [CABasicAnimation animationWithKeyPath:@"position"];
-    translationUp.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    translationUp.fromValue = [NSValue valueWithCGPoint:shake_frameinfo_Up.center];
-    translationUp.toValue = [NSValue valueWithCGPoint:CGPointMake(shake_frameinfo_Up.center.x, shake_frameinfo_Up.center.y-moveDistance)];
-    translationUp.duration = 0.4;
-    translationUp.repeatCount = 1;
-//    translationUp.fillMode = kCAFillModeForwards;
-    translationUp.autoreverses = YES;
+    CAKeyframeAnimation *translationUp = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    
+    translationUp.values = @[
+                             [NSValue valueWithCGPoint:shake_frameinfo_Up.center],
+                             [NSValue valueWithCGPoint:CGPointMake(shake_frameinfo_Up.center.x, shake_frameinfo_Up.center.y-moveDistance)]
+                             ];
+    translationUp.keyTimes = keyTimes;
+    
+
+    translationUp.autoreverses = YES;//动画回到原位
+    translationUp.duration = duration;
+    
     
     //让shake_logo_Down上下移动
-    CABasicAnimation *translationDown = [CABasicAnimation animationWithKeyPath:@"position"];
-    translationDown.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    translationDown.fromValue = [NSValue valueWithCGPoint:shake_frameinfo_Down.center];
-    translationDown.toValue = [NSValue valueWithCGPoint:CGPointMake(shake_frameinfo_Down.center.x, shake_frameinfo_Down.center.y+moveDistance)];
-    translationDown.duration = 0.4;
-    translationDown.repeatCount = 1;
+    CAKeyframeAnimation *translationDown = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    
+    translationDown.values = @[
+                             [NSValue valueWithCGPoint:shake_frameinfo_Down.center],
+                             [NSValue valueWithCGPoint:CGPointMake(shake_frameinfo_Down.center.x, shake_frameinfo_Down.center.y+moveDistance)],
+                             ];
     translationDown.delegate = self;
+    translationDown.keyTimes = keyTimes;
+    
     translationDown.autoreverses = YES;
     
+    translationDown.duration = duration;
+    translationDown.calculationMode = kCAAnimationLinear;
     [shake_frameinfo_Up.layer addAnimation:translationUp forKey:@"translationUp"];
-    [shake_frameinfo_Down.layer addAnimation:translationDown forKey:@"translationUp"];
+    [shake_frameinfo_Down.layer addAnimation:translationDown forKey:@"translationDown"];
 }
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
-    self.isBeginShake = NO;
+    [self stopShakeing];
 }
+
 //停止摇一摇
 -(void)stopShakeing{
-    
+    self.isBeginShake = NO;
 }
+
 -(void)dealloc{
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 @end

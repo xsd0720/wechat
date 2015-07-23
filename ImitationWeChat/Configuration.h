@@ -48,6 +48,9 @@
 //#define YHBViewGeight(view)  CGRectGetHeight()
 //获取沙盒路径
 #define DocumentPath  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+//摇一摇背景图
+#define ShakeBgImagePath    [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"shakeBg"]
+
 //缓存路径
 #define Cache  [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 

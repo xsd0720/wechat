@@ -10,9 +10,13 @@
 #import "TabBarItem.h"
 @implementation ChooseTabbar
 
--(instancetype)initWithFrame:(CGRect)frame subViewData:(NSArray *)datasouce{
+-(instancetype)initWithFrame:(CGRect)frame subViewData:(NSArray *)datasouce normalColor:(UIColor *)normalColor hightlightColor:(UIColor *)hightlightColor{
     self = [super initWithFrame:frame];
     if (self) {
+        
+        //按钮是否有选中状态
+        _isSelected = YES;
+        
         
         CGFloat w = frame.size.width/datasouce.count;
         CGFloat h = frame.size.height;
@@ -26,8 +30,13 @@
             
             tabbrItem.button.frame = CGRectMake(0,0, w, h-LabelHeight);
             [tabbrItem.button setImage:[UIImage imageNamed:datasouce[i][@"imageName"]] forState:UIControlStateNormal];
-            [tabbrItem.button setImage:[UIImage imageNamed:datasouce[i][@"imageName_HL"]] forState:UIControlStateSelected];
+            if (datasouce[i][@"imageName_HL"]) {
+                 [tabbrItem.button setImage:[UIImage imageNamed:datasouce[i][@"imageName_HL"]] forState:UIControlStateSelected];
+            }
             tabbrItem.label.text = datasouce[i][@"text"];
+            tabbrItem.labelNormalColor = normalColor;
+            tabbrItem.labelHighLightColor = hightlightColor;
+            tabbrItem.label.font = [UIFont systemFontOfSize:12.f];
             tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-LabelHeight, w, LabelHeight);
             [self addSubview:tabbrItem];
             tabbrItem.tag = i;
@@ -36,7 +45,9 @@
             [_chooseItemArray addObject:tabbrItem];
             
             if (i == 0) {
-                tabbrItem.selected = YES;
+                if (datasouce[i][@"imageName_HL"]) {
+                    tabbrItem.selected = YES;
+                }
             }
         }
         
@@ -45,13 +56,17 @@
     return self;
     
 }
+
 //功能选择
 -(void)chooseViewClick:(UIButton *)button{
     
-    [_chooseItemArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL *stop) {
-        obj.selected = NO;
-    }];
-    button.selected = YES;
+    if (_isSelected) {
+        [_chooseItemArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL *stop) {
+            obj.selected = NO;
+        }];
+        button.selected = YES;
+    }
+    
     if (_chooseTabbarBlock) {
         _chooseTabbarBlock(button.tag);
     }

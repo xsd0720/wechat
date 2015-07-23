@@ -28,42 +28,12 @@ static float  MYHEADERCELLHEIGHT = 90.f;
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myTableView;
-@property (nonatomic,strong) NSArray *myTableData;
+
 @end
 
 @implementation MyViewController
 
--(NSArray *)myTableData{
-    return @[
-             @[
-                 @{@"image":@"000",
-                   @"text":@"大头娃娃"}
-                 ],
-             @[
-                 @{@"image":@"MoreMyAlbum",
-                   @"text":@"相册"},
-                 @{@"image":@"MoreMyFavorites",
-                   @"text":@"收藏"},
-                 @{@"image":@"MoreMyBankCard",
-                   @"text":@"钱包"},
-                 @{@"image":@"MyCardPackageIcon",
-                   @"text":@"卡包"},
-                 
-                 ],
-             @[
-                 @{@"image":@"MoreExpressionShops",
-                   @"text":@"表情"}
-                 ],
-             @[
-                 
-                 @{@"image":@"MoreSetting",
-                   @"text":@"设置"},
-                 @{@"image":@"MoreSetting",
-                   @"text":@"电视直播"}
-                 ]
-             
-             ];
-}
+
 
 -(UITableView *)myTableView{
     if (!_myTableView) {
@@ -103,10 +73,10 @@ static float  MYHEADERCELLHEIGHT = 90.f;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return DS.myTableData.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [[self.myTableData objectAtIndex:section] count];
+    return [[DS.myTableData objectAtIndex:section] count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -123,7 +93,7 @@ static float  MYHEADERCELLHEIGHT = 90.f;
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MYCELLIDENTIFIER forIndexPath:indexPath];
-    NSDictionary *dic = [[self.myTableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    NSDictionary *dic = [[DS.myTableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.textLabel.text = dic[@"text"];
     cell.imageView.image = [UIImage imageNamed:dic[@"image"]];
     cell.imageView.layer.cornerRadius = 10;

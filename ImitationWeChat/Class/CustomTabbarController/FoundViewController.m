@@ -11,40 +11,18 @@
 
 #import "QRCodeViewController.h"
 #import "ShakeViewController.h"
+#import "BottlerViewController.h"
 static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
 
 @interface FoundViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *discoverTableView;
-@property (nonatomic,strong) NSArray *discoverData;
+
 
 @end
 
 @implementation FoundViewController
 
--(NSArray *)discoverData{
-    return @[
-             @[
-                 @{@"image":@"ff_IconShowAlbum",
-                   @"text":@"朋友圈"}
 
-                 ],
-             @[
-                 @{@"image":@"ff_IconQRCode",
-                   @"text":@"扫一扫"},
-                 @{@"image":@"ff_IconShake",
-                   @"text":@"摇一摇"}
-                 ],
-             
-             @[
-                 @{@"image":@"ff_IconLocationService",
-                   @"text":@"附近的人"},
-                 @{@"image":@"ff_IconBottle",
-                   @"text":@"漂流瓶"}
-                 ]
-             
-             
-             ];
-}
 
 -(UITableView *)discoverTableView{
     if (!_discoverTableView) {
@@ -87,7 +65,7 @@ static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DISCOVERCELLIDEITIFIER forIndexPath:indexPath];
-    NSDictionary *dic = [[self.discoverData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    NSDictionary *dic = [[DS.discoverData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.textLabel.text = dic[@"text"];
     cell.imageView.image = [UIImage imageNamed:dic[@"image"]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -115,11 +93,13 @@ static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
     }
     //附近的人
     else if (indexPath.section == 2&&indexPath.row == 0){
-        
+       
     }
     //漂流瓶
     else if (indexPath.section == 2&&indexPath.row == 1){
-        
+        BottlerViewController *bottleVc = [[BottlerViewController alloc] init];
+        bottleVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:bottleVc animated:YES];
     }
     
 }

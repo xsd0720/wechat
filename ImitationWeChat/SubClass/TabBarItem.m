@@ -29,6 +29,13 @@
     }
     return self;
 }
+-(void)setLabelNormalColor:(UIColor *)labelNormalColor{
+    _labelNormalColor = labelNormalColor;
+    _label.textColor = labelNormalColor;
+}
+-(void)setLabelHighLightColor:(UIColor *)labelHighLightColor{
+    _labelHighLightColor = labelHighLightColor;
+}
 -(void)setSelected:(BOOL)selected{
     [super setSelected:selected];
     _button.selected = selected;

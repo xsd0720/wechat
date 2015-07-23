@@ -34,23 +34,12 @@
     KYCuteView *cuteView;
 }
 @property (nonatomic,strong) NSMutableArray *tabbarButtonArray;
-@property (nonatomic,strong) NSArray *tabbarNormalImageArray;
-@property (nonatomic,strong) NSArray *tabbarHlImageArray;
-@property (nonatomic,strong) NSArray *tabbarTitleArray;
+
 @end
 
 @implementation MyTabBarController
 
 
--(NSArray *)tabbarNormalImageArray{
-    return @[@"tabbar_mainframe",@"tabbar_contacts",@"tabbar_discover",@"tabbar_me"];
-}
--(NSArray *)tabbarHlImageArray{
-    return @[@"tabbar_mainframeHL",@"tabbar_contactsHL",@"tabbar_discoverHL",@"tabbar_meHL"];
-}
--(NSArray *)tabbarTitleArray{
-    return @[@"微信",@"联系人",@"发现",@"我"];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTabBarBackground];
@@ -77,9 +66,9 @@
         
 
         tabbrItem.button.frame = CGRectMake(0,0, BUTTONWIDTH, self.tabBar.frame.size.height-TABBARITEM_LABELHEIGHT);
-        [tabbrItem.button setImage:[UIImage imageNamed:self.tabbarNormalImageArray[i]] forState:UIControlStateNormal];
-        [tabbrItem.button setImage:[UIImage imageNamed:self.tabbarHlImageArray[i]] forState:UIControlStateSelected];
-        tabbrItem.label.text = self.tabbarTitleArray[i];
+        [tabbrItem.button setImage:[UIImage imageNamed:DS.tabbarNormalImageArray[i]] forState:UIControlStateNormal];
+        [tabbrItem.button setImage:[UIImage imageNamed:DS.tabbarHlImageArray[i]] forState:UIControlStateSelected];
+        tabbrItem.label.text = DS.tabbarTitleArray[i];
         tabbrItem.label.frame  = CGRectMake(0, tabbrItem.frame.size.height-TABBARITEM_LABELHEIGHT, BUTTONWIDTH, 8);
         [self.tabBar addSubview:tabbrItem];
 

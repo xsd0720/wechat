@@ -28,40 +28,12 @@ static float QRBorderMarginTop = 80.f;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
-@property (nonatomic,strong) NSArray *chooseSubViewData;
 
 @property (nonatomic,strong) NSMutableArray *chooseItemArray;
 
 @end
 
 @implementation QRCodeViewController
-
-
--(NSArray *)chooseSubViewData{
-    return @[
-             
-             @{
-                @"imageName":@"ScanQRCode",
-                @"imageName_HL":@"ScanQRCode_HL",
-                @"text":@"扫码"
-                 },
-             @{
-                 @"imageName":@"ScanBook",
-                 @"imageName_HL":@"ScanBook_HL",
-                 @"text":@"封面"
-                 },
-             @{
-                 @"imageName":@"ScanStreet",
-                 @"imageName_HL":@"ScanStreet_HL",
-                 @"text":@"街景"
-                 },
-             @{
-                 @"imageName":@"ScanWord",
-                 @"imageName_HL":@"ScanWord_HL",
-                 @"text":@"翻译"
-                 }
-             ];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -138,7 +110,7 @@ static float QRBorderMarginTop = 80.f;
 
 //加载功能选择
 -(void)setUpChooseView{
-    chooseTabbar = [[ChooseTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60) subViewData:self.chooseSubViewData];
+    chooseTabbar = [[ChooseTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60) subViewData:DS.qrCodeChooseSubViewData  normalColor:[UIColor grayColor] hightlightColor:RGBCOLOR(72, 165, 15)];
     chooseTabbar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8f];
     [self.view addSubview:chooseTabbar];
 }

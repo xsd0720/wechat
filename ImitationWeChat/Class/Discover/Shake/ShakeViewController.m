@@ -7,7 +7,7 @@
 //
 
 #import "ShakeViewController.h"
-
+#import "ShakeSettingViewController.h"
 #import "ChooseTabbar.h"
 #import "ShakeHalfView.h"
 
@@ -28,33 +28,14 @@ static CGFloat moveAnimationStopDuring = 0.1f;
 
 @property (nonatomic) BOOL isBeginShake;
 
-@property (nonatomic,strong) NSArray *chooseSubViewData;
 
 @property (nonatomic,strong) NSMutableArray *chooseItemArray;
+
 @end
 
 @implementation ShakeViewController
 
--(NSArray *)chooseSubViewData{
-    return @[
-             
-             @{
-                 @"imageName":@"Shake_icon_people",
-                 @"imageName_HL":@"Shake_icon_peopleHL",
-                 @"text":@"人"
-                 },
-             @{
-                 @"imageName":@"Shake_icon_music",
-                 @"imageName_HL":@"Shake_icon_musicHL",
-                 @"text":@"歌曲"
-                 },
-             @{
-                 @"imageName":@"Shake_icon_tv",
-                 @"imageName_HL":@"Shake_icon_tvHL",
-                 @"text":@"电视"
-                 }
-             ];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -70,6 +51,16 @@ static CGFloat moveAnimationStopDuring = 0.1f;
 -(void)setUpNav{
     self.navigationItem.title = @"摇一摇";
     self.view.backgroundColor = RGBCOLOR(47, 50, 50);
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barbuttonicon_set"] style:UIBarButtonItemStylePlain target:self action:@selector(Setting)];
+    
+}
+-(void)Setting{
+    ShakeSettingViewController *shakeSettingVC = [[ShakeSettingViewController alloc] init];
+    shakeSettingVC.changeBgImageBlock = ^(UIImage *bgImage){
+        imageViewWomen.image = bgImage;
+    };
+    [self.navigationController pushViewController:shakeSettingVC animated:YES];
 }
 //摇一摇UI
 -(void)setUpShakeUI{
@@ -78,9 +69,15 @@ static CGFloat moveAnimationStopDuring = 0.1f;
     CGFloat CurrentScreenHeight = SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT;
     
     
-    //背景小花
+    
+    //摇一摇背景图
     imageViewWomen = [[UIImageView alloc] initWithFrame:CGRectMake(0, (CurrentScreenHeight-SCREEN_WIDTH)/2, SCREEN_WIDTH, SCREEN_WIDTH)];
-    imageViewWomen.image = [UIImage imageNamed:@"ShakeHideImg_women"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:ShakeBgImagePath]) {
+        imageViewWomen.image = [UIImage imageWithContentsOfFile:ShakeBgImagePath];
+    }else{
+        imageViewWomen.image = [UIImage imageNamed:@"ShakeHideImg_women"];
+    }
     [self.view addSubview:imageViewWomen];
     
     //上frame
@@ -101,7 +98,7 @@ static CGFloat moveAnimationStopDuring = 0.1f;
 #pragma mark - chooseTabbar
 //加载功能选择
 -(void)setUpChooseView{
-    chooseTabbar = [[ChooseTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-70, SCREEN_WIDTH, 60) subViewData:self.chooseSubViewData];
+    chooseTabbar = [[ChooseTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-70, SCREEN_WIDTH, 60) subViewData:DS.shakeChooseSubViewData  normalColor:[UIColor grayColor] hightlightColor:RGBCOLOR(72, 165, 15)];
     [self.view addSubview:chooseTabbar];
     
 }

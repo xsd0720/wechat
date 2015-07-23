@@ -14,18 +14,12 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 
 @interface ContactViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *contactTableView;
-@property (nonatomic,strong) NSArray *contactData;
+
 @property (nonatomic,strong) NSArray *capIndexes;
 @end
 
 @implementation ContactViewController
 
-
--(NSArray *)contactData{
-    return @[
-             
-             ];
-}
 -(NSArray *)capIndexes
 {
     NSMutableArray *toBeReturned = [[NSMutableArray alloc]init];

@@ -14,4 +14,6 @@
 
 @property (nonatomic,strong) UIColor *labelNormalColor;
 @property (nonatomic,strong) UIColor *labelHighLightColor;
+@property (nonatomic,assign) CGFloat fontSize;
+
 @end

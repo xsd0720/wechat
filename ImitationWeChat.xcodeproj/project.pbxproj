@@ -167,6 +167,9 @@
 		2EBCACF81B58E7D0006FF4B1 /* ScanWord_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCACE61B58E7D0006FF4B1 /* ScanWord_HL@2x.png */; };
 		2EBCACF91B58E7D0006FF4B1 /* ScanWord_HL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCACE71B58E7D0006FF4B1 /* ScanWord_HL@3x.png */; };
 		2EBCACFD1B58EB26006FF4B1 /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCACFC1B58EB26006FF4B1 /* TabBarItem.m */; };
+		2EFF2C371B63648B00F0CF75 /* 111.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EFF2C361B63648B00F0CF75 /* 111.png */; };
+		2EFF2C3A1B6371C500F0CF75 /* NSString+pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF2C391B6371C500F0CF75 /* NSString+pinyin.m */; };
+		2EFF2C3E1B63784800F0CF75 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF2C3D1B63784800F0CF75 /* Contact.m */; };
 		7B91C6421A3B2A5900394194 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B91C6411A3B2A5900394194 /* main.m */; };
 		7B91C6451A3B2A5900394194 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B91C6441A3B2A5900394194 /* AppDelegate.m */; };
 		7B91C64D1A3B2A5900394194 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B91C64C1A3B2A5900394194 /* Images.xcassets */; };
@@ -375,6 +378,11 @@
 		2EBCACE71B58E7D0006FF4B1 /* ScanWord_HL@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScanWord_HL@3x.png"; sourceTree = "<group>"; };
 		2EBCACFB1B58EB26006FF4B1 /* TabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarItem.h; sourceTree = "<group>"; };
 		2EBCACFC1B58EB26006FF4B1 /* TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItem.m; sourceTree = "<group>"; };
+		2EFF2C361B63648B00F0CF75 /* 111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 111.png; sourceTree = "<group>"; };
+		2EFF2C381B6371C500F0CF75 /* NSString+pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+pinyin.h"; sourceTree = "<group>"; };
+		2EFF2C391B6371C500F0CF75 /* NSString+pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+pinyin.m"; sourceTree = "<group>"; };
+		2EFF2C3C1B63784800F0CF75 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		2EFF2C3D1B63784800F0CF75 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		7B91C63C1A3B2A5900394194 /* ImitationWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImitationWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B91C6401A3B2A5900394194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B91C6411A3B2A5900394194 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -684,6 +692,7 @@
 		2E9B7DA01B57BEA1000D621E /* textImage */ = {
 			isa = PBXGroup;
 			children = (
+				2EFF2C361B63648B00F0CF75 /* 111.png */,
 				2E9B7DA11B57BEA1000D621E /* 000.png */,
 			);
 			path = textImage;
@@ -760,6 +769,8 @@
 		2EBCACC41B58DEB0006FF4B1 /* NSStringCategory */ = {
 			isa = PBXGroup;
 			children = (
+				2EFF2C381B6371C500F0CF75 /* NSString+pinyin.h */,
+				2EFF2C391B6371C500F0CF75 /* NSString+pinyin.m */,
 				2EBCACC51B58DEC0006FF4B1 /* NSString+URLParse.h */,
 				2EBCACC61B58DEC0006FF4B1 /* NSString+URLParse.m */,
 			);
@@ -843,6 +854,15 @@
 			path = SubClass;
 			sourceTree = "<group>";
 		};
+		2EFF2C3B1B63783D00F0CF75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2EFF2C3C1B63784800F0CF75 /* Contact.h */,
+				2EFF2C3D1B63784800F0CF75 /* Contact.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7B91C6331A3B2A5900394194 = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +884,7 @@
 		7B91C63E1A3B2A5900394194 /* ImitationWeChat */ = {
 			isa = PBXGroup;
 			children = (
+				2EFF2C3B1B63783D00F0CF75 /* Model */,
 				2E6151341B5CEB6E007196E2 /* 150511_JiveBike.mov */,
 				2EBCACFA1B58EAA6006FF4B1 /* SubClass */,
 				2EBCACB91B58D35C006FF4B1 /* Foundation */,
@@ -1093,6 +1114,7 @@
 				2EBCAC7A1B58AC2C006FF4B1 /* ff_IconFacebook@2x.png in Resources */,
 				2EBCAC751B58AC2C006FF4B1 /* ff_IconAdd.png in Resources */,
 				2EBCACF11B58E7D0006FF4B1 /* ScanQRCode_HL@3x.png in Resources */,
+				2EFF2C371B63648B00F0CF75 /* 111.png in Resources */,
 				2E97FFF81B5E544C00CA2CF1 /* Shake_icon_people@2x.png in Resources */,
 				2EBCACF01B58E7D0006FF4B1 /* ScanQRCode_HL@2x.png in Resources */,
 				2E61512C1B5CE71F007196E2 /* kr-video-player-shrinkscreen@2x.png in Resources */,
@@ -1186,6 +1208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EFF2C3A1B6371C500F0CF75 /* NSString+pinyin.m in Sources */,
 				2E1F720B1B60B07300152EE1 /* ShakeSettingViewController.m in Sources */,
 				2E9B7D981B57A6CC000D621E /* UIImage+imageNamed_Hack.m in Sources */,
 				2E9B7D881B57A421000D621E /* Animator.m in Sources */,
@@ -1217,6 +1240,7 @@
 				2E97FFEF1B5E38D800CA2CF1 /* ShakeViewController.m in Sources */,
 				2E9B7D4D1B579D50000D621E /* LoadingViewController.m in Sources */,
 				2E9B7D5D1B57A1B9000D621E /* FoundViewController.m in Sources */,
+				2EFF2C3E1B63784800F0CF75 /* Contact.m in Sources */,
 				2E61512E1B5CE71F007196E2 /* KRVideoPlayerController.m in Sources */,
 				2EBCACD41B58E16B006FF4B1 /* QRCodeDetailViewController.m in Sources */,
 			);

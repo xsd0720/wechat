@@ -16,6 +16,7 @@
 #import "Configuration.h"
 #import "WHAudioTool.h"
 #import "UIView+Extention.h"
+#import "UIView+Toast.h"
 #import "NSString+pinyin.h"
 #import "DataSource.h"
 #endif

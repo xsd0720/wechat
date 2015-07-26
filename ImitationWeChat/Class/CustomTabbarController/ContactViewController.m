@@ -130,7 +130,7 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
         char c = [dict[@"name"] firstLetter];
         if(c>='a'&& c<='z')
         {
-            NSLog(@"%i",c-'a');
+         
             [tempCapsArray[c-'a'] addObject:dict];
         }
         else if(c>='A' && c<='Z')
@@ -151,9 +151,8 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
     {
         if(tempCapsArray[y].count)
         {
-            char temp[2] = {0};
-            temp[0] = 'A'+y;
-            NSString* str = [NSString stringWithUTF8String:temp];
+            char temp ='A'+y;
+            NSString* str = [NSString stringWithUTF8String:&temp];
             if (![self.capIndexes containsObject:str]) {
                 [self.capIndexes addObject:str];
             }

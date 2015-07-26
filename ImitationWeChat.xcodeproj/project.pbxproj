@@ -99,6 +99,13 @@
 		2E9B7D9F1B57B646000D621E /* WxTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9B7D9E1B57B646000D621E /* WxTableCell.m */; };
 		2E9B7DA21B57BEA2000D621E /* 000.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9B7DA11B57BEA1000D621E /* 000.png */; };
 		2EA5CB4C1B5E7E7400DCAA8E /* UIWindow+Motion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA5CB4B1B5E7E7400DCAA8E /* UIWindow+Motion.m */; };
+		2EA5EAA91B64998700F79D3A /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA5EAA81B64998700F79D3A /* TimelineViewController.m */; };
+		2EA5EAAB1B649D6500F79D3A /* timelinebg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2EA5EAAA1B649D6500F79D3A /* timelinebg.jpg */; };
+		2EA5EAAD1B649EE500F79D3A /* coffe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2EA5EAAC1B649EE500F79D3A /* coffe.jpg */; };
+		2EA5EAB01B64A78700F79D3A /* AlbumReflashIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA5EAAF1B64A78700F79D3A /* AlbumReflashIcon@2x.png */; };
+		2EA5EAB41B64DB9500F79D3A /* barbuttonicon_Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA5EAB11B64DB9500F79D3A /* barbuttonicon_Camera.png */; };
+		2EA5EAB51B64DB9500F79D3A /* barbuttonicon_Camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA5EAB21B64DB9500F79D3A /* barbuttonicon_Camera@2x.png */; };
+		2EA5EAB61B64DB9500F79D3A /* barbuttonicon_Camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA5EAB31B64DB9500F79D3A /* barbuttonicon_Camera@3x.png */; };
 		2EBCAC211B589DE6006FF4B1 /* CustomSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCAC201B589DE6006FF4B1 /* CustomSearchViewController.m */; };
 		2EBCAC751B58AC2C006FF4B1 /* ff_IconAdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCAC5A1B58AC2C006FF4B1 /* ff_IconAdd.png */; };
 		2EBCAC761B58AC2C006FF4B1 /* ff_IconAdd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCAC5B1B58AC2C006FF4B1 /* ff_IconAdd@2x.png */; };
@@ -304,6 +311,14 @@
 		2E9B7DA11B57BEA1000D621E /* 000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 000.png; sourceTree = "<group>"; };
 		2EA5CB4A1B5E7E7400DCAA8E /* UIWindow+Motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Motion.h"; sourceTree = "<group>"; };
 		2EA5CB4B1B5E7E7400DCAA8E /* UIWindow+Motion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Motion.m"; sourceTree = "<group>"; };
+		2EA5EAA71B64998700F79D3A /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
+		2EA5EAA81B64998700F79D3A /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		2EA5EAAA1B649D6500F79D3A /* timelinebg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timelinebg.jpg; sourceTree = "<group>"; };
+		2EA5EAAC1B649EE500F79D3A /* coffe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coffe.jpg; sourceTree = "<group>"; };
+		2EA5EAAF1B64A78700F79D3A /* AlbumReflashIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlbumReflashIcon@2x.png"; sourceTree = "<group>"; };
+		2EA5EAB11B64DB9500F79D3A /* barbuttonicon_Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonicon_Camera.png; sourceTree = "<group>"; };
+		2EA5EAB21B64DB9500F79D3A /* barbuttonicon_Camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonicon_Camera@2x.png"; sourceTree = "<group>"; };
+		2EA5EAB31B64DB9500F79D3A /* barbuttonicon_Camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonicon_Camera@3x.png"; sourceTree = "<group>"; };
 		2EBCAC1F1B589DE6006FF4B1 /* CustomSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchViewController.h; sourceTree = "<group>"; };
 		2EBCAC201B589DE6006FF4B1 /* CustomSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchViewController.m; sourceTree = "<group>"; };
 		2EBCAC5A1B58AC2C006FF4B1 /* ff_IconAdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ff_IconAdd.png; sourceTree = "<group>"; };
@@ -662,6 +677,7 @@
 		2E9B7D9A1B57B61B000D621E /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				2EA5EAA61B64992B00F79D3A /* Circlefriends */,
 				2EBCACCF1B58E0DC006FF4B1 /* Bottler */,
 				2EBCACD01B58E0DC006FF4B1 /* NearPeople */,
 				2EBCACD11B58E0DC006FF4B1 /* Shake */,
@@ -692,15 +708,38 @@
 		2E9B7DA01B57BEA1000D621E /* textImage */ = {
 			isa = PBXGroup;
 			children = (
+				2EA5EAAC1B649EE500F79D3A /* coffe.jpg */,
+				2EA5EAAA1B649D6500F79D3A /* timelinebg.jpg */,
 				2EFF2C361B63648B00F0CF75 /* 111.png */,
 				2E9B7DA11B57BEA1000D621E /* 000.png */,
 			);
 			path = textImage;
 			sourceTree = "<group>";
 		};
+		2EA5EAA61B64992B00F79D3A /* Circlefriends */ = {
+			isa = PBXGroup;
+			children = (
+				2EA5EAA71B64998700F79D3A /* TimelineViewController.h */,
+				2EA5EAA81B64998700F79D3A /* TimelineViewController.m */,
+			);
+			path = Circlefriends;
+			sourceTree = "<group>";
+		};
+		2EA5EAAE1B64A78700F79D3A /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				2EA5EAB11B64DB9500F79D3A /* barbuttonicon_Camera.png */,
+				2EA5EAB21B64DB9500F79D3A /* barbuttonicon_Camera@2x.png */,
+				2EA5EAB31B64DB9500F79D3A /* barbuttonicon_Camera@3x.png */,
+				2EA5EAAF1B64A78700F79D3A /* AlbumReflashIcon@2x.png */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
 		2EBCAC591B58AC2C006FF4B1 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				2EA5EAAE1B64A78700F79D3A /* Timeline */,
 				2E1F71E01B5FF67E00152EE1 /* Bottle */,
 				2E97FFD81B5E337900CA2CF1 /* Shark */,
 				2EBCACD51B58E7D0006FF4B1 /* QRCode */,
@@ -1094,6 +1133,7 @@
 				2EBCACA51B58AD9E006FF4B1 /* MoreMyAlbum@3x.png in Resources */,
 				2E9B7D751B57A317000D621E /* tabbar_contactsHL@2x.png in Resources */,
 				2E1F71F81B5FF67E00152EE1 /* bottleButtonThrow@2x.png in Resources */,
+				2EA5EAB41B64DB9500F79D3A /* barbuttonicon_Camera.png in Resources */,
 				2E9B7D7E1B57A317000D621E /* tabbar_mainframeHL@3x.png in Resources */,
 				2EBCACA71B58AD9E006FF4B1 /* MoreMyBankCard@2x.png in Resources */,
 				2EBCACA21B58AD9E006FF4B1 /* MoreExpressionShops@3x.png in Resources */,
@@ -1133,6 +1173,7 @@
 				2EBCAC7D1B58AC2C006FF4B1 /* ff_IconLocationService@2x.png in Resources */,
 				2E1F72081B60AEF700152EE1 /* barbuttonicon_set@3x.png in Resources */,
 				2EBCACE81B58E7D0006FF4B1 /* qrcode_border@2x.png in Resources */,
+				2EA5EAAB1B649D6500F79D3A /* timelinebg.jpg in Resources */,
 				2E6151261B5CE71F007196E2 /* kr-video-player-pause@2x.png in Resources */,
 				2E9B7D7F1B57A317000D621E /* tabbar_me@2x.png in Resources */,
 				2E6151281B5CE71F007196E2 /* kr-video-player-play@2x.png in Resources */,
@@ -1142,6 +1183,7 @@
 				2E9B7D771B57A317000D621E /* tabbar_discover@2x.png in Resources */,
 				2EBCACA61B58AD9E006FF4B1 /* MoreMyBankCard.png in Resources */,
 				2EBCAC781B58AC2C006FF4B1 /* ff_IconBottle@2x.png in Resources */,
+				2EA5EAB61B64DB9500F79D3A /* barbuttonicon_Camera@3x.png in Resources */,
 				2EBCAC841B58AC2C006FF4B1 /* ff_IconShake.png in Resources */,
 				2E9B7D791B57A317000D621E /* tabbar_discoverHL@2x.png in Resources */,
 				2EBCAC8D1B58AC2C006FF4B1 /* ff_IconShowQQ.png in Resources */,
@@ -1152,6 +1194,7 @@
 				2E9B7D801B57A317000D621E /* tabbar_me@3x.png in Resources */,
 				2E1F72011B60AB1A00152EE1 /* sandyBalloon@2x.png in Resources */,
 				2E9B7D7C1B57A317000D621E /* tabbar_mainframe@3x.png in Resources */,
+				2EA5EAB01B64A78700F79D3A /* AlbumReflashIcon@2x.png in Resources */,
 				2E1F71F11B5FF67E00152EE1 /* bottleBoard.png in Resources */,
 				2E97FFE21B5E337900CA2CF1 /* Shake_Line_Up@2x.png in Resources */,
 				2EBCAC761B58AC2C006FF4B1 /* ff_IconAdd@2x.png in Resources */,
@@ -1159,6 +1202,7 @@
 				2E97FFE31B5E337900CA2CF1 /* Shake_Logo_Down@2x.png in Resources */,
 				2EBCACF21B58E7D0006FF4B1 /* ScanStreet@2x.png in Resources */,
 				2E6151351B5CEB6E007196E2 /* 150511_JiveBike.mov in Resources */,
+				2EA5EAAD1B649EE500F79D3A /* coffe.jpg in Resources */,
 				2E1F72061B60AEF700152EE1 /* barbuttonicon_set.png in Resources */,
 				2EBCACAA1B58AD9E006FF4B1 /* MoreMyFavorites@2x.png in Resources */,
 				2EBCAC7B1B58AC2C006FF4B1 /* ff_IconGroup@2x.png in Resources */,
@@ -1183,6 +1227,7 @@
 				2EBCACAC1B58AD9E006FF4B1 /* MoreSetting@2x.png in Resources */,
 				2EBCACED1B58E7D0006FF4B1 /* ScanBook_HL@3x.png in Resources */,
 				2E9B7DA21B57BEA2000D621E /* 000.png in Resources */,
+				2EA5EAB51B64DB9500F79D3A /* barbuttonicon_Camera@2x.png in Resources */,
 				2EBCAC871B58AC2C006FF4B1 /* ff_IconShowAlbum.png in Resources */,
 				2E9B7D781B57A317000D621E /* tabbar_discover@3x.png in Resources */,
 				2E97FFFA1B5E544C00CA2CF1 /* Shake_icon_tv@2x.png in Resources */,
@@ -1237,6 +1282,7 @@
 				2E9700011B5E58C800CA2CF1 /* ShakeHalfView.m in Sources */,
 				2E61512F1B5CE71F007196E2 /* KRVideoPlayerControlView.m in Sources */,
 				2E9B7D511B57A123000D621E /* MyTabBarController.m in Sources */,
+				2EA5EAA91B64998700F79D3A /* TimelineViewController.m in Sources */,
 				2E97FFEF1B5E38D800CA2CF1 /* ShakeViewController.m in Sources */,
 				2E9B7D4D1B579D50000D621E /* LoadingViewController.m in Sources */,
 				2E9B7D5D1B57A1B9000D621E /* FoundViewController.m in Sources */,

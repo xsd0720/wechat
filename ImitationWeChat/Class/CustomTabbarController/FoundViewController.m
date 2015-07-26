@@ -9,6 +9,7 @@
 #import "FoundViewController.h"
 
 
+#import "TimelineViewController.h"
 #import "QRCodeViewController.h"
 #import "ShakeViewController.h"
 #import "BottlerViewController.h"
@@ -77,7 +78,9 @@ static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
 
     //朋友圈
     if (indexPath.section == 0&&indexPath.row == 0) {
-        
+        TimelineViewController *timeLineVC = [[TimelineViewController alloc] init];
+        timeLineVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:timeLineVC animated:YES];
     }
     //扫一扫
     else if (indexPath.section == 1&&indexPath.row == 0){

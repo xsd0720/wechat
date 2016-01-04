@@ -385,6 +385,46 @@
 }
 
 
+- (NSArray *)myProfileTableData
+{
+    return @[
+             @[
+                 @{@"obj":@"000",
+                   @"type":@"1",
+                   @"text":@"头像"},
+                 @{@"obj":@"王辉",
+                   @"type":@"0",
+                   @"text":@"名字"},
+                 @{@"obj":@"aywanghui",
+                   @"type":@"0",
+                   @"text":@"微信号"},
+                 @{@"obj":@"setting_myQR",
+                   @"type":@"1",
+                   @"text":@"我的二维码"},
+                 @{@"obj":@"",
+                   @"type":@"0",
+                   @"text":@"我的地址"}
+                 ],
+             @[
+                 @{@"obj":@"男",
+                   @"type":@"0",
+                   @"text":@"性别"},
+                 @{@"obj":@"北京",
+                   @"type":@"0",
+                   @"text":@"地区"},
+                 @{@"obj":@"五年。。。",
+                   @"type":@"0",
+                   @"text":@"个性签名"}
+                 ],
+             @[
+                 @{@"obj":@"未设置",
+                   @"type":@"0",
+                   @"text":@"LinkedLn账号"}
+                 ],
+             ];
+
+}
+
 -(NSArray *)shakeSetTableData{
     return @[
              @[

@@ -22,21 +22,23 @@ static CGFloat USERFACESIZE = 60.0f;
     //是否可以开始刷新
     BOOL startRefreshing;
 }
-@property (nonatomic,strong) UITableView *timeLineTableView;
-@property (nonatomic,strong) UIImageView *tableViewHeaderView;
+@property (nonatomic, strong) UITableView *timeLineTableView;
+@property (nonatomic, strong) UIImageView *tableViewHeaderViewBg;
 
 
-@property (nonatomic,strong) UIImageView *albumReflashImageView;
-@property (nonatomic,strong) UIImageView *userFaceImageView;
+@property (nonatomic, strong) UIImageView *albumReflashImageView;
+@property (nonatomic, strong) UIImageView *userFaceImageView;
+
+@property (nonatomic, strong) UIView *tableViewHeaderView;
 @end
 
 @implementation TimelineViewController
 -(UIImageView *)userFaceImageView{
     if (!_userFaceImageView) {
-        _userFaceImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-USERFACESIZE-10, TABLEHEADERVIEHEIGHT-USERFACESIZE,USERFACESIZE , USERFACESIZE)];
+        _userFaceImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-USERFACESIZE-10, TABLEHEADERVIEHEIGHT-USERFACESIZE/3*2,USERFACESIZE , USERFACESIZE)];
         _userFaceImageView.image = [UIImage imageNamed:@"111"];
         _userFaceImageView.userInteractionEnabled = YES;
-        _userFaceImageView.layer.borderWidth = 1;
+        _userFaceImageView.layer.borderWidth = 1.5;
         _userFaceImageView.layer.borderColor = [[UIColor whiteColor] CGColor];
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(faceImageViewClick)];
@@ -56,17 +58,29 @@ static CGFloat USERFACESIZE = 60.0f;
     return _albumReflashImageView;
 }
 
--(UIImageView *)tableViewHeaderView{
-    if (!_tableViewHeaderView) {
-        _tableViewHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TABLEHEADERVIEHEIGHT)];
-        _tableViewHeaderView.contentMode = UIViewContentModeScaleAspectFill;
-        _tableViewHeaderView.clipsToBounds = YES;
-        _tableViewHeaderView.userInteractionEnabled = YES;
+-(UIImageView *)tableViewHeaderViewBg{
+    if (!_tableViewHeaderViewBg) {
+        _tableViewHeaderViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TABLEHEADERVIEHEIGHT)];
+        _tableViewHeaderViewBg.contentMode = UIViewContentModeScaleAspectFill;
+        _tableViewHeaderViewBg.clipsToBounds = YES;
+        _tableViewHeaderViewBg.userInteractionEnabled = YES;
         NSString *path = [[NSBundle mainBundle] pathForResource:@"coffe" ofType:@"jpg"];
-        _tableViewHeaderView.image = [UIImage imageWithContentsOfFile:path];
+        _tableViewHeaderViewBg.image = [UIImage imageWithContentsOfFile:path];
+    }
+    return _tableViewHeaderViewBg;
+}
+
+- (UIView *)tableViewHeaderView
+{
+    if (!_tableViewHeaderView) {
+        _tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TABLEHEADERVIEHEIGHT+50.0f)];
+        _tableViewHeaderView.backgroundColor = [UIColor whiteColor];
+        
+        [_tableViewHeaderView addSubview:self.tableViewHeaderViewBg];
     }
     return _tableViewHeaderView;
 }
+
 -(UITableView *)timeLineTableView{
     if (!_timeLineTableView) {
         _timeLineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT+STATUS_AND_NAV_BAR_HEIGHT) style:UITableViewStylePlain];

@@ -8,7 +8,7 @@
 
 #import "MyViewController.h"
 #import "TVViewController.h"
-
+#import "MyProfileViewController.h"
 
 static NSString *MYCELLIDENTIFIER = @"mycellidentifier";
 static NSString *MYHEADERCELLIDENTIFIER = @"mycellheadercellidentifier";
@@ -85,8 +85,8 @@ static float  MYHEADERCELLHEIGHT = 90.f;
         MyHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:MYHEADERCELLIDENTIFIER forIndexPath:indexPath];
         cell.dic = @{
                      @"head":@"000",
-                     @"name":@"大头娃娃",
-                     @"number":@"微信号:datouwawa"
+                     @"name":@"王辉",
+                     @"number":@"微信号:aywanghui"
                      
                      };
         return cell;
@@ -107,7 +107,9 @@ static float  MYHEADERCELLHEIGHT = 90.f;
     
     //个人资料
     if (indexPath.section == 0&&indexPath.row == 0) {
-        
+        MyProfileViewController *myProfileVc = [[MyProfileViewController alloc] init];
+        myProfileVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:myProfileVc animated:YES];
     }
     //相册
     else if (indexPath.section == 1&&indexPath.row == 0){
@@ -161,6 +163,7 @@ static float  MYHEADERCELLHEIGHT = 90.f;
         
         _headImageView = [[UIImageView alloc] init];
         _headImageView.layer.cornerRadius = 5;
+        _headImageView.clipsToBounds = YES;
         [self addSubview:_headImageView];
         
         

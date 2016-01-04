@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CF659311C3A357E00B1BFDF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF659301C3A357E00B1BFDF /* Launch Screen.storyboard */; };
+		0CF659351C3A416D00B1BFDF /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF659341C3A416D00B1BFDF /* MyProfileViewController.m */; };
+		0CF659391C3A62EE00B1BFDF /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF659381C3A62EE00B1BFDF /* LXActionSheet.m */; };
 		2E1F71EF1B5FF67E00152EE1 /* bottleBkg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F71E11B5FF67E00152EE1 /* bottleBkg@2x.jpg */; };
 		2E1F71F01B5FF67E00152EE1 /* bottleBkgSpotLight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F71E21B5FF67E00152EE1 /* bottleBkgSpotLight@2x.png */; };
 		2E1F71F11B5FF67E00152EE1 /* bottleBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F71E31B5FF67E00152EE1 /* bottleBoard.png */; };
@@ -194,6 +197,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CF659301C3A357E00B1BFDF /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0CF659331C3A416D00B1BFDF /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		0CF659341C3A416D00B1BFDF /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		0CF659371C3A62EE00B1BFDF /* LXActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXActionSheet.h; sourceTree = "<group>"; };
+		0CF659381C3A62EE00B1BFDF /* LXActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXActionSheet.m; sourceTree = "<group>"; };
 		2E1F71E11B5FF67E00152EE1 /* bottleBkg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bottleBkg@2x.jpg"; sourceTree = "<group>"; };
 		2E1F71E21B5FF67E00152EE1 /* bottleBkgSpotLight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottleBkgSpotLight@2x.png"; sourceTree = "<group>"; };
 		2E1F71E31B5FF67E00152EE1 /* bottleBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottleBoard.png; sourceTree = "<group>"; };
@@ -430,6 +438,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CF659321C3A415500B1BFDF /* MyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0CF659331C3A416D00B1BFDF /* MyProfileViewController.h */,
+				0CF659341C3A416D00B1BFDF /* MyProfileViewController.m */,
+			);
+			path = MyProfile;
+			sourceTree = "<group>";
+		};
+		0CF659361C3A62EE00B1BFDF /* LXActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0CF659371C3A62EE00B1BFDF /* LXActionSheet.h */,
+				0CF659381C3A62EE00B1BFDF /* LXActionSheet.m */,
+			);
+			path = LXActionSheet;
+			sourceTree = "<group>";
+		};
 		2E1F71E01B5FF67E00152EE1 /* Bottle */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +715,7 @@
 		2E9B7D9B1B57B61B000D621E /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				0CF659321C3A415500B1BFDF /* MyProfile */,
 				2E6151301B5CE7CC007196E2 /* TV */,
 			);
 			path = Me;
@@ -905,6 +932,7 @@
 		7B91C6331A3B2A5900394194 = {
 			isa = PBXGroup;
 			children = (
+				0CF659301C3A357E00B1BFDF /* Launch Screen.storyboard */,
 				7B91C63E1A3B2A5900394194 /* ImitationWeChat */,
 				7B91C6581A3B2A5A00394194 /* ImitationWeChatTests */,
 				7B91C63D1A3B2A5900394194 /* Products */,
@@ -986,6 +1014,7 @@
 		7B91C6691A3B2ED500394194 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0CF659361C3A62EE00B1BFDF /* LXActionSheet */,
 				2E61510F1B5CE71F007196E2 /* CustomVideoPlayer */,
 			);
 			path = Extension;
@@ -1230,6 +1259,7 @@
 				2EA5EAB51B64DB9500F79D3A /* barbuttonicon_Camera@2x.png in Resources */,
 				2EBCAC871B58AC2C006FF4B1 /* ff_IconShowAlbum.png in Resources */,
 				2E9B7D781B57A317000D621E /* tabbar_discover@3x.png in Resources */,
+				0CF659311C3A357E00B1BFDF /* Launch Screen.storyboard in Resources */,
 				2E97FFFA1B5E544C00CA2CF1 /* Shake_icon_tv@2x.png in Resources */,
 				2E9B7D731B57A317000D621E /* tabbar_contacts@2x.png in Resources */,
 				2E1F71F91B5FF67E00152EE1 /* bottleNightBkg@2x.jpg in Resources */,
@@ -1284,8 +1314,10 @@
 				2E9B7D511B57A123000D621E /* MyTabBarController.m in Sources */,
 				2EA5EAA91B64998700F79D3A /* TimelineViewController.m in Sources */,
 				2E97FFEF1B5E38D800CA2CF1 /* ShakeViewController.m in Sources */,
+				0CF659391C3A62EE00B1BFDF /* LXActionSheet.m in Sources */,
 				2E9B7D4D1B579D50000D621E /* LoadingViewController.m in Sources */,
 				2E9B7D5D1B57A1B9000D621E /* FoundViewController.m in Sources */,
+				0CF659351C3A416D00B1BFDF /* MyProfileViewController.m in Sources */,
 				2EFF2C3E1B63784800F0CF75 /* Contact.m in Sources */,
 				2E61512E1B5CE71F007196E2 /* KRVideoPlayerController.m in Sources */,
 				2EBCACD41B58E16B006FF4B1 /* QRCodeDetailViewController.m in Sources */,
@@ -1393,6 +1425,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ImitationWeChat/ImitationWeChat-Prefix.pch";
 				INFOPLIST_FILE = ImitationWeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1406,6 +1439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ImitationWeChat/ImitationWeChat-Prefix.pch";
 				INFOPLIST_FILE = ImitationWeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

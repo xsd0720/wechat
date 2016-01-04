@@ -43,6 +43,10 @@
 
 @property (nonatomic,strong) NSArray *myTableData;
 
+/*
+ MyProfileViewController  TableViewDataSource
+ */
+@property (nonatomic, strong) NSArray *myProfileTableData;
 
 /*
  ShakeViewController   SetTableViewDataSource

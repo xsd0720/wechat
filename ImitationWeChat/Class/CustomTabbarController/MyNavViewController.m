@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationBar.barTintColor = RGBCOLOR(20, 20, 20);
     
     self.navigationBar.barStyle = UIBarStyleBlackOpaque;
   

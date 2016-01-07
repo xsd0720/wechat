@@ -8,7 +8,7 @@
 
 #ifndef ImitationWeChat_Configuration_h
 #define ImitationWeChat_Configuration_h
-#define NAVGATIONBAR_BARTINTCOLOR                       RGBCOLOR(231, 231,231)
+#define NAVGATIONBAR_BARTINTCOLOR                       RGBCOLOR(238, 240,245)
 //#define NAVGATIONBAR_BARTINTCOLOR                       RGBCOLOR(82, 199,216)
 #define VIEW_BGCOLOR                                     RGBCOLOR(236, 234, 241)
 #define DEGREES_TO_RADIANS(angle) ((angle)/180.0 *M_PI)
@@ -96,4 +96,7 @@
 #define LOGINTYPE    @"loginType"
 #define SDLLOGIN    @"sdlLogin"
 #define SANFANGLOGIN  @"sanfangLogin"
+
+
+#import "LWSystem.h"
 #endif

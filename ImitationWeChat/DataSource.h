@@ -29,6 +29,11 @@
 
 @property (nonatomic,strong) NSArray *shakeChooseSubViewData;
 
+
+/*
+ ContactViewController TableViewDatasource-contactHeaderSectionData
+ */
+@property (nonatomic,strong) NSDictionary *contactHeaderSectionData;
 /*
  ContactViewController TableViewDatasource
  */

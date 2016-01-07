@@ -10,4 +10,6 @@
 
 @interface MyTabBarController : UITabBarController
 
+//@property (nonatomic, strong)
+
 @end

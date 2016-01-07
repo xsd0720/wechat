@@ -8,8 +8,18 @@
 
 #import "ContactViewController.h"
 #import "Contact.h"
+#import "CustomSearchViewController.h"
 static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 
+
+@interface ContactViewControllerTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) UIImageView *userHeadImageView;
+@property (nonatomic, strong) UILabel *userNameLabel;
+
+@property (nonatomic, strong) NSDictionary *datasource;
+
+@end
 
 
 @interface ContactViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -18,6 +28,8 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 @property (nonatomic,strong) NSArray *contactDataSource;
 
 @property (nonatomic,strong) NSMutableArray *capIndexes;
+
+@property (nonatomic, strong) CustomSearchViewController *searchController;
 @end
 
 @implementation ContactViewController
@@ -42,7 +54,12 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
         _contactTableView.tableFooterView = [UIView new];
         _contactTableView.sectionIndexColor = [UIColor grayColor];
         _contactTableView.sectionIndexBackgroundColor = [UIColor clearColor];
-        [_contactTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CONTACTCELLIDENTIFIER];
+        _contactTableView.sectionHeaderHeight = 10;
+        _contactTableView.sectionFooterHeight = 0;
+        [_contactTableView registerClass:[ContactViewControllerTableViewCell class] forCellReuseIdentifier:CONTACTCELLIDENTIFIER];
+        
+//        _searchController = [[CustomSearchViewController alloc] initWithSearchResultsController:nil];
+//        _contactTableView.tableHeaderView =_searchController.searchBar;
     }
     return _contactTableView;
 }
@@ -55,6 +72,13 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 }
 -(void)setupNav{
     self.navigationItem.title = @"通讯录";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barbuttonicon_addfriends"] style:UIBarButtonItemStylePlain target:self action:@selector(barbuttonicon_addfriendsClick)];
+    
+}
+
+- (void)barbuttonicon_addfriendsClick
+{
+    
 }
 
 #pragma mark - TableView section
@@ -68,18 +92,30 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 }
 
 
-#pragma mark - TableView Delegate
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 25;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0;
-}
+//#pragma mark - TableView Delegate
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 25;
+//}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return 0;
+//}
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 
+    if (section == 0) {
+        return @"";
+    }
     return self.contactDataSource[section][@"capIndex"];
 
 }
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    if (section == 1) {
+//        _searchController = [[CustomSearchViewController alloc] initWithSearchResultsController:nil];
+//        return _searchController.searchBar;
+//    }
+//    return nil;
+//}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.contactDataSource.count;
@@ -88,10 +124,11 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
     return [[[self.contactDataSource objectAtIndex:section] objectForKey:@"contacts"] count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CONTACTCELLIDENTIFIER forIndexPath:indexPath];
+    ContactViewControllerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CONTACTCELLIDENTIFIER forIndexPath:indexPath];
     
     NSDictionary *dic = self.contactDataSource[indexPath.section][@"contacts"][indexPath.row];
-    cell.textLabel.text = dic[@"name"];
+//    cell.textLabel.text = dic[@"name"];
+    cell.datasource = dic;
     
     return cell;
 }
@@ -119,8 +156,14 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
  */
 -(NSArray *)getContactDataSource:(NSArray *)originalArray{
     
-    self.capIndexes = [NSMutableArray array];
+    self.capIndexes = [NSMutableArray arrayWithObject:UITableViewIndexSearch];
 //    [self.capIndexes addObject:UITableViewIndexSearch];
+    
+    
+    
+    //构建一个
+    
+    
     
     NSMutableArray* tempCapsArray[27];
     for(NSInteger x = 0; x<27;x++)
@@ -128,7 +171,7 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
         tempCapsArray[x] = [[NSMutableArray alloc] initWithCapacity:8];
     }
     
-    NSMutableArray* ma = [NSMutableArray array];
+    NSMutableArray* ma = [NSMutableArray arrayWithObject:DS.contactHeaderSectionData];
     for(NSDictionary* dict in originalArray){
       
         
@@ -191,6 +234,52 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 
     
     return ma;
+}
+
+@end
+
+
+@implementation ContactViewControllerTableViewCell
+
+#define Padding 15
+#define UserHeadImageSize   35
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        //头像
+        _userHeadImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        [self addSubview:_userHeadImageView];
+        
+        //用户名
+        _userNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _userNameLabel.font = [UIFont systemFontOfSize:16.0f];
+        _userNameLabel.textColor = RGBACOLOR(13, 13, 13, 1);
+        [self addSubview:_userNameLabel];
+        
+    }
+    return self;
+}
+
+- (void)setDatasource:(NSDictionary *)datasource
+{
+    _datasource = datasource;
+    
+    _userHeadImageView.image = [UIImage imageNamed:datasource[@"image"]];
+    _userNameLabel.text = datasource[@"name"];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    
+    _userHeadImageView.frame = CGRectMake(Padding, (CGRectGetMaxY(self.bounds)-UserHeadImageSize)/2, UserHeadImageSize, UserHeadImageSize);
+    
+    _userNameLabel.frame = CGRectMake(CGRectGetMaxX(_userHeadImageView.frame)+10, 0, SCREEN_WIDTH-CGRectGetMaxX(_userHeadImageView.frame)-20, CGRectGetMaxY(self.bounds));
+    
 }
 
 @end

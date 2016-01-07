@@ -78,6 +78,32 @@
                  }
              ];
 }
+
+- (NSDictionary *)contactHeaderSectionData
+{
+    return @{
+             @"capIndex":@"search",
+             @"contacts":@[
+                @{
+                    @"name":@"新的朋友",
+                    @"image":@"plugins_FriendNotify"
+                     },
+                @{
+                    @"name":@"群聊",
+                    @"image":@"add_friend_icon_addgroup"
+                    },
+                @{
+                    @"name":@"标签",
+                    @"image":@"Contact_icon_ContactTag"
+                    },
+                @{
+                    @"name":@"公众号",
+                    @"image":@"add_friend_icon_offical"
+                    }
+                 ]
+             };
+}
+
 -(NSArray *)contactData{
     return @[
              @{
@@ -376,9 +402,10 @@
              @[
                  
                  @{@"image":@"MoreSetting",
-                   @"text":@"设置"},
-                 @{@"image":@"MoreSetting",
-                   @"text":@"电视直播"}
+                   @"text":@"设置"}
+//                 ,
+//                 @{@"image":@"MoreSetting",
+//                   @"text":@"电视直播"}
                  ]
              
              ];

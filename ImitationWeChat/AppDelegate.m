@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoadingViewController.h"
+#import "MyTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -28,8 +29,8 @@
 
 -(void)loadWindow{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    LoadingViewController *loading = [[LoadingViewController alloc] init];
-    self.window.rootViewController=loading;
+//    LoadingViewController *loading = [[LoadingViewController alloc] init];
+    self.window.rootViewController=[[MyTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
     

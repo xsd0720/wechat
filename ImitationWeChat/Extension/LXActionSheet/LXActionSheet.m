@@ -16,11 +16,11 @@
 #define CORNER_RADIUS                           5
 
 #define BUTTON_INTERVAL_HEIGHT                  0
-#define BUTTON_HEIGHT                           44
+#define BUTTON_HEIGHT                           48
 #define BUTTON_INTERVAL_WIDTH                   0
 #define BUTTON_WIDTH                            SCREEN_WIDTH
 //#define BUTTONTITLE_FONT                        [UIFont fontWithName:@"HelveticaNeue-Bold" size:16]
-#define BUTTONTITLE_FONT                        [UIFont systemFontOfSize:16]
+#define BUTTONTITLE_FONT                        [UIFont systemFontOfSize:17]
 
 #define BUTTON_BORDER_WIDTH                     0.5f
 #define BUTTON_BORDER_COLOR                     [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.8].CGColor
@@ -54,27 +54,65 @@
 
 #pragma mark - Public method
 
-- (id)initWithTitle:(NSString *)title delegate:(id<LXActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitlesArray;
+
+
+- (instancetype)initWithTitle:(NSString *)title delegate:(id<LXActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...
 {
     self = [super init];
     if (self) {
-    
         //初始化背景视图，添加手势
         self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         self.backgroundColor = WINDOW_COLOR;
         self.userInteractionEnabled = YES;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedCancel)];
         [self addGestureRecognizer:tapGesture];
-    
+        
         if (delegate) {
             self.delegate = delegate;
         }
-    
-        [self creatButtonsWithTitle:title cancelButtonTitle:cancelButtonTitle destructionButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitlesArray];
+        
+        NSMutableArray *otherButtonTitlesArray = [[NSMutableArray alloc] init];
+        
+        va_list args;
+        id eachObject;
+        if (otherButtonTitles) {
+            
+            [otherButtonTitlesArray addObject:otherButtonTitles];
+            
+            va_start(args, otherButtonTitles);
+            while ((eachObject = va_arg(args, NSString *))) {
+                [otherButtonTitlesArray addObject:eachObject];
+            }
 
+           
+        }
+        [self creatButtonsWithTitle:title cancelButtonTitle:cancelButtonTitle destructionButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitlesArray];
+        
     }
     return self;
+
 }
+
+//- (id)initWithTitle:(NSString *)title delegate:(id<LXActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitlesArray;
+//{
+//    self = [super init];
+//    if (self) {
+//        //初始化背景视图，添加手势
+//        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+//        self.backgroundColor = WINDOW_COLOR;
+//        self.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedCancel)];
+//        [self addGestureRecognizer:tapGesture];
+//    
+//        if (delegate) {
+//            self.delegate = delegate;
+//        }
+//    
+//        [self creatButtonsWithTitle:title cancelButtonTitle:cancelButtonTitle destructionButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitlesArray];
+//
+//    }
+//    return self;
+//}
 
 - (void)showInView:(UIView *)view
 {

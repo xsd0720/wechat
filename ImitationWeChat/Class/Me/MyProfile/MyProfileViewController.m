@@ -132,6 +132,11 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 - (void)didClickOnButtonIndex:(NSInteger *)buttonIndex
 {
     if ((int)buttonIndex == 0) {
+        
+        if (![LWSystem isCanVisitCamera]) {
+            return;
+        }
+        
         // 系统相机
         self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:_imagePickerController animated:YES completion:^{
@@ -149,7 +154,6 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 
 - (void)didClickOnDestructiveButton
 {
-   
 }
 
 - (void)didClickOnCancelButton
@@ -188,7 +192,9 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
     
     //更改头像
     if (indexPath.section == 0 && indexPath.row == 0) {
-        self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照", @"从手机相册选择"]];
+//        self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照", @"从手机相册选择"]];
+        self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从手机相册选择", nil];
+
         [self.actionSheet showInView:self.view];
     }
 }

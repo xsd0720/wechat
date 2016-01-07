@@ -43,6 +43,8 @@ static float  MYHEADERCELLHEIGHT = 90.f;
         _myTableView.delegate = self;
         _myTableView.dataSource = self;
         
+        _myTableView.sectionFooterHeight = 1;
+        _myTableView.sectionHeaderHeight = 10;
         [_myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MYCELLIDENTIFIER];
         [_myTableView registerClass:[MyHeaderCell class] forCellReuseIdentifier:MYHEADERCELLIDENTIFIER];
     }

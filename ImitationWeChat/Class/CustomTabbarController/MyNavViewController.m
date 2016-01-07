@@ -9,7 +9,10 @@
 #import "MyNavViewController.h"
 
 @interface MyNavViewController ()
-
+{
+    UIImageView *navBarHairlineImageView;
+}
+@property (nonatomic, strong) UIView *navBarHairlineView;
 @end
 
 @implementation MyNavViewController
@@ -23,6 +26,24 @@
   
     //系统返回默认蓝色 改成白色
     self.navigationBar.tintColor = [UIColor whiteColor];
+    
+    
+    navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationBar];
+    [navBarHairlineImageView addSubview:self.navBarHairlineView];
+    
+}
+
+- (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
+    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
+        return (UIImageView *)view;
+    }
+    for (UIView *subview in view.subviews) {
+        UIImageView *imageView = [self findHairlineImageViewUnder:subview];
+        if (imageView) {
+            return imageView;
+        }
+    }
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning {

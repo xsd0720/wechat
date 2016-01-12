@@ -33,6 +33,7 @@ NSString *const SEARCHSHOWTABLECELLIDENTIFIER = @"SEARCHSHOWTABLECELLIDENTIFIER"
         _searchShowTableView.tableFooterView = [UIView new];
         
         [_searchShowTableView registerClass:[WxTableCell class] forCellReuseIdentifier:SEARCHSHOWTABLECELLIDENTIFIER];
+        _searchShowTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 
     }
     return _searchShowTableView;

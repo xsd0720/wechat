@@ -45,6 +45,7 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
         
         [_wxTableView registerClass:[WxTableCell class] forCellReuseIdentifier:WXTABLECELLIDENTIFIER];
         _wxTableView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+        [_wxTableView setExclusiveTouch:YES];
     }
     return _wxTableView;
 }

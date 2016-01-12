@@ -281,7 +281,7 @@ typedef enum {
     const CGRect toFrame = self.frame;
     self.frame = (CGRect){self.arrowPoint, 1, 1};
     
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:0.05
                      animations:^(void) {
                          
                          self.alpha = 1.0f;

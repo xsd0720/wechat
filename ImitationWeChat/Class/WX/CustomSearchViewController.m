@@ -7,10 +7,13 @@
 //
 
 #import "CustomSearchViewController.h"
-
+#import "SpeechTool.h"
+#import "UIImage+Color.h"
 @interface CustomSearchViewController ()
 
-@property (nonatomic, strong) UIView *searchBarBackground;
+@property (nonatomic, strong) UIButton *voiceSearchStartBtn;
+
+@property (nonatomic, strong) UITextField *searchBarTextField;
 
 @end
 
@@ -20,128 +23,94 @@
 -(instancetype)initWithSearchResultsController:(UIViewController *)searchResultsController{
     self = [super initWithSearchResultsController:searchResultsController];
     if (self) {
-//        self.view.backgroundColor = NAVGATIONBAR_BARTINTCOLOR;
 
-        
-//        self.searchBarBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44.0f)];
-//        self.searchBarBackView.backgroundColor = NAVGATIONBAR_BARTINTCOLOR;
-//
-//        
-//        self.searchBar = [[UISearchBar alloc] init];
         self.searchBar.placeholder = @"搜索";
-//        self.searchBar.frame = self.searchBarBackView.bounds;
-        self.searchBar.backgroundImage = [UIImage new];
+        self.searchBar.backgroundImage = [UIImage ImageWithColor:NAVGATIONBAR_BARTINTCOLOR frame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
         self.searchBar.scopeBarBackgroundImage = [UIImage new];
         self.searchBar.backgroundColor = NAVGATIONBAR_BARTINTCOLOR;
         self.searchBar.barTintColor = NAVGATIONBAR_BARTINTCOLOR;
         self.searchBar.layer.borderColor = [NAVGATIONBAR_BARTINTCOLOR CGColor];
+        self.searchBar.tintColor = RGBCOLOR(78, 184, 82);
         self.searchBar.layer.borderWidth = 1;
         self.searchBar.delegate = self;
-//        [self.searchBarBackView addSubview:self.searchBar];
-//        self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-
         
+        
+        UIImage *voiceSearchStartBtnImage = [UIImage imageNamed:@"VoiceSearchStartBtn"];
+        self.voiceSearchStartBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.voiceSearchStartBtn setImage:voiceSearchStartBtnImage forState:UIControlStateNormal];
+        [self.voiceSearchStartBtn addTarget:self action:@selector(voiceSearchStartBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 
     }
     return self;
     
 }
 
-- (UIImage *) ImageWithColor: (UIColor *) color frame:(CGRect)aFrame
-{
-    aFrame = CGRectMake(0, 0, aFrame.size.width, aFrame.size.height);
-    UIGraphicsBeginImageContext(aFrame.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, aFrame);
-    
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return theImage;
-    
-}
-
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    
-    for(UIView *view in  [[[self.searchBar subviews] objectAtIndex:0] subviews]) {
-        if([view isKindOfClass:[NSClassFromString(@"UISearchBarBackground") class]]) {
-            view.backgroundColor = [UIColor redColor];
-            
-        }
-    }
-    
     UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
     tempTabBarController.tabBar.hidden = YES;
-//    
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    [UIView animateWithDuration:0.1 animations:^{
-//        tempNavigationController.navigationBar.transform = CGAffineTransformMakeTranslation(0, -64);
-//        [tempNavigationController setNavigationBarHidden:YES animated:YES];
-//        self.searchBarBackView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
-//        self.searchBarBackView.superview.transform = CGAffineTransformMakeTranslation(0, -64);
-//        self.searchBar.showsCancelButton = YES;
-//        
-//        for(UIView *view in  [[[searchBar subviews] objectAtIndex:0] subviews]) {
-//            if([view isKindOfClass:[NSClassFromString(@"UINavigationButton") class]]) {
-//                UIButton * cancel =(UIButton *)view;
-//                [cancel setTitle:@"取消" forState:UIControlStateNormal];
-//                [cancel setTitleColor:RGBCOLOR(67, 167, 67) forState:UIControlStateNormal];
-//            }
-//        }
-//    }];
     
-    
-    
-    
-//    for(id cc in [searchBar.subviews[0] subviews])
-//    {
-//        if([cc isKindOfClass:[UIButton class]])
-//        {
-//            UIButton *btn = (UIButton *)cc;
-//            [btn setTitle:@"取消"  forState:UIControlStateNormal];
-//            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        }
-//    }
-
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        for(UIView *view in  [[[searchBar subviews] objectAtIndex:0] subviews]) {
-//            if([view isKindOfClass:[NSClassFromString(@"UINavigationButton") class]]) {
-//                UIButton * cancel =(UIButton *)view;
-//                [cancel setTitle:@"取消" forState:UIControlStateNormal];
-//                [cancel setTitleColor:RGBCOLOR(67, 167, 67) forState:UIControlStateNormal];
-//            }
-//        }
-//    });
-    
-  
-    
+    if (!self.voiceSearchStartBtn.superview) {
+        for (UIView *subView in self.searchBar.subviews) {
+            for (UIView *subsubView in subView.subviews) {
+                if ([subsubView isKindOfClass:[UITextField class]]) {
+                    [self.voiceSearchStartBtn setFrame:CGRectMake(0, 0, 30, CGRectGetMaxY(subsubView.bounds))];
+                    self.voiceSearchStartBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+                    self.voiceSearchStartBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+                    
+                    UITextField *textField = (UITextField *)subsubView;
+                    self.searchBarTextField = textField;
+                    textField.rightViewMode = UITextFieldViewModeAlways;
+                    textField.rightView = self.voiceSearchStartBtn;
+                }
+            }
+        }
+    }
 }
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchBar.text.length<=0) {
+        self.searchBarTextField.rightViewMode = UITextFieldViewModeAlways;
+        self.searchBarTextField.rightView = self.voiceSearchStartBtn;
+    }else
+    {
+        
+        self.searchBarTextField.rightViewMode = UITextFieldViewModeNever;
+    }
+
+}
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    
     UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
     tempTabBarController.tabBar.hidden = NO;
-//    UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
-//    UINavigationController *tempNavigationController = (UINavigationController *)tempTabBarController.selectedViewController;
-//    [UIView animateWithDuration:0.1 animations:^{
-//        tempNavigationController.navigationBar.transform = CGAffineTransformIdentity;
-//        self.searchBarBackView.superview.transform = CGAffineTransformIdentity;
-//        [tempNavigationController setNavigationBarHidden:NO animated:YES];
-//        self.searchBarBackView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44.0f);
-//        self.searchBar.showsCancelButton = NO;
-//    } completion:^(BOOL finished) {
-//        BOOL r = self.searchBar.resignFirstResponder;
-//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    }];
+    
+    self.searchBarTextField.rightViewMode = UITextFieldViewModeNever;
+   
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+//点击语音搜索
+- (void)voiceSearchStartBtnClick:(UIButton *)sender;
+{
+    sender.userInteractionEnabled = NO;
+    
+    [[SpeechTool defaultTool] discernBlock:^(NSString *result) {
+        sender.userInteractionEnabled = YES;
+        self.searchBar.text = result;
+    } errorBlock:^(IFlySpeechError *error) {
+        sender.userInteractionEnabled = YES;
+    }];
+
+
 }
+
+
 -(void)dealloc{
     self.searchBar.delegate = nil;
+    self.voiceSearchStartBtn = nil;
 }
 /*
 #pragma mark - Navigation

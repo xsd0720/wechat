@@ -85,6 +85,9 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
     self.title = @"个人信息";
 }
 
+
+#pragma mark - tableviewDelgate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 20;
@@ -98,10 +101,11 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
     return 44;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return DS.myProfileTableData.count;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [[DS.myProfileTableData objectAtIndex:section] count];
 }
 
@@ -121,46 +125,23 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
         cell.columnImageView.layer.cornerRadius = 0;
         cell.columnImageView.layer.borderWidth = 0;
     }
-    
-    
     return cell;
 }
 
-
-#pragma actionsheetdelegate
-
-- (void)didClickOnButtonIndex:(NSInteger *)buttonIndex
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ((int)buttonIndex == 0) {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //更改头像
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        //        self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照", @"从手机相册选择"]];
+        self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从手机相册选择", nil];
         
-        if (![LWSystem isCanVisitCamera]) {
-            return;
-        }
-        
-        // 系统相机
-        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:_imagePickerController animated:YES completion:^{
-        }];
-    }
-    else if ((int)buttonIndex == 1)
-    {
-        //  系统相册
-        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:_imagePickerController animated:YES completion:^{
-            
-        }];
+        [self.actionSheet showInView:self.view];
     }
 }
 
-- (void)didClickOnDestructiveButton
-{
-}
-
-- (void)didClickOnCancelButton
-{
-    NSLog(@"cancelButton");
-}
-
+#pragma mark - imagepickerDelgate
 
 //  用户选中图片后的回调
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -186,17 +167,39 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    //更改头像
-    if (indexPath.section == 0 && indexPath.row == 0) {
-//        self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照", @"从手机相册选择"]];
-        self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从手机相册选择", nil];
 
-        [self.actionSheet showInView:self.view];
+
+
+
+#pragma mark - Actionsheetdelegate
+
+//点击项目
+- (void)didClickOnButtonIndex:(NSInteger *)buttonIndex
+{
+    if ((int)buttonIndex == 0) {
+        
+        if (![LWSystem isCanVisitCamera]) {
+            return;
+        }
+        
+        // 系统相机
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:_imagePickerController animated:YES completion:^{
+        }];
     }
+    else if ((int)buttonIndex == 1)
+    {
+        //  系统相册
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:_imagePickerController animated:YES completion:^{
+        }];
+    }
+}
+
+//点击取消
+- (void)didClickOnCancelButton
+{
+    NSLog(@"cancelButton");
 }
 
 @end

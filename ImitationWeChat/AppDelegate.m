@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "LoadingViewController.h"
 #import "MyTabBarController.h"
+#import <iflyMSC/iflyMSC.h>
+
+#define APPID_VALUE           @"569364d0"
+
 @interface AppDelegate ()
 
 @end
@@ -18,10 +22,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-  
+    
+    [self loadXunFei];
     
     [self loadWindow];
-    
     
     return YES;
 }
@@ -29,13 +33,39 @@
 
 -(void)loadWindow{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    LoadingViewController *loading = [[LoadingViewController alloc] init];
+
     self.window.rootViewController=[[MyTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
 }
+- (void)loadXunFei
+{
+    //设置sdk的log等级，log保存在下面设置的工作路径中
+    [IFlySetting setLogFile:LVL_ALL];
+    
+    //打开输出在console的log开关
+    [IFlySetting showLogcat:NO];
+    
+    //输出版本号
+    NSLog(@"IFlyMSC version:%@",[IFlySetting getVersion]);
+    
+    //设置sdk的工作路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [paths objectAtIndex:0];
+    [IFlySetting setLogFilePath:cachePath];
+    
+    
+    //创建语音配置,appid必须要传入，仅执行一次则可
+    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",APPID_VALUE];
+    
+    //所有服务启动前，需要确保执行createUtility
+#pragma message "'createUtility' should be call before any business using."
+    [IFlySpeechUtility createUtility:initString];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

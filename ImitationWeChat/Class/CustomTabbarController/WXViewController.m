@@ -11,6 +11,7 @@
 
 #import "CustomSearchViewController.h"
 #import "SearchViewShowController.h"
+#import "KxMenu.h"
 #define SEARCHBARHEIGHT        44
 static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 
@@ -23,6 +24,10 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 @property (nonatomic, strong) CustomSearchViewController *searchController;
 
 @property (nonatomic, strong) SearchViewShowController *searchShowVC;
+
+@property (nonatomic, strong) UIView *buttonLineView;
+
+@property (nonatomic, strong) UIScrollView *fts_eduScrollview;
 
 @end
 
@@ -51,10 +56,16 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
     self.searchShowVC = [[SearchViewShowController alloc] init];
     
     self.searchController = [[CustomSearchViewController alloc] initWithSearchResultsController:_searchShowVC];
-    self.searchController.searchResultsUpdater = _searchShowVC;
+    self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
     self.searchController.delegate = self;
     self.wxTableView.tableHeaderView = _searchController.searchBar;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [KxMenu dismissMenu];
 }
 
 -(void)loadNav{
@@ -66,11 +77,69 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
     
 }
 
+//＋号码
 - (void)barbuttonicon_addClick
 {
+
+    NSArray *menuItems =
+    @[
+      [KxMenuItem menuItem:@"发起群聊"
+                     image:[UIImage imageNamed:@"contacts_add_newmessage"]
+                    target:self
+                    action:@selector(pushMenuItem1)],
+      
+      [KxMenuItem menuItem:@"添加朋友"
+                     image:[UIImage imageNamed:@"contacts_add_friend"]
+                    target:self
+                    action:@selector(pushMenuItem2)],
+      
+      [KxMenuItem menuItem:@"扫一扫"
+                     image:[UIImage imageNamed:@"contacts_add_scan"]
+                    target:self
+                    action:@selector(pushMenuItem3)],
+      
+      [KxMenuItem menuItem:@"收付款"
+                     image:[UIImage imageNamed:@"receipt_payment_icon"]
+                    target:self
+                    action:@selector(pushMenuItem4)],
+      ];
     
+    
+    [KxMenu showMenuInView:self.view
+                  fromRect:CGRectMake(SCREEN_WIDTH-100, STATUS_AND_NAV_BAR_HEIGHT+2, 140, 0)
+                 menuItems:menuItems];
 }
 
+
+#pragma mark - pushMenuItem
+
+//发起群聊
+- (void)pushMenuItem1
+{
+    
+    NSLog(@"发起群聊");
+}
+
+//添加朋友
+- (void)pushMenuItem2
+{
+    
+    NSLog(@"添加朋友");
+}
+
+//扫一扫
+- (void)pushMenuItem3
+{
+    
+    NSLog(@"扫一扫");
+}
+
+//收付款
+- (void)pushMenuItem4
+{
+    
+    NSLog(@"收付款");
+}
 
 #pragma mark - tableview delegate
 
@@ -99,17 +168,56 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 
     
-    UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT)];
-    s.backgroundColor = RGBCOLOR(246, 245, 241);
-    s.tag= 100;
-    s.contentSize = CGSizeMake(s.bounds.size.width, s.bounds.size.height+1);
-    [self.navigationController.view addSubview:s];
+    _fts_eduScrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT)];
+    _fts_eduScrollview.backgroundColor = RGBCOLOR(246, 245, 241);
+    _fts_eduScrollview.tag= 100;
+    _fts_eduScrollview.contentSize = CGSizeMake(_fts_eduScrollview.bounds.size.width, _fts_eduScrollview.bounds.size.height+1);
+    [self.navigationController.view addSubview:_fts_eduScrollview];
+    
+
+    _buttonLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 100)];
+    [_fts_eduScrollview addSubview:_buttonLineView];
     
     
-    UIButton *l = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    l.backgroundColor = [UIColor orangeColor];
-    [l addTarget:self action:@selector(aaa) forControlEvents:UIControlEventTouchUpInside];
-    [s addSubview:l];
+    CGFloat buttonBgWidth = SCREEN_WIDTH/3;
+    CGFloat imagebuttonSize = 67;
+    NSArray *titleArray = @[@"朋友圈", @"文章", @"公众号"];
+    NSArray *imageNameArray = @[@"fts_edu_sns_icon", @"fts_edu_article_icon", @"fts_edu_brandcontact_icon"];
+    for (int i = 0; i<3; i++) {
+        
+        //图片和文字的父视图
+        UIButton *buttonBgView = [UIButton buttonWithType:UIButtonTypeCustom];
+        buttonBgView.backgroundColor = [UIColor clearColor];
+        buttonBgView.frame = CGRectMake(i*buttonBgWidth, 0, buttonBgWidth, CGRectGetMaxY(_buttonLineView.bounds));
+        [_buttonLineView addSubview:buttonBgView];
+        
+        
+        //图片视图
+        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [imageButton setImage:[UIImage imageNamed:imageNameArray[i]] forState:UIControlStateNormal];
+        imageButton.frame = CGRectMake(0, 0, imagebuttonSize, imagebuttonSize);
+        imageButton.backgroundColor = RGBCOLOR(229, 229, 231);
+        imageButton.center = CGPointMake(CGRectGetMaxX(buttonBgView.bounds)/2, imageButton.centerY);
+        imageButton.layer.cornerRadius = imagebuttonSize/2;
+        imageButton.clipsToBounds = YES;
+        imageButton.userInteractionEnabled = NO;
+        [buttonBgView addSubview:imageButton];
+        
+        
+        //文字视图
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(buttonBgView.bounds)-20, CGRectGetMaxX(buttonBgView.bounds), 15)];
+        titleLabel.text = titleArray[i];
+        titleLabel.font = [UIFont systemFontOfSize:14];
+        titleLabel.textColor = RGBCOLOR(160, 159, 159);
+        titleLabel.textAlignment = 1;
+        [buttonBgView addSubview:titleLabel];
+    }
+    
+    _buttonLineView.transform = CGAffineTransformMakeTranslation(0, 20);
+    [UIView animateWithDuration:0.2f animations:^{
+        _buttonLineView.transform = CGAffineTransformIdentity;
+    }];
+    
 }
 - (void)aaa
 {
@@ -132,11 +240,17 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 }
 - (void)didDismissSearchController:(UISearchController *)searchController
 {
- 
-    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
+#pragma mark - UISearchResultsUpdating
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+
+    BOOL isLengthZero = searchController.searchBar.text.length<=0;
+    
+    _fts_eduScrollview.hidden = !isLengthZero;
+    
+}
 
 /*
 #pragma mark - Navigation

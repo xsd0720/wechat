@@ -7,23 +7,61 @@
 //
 
 #import "SearchViewShowController.h"
+#import "WxTableCell.h"
 
-@interface SearchViewShowController ()
+
+NSString *const SEARCHSHOWTABLECELLIDENTIFIER = @"SEARCHSHOWTABLECELLIDENTIFIER";
+
+@interface SearchViewShowController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *searchShowTableView;
 
 @end
 
 @implementation SearchViewShowController
 
+
+-(UITableView *)searchShowTableView{
+    if (!_searchShowTableView) {
+        _searchShowTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT+CustomTabarHeight)];
+        
+        
+        [self.view addSubview:_searchShowTableView];
+        
+        _searchShowTableView.delegate = self;
+        _searchShowTableView.dataSource = self;
+        _searchShowTableView.tableFooterView = [UIView new];
+        
+        [_searchShowTableView registerClass:[WxTableCell class] forCellReuseIdentifier:SEARCHSHOWTABLECELLIDENTIFIER];
+
+    }
+    return _searchShowTableView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [self.view addSubview:label];
-    label.backgroundColor = [UIColor redColor];
-    
+    [self.searchShowTableView reloadData];
 }
+
+#pragma mark - tableview delegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return CELLHEIGHT;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 30;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    WxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:SEARCHSHOWTABLECELLIDENTIFIER forIndexPath:indexPath];
+    cell.dic = @{@"head":@"",@"name":@"大头娃娃",@"msg":@"今天天气不错"};
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -40,9 +78,6 @@
 }
 */
 
-#pragma mark - UISearchResultsUpdating
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-//    NSLog(@"Entering:%@",searchController.searchBar.text);
-}
+
 
 @end

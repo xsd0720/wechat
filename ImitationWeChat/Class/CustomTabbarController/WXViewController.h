@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface WXViewController : BaseViewController
+@interface WXViewController : BaseViewController<UISearchResultsUpdating>
 
 @end

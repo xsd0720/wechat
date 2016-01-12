@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomSearchViewController : UISearchController<UISearchBarDelegate>
-//@property (nonatomic, strong) UIView *searchBarBackView;
-//@property (nonatomic, strong) UISearchBar *searchBar;
+
 @end

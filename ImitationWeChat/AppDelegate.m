@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //加载讯飞语音
+    //加载讯飞语音加载讯飞语音加载讯飞语音
     [self loadXunFei];
     
     //加载windows rootViewController

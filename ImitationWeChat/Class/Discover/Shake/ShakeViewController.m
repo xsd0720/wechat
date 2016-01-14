@@ -10,7 +10,7 @@
 #import "ShakeSettingViewController.h"
 #import "ChooseTabbar.h"
 #import "ShakeHalfView.h"
-
+#import "ShakeMusicViewController.h"
 static CGFloat moveDistance = 100.f;
 static CGFloat moveAnimationDuring = 0.3f;
 static CGFloat moveAnimationStopDuring = 0.1f;
@@ -172,7 +172,7 @@ static CGFloat moveAnimationStopDuring = 0.1f;
     
     self.isBeginShake = YES;
     
-    [WHAudioTool systemPlay:@"shake_sound_male.wav"];
+//    [WHAudioTool systemPlay:@"shake_sound_male.wav"];
     
     NSArray *keyTimes = @[
                           [NSNumber numberWithFloat:0.0f],
@@ -221,6 +221,11 @@ static CGFloat moveAnimationStopDuring = 0.1f;
 //停止摇一摇
 -(void)stopShakeing{
     self.isBeginShake = NO;
+    
+    ShakeMusicViewController *shakeMusicVC = [[ShakeMusicViewController alloc] init];
+//    [self.navigationController pushViewController:shakeMusicVC animated:YES];
+    [self presentViewController:shakeMusicVC animated:YES completion:nil];
+    
 }
 
 -(void)dealloc{

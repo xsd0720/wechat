@@ -22,6 +22,20 @@
 		0C08987F1C3B6AAA006A037F /* Contact_icon_ContactTag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C08987D1C3B6AAA006A037F /* Contact_icon_ContactTag@2x.png */; };
 		0C0898801C3B6AAA006A037F /* Contact_icon_ContactTag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C08987E1C3B6AAA006A037F /* Contact_icon_ContactTag@3x.png */; };
 		0C0898831C3B7186006A037F /* SearchViewShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0898821C3B7186006A037F /* SearchViewShowController.m */; };
+		0C1AE71E1C4645C30080567C /* ShakeMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AE71D1C4645C30080567C /* ShakeMusicViewController.m */; };
+		0C1AE7231C46484C0080567C /* Albumtimeline_video_shadow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1AE7211C46484C0080567C /* Albumtimeline_video_shadow_down.png */; };
+		0C1AE7241C46484C0080567C /* Albumtimeline_video_shadow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1AE7221C46484C0080567C /* Albumtimeline_video_shadow_up.png */; };
+		0C1AE7291C464BE70080567C /* UIImage+MostColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AE7281C464BE70080567C /* UIImage+MostColor.m */; };
+		0C1AE72D1C4651FA0080567C /* wlh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C1AE72C1C4651FA0080567C /* wlh.jpg */; };
+		0C1AE7301C4652750080567C /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AE72F1C4652750080567C /* GradientLayerView.m */; };
+		0C1AE7331C4657AE0080567C /* FMLrcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AE7321C4657AE0080567C /* FMLrcView.m */; };
+		0C1AE7351C4664260080567C /* player_suspend_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1AE7341C4664260080567C /* player_suspend_button@2x.png */; };
+		0C1AE7371C4664620080567C /* player_star_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1AE7361C4664620080567C /* player_star_button@2x.png */; };
+		0C32D1141C474B510015404E /* longjuanfeng_.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 0C32D1121C474B510015404E /* longjuanfeng_.lrc */; };
+		0C32D1151C474B510015404E /* longjuanfeng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C32D1131C474B510015404E /* longjuanfeng.mp3 */; };
+		0C32D1191C474D730015404E /* longjuanfeng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C32D1181C474D730015404E /* longjuanfeng.jpg */; };
+		0C32D11B1C47549E0015404E /* longjuanfeng.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 0C32D11A1C47549E0015404E /* longjuanfeng.lrc */; };
+		0C32D11D1C47B5280015404E /* fts_search_backicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C32D11C1C47B5280015404E /* fts_search_backicon@2x.png */; };
 		0C44D3BD1C3CCDEF005BBC27 /* Fav_Search_music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C44D3AA1C3CCDEF005BBC27 /* Fav_Search_music@2x.png */; };
 		0C44D3BE1C3CCDEF005BBC27 /* Fav_Search_music@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C44D3AB1C3CCDEF005BBC27 /* Fav_Search_music@3x.png */; };
 		0C44D3BF1C3CCDEF005BBC27 /* Fav_Search_musicHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C44D3AC1C3CCDEF005BBC27 /* Fav_Search_musicHL@2x.png */; };
@@ -305,6 +319,24 @@
 		0C08987E1C3B6AAA006A037F /* Contact_icon_ContactTag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contact_icon_ContactTag@3x.png"; sourceTree = "<group>"; };
 		0C0898811C3B7186006A037F /* SearchViewShowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewShowController.h; sourceTree = "<group>"; };
 		0C0898821C3B7186006A037F /* SearchViewShowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewShowController.m; sourceTree = "<group>"; };
+		0C1AE71C1C4645C30080567C /* ShakeMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeMusicViewController.h; sourceTree = "<group>"; };
+		0C1AE71D1C4645C30080567C /* ShakeMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeMusicViewController.m; sourceTree = "<group>"; };
+		0C1AE7211C46484C0080567C /* Albumtimeline_video_shadow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Albumtimeline_video_shadow_down.png; sourceTree = "<group>"; };
+		0C1AE7221C46484C0080567C /* Albumtimeline_video_shadow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Albumtimeline_video_shadow_up.png; sourceTree = "<group>"; };
+		0C1AE7271C464BE70080567C /* UIImage+MostColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MostColor.h"; sourceTree = "<group>"; };
+		0C1AE7281C464BE70080567C /* UIImage+MostColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MostColor.m"; sourceTree = "<group>"; };
+		0C1AE72C1C4651FA0080567C /* wlh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wlh.jpg; sourceTree = "<group>"; };
+		0C1AE72E1C4652750080567C /* GradientLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientLayerView.h; sourceTree = "<group>"; };
+		0C1AE72F1C4652750080567C /* GradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientLayerView.m; sourceTree = "<group>"; };
+		0C1AE7311C4657AE0080567C /* FMLrcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLrcView.h; sourceTree = "<group>"; };
+		0C1AE7321C4657AE0080567C /* FMLrcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLrcView.m; sourceTree = "<group>"; };
+		0C1AE7341C4664260080567C /* player_suspend_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_suspend_button@2x.png"; sourceTree = "<group>"; };
+		0C1AE7361C4664620080567C /* player_star_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_star_button@2x.png"; sourceTree = "<group>"; };
+		0C32D1121C474B510015404E /* longjuanfeng_.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = longjuanfeng_.lrc; sourceTree = "<group>"; };
+		0C32D1131C474B510015404E /* longjuanfeng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = longjuanfeng.mp3; sourceTree = "<group>"; };
+		0C32D1181C474D730015404E /* longjuanfeng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = longjuanfeng.jpg; sourceTree = "<group>"; };
+		0C32D11A1C47549E0015404E /* longjuanfeng.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = longjuanfeng.lrc; sourceTree = "<group>"; };
+		0C32D11C1C47B5280015404E /* fts_search_backicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_search_backicon@2x.png"; sourceTree = "<group>"; };
 		0C44D3AA1C3CCDEF005BBC27 /* Fav_Search_music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fav_Search_music@2x.png"; sourceTree = "<group>"; };
 		0C44D3AB1C3CCDEF005BBC27 /* Fav_Search_music@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fav_Search_music@3x.png"; sourceTree = "<group>"; };
 		0C44D3AC1C3CCDEF005BBC27 /* Fav_Search_musicHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fav_Search_musicHL@2x.png"; sourceTree = "<group>"; };
@@ -925,6 +957,11 @@
 		2E97FFD81B5E337900CA2CF1 /* Shark */ = {
 			isa = PBXGroup;
 			children = (
+				0C32D11C1C47B5280015404E /* fts_search_backicon@2x.png */,
+				0C1AE7361C4664620080567C /* player_star_button@2x.png */,
+				0C1AE7341C4664260080567C /* player_suspend_button@2x.png */,
+				0C1AE7211C46484C0080567C /* Albumtimeline_video_shadow_down.png */,
+				0C1AE7221C46484C0080567C /* Albumtimeline_video_shadow_up.png */,
 				2E97FFFC1B5E565900CA2CF1 /* ShakeFrameInfo@2x.png */,
 				2E97FFF01B5E544C00CA2CF1 /* Shake_icon_music@2x.png */,
 				2E97FFF11B5E544C00CA2CF1 /* Shake_icon_musicHL@2x.png */,
@@ -1078,6 +1115,8 @@
 				2E9B7D971B57A6CC000D621E /* UIImage+imageNamed_Hack.m */,
 				0CF9122B1C43ADEC00F33C89 /* UIImage+Color.h */,
 				0CF9122C1C43ADEC00F33C89 /* UIImage+Color.m */,
+				0C1AE7271C464BE70080567C /* UIImage+MostColor.h */,
+				0C1AE7281C464BE70080567C /* UIImage+MostColor.m */,
 			);
 			path = UIImageCategory;
 			sourceTree = "<group>";
@@ -1126,6 +1165,11 @@
 		2E9B7DA01B57BEA1000D621E /* textImage */ = {
 			isa = PBXGroup;
 			children = (
+				0C32D11A1C47549E0015404E /* longjuanfeng.lrc */,
+				0C32D1181C474D730015404E /* longjuanfeng.jpg */,
+				0C32D1121C474B510015404E /* longjuanfeng_.lrc */,
+				0C32D1131C474B510015404E /* longjuanfeng.mp3 */,
+				0C1AE72C1C4651FA0080567C /* wlh.jpg */,
 				2EA5EAAC1B649EE500F79D3A /* coffe.jpg */,
 				2EA5EAAA1B649D6500F79D3A /* timelinebg.jpg */,
 				2EFF2C361B63648B00F0CF75 /* 111.png */,
@@ -1270,6 +1314,10 @@
 				2E97FFEE1B5E38D800CA2CF1 /* ShakeViewController.m */,
 				2E1F72091B60B07300152EE1 /* ShakeSettingViewController.h */,
 				2E1F720A1B60B07300152EE1 /* ShakeSettingViewController.m */,
+				0C1AE71C1C4645C30080567C /* ShakeMusicViewController.h */,
+				0C1AE71D1C4645C30080567C /* ShakeMusicViewController.m */,
+				0C1AE7311C4657AE0080567C /* FMLrcView.h */,
+				0C1AE7321C4657AE0080567C /* FMLrcView.m */,
 			);
 			path = Shake;
 			sourceTree = "<group>";
@@ -1411,6 +1459,8 @@
 		7B91C6691A3B2ED500394194 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0C1AE72E1C4652750080567C /* GradientLayerView.h */,
+				0C1AE72F1C4652750080567C /* GradientLayerView.m */,
 				0CF911B41C438A4100F33C89 /* TZImagePickerController */,
 				0C0898621C3B51E1006A037F /* System */,
 				0CF659361C3A62EE00B1BFDF /* LXActionSheet */,
@@ -1529,6 +1579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EBCAC8F1B58AC2C006FF4B1 /* ff_IconStar.png in Resources */,
+				0C1AE7371C4664620080567C /* player_star_button@2x.png in Resources */,
 				2EBCAC8A1B58AC2C006FF4B1 /* ff_IconShowFaceBook@2x.png in Resources */,
 				2EBCAC831B58AC2C006FF4B1 /* ff_IconQRCode@3x.png in Resources */,
 				2E9B7D7B1B57A317000D621E /* tabbar_mainframe@2x.png in Resources */,
@@ -1538,6 +1589,7 @@
 				2EBCACA11B58AD9E006FF4B1 /* MoreExpressionShops@2x.png in Resources */,
 				2E6151271B5CE71F007196E2 /* kr-video-player-pause@3x.png in Resources */,
 				2E9B7D7A1B57A317000D621E /* tabbar_discoverHL@3x.png in Resources */,
+				0C32D1151C474B510015404E /* longjuanfeng.mp3 in Resources */,
 				2EBCACF41B58E7D0006FF4B1 /* ScanStreet_HL@2x.png in Resources */,
 				2E97FFE61B5E337900CA2CF1 /* shake_nomatch.wav in Resources */,
 				2EBCAC8C1B58AC2C006FF4B1 /* ff_IconShowMobile@2x.png in Resources */,
@@ -1609,6 +1661,8 @@
 				2E61512C1B5CE71F007196E2 /* kr-video-player-shrinkscreen@2x.png in Resources */,
 				2EBCAC7F1B58AC2C006FF4B1 /* ff_IconMyApp@2x.png in Resources */,
 				0C44D3CC1C3CCDEF005BBC27 /* Fav_Search_Voice@2x.png in Resources */,
+				0C1AE7351C4664260080567C /* player_suspend_button@2x.png in Resources */,
+				0C32D1141C474B510015404E /* longjuanfeng_.lrc in Resources */,
 				2EBCAC891B58AC2C006FF4B1 /* ff_IconShowAlbum@3x.png in Resources */,
 				2EBCACEC1B58E7D0006FF4B1 /* ScanBook_HL@2x.png in Resources */,
 				0C44D3C51C3CCDEF005BBC27 /* Fav_Search_URL@3x.png in Resources */,
@@ -1618,6 +1672,7 @@
 				0C44D3C21C3CCDEF005BBC27 /* Fav_Search_pic@3x.png in Resources */,
 				2E97FFF71B5E544C00CA2CF1 /* Shake_icon_musicHL@2x.png in Resources */,
 				0C44D3CB1C3CCDEF005BBC27 /* Fav_Search_VideoHL@3x.png in Resources */,
+				0C32D1191C474D730015404E /* longjuanfeng.jpg in Resources */,
 				0CF911E21C438A4100F33C89 /* preview_number_icon@2x.png in Resources */,
 				0C61D4DD1C44E1B1007547FE /* fts_edu_sns_icon@2x.png in Resources */,
 				0CF911E61C438A4100F33C89 /* TZAlbumCell.xib in Resources */,
@@ -1628,6 +1683,7 @@
 				2E9B7D741B57A317000D621E /* tabbar_contacts@3x.png in Resources */,
 				2EBCACAD1B58AD9E006FF4B1 /* MoreSetting@3x.png in Resources */,
 				2EBCAC7D1B58AC2C006FF4B1 /* ff_IconLocationService@2x.png in Resources */,
+				0C1AE7241C46484C0080567C /* Albumtimeline_video_shadow_up.png in Resources */,
 				2E1F72081B60AEF700152EE1 /* barbuttonicon_set@3x.png in Resources */,
 				2EBCACE81B58E7D0006FF4B1 /* qrcode_border@2x.png in Resources */,
 				0CF911D81C438A4100F33C89 /* MMVideoPreviewPlay@2x.png in Resources */,
@@ -1642,9 +1698,11 @@
 				0C44D3BF1C3CCDEF005BBC27 /* Fav_Search_musicHL@2x.png in Resources */,
 				0C44D3BE1C3CCDEF005BBC27 /* Fav_Search_music@3x.png in Resources */,
 				0C44D3C41C3CCDEF005BBC27 /* Fav_Search_URL@2x.png in Resources */,
+				0C1AE7231C46484C0080567C /* Albumtimeline_video_shadow_down.png in Resources */,
 				0C44D3C81C3CCDEF005BBC27 /* Fav_Search_Video@2x.png in Resources */,
 				2E97FFF91B5E544C00CA2CF1 /* Shake_icon_peopleHL@2x.png in Resources */,
 				2EBCACF71B58E7D0006FF4B1 /* ScanWord@3x.png in Resources */,
+				0C1AE72D1C4651FA0080567C /* wlh.jpg in Resources */,
 				2E9B7D771B57A317000D621E /* tabbar_discover@2x.png in Resources */,
 				2EBCACA61B58AD9E006FF4B1 /* MoreMyBankCard.png in Resources */,
 				0CF911D91C438A4100F33C89 /* MMVideoPreviewPlayHL@2x.png in Resources */,
@@ -1668,6 +1726,7 @@
 				2E1F72011B60AB1A00152EE1 /* sandyBalloon@2x.png in Resources */,
 				2E9B7D7C1B57A317000D621E /* tabbar_mainframe@3x.png in Resources */,
 				0C61D4CE1C44CAD9007547FE /* contacts_add_friend@3x.png in Resources */,
+				0C32D11D1C47B5280015404E /* fts_search_backicon@2x.png in Resources */,
 				2EA5EAB01B64A78700F79D3A /* AlbumReflashIcon@2x.png in Resources */,
 				0C61D4CF1C44CAD9007547FE /* contacts_add_newmessage@2x.png in Resources */,
 				2E1F71F11B5FF67E00152EE1 /* bottleBoard.png in Resources */,
@@ -1720,6 +1779,7 @@
 				2EBCAC871B58AC2C006FF4B1 /* ff_IconShowAlbum.png in Resources */,
 				2E9B7D781B57A317000D621E /* tabbar_discover@3x.png in Resources */,
 				0CF659311C3A357E00B1BFDF /* Launch Screen.storyboard in Resources */,
+				0C32D11B1C47549E0015404E /* longjuanfeng.lrc in Resources */,
 				0C61D4D21C44CAD9007547FE /* contacts_add_scan@3x.png in Resources */,
 				2E97FFFA1B5E544C00CA2CF1 /* Shake_icon_tv@2x.png in Resources */,
 				0C44D3CE1C3CCDEF005BBC27 /* Fav_Search_VoiceHL@2x.png in Resources */,
@@ -1755,7 +1815,9 @@
 				0C61D4C01C44A06C007547FE /* ISRDataHelper.m in Sources */,
 				2E9B7D881B57A421000D621E /* Animator.m in Sources */,
 				2E9B7D9F1B57B646000D621E /* WxTableCell.m in Sources */,
+				0C1AE71E1C4645C30080567C /* ShakeMusicViewController.m in Sources */,
 				7B91C6451A3B2A5900394194 /* AppDelegate.m in Sources */,
+				0C1AE7331C4657AE0080567C /* FMLrcView.m in Sources */,
 				0CF911EE1C438A4100F33C89 /* TZPhotoPreviewController.m in Sources */,
 				2E9B7D931B57A690000D621E /* UIView+Extention.m in Sources */,
 				2E9B7D571B57A187000D621E /* WXViewController.m in Sources */,
@@ -1785,6 +1847,7 @@
 				0CF911EB1C438A4100F33C89 /* TZImagePickerController.m in Sources */,
 				0C61D4C61C44C04A007547FE /* KxMenu.m in Sources */,
 				7B91C6421A3B2A5900394194 /* main.m in Sources */,
+				0C1AE7291C464BE70080567C /* UIImage+MostColor.m in Sources */,
 				2E9B7D5A1B57A1A1000D621E /* ContactViewController.m in Sources */,
 				0CF911EC1C438A4100F33C89 /* TZPhotoPickerController.m in Sources */,
 				2E1F71FF1B5FF6EB00152EE1 /* BottlerViewController.m in Sources */,
@@ -1800,6 +1863,7 @@
 				0CF659351C3A416D00B1BFDF /* MyProfileViewController.m in Sources */,
 				2EFF2C3E1B63784800F0CF75 /* Contact.m in Sources */,
 				2E61512E1B5CE71F007196E2 /* KRVideoPlayerController.m in Sources */,
+				0C1AE7301C4652750080567C /* GradientLayerView.m in Sources */,
 				2EBCACD41B58E16B006FF4B1 /* QRCodeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

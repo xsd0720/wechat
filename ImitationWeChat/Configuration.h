@@ -99,4 +99,8 @@
 
 
 #import "LWSystem.h"
+
+
+#define SHAKEAUDIOSTATUS  @"SHAKEAUDIOSTATUS"
+
 #endif

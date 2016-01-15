@@ -29,6 +29,7 @@
     //加载windows rootViewController
     [self loadWindow];
 
+    
     return YES;
 }
 

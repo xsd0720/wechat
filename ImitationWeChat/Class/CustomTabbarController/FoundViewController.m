@@ -32,6 +32,8 @@ static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
         
         _discoverTableView.delegate = self;
         _discoverTableView.dataSource = self;
+        _discoverTableView.sectionHeaderHeight = 10;
+        _discoverTableView.sectionFooterHeight = 10;
         
         [_discoverTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:DISCOVERCELLIDEITIFIER];
     }

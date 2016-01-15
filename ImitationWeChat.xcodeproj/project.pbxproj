@@ -72,6 +72,17 @@
 		0C61D4E11C44E1D3007547FE /* fts_searchicon_article@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C61D4DE1C44E1D3007547FE /* fts_searchicon_article@2x.png */; };
 		0C61D4E21C44E1D3007547FE /* fts_searchicon_brandcontact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C61D4DF1C44E1D3007547FE /* fts_searchicon_brandcontact@2x.png */; };
 		0C61D4E31C44E1D3007547FE /* fts_searchicon_sns@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C61D4E01C44E1D3007547FE /* fts_searchicon_sns@2x.png */; };
+		0CA426801C48967B00330263 /* ChatListBackgroundLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA4267E1C48967B00330263 /* ChatListBackgroundLogo@2x.png */; };
+		0CA426811C48967B00330263 /* ChatListBackgroundLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA4267F1C48967B00330263 /* ChatListBackgroundLogo@3x.png */; };
+		0CA426841C48A7CB00330263 /* MyQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA426831C48A7CB00330263 /* MyQRCodeViewController.m */; };
+		0CA426861C48B39000330263 /* barbuttonicon_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA426851C48B39000330263 /* barbuttonicon_more.png */; };
+		0CA4268B1C48BF8E00330263 /* tableview_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA426891C48BF8E00330263 /* tableview_arrow@2x.png */; };
+		0CA426921C48C9D800330263 /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA426911C48C9D800330263 /* WalletViewController.m */; };
+		0CA426951C48CAD500330263 /* WalletCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA426941C48CAD500330263 /* WalletCollectionViewCell.m */; };
+		0CA426981C48D2F600330263 /* WalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA426971C48D2F600330263 /* WalletHeaderView.m */; };
+		0CA4269A1C48D82E00330263 /* wallet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA426991C48D82E00330263 /* wallet@2x.png */; };
+		0CA4269C1C48DBAC00330263 /* wallet_payment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA4269B1C48DBAC00330263 /* wallet_payment@2x.png */; };
+		0CA4269F1C48FC5F00330263 /* WalletCollectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4269E1C48FC5F00330263 /* WalletCollectionHeaderCell.m */; };
 		0CF659311C3A357E00B1BFDF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF659301C3A357E00B1BFDF /* Launch Screen.storyboard */; };
 		0CF659351C3A416D00B1BFDF /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF659341C3A416D00B1BFDF /* MyProfileViewController.m */; };
 		0CF659391C3A62EE00B1BFDF /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF659381C3A62EE00B1BFDF /* LXActionSheet.m */; };
@@ -376,6 +387,22 @@
 		0C61D4DE1C44E1D3007547FE /* fts_searchicon_article@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_searchicon_article@2x.png"; sourceTree = "<group>"; };
 		0C61D4DF1C44E1D3007547FE /* fts_searchicon_brandcontact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_searchicon_brandcontact@2x.png"; sourceTree = "<group>"; };
 		0C61D4E01C44E1D3007547FE /* fts_searchicon_sns@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_searchicon_sns@2x.png"; sourceTree = "<group>"; };
+		0CA4267E1C48967B00330263 /* ChatListBackgroundLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChatListBackgroundLogo@2x.png"; sourceTree = "<group>"; };
+		0CA4267F1C48967B00330263 /* ChatListBackgroundLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChatListBackgroundLogo@3x.png"; sourceTree = "<group>"; };
+		0CA426821C48A7CB00330263 /* MyQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQRCodeViewController.h; sourceTree = "<group>"; };
+		0CA426831C48A7CB00330263 /* MyQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQRCodeViewController.m; sourceTree = "<group>"; };
+		0CA426851C48B39000330263 /* barbuttonicon_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonicon_more.png; sourceTree = "<group>"; };
+		0CA426891C48BF8E00330263 /* tableview_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableview_arrow@2x.png"; sourceTree = "<group>"; };
+		0CA426901C48C9D800330263 /* WalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletViewController.h; sourceTree = "<group>"; };
+		0CA426911C48C9D800330263 /* WalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletViewController.m; sourceTree = "<group>"; };
+		0CA426931C48CAD500330263 /* WalletCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletCollectionViewCell.h; sourceTree = "<group>"; };
+		0CA426941C48CAD500330263 /* WalletCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletCollectionViewCell.m; sourceTree = "<group>"; };
+		0CA426961C48D2F600330263 /* WalletHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletHeaderView.h; sourceTree = "<group>"; };
+		0CA426971C48D2F600330263 /* WalletHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletHeaderView.m; sourceTree = "<group>"; };
+		0CA426991C48D82E00330263 /* wallet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wallet@2x.png"; sourceTree = "<group>"; };
+		0CA4269B1C48DBAC00330263 /* wallet_payment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wallet_payment@2x.png"; sourceTree = "<group>"; };
+		0CA4269D1C48FC5F00330263 /* WalletCollectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletCollectionHeaderCell.h; sourceTree = "<group>"; };
+		0CA4269E1C48FC5F00330263 /* WalletCollectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletCollectionHeaderCell.m; sourceTree = "<group>"; };
 		0CF659301C3A357E00B1BFDF /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0CF659331C3A416D00B1BFDF /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		0CF659341C3A416D00B1BFDF /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
@@ -752,6 +779,21 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		0CA4268F1C48C9C600330263 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				0CA426901C48C9D800330263 /* WalletViewController.h */,
+				0CA426911C48C9D800330263 /* WalletViewController.m */,
+				0CA426931C48CAD500330263 /* WalletCollectionViewCell.h */,
+				0CA426941C48CAD500330263 /* WalletCollectionViewCell.m */,
+				0CA426961C48D2F600330263 /* WalletHeaderView.h */,
+				0CA426971C48D2F600330263 /* WalletHeaderView.m */,
+				0CA4269D1C48FC5F00330263 /* WalletCollectionHeaderCell.h */,
+				0CA4269E1C48FC5F00330263 /* WalletCollectionHeaderCell.m */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		0CF659321C3A415500B1BFDF /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +925,9 @@
 		2E1F72021B60AEF700152EE1 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				0CA426851C48B39000330263 /* barbuttonicon_more.png */,
+				0CA4267E1C48967B00330263 /* ChatListBackgroundLogo@2x.png */,
+				0CA4267F1C48967B00330263 /* ChatListBackgroundLogo@3x.png */,
 				0C61D4D71C44E1A6007547FE /* Search */,
 				0C61D4D31C44CAE8007547FE /* receipt_payment_icon@2x.png */,
 				0C61D4D41C44CAE8007547FE /* receipt_payment_icon@3x.png */,
@@ -1143,6 +1188,7 @@
 		2E9B7D9B1B57B61B000D621E /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				0CA4268F1C48C9C600330263 /* Wallet */,
 				0CF659321C3A415500B1BFDF /* MyProfile */,
 				2E6151301B5CE7CC007196E2 /* TV */,
 			);
@@ -1165,6 +1211,8 @@
 		2E9B7DA01B57BEA1000D621E /* textImage */ = {
 			isa = PBXGroup;
 			children = (
+				0CA4269B1C48DBAC00330263 /* wallet_payment@2x.png */,
+				0CA426991C48D82E00330263 /* wallet@2x.png */,
 				0C32D11A1C47549E0015404E /* longjuanfeng.lrc */,
 				0C32D1181C474D730015404E /* longjuanfeng.jpg */,
 				0C32D1121C474B510015404E /* longjuanfeng_.lrc */,
@@ -1239,6 +1287,7 @@
 		2EBCAC901B58AD9E006FF4B1 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				0CA426891C48BF8E00330263 /* tableview_arrow@2x.png */,
 				0C44D3A91C3CCDEF005BBC27 /* Fav */,
 				2EBCACAF1B58C457006FF4B1 /* setting_myQR@2x.png */,
 				2EBCAC911B58AD9E006FF4B1 /* MoreExpressionShops.png */,
@@ -1287,6 +1336,8 @@
 				2EBCACCC1B58E08B006FF4B1 /* QRCodeViewController.m */,
 				2EBCACD21B58E16B006FF4B1 /* QRCodeDetailViewController.h */,
 				2EBCACD31B58E16B006FF4B1 /* QRCodeDetailViewController.m */,
+				0CA426821C48A7CB00330263 /* MyQRCodeViewController.h */,
+				0CA426831C48A7CB00330263 /* MyQRCodeViewController.m */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -1581,6 +1632,7 @@
 				2EBCAC8F1B58AC2C006FF4B1 /* ff_IconStar.png in Resources */,
 				0C1AE7371C4664620080567C /* player_star_button@2x.png in Resources */,
 				2EBCAC8A1B58AC2C006FF4B1 /* ff_IconShowFaceBook@2x.png in Resources */,
+				0CA4269A1C48D82E00330263 /* wallet@2x.png in Resources */,
 				2EBCAC831B58AC2C006FF4B1 /* ff_IconQRCode@3x.png in Resources */,
 				2E9B7D7B1B57A317000D621E /* tabbar_mainframe@2x.png in Resources */,
 				0C08986B1C3B6899006A037F /* barbuttonicon_add@3x.png in Resources */,
@@ -1591,6 +1643,7 @@
 				2E9B7D7A1B57A317000D621E /* tabbar_discoverHL@3x.png in Resources */,
 				0C32D1151C474B510015404E /* longjuanfeng.mp3 in Resources */,
 				2EBCACF41B58E7D0006FF4B1 /* ScanStreet_HL@2x.png in Resources */,
+				0CA426861C48B39000330263 /* barbuttonicon_more.png in Resources */,
 				2E97FFE61B5E337900CA2CF1 /* shake_nomatch.wav in Resources */,
 				2EBCAC8C1B58AC2C006FF4B1 /* ff_IconShowMobile@2x.png in Resources */,
 				0C0898691C3B6899006A037F /* barbuttonicon_add.png in Resources */,
@@ -1601,6 +1654,7 @@
 				2EBCACEB1B58E7D0006FF4B1 /* ScanBook@3x.png in Resources */,
 				2EBCACEF1B58E7D0006FF4B1 /* ScanQRCode@3x.png in Resources */,
 				0C61D4DC1C44E1B1007547FE /* fts_edu_brandcontact_icon@2x.png in Resources */,
+				0CA426811C48967B00330263 /* ChatListBackgroundLogo@3x.png in Resources */,
 				2E1F71FA1B5FF67E00152EE1 /* bottleRecord@2x.png in Resources */,
 				2EBCACF31B58E7D0006FF4B1 /* ScanStreet@3x.png in Resources */,
 				2E6151241B5CE71F007196E2 /* kr-video-player-fullscreen@2x.png in Resources */,
@@ -1753,11 +1807,14 @@
 				2EBCACA91B58AD9E006FF4B1 /* MoreMyFavorites.png in Resources */,
 				2E97FFE81B5E337900CA2CF1 /* ShakeHideImg_women@2x.png in Resources */,
 				2EBCAC811B58AC2C006FF4B1 /* ff_IconQRCode.png in Resources */,
+				0CA426801C48967B00330263 /* ChatListBackgroundLogo@2x.png in Resources */,
 				0CF911E51C438A4100F33C89 /* VideoSendIcon@2x.png in Resources */,
 				0CF911DB1C438A4100F33C89 /* photo_def_photoPickerVc@2x.png in Resources */,
 				0C0898771C3B6A2A006A037F /* add_friend_icon_offical@2x.png in Resources */,
 				2EBCACA41B58AD9E006FF4B1 /* MoreMyAlbum@2x.png in Resources */,
 				2E1F71FB1B5FF67E00152EE1 /* bottleStarfish@2x.png in Resources */,
+				0CA4268B1C48BF8E00330263 /* tableview_arrow@2x.png in Resources */,
+				0CA4269C1C48DBAC00330263 /* wallet_payment@2x.png in Resources */,
 				2E1F71F51B5FF67E00152EE1 /* bottleButtonMine.png in Resources */,
 				2EBCACAB1B58AD9E006FF4B1 /* MoreMyFavorites@3x.png in Resources */,
 				2EBCAC8B1B58AC2C006FF4B1 /* ff_IconShowMobile.png in Resources */,
@@ -1811,7 +1868,9 @@
 				2E1F720B1B60B07300152EE1 /* ShakeSettingViewController.m in Sources */,
 				0C61D4BA1C449842007547FE /* IATConfig.m in Sources */,
 				2E9B7D981B57A6CC000D621E /* UIImage+imageNamed_Hack.m in Sources */,
+				0CA426981C48D2F600330263 /* WalletHeaderView.m in Sources */,
 				0CF911E71C438A4100F33C89 /* TZAssetCell.m in Sources */,
+				0CA426841C48A7CB00330263 /* MyQRCodeViewController.m in Sources */,
 				0C61D4C01C44A06C007547FE /* ISRDataHelper.m in Sources */,
 				2E9B7D881B57A421000D621E /* Animator.m in Sources */,
 				2E9B7D9F1B57B646000D621E /* WxTableCell.m in Sources */,
@@ -1840,6 +1899,7 @@
 				2EBCACCD1B58E08B006FF4B1 /* QrCodeHollowView.m in Sources */,
 				2EA5CB4C1B5E7E7400DCAA8E /* UIWindow+Motion.m in Sources */,
 				0CF911EA1C438A4100F33C89 /* TZImageManager.m in Sources */,
+				0CA426921C48C9D800330263 /* WalletViewController.m in Sources */,
 				0CF911EF1C438A4100F33C89 /* TZVideoPlayerController.m in Sources */,
 				2EBCACFD1B58EB26006FF4B1 /* TabBarItem.m in Sources */,
 				0CF911E91C438A4100F33C89 /* TZAssetModel.m in Sources */,
@@ -1849,12 +1909,14 @@
 				7B91C6421A3B2A5900394194 /* main.m in Sources */,
 				0C1AE7291C464BE70080567C /* UIImage+MostColor.m in Sources */,
 				2E9B7D5A1B57A1A1000D621E /* ContactViewController.m in Sources */,
+				0CA426951C48CAD500330263 /* WalletCollectionViewCell.m in Sources */,
 				0CF911EC1C438A4100F33C89 /* TZPhotoPickerController.m in Sources */,
 				2E1F71FF1B5FF6EB00152EE1 /* BottlerViewController.m in Sources */,
 				0C0898831C3B7186006A037F /* SearchViewShowController.m in Sources */,
 				2E9700011B5E58C800CA2CF1 /* ShakeHalfView.m in Sources */,
 				2E61512F1B5CE71F007196E2 /* KRVideoPlayerControlView.m in Sources */,
 				2E9B7D511B57A123000D621E /* MyTabBarController.m in Sources */,
+				0CA4269F1C48FC5F00330263 /* WalletCollectionHeaderCell.m in Sources */,
 				2EA5EAA91B64998700F79D3A /* TimelineViewController.m in Sources */,
 				2E97FFEF1B5E38D800CA2CF1 /* ShakeViewController.m in Sources */,
 				0CF659391C3A62EE00B1BFDF /* LXActionSheet.m in Sources */,

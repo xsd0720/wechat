@@ -26,6 +26,11 @@ static NSString *SHAKESETTABLECELLIDENTIFIER = @"shakeSetTableCellIdentifier";
         _imagepicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         _imagepicker.allowsEditing = YES;
         _imagepicker.delegate = self;
+        _imagepicker.navigationBar.barTintColor = [UIColor blackColor];
+        _imagepicker.navigationBar.barStyle = UIBarStyleBlackOpaque;
+        
+        //系统返回默认蓝色 改成白色
+        _imagepicker.navigationBar.tintColor = [UIColor whiteColor];
     }
     return _imagepicker;
 }
@@ -42,8 +47,10 @@ static NSString *SHAKESETTABLECELLIDENTIFIER = @"shakeSetTableCellIdentifier";
 -(void)accessorySwitchChange:(UISwitch *)sw{
     if (sw.on) {
         NSLog(@"audio on");
+        [[NSUserDefaults standardUserDefaults] setValue:@"on" forKey:SHAKEAUDIOSTATUS];
     }else{
         NSLog(@"audio off");
+        [[NSUserDefaults standardUserDefaults] setValue:@"off" forKey:SHAKEAUDIOSTATUS];
     }
 }
 
@@ -89,6 +96,11 @@ static NSString *SHAKESETTABLECELLIDENTIFIER = @"shakeSetTableCellIdentifier";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }else if ([type isEqualToString:@"switch"]){
         cell.accessoryView = self.accessorySwitch;
+        NSString *shakesoundstatus = [[NSUserDefaults standardUserDefaults] valueForKey:SHAKEAUDIOSTATUS];
+        if ([shakesoundstatus isEqualToString:@"on"]) {
+            self.accessorySwitch.on = YES;
+        }
+        
         
     }
    

@@ -19,7 +19,8 @@
         labels = [NSMutableArray new];
         
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.showsHorizontalScrollIndicator = NO;
         [self addSubview:_scrollView];
 
     }

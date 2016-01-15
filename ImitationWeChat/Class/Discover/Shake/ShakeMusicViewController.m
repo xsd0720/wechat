@@ -116,10 +116,12 @@
     sender.selected = !sender.selected;
     if (sender.selected) {
         [_audioPlayer play];
+        [self startTimer];
     }
     else
     {
         [_audioPlayer pause];
+        [_progressUpdateTimer invalidate];
     }
     
 }
@@ -143,7 +145,6 @@
 
 - (void)updatePlaybackProgress
 {
-    NSLog(@"====%@   %f", [self conversionSecondsToTime:_audioPlayer.currentTime], _audioPlayer.currentTime);
     NSString *currentTimeString = [self conversionSecondsToTime:_audioPlayer.currentTime];
     
     [_licView scrollViewMoveLabelWith:currentTimeString];

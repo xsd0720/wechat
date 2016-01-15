@@ -63,6 +63,9 @@
  BottleViewController ChooseTabbar Datasource
  */
 @property (nonatomic,strong) NSArray *bottleChooseSubViewData;
+
+@property (nonatomic, strong) NSArray *walletData;
+
 /*
  @pragma: Initialize a singleton
  */

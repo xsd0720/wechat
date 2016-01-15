@@ -504,4 +504,93 @@
              ];
 }
 
+- (NSArray *)walletData
+{
+    return @[
+             @[
+                 @{
+                     @"text":@"付款",
+                     @"image":@"arrow"
+                     },
+                 @{
+                     @"text":@"零钱",
+                     @"image":@"arrow"
+                     },
+                 @{
+                     @"text":@"银行卡",
+                     @"image":@"switch"
+                     }
+                 ],
+             @[
+                 @{
+                     @"text":@"转账",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"手机充值",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"理财通",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"Q币充值",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"生活缴费",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"城市服务",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"信用卡还款",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"微信红包",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"AA收款",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"腾讯公益",
+                     @"image":@"wallet"
+                     },
+                 ],
+             @[
+                 @{
+                     @"text":@"滴滴出行",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"火车票机票",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"美丽说",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"京东精选",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"电影票",
+                     @"image":@"wallet"
+                     },
+                 @{
+                     @"text":@"吃喝玩乐",
+                     @"image":@"wallet"
+                     },
+                 ]
+             ];
+
+}
+
 @end

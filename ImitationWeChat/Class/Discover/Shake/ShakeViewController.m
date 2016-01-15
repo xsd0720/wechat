@@ -171,8 +171,11 @@ static CGFloat moveAnimationStopDuring = 0.1f;
     
     
     self.isBeginShake = YES;
-    
-//    [WHAudioTool systemPlay:@"shake_sound_male.wav"];
+    NSString *shakeAudioStatus = [[NSUserDefaults standardUserDefaults] valueForKey:SHAKEAUDIOSTATUS];
+    if ([shakeAudioStatus isEqualToString:@"on"]) {
+        [WHAudioTool systemPlay:@"shake_sound_male.wav"];
+    }
+
     
     NSArray *keyTimes = @[
                           [NSNumber numberWithFloat:0.0f],

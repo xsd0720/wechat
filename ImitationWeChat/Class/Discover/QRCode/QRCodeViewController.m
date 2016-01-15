@@ -8,7 +8,7 @@
 
 #import "QRCodeViewController.h"
 #import "QrCodeHollowView.h"
-
+#import "MyQRCodeViewController.h"
 
 #import "QRCodeDetailViewController.h"
 
@@ -24,6 +24,8 @@ static float QRBorderMarginTop = 80.f;
     UILabel *promptLabel;
     
     ChooseTabbar *chooseTabbar;
+    
+    BOOL isGetResult;
 }
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
@@ -44,6 +46,12 @@ static float QRBorderMarginTop = 80.f;
     [self startReading];
 
 }
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    isGetResult = NO;
+}
+
 -(void)setupNav{
     self.navigationItem.title = @"二维码/条码";
     self.view.backgroundColor = [UIColor whiteColor];
@@ -103,6 +111,15 @@ static float QRBorderMarginTop = 80.f;
     promptLabel.font = [UIFont systemFontOfSize:13.f];
     [self.view addSubview:promptLabel];
     
+    UIButton *myQrCodeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    myQrCodeButton.frame = CGRectMake((SCREEN_WIDTH-100)/2, CGRectGetMaxY(promptLabel.frame)+35, 100, 30);
+    [myQrCodeButton setTitle:@"我的二维码" forState:UIControlStateNormal];
+    myQrCodeButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [myQrCodeButton setTitleColor:RGBCOLOR(31, 161, 27) forState:UIControlStateNormal];
+    [myQrCodeButton  addTarget:self action:@selector(myQrCodeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:myQrCodeButton];
+    
+    
 
 }
 
@@ -112,6 +129,7 @@ static float QRBorderMarginTop = 80.f;
 -(void)setUpChooseView{
     chooseTabbar = [[ChooseTabbar alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60) subViewData:DS.qrCodeChooseSubViewData  normalColor:[UIColor grayColor] hightlightColor:RGBCOLOR(72, 165, 15)];
     chooseTabbar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8f];
+    chooseTabbar.delegate = self;
     [self.view addSubview:chooseTabbar];
 }
 //choosetabbar delegate
@@ -147,6 +165,8 @@ static float QRBorderMarginTop = 80.f;
 #pragma mark -  二维码扫描
 //开启二维码扫描
 - (BOOL)startReading {
+    
+    isGetResult = NO;
     NSError *error;
     
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -178,6 +198,8 @@ static float QRBorderMarginTop = 80.f;
     return YES;
 }
 -(void)stopReading{
+    isGetResult = YES;
+    
     [_captureSession stopRunning];
     _captureSession = nil;
     [_videoPreviewLayer removeFromSuperlayer];
@@ -185,6 +207,11 @@ static float QRBorderMarginTop = 80.f;
 
 //得到扫描结果
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
+
+    if (isGetResult) {
+        return;
+    }
+    isGetResult = YES;
     if (metadataObjects != nil && [metadataObjects count] > 0) {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
@@ -194,6 +221,13 @@ static float QRBorderMarginTop = 80.f;
             
         }
     }
+}
+
+//我的二维码
+- (void)myQrCodeButtonClick
+{
+    MyQRCodeViewController *myQRCodeViewController = [[MyQRCodeViewController alloc] init];
+    [self.navigationController pushViewController:myQRCodeViewController animated:YES];
 }
 
 @end

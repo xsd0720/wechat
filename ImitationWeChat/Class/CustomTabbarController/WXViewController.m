@@ -35,8 +35,6 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 -(UITableView *)wxTableView{
     if (!_wxTableView) {
         _wxTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT-CustomTabarHeight)];
-        
-  
         [self.view addSubview:_wxTableView];
         
         _wxTableView.delegate = self;
@@ -46,6 +44,13 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
         [_wxTableView registerClass:[WxTableCell class] forCellReuseIdentifier:WXTABLECELLIDENTIFIER];
         _wxTableView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
         [_wxTableView setExclusiveTouch:YES];
+    
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-50)/2, -80, 50, 50)];
+        imageView.image = [UIImage imageNamed:@"ChatListBackgroundLogo"];
+        [_wxTableView addSubview:imageView];
+    
+        
     }
     return _wxTableView;
 }

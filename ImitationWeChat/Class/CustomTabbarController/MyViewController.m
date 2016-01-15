@@ -9,17 +9,17 @@
 #import "MyViewController.h"
 #import "TVViewController.h"
 #import "MyProfileViewController.h"
-
+#import "WalletViewController.h"
 static NSString *MYCELLIDENTIFIER = @"mycellidentifier";
 static NSString *MYHEADERCELLIDENTIFIER = @"mycellheadercellidentifier";
-static float  MYHEADERCELLHEIGHT = 90.f;
+static float  MYHEADERCELLHEIGHT = 87.f;
 
 @interface  MyHeaderCell : UITableViewCell
 @property (nonatomic,strong) UIImageView *headImageView;
 @property (nonatomic,strong) UILabel *userNameLabel;
 @property (nonatomic,strong) UILabel *numberLabel;
 
-@property (nonatomic,strong) UIImageView *setting_myQR;
+@property (nonatomic,strong) UIView *rightView;
 
 
 @property (nonatomic,strong) NSDictionary *dic;
@@ -52,7 +52,7 @@ static float  MYHEADERCELLHEIGHT = 90.f;
     return _myTableView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
+    return 20;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,7 +64,6 @@ static float  MYHEADERCELLHEIGHT = 90.f;
 -(void)loadNav{
     self.navigationItem.title = @"我";
 }
-
 
 #pragma mark - tabledelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -123,7 +122,9 @@ static float  MYHEADERCELLHEIGHT = 90.f;
     }
     //钱包
     else if (indexPath.section == 1&&indexPath.row == 2){
-        
+        WalletViewController *walletViewController = [[WalletViewController alloc] init];
+        walletViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:walletViewController animated:YES];
     }
     //卡包
     else if (indexPath.section == 1&&indexPath.row == 3){
@@ -157,7 +158,7 @@ static float  MYHEADERCELLHEIGHT = 90.f;
 @end
 
 @implementation MyHeaderCell
-#define Padding  5
+#define Padding  14
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -181,13 +182,22 @@ static float  MYHEADERCELLHEIGHT = 90.f;
         [self addSubview:_numberLabel];
         
         
+        //accessview
+        _rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 18)];
+        
+        //二维码
         UIImage *qrIm = [UIImage imageNamed:@"setting_myQR"];
+        UIImageView *setting_myQR = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 18, 18)];
+        setting_myQR.image = qrIm;
+        [_rightView addSubview:setting_myQR];
+        
+        //箭头
+        UIImageView *rightArrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(32-7, (18-12)/2, 7, 12)];
+        rightArrowImageView.image = [UIImage imageNamed:@"tableview_arrow"];
+        [_rightView addSubview:rightArrowImageView];
         
         
-        
-        _setting_myQR = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-        _setting_myQR.image = qrIm;
-        self.accessoryView = _setting_myQR;
+        self.accessoryView = _rightView;
      
         
     }
@@ -205,7 +215,7 @@ static float  MYHEADERCELLHEIGHT = 90.f;
     _numberLabel.text = number;
     
     
-    [_headImageView setFrame:CGRectMake(Padding*2, Padding, MYHEADERCELLHEIGHT-Padding*2, MYHEADERCELLHEIGHT-Padding*2)];
+    [_headImageView setFrame:CGRectMake(14, 11, MYHEADERCELLHEIGHT-11*2, MYHEADERCELLHEIGHT-11*2)];
     _headImageView.layer.borderWidth = 1;
     _headImageView.layer.borderColor = [[UIColor grayColor] CGColor];
     _headImageView.layer.cornerRadius = 10;

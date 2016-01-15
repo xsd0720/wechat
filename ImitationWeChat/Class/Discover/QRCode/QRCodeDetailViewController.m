@@ -16,7 +16,7 @@
 
 -(UIWebView *)webView{
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-64, SCREEN_HEIGHT-64)];
+        _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:_webView];
     }
     return _webView;
@@ -25,7 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = _showQrData;
+    self.title = @"识别结果";
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.webView loadHTMLString:_showQrData baseURL:[NSURL URLWithString:@"http://www.baidu.com"]];
 }
 
 - (void)didReceiveMemoryWarning {

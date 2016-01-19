@@ -80,6 +80,7 @@
         [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:(_photoArr.count - 1) inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:NO];
         _shouldScrollToBottom = NO;
     }
+    
 }
 
 - (void)configBottomToolBar {

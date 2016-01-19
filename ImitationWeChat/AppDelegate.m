@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "LoadingViewController.h"
 #import "MyTabBarController.h"
+#import "SendTimeLineViewController.h"
+#import "MyNavViewController.h"
+
 #import <iflyMSC/iflyMSC.h>
 
 #define APPID_VALUE           @"569364d0"
@@ -36,8 +39,10 @@
 
 -(void)loadWindow{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
 
-    self.window.rootViewController=[[MyTabBarController alloc] init];
+    self.window.rootViewController= sendNav;
+//    self.window.rootViewController = [[MyTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
     

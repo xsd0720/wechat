@@ -7,15 +7,19 @@
 //
 
 #import "TimelineViewController.h"
+#import "LXActionSheet.h"
+#import "TZImagePickerController.h"
+#import "MyNavViewController.h"
+#import "SendTimeLineViewController.h"
 
 static NSString *TIMELINECELLIDENTIFIER = @"timeLineCellIdentifier";
 static CGFloat TABLEHEADERVIEHEIGHT = 300.0f;
 static CGFloat REFLASHMAXCENTERY = 100.0f;
 static CGFloat REFLSAHINITCENTERY = 40.0f;
 
-static CGFloat USERFACESIZE = 60.0f;
+static CGFloat USERFACESIZE = 75.0f;
 
-@interface TimelineViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface TimelineViewController ()<UITableViewDataSource,UITableViewDelegate, LXActionSheetDelegate, TZImagePickerControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     //是否正在刷新
     BOOL isRefreshing;
@@ -30,6 +34,12 @@ static CGFloat USERFACESIZE = 60.0f;
 @property (nonatomic, strong) UIImageView *userFaceImageView;
 
 @property (nonatomic, strong) UIView *tableViewHeaderView;
+
+@property (nonatomic, strong) LXActionSheet *actionSheet;
+
+@property (nonatomic, strong) TZImagePickerController *tzImagePickerController;
+
+@property (nonatomic, strong) UIImagePickerController *imagePickerController;
 @end
 
 @implementation TimelineViewController
@@ -96,6 +106,20 @@ static CGFloat USERFACESIZE = 60.0f;
     }
     return _timeLineTableView;
 }
+
+-(UIImagePickerController *)imagePickerController{
+    if (!_imagePickerController) {
+        _imagePickerController = [[UIImagePickerController alloc]init];
+        _imagePickerController.delegate = self;
+        _imagePickerController.navigationBar.barTintColor = [UIColor blackColor];
+        _imagePickerController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+        
+        //系统返回默认蓝色 改成白色
+        _imagePickerController.navigationBar.tintColor = [UIColor whiteColor];
+    }
+    return _imagePickerController;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -113,13 +137,91 @@ static CGFloat USERFACESIZE = 60.0f;
 -(void)setUpNav{
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"朋友圈";
+    
+    UIBarButtonItem *cameraButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barbuttonicon_Camera"] style:UIBarButtonItemStylePlain target:self action:@selector(cameraBarButtonClick)];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    negativeSpacer.width = -6;
+    
+    self.navigationItem.rightBarButtonItems = @[negativeSpacer, cameraButtonItem];
+    
+}
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barbuttonicon_Camera"] style:UIBarButtonItemStylePlain target:self action:@selector(cameraBarButtonClick)];
-    
-}
+//照相机
 -(void)cameraBarButtonClick{
+    self.actionSheet = [[LXActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"小视频", @"拍照", @"从手机相册选择", nil];
     
+    [self.actionSheet showInView:self.view];
+
 }
+
+#pragma mark - LxActionSheetDelegate
+- (void)didClickOnButtonIndex:(NSInteger *)buttonIndex
+{
+    switch ((int)buttonIndex) {
+        case 0:
+        {
+            NSLog(@"小视频");
+        }
+            break;
+        case 1:
+        {
+            NSLog(@"拍照");
+            if (![LWSystem isCanVisitCamera]) {
+                return;
+            }
+            
+            // 系统相机
+            self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:_imagePickerController animated:YES completion:^{
+            }];
+            
+        }
+            break;
+        case 2:
+        {
+            NSLog(@"从手机相册选择");
+            _tzImagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
+            _tzImagePickerController.allowPickingVideo = NO;
+            _tzImagePickerController.allowPickingOriginalPhoto = NO;
+            _tzImagePickerController.delegate = self;
+            [self presentViewController:_tzImagePickerController animated:YES completion:nil];
+            
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
+#pragma mark - imagepickerDelgate
+
+//  用户选中图片后的回调
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    //获得编辑过的图片
+    UIImage* image = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
+//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
+        [self presentViewController:sendNav animated:YES completion:nil];
+    }];
+}
+
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets
+{
+    NSLog(@"%@", photos);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
+        [self.navigationController presentViewController:sendNav animated:YES completion:nil];
+    });
+  
+}
+
 
 #pragma mark -  faceImgeViewCick
 -(void)faceImageViewClick{
@@ -137,6 +239,7 @@ static CGFloat USERFACESIZE = 60.0f;
     cell.textLabel.text = [NSString stringWithFormat:@"index %li",indexPath.row];
     return cell;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

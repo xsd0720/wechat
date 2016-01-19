@@ -80,7 +80,7 @@
         PHFetchOptions *option = [[PHFetchOptions alloc] init];
         if (!allowPickingVideo) option.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeImage];
         option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
-        
+       
         PHAssetCollectionSubtype smartAlbumSubtype = PHAssetCollectionSubtypeSmartAlbumUserLibrary | PHAssetCollectionSubtypeSmartAlbumRecentlyAdded | PHAssetCollectionSubtypeSmartAlbumVideos;
         // For iOS 9, We need to show ScreenShots Album && SelfPortraits Album
         if (iOS9Later) {
@@ -91,8 +91,9 @@
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:option];
             if (fetchResult.count < 1) continue;
             if ([collection.localizedTitle containsString:@"Deleted"]) continue;
-            if ([collection.localizedTitle isEqualToString:@"Camera Roll"]) {
+            if ([collection.localizedTitle isEqualToString:@"Camera Roll"] || [collection.localizedTitle isEqualToString:@"相机胶卷"]) {
                 [albumArr insertObject:[self modelWithResult:fetchResult name:collection.localizedTitle] atIndex:0];
+                self.savePhotosModel = [self modelWithResult:fetchResult name:collection.localizedTitle];
             } else {
                 [albumArr addObject:[self modelWithResult:fetchResult name:collection.localizedTitle]];
             }

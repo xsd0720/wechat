@@ -12,7 +12,7 @@
 
 @class TZAlbumModel,TZAssetModel;
 @interface TZImageManager : NSObject
-
+@property (nonatomic, strong) TZAlbumModel *savePhotosModel;
 + (instancetype)manager;
 
 /// Return YES if Authorized 返回YES如果得到了授权
@@ -35,6 +35,7 @@
 
 /// Get photo bytes 获得一组照片的大小
 - (void)getPhotosBytesWithArray:(NSArray *)photos completion:(void (^)(NSString *totalBytes))completion;
+
 
 @end
 // 版权属于原作者

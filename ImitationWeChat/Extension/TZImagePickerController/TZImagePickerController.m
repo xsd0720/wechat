@@ -47,7 +47,7 @@
     }
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:18];
     [barItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
 }
 
@@ -165,12 +165,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"照片";
+//    UIButton * button_cancel = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44.0f, 44.0f)];
+//    [button_cancel setTitle:@"取消" forState:UIControlStateNormal];
+//    [button_cancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [button_cancel addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button_cancel];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+
     TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
     [[TZImageManager manager] getAllAlbums:imagePickerVc.allowPickingVideo completion:^(NSArray<TZAlbumModel *> *models) {
         _albumArr = [NSMutableArray arrayWithArray:models];
         [self configTableView];
     }];
+    
+    TZPhotoPickerController *photoPickerVc = [[TZPhotoPickerController alloc] init];
+    photoPickerVc.model = [TZImageManager manager].savePhotosModel;
+    [self.navigationController pushViewController:photoPickerVc animated:NO];
 }
 
 - (void)configTableView {

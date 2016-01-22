@@ -64,6 +64,11 @@
  */
 @property (nonatomic,strong) NSArray *bottleChooseSubViewData;
 
+/*
+ SendTimeLineViewController ChooseTabbar Datasource
+ */
+@property (nonatomic, strong) NSArray *sendTimeLineTableData;
+
 @property (nonatomic, strong) NSArray *walletData;
 
 /*

@@ -27,7 +27,7 @@
     // Override point for customization after application launch.
     
     //加载讯飞语音加载讯飞语音加载讯飞语音
-    [self loadXunFei];
+//    [self loadXunFei];
     
     //加载windows rootViewController
     [self loadWindow];
@@ -39,10 +39,10 @@
 
 -(void)loadWindow{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
-
-    self.window.rootViewController= sendNav;
-//    self.window.rootViewController = [[MyTabBarController alloc] init];
+//    MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
+//
+//    self.window.rootViewController= sendNav;
+    self.window.rootViewController = [[MyTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
     

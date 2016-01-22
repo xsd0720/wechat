@@ -593,4 +593,27 @@
 
 }
 
+- (NSArray *)sendTimeLineTableData
+{
+    return @[
+             @[
+                 @{
+                     @"text":@"所在位置",
+                     @"image":@"AlbumLocationIcon"
+                     }
+                 ],
+             @[
+                 @{
+                     @"text":@"谁可以看",
+                     @"image":@"AlbumGroupIcon"
+                     },
+                 @{
+                     @"text":@"提醒谁看",
+                     @"image":@"AlbumMentionIcon"
+                     }
+                 ]
+             ];
+
+}
+
 @end

@@ -10,4 +10,6 @@
 #import "BaseViewController.h"
 @interface SendTimeLineViewController :BaseViewController
 
+@property (nonatomic, strong) NSMutableArray *photosArray;
+
 @end

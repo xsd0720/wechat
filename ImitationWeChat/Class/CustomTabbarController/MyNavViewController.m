@@ -26,8 +26,8 @@
   
     //系统返回默认蓝色 改成白色
     self.navigationBar.tintColor = [UIColor whiteColor];
-    
-    
+    self.navigationBar.backgroundColor = [UIColor clearColor];
+    self.navigationBar.opaque = YES;
     navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationBar];
     [navBarHairlineImageView addSubview:self.navBarHairlineView];
     

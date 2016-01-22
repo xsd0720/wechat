@@ -85,7 +85,6 @@ static CGFloat USERFACESIZE = 75.0f;
     if (!_tableViewHeaderView) {
         _tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TABLEHEADERVIEHEIGHT+50.0f)];
         _tableViewHeaderView.backgroundColor = [UIColor whiteColor];
-        
         [_tableViewHeaderView addSubview:self.tableViewHeaderViewBg];
     }
     return _tableViewHeaderView;
@@ -206,17 +205,19 @@ static CGFloat USERFACESIZE = 75.0f;
 //    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     [picker dismissViewControllerAnimated:YES completion:^{
-        MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
-        [self presentViewController:sendNav animated:YES completion:nil];
+        SendTimeLineViewController *sendTimeLineVC = [[SendTimeLineViewController alloc] init];
+        sendTimeLineVC.photosArray = [NSMutableArray arrayWithArray:@[image]];
+        MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:sendTimeLineVC];
+        [self.navigationController presentViewController:sendNav animated:YES completion:nil];
     }];
 }
 
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets
 {
-    NSLog(@"%@", photos);
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
+        SendTimeLineViewController *sendTimeLineVC = [[SendTimeLineViewController alloc] init];
+        sendTimeLineVC.photosArray = [NSMutableArray arrayWithArray:photos];
+        MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:sendTimeLineVC];
         [self.navigationController presentViewController:sendNav animated:YES completion:nil];
     });
   

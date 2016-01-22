@@ -39,12 +39,17 @@
 // 实时系统状态栏高度+导航栏高度，如有热点栏，其高度包含在APP_STATUSBAR_HEIGHT中。
 #define STATUS_AND_NAV_BAR_HEIGHT                    (APP_STATUSBAR_HEIGHT+NAVIGATIONBAR_HEIGHT)
 
+
 //获取屏幕 宽度、高度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 //获取屏幕宽高（没有有状态栏的）
 #define MRScreenWidth  CGRectGetWidth([UIScreen mainScreen].applicationFrame)
 #define MRScreenHeight CGRectGetHeight([UIScreen mainScreen].applicationFrame)
+//  屏幕适配
+#define SCREEN_X (320.0f * SCREEN_WIDTH)
+#define SCREEN_Y (568.0f * SCREEN_HEIGHT)
+
 //#define YHBViewGeight(view)  CGRectGetHeight()
 //获取沙盒路径
 #define DocumentPath  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]

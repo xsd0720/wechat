@@ -11,7 +11,7 @@
 #import "TZImagePickerController.h"
 #import "MyNavViewController.h"
 #import "SendTimeLineViewController.h"
-
+#import "SightViewController.h"
 static NSString *TIMELINECELLIDENTIFIER = @"timeLineCellIdentifier";
 static CGFloat TABLEHEADERVIEHEIGHT = 300.0f;
 static CGFloat REFLASHMAXCENTERY = 100.0f;
@@ -162,6 +162,10 @@ static CGFloat USERFACESIZE = 75.0f;
         case 0:
         {
             NSLog(@"小视频");
+            SightViewController *sightViewController = [[SightViewController alloc] init];
+            MyNavViewController *signtMyNav = [[MyNavViewController alloc] initWithRootViewController:sightViewController];
+            [self presentViewController:signtMyNav animated:YES completion:nil];
+            
         }
             break;
         case 1:

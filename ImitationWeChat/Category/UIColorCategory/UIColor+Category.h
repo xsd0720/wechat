@@ -10,4 +10,6 @@
 
 @interface UIColor (Category)
 -(BOOL)isDarkColor:(UIColor *)newColor;
+
++ (UIColor *)getColor:(NSString *)stringToConvert;
 @end

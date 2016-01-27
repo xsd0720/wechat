@@ -19,4 +19,5 @@
 #import "UIView+Toast.h"
 #import "NSString+pinyin.h"
 #import "DataSource.h"
+#import "UIColor+Category.h"
 #endif

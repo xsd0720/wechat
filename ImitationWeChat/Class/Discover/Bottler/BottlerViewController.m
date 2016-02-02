@@ -8,6 +8,7 @@
 
 #import "BottlerViewController.h"
 #import "ChooseTabbar.h"
+#import "WaterPointControl.h"
 @interface BottlerViewController ()<ChooseTabbarDelegate>
 {
     //漂流瓶背景图
@@ -22,12 +23,18 @@
     //star
     UIImageView *bottleSomethingImageView;
     
+    //bottle
+    UIButton *bottleButton;
+    
     //工具栏
     ChooseTabbar *chooseTabbar;
     
-    
+    //水花
+    UIImageView *fishWaterImageView;
     
 }
+
+@property (nonatomic, strong) WaterPointControl *waterPointControl;
 
 @end
 
@@ -59,6 +66,15 @@
     pickUpImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     pickUpImageView.image = [UIImage imageWithContentsOfFile:path];
     [self.view addSubview:pickUpImageView];
+    
+    [self setUpFishWater];
+    
+    //创建椭圆，产生随机坐标
+    self.waterPointControl = [[WaterPointControl alloc] initOvalInRect:CGRectMake(55*self.view.bounds.size.width/320, 270*self.view.bounds.size.height/568, 210*self.view.bounds.size.width/320, 75*self.view.bounds.size.height/568)];
+    
+    
+    
+    
 }
 -(void)setUpBottlerBoard{
     UIImage *bottleBardImage = [UIImage imageNamed:@"bottleBoard"];
@@ -68,7 +84,10 @@
     bottleBoardImageView.image = bottleBardImage;
     [self.view addSubview:bottleBoardImageView];
 }
--(void)setUpBottleSomeThingImageView{
+- (void)setUpBottleSomeThingImageView{
+    
+    
+    
     UIImage *imageSomeThing = [UIImage imageNamed:@"bottleStarfish"];
     CGFloat imageSomeThingW = imageSomeThing.size.width;
     CGFloat imageSomeThingH = imageSomeThing.size.height;
@@ -76,7 +95,74 @@
     bottleSomethingImageView.image = imageSomeThing;
     bottleSomethingImageView.center = self.view.center;
     [self.view addSubview:bottleSomethingImageView];
+    
+    //添加动画
+    [self addAnimationToLayer:bottleSomethingImageView.layer];
 }
+
+- (void)setUpBottleButton
+{
+    //随机判断产生语音的还是文字的
+    NSString *imageName = @"bottleWriting";
+    int random = arc4random()%5;
+    if (random-3==0) {
+        imageName = @"bottleRecord";
+    }
+    UIImage *bottleImage = [UIImage imageNamed:imageName];
+    CGFloat bottleImageW = bottleImage.size.width;
+    CGFloat bottleImageH = bottleImage.size.height;
+    bottleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [bottleButton setImage:bottleImage forState:UIControlStateNormal];
+    bottleButton.frame = CGRectMake(0, 0, bottleImageW, bottleImageH);
+    bottleButton.center = self.view.center;
+    [bottleButton addTarget:self action:@selector(bottleButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bottleButton];
+    
+    //添加动画
+    [self addAnimationToLayer:bottleButton.layer];
+}
+
+- (void)addAnimationToLayer:(CALayer *)layer
+{
+    CABasicAnimation *momAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    momAnimation.fromValue = [NSNumber numberWithFloat:-0.2];
+    momAnimation.toValue = [NSNumber numberWithFloat:0.2];
+    momAnimation.duration = 1;
+    momAnimation.repeatCount = CGFLOAT_MAX;
+    momAnimation.autoreverses = YES;
+    momAnimation.delegate = self;
+    [layer addAnimation:momAnimation forKey:@"animateLayer"];
+    
+
+    CABasicAnimation *theAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    theAnimation.duration = 1.0;
+    theAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    theAnimation.toValue =[NSNumber numberWithFloat:0.5];
+    theAnimation.autoreverses = YES;
+    theAnimation.repeatCount = CGFLOAT_MAX;
+    [layer addAnimation:theAnimation forKey:@"animateOpacity"];
+    
+    //4秒后消失
+    [self performSelector:@selector(disAppearBottoleSomething) withObject:nil afterDelay:4];
+}
+
+//加载水花动画
+- (void)setUpFishWater
+{
+    
+    fishWaterImageView =[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WATERIMAGEVIEWWIDTH, WATERIMAGEVIEWHEIGHT)];
+    [self.view addSubview:fishWaterImageView];
+    
+    //设置动画帧
+    fishWaterImageView.animationImages=[NSArray arrayWithObjects:
+                             [UIImage imageNamed:@"fishwater"],
+                             [UIImage imageNamed:@"fishwater2"],
+                             [UIImage imageNamed:@"fishwater3"], nil];
+    
+    //设置动画总时间
+    fishWaterImageView.animationDuration = 0.8;
+}
+
 #pragma mark ChooseTabbar
 
 //加载功能选择
@@ -117,19 +203,66 @@
 
 //捡一个
 -(void)pickUp{
+    //隐藏工具栏
     bottleBoardImageView.hidden = YES;
     chooseTabbar.hidden = YES;
     
+    //添加打渔图
     [self settUpPickUpImageView];
-    [self setUpBottleSomeThingImageView];
-    [self performSelector:@selector(endPickUp) withObject:nil afterDelay:2.f];
+
+    //设置水花产生坐标
+    fishWaterImageView.center = [self.waterPointControl getRandomPoint];
+
+    //水花开始迸溅
+    [fishWaterImageView startAnimating];
+    
+    //2s 后出现水花消失，出现打捞物
+    [self performSelector:@selector(endPickUp) withObject:nil afterDelay:1.f];
+
 }
 -(void)endPickUp{
-    bottleBoardImageView.hidden = NO;
-    chooseTabbar.hidden = NO;
-    [pickUpImageView removeFromSuperview];
+    //停止水花动画
+    [fishWaterImageView stopAnimating];
+    
+    //随机生成星星或者瓶子
+    int random = arc4random()%10;
+    if (random%3 == 0) {
+        [self setUpBottleSomeThingImageView];
+    }else
+    {
+       [self setUpBottleButton];
+    }
     
 }
+
+- (void)disAppearBottoleSomething
+{
+    if (bottleSomethingImageView.superview) {
+        [pickUpImageView.layer removeAllAnimations];
+        //移除遮罩
+        [pickUpImageView removeFromSuperview];
+        //显示工具栏
+        bottleBoardImageView.hidden = NO;
+        chooseTabbar.hidden = NO;
+        [bottleSomethingImageView removeFromSuperview];
+    }
+    else if(bottleButton.superview)
+    {
+        [bottleButton.layer removeAllAnimations];
+    }
+   
+}
+
+- (void)bottleButtonClick
+{
+    //移除遮罩
+    [pickUpImageView removeFromSuperview];
+    //显示工具栏
+    bottleBoardImageView.hidden = NO;
+    chooseTabbar.hidden = NO;
+    [bottleButton removeFromSuperview];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

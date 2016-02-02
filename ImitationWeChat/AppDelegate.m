@@ -11,8 +11,9 @@
 #import "MyTabBarController.h"
 #import "SendTimeLineViewController.h"
 #import "MyNavViewController.h"
-
+#import "TopWindow.h"
 #import <iflyMSC/iflyMSC.h>
+#import "BottlerViewController.h"
 
 #define APPID_VALUE           @"569364d0"
 
@@ -31,7 +32,8 @@
     
     //加载windows rootViewController
     [self loadWindow];
-
+    
+//    [TopWindow show];
     
     return YES;
 }
@@ -42,7 +44,7 @@
 //    MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
 //
 //    self.window.rootViewController= sendNav;
-    self.window.rootViewController = [[MyTabBarController alloc] init];
+    self.window.rootViewController = [[BottlerViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     

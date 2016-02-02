@@ -10,6 +10,7 @@
 #import "TVViewController.h"
 #import "MyProfileViewController.h"
 #import "WalletViewController.h"
+#import "TestViewController.h"
 static NSString *MYCELLIDENTIFIER = @"mycellidentifier";
 static NSString *MYHEADERCELLIDENTIFIER = @"mycellheadercellidentifier";
 static float  MYHEADERCELLHEIGHT = 87.f;
@@ -128,7 +129,9 @@ static float  MYHEADERCELLHEIGHT = 87.f;
     }
     //卡包
     else if (indexPath.section == 1&&indexPath.row == 3){
-        
+        TestViewController *tes = [[TestViewController alloc] init];
+        tes.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:tes animated:YES];
     }
     //表情
     else if (indexPath.section == 2&&indexPath.row == 0){

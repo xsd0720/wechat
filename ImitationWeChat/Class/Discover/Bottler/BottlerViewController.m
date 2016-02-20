@@ -67,6 +67,12 @@
     pickUpImageView.image = [UIImage imageWithContentsOfFile:path];
     [self.view addSubview:pickUpImageView];
     
+    pickUpImageView.alpha = 0.5;
+    [UIView animateWithDuration:0.2 animations:^{
+        pickUpImageView.alpha = 1;
+    }];
+    
+    
     [self setUpFishWater];
     
     //创建椭圆，产生随机坐标

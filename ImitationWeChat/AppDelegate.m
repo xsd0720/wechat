@@ -44,7 +44,7 @@
 //    MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
 //
 //    self.window.rootViewController= sendNav;
-    self.window.rootViewController = [[BottlerViewController alloc] init];
+    self.window.rootViewController = [[MyTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
     

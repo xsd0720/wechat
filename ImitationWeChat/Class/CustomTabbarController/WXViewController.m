@@ -8,7 +8,7 @@
 
 #import "WXViewController.h"
 #import "WxTableCell.h"
-
+#import "EyeLayer.h"
 #import "CustomSearchViewController.h"
 #import "SearchViewShowController.h"
 #import "KxMenu.h"
@@ -29,6 +29,11 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 
 @property (nonatomic, strong) UIScrollView *fts_eduScrollview;
 
+
+@property (nonatomic, strong) UIView *wxTableHeaderView;
+
+@property (nonatomic, strong) EyeLayer *eyeLayer;
+
 @end
 
 @implementation WXViewController
@@ -46,14 +51,36 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
         [_wxTableView setExclusiveTouch:YES];
     
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-50)/2, -80, 50, 50)];
-        imageView.image = [UIImage imageNamed:@"ChatListBackgroundLogo"];
-        [_wxTableView addSubview:imageView];
+//        _wxTableView.tableHeaderView = self.eyeLayer;
+        
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-50)/2, -80, 50, 50)];
+//        imageView.image = [UIImage imageNamed:@"ChatListBackgroundLogo"];
+        [_wxTableView addSubview:self.wxTableHeaderView];
+        
     
         
     }
     return _wxTableView;
 }
+
+- (UIView *)wxTableHeaderView
+{
+    if (!_wxTableHeaderView) {
+        _wxTableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, -200, SCREEN_WIDTH, 200)];
+        _wxTableHeaderView.backgroundColor = [UIColor blackColor];
+        [_wxTableHeaderView addSubview:self.eyeLayer];
+    }
+    return _wxTableHeaderView;
+}
+
+- (EyeLayer *)eyeLayer
+{
+    if (!_eyeLayer) {
+        _eyeLayer = [[EyeLayer alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-EyeLayerWidth)/2, 150, EyeLayerWidth, EyeLayerHeight)];
+    }
+    return _eyeLayer;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -244,6 +271,14 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
     
     [[self.navigationController.view viewWithTag:100] removeFromSuperview];
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y<0) {
+        [self.eyeLayer animationWith:scrollView.contentOffset.y];
+    }
+   
+}
+
 - (void)didDismissSearchController:(UISearchController *)searchController
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

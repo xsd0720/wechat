@@ -81,7 +81,7 @@
         }
         if (i == 0) {
             cuteView = [[KYCuteView alloc]initWithPoint:CGPointMake(tabbrItem.center.x+10.f, 0) superView:tabbrItem];
-            cuteView.viscosity  = 10;
+            cuteView.viscosity  = 20;
             cuteView.bubbleWidth = 20;
             cuteView.bubbleColor = [UIColor redColor];
             [cuteView setUp];

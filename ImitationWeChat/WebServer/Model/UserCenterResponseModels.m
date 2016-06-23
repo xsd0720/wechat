@@ -13,7 +13,7 @@
 @end
 
 
-@implementation ResponseModelBase
+@implementation RequestsnsResponse
 
 @end
 

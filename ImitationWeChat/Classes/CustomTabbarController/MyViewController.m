@@ -11,6 +11,7 @@
 #import "MyProfileViewController.h"
 #import "WalletViewController.h"
 #import "TestViewController.h"
+#import "SettingViewController.h"
 static NSString *MYCELLIDENTIFIER = @"mycellidentifier";
 static NSString *MYHEADERCELLIDENTIFIER = @"mycellheadercellidentifier";
 static float  MYHEADERCELLHEIGHT = 87.f;
@@ -139,7 +140,9 @@ static float  MYHEADERCELLHEIGHT = 87.f;
     }
     //设置
     else if (indexPath.section == 3&&indexPath.row == 0){
-        
+        SettingViewController *settingVC = [[SettingViewController alloc] init];
+        settingVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:settingVC animated:YES];
     }
     //电视直播
     else if (indexPath.section == 3&&indexPath.row == 1){

@@ -131,6 +131,7 @@
 		0C80CC071D1AB25400D75290 /* UserCenterResponseModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC061D1AB25400D75290 /* UserCenterResponseModels.m */; };
 		0C80CC0A1D1AB2A600D75290 /* UserCenterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC091D1AB2A600D75290 /* UserCenterRequest.m */; };
 		0C80CC0D1D1AB2FA00D75290 /* ResponseSuccessBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */; };
+		0C8873321D1C010700BF754D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8873311D1C010700BF754D /* SettingViewController.m */; };
 		0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA730D1C574C220020AB90 /* CycleScrollView.m */; };
 		0CEA73141C574C220020AB90 /* NSTimer+CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA73111C574C220020AB90 /* NSTimer+CycleScrollView.m */; };
 		0CEA73171C574C4E0020AB90 /* CycleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA73161C574C4E0020AB90 /* CycleImageView.m */; };
@@ -464,6 +465,8 @@
 		0C80CC091D1AB2A600D75290 /* UserCenterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterRequest.m; sourceTree = "<group>"; };
 		0C80CC0B1D1AB2FA00D75290 /* ResponseSuccessBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseSuccessBlocks.h; sourceTree = "<group>"; };
 		0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseSuccessBlocks.m; sourceTree = "<group>"; };
+		0C8873301D1C010700BF754D /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		0C8873311D1C010700BF754D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		0CEA730C1C574C220020AB90 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
 		0CEA730D1C574C220020AB90 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
 		0CEA73101C574C220020AB90 /* NSTimer+CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+CycleScrollView.h"; sourceTree = "<group>"; };
@@ -967,6 +970,9 @@
 		0C80CB291D1A3A8100D75290 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				0C88732D1D1C00E300BF754D /* Setting */,
+				0C88732E1D1C00E300BF754D /* Face */,
+				0C88732F1D1C00E300BF754D /* Collect */,
 				0C80CB2A1D1A3A8100D75290 /* MyProfile */,
 				0C80CB2D1D1A3A8100D75290 /* TV */,
 				0C80CB301D1A3A8100D75290 /* Wallet */,
@@ -1160,6 +1166,29 @@
 				0C80CBFA1D1A9FAC00D75290 /* NSArray+YXInfo.m */,
 			);
 			path = NSArrayCategory;
+			sourceTree = "<group>";
+		};
+		0C88732D1D1C00E300BF754D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				0C8873301D1C010700BF754D /* SettingViewController.h */,
+				0C8873311D1C010700BF754D /* SettingViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		0C88732E1D1C00E300BF754D /* Face */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Face;
+			sourceTree = "<group>";
+		};
+		0C88732F1D1C00E300BF754D /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Collect;
 			sourceTree = "<group>";
 		};
 		0CEA730B1C574C220020AB90 /* CycleScrollView */ = {
@@ -1665,6 +1694,7 @@
 				0C80CBE61D1A4ACD00D75290 /* UIImage+type.m in Sources */,
 				0C043D031C4E42E70093410F /* SDWebImageDownloaderOperation.m in Sources */,
 				0C80CBD71D1A4ACD00D75290 /* NSString+md5.m in Sources */,
+				0C8873321D1C010700BF754D /* SettingViewController.m in Sources */,
 				0C043CB91C4E420B0093410F /* MJPhotoLoadingView.m in Sources */,
 				2E61510C1B5CDE0F007196E2 /* KYCuteView.m in Sources */,
 				0C0898651C3B51FD006A037F /* LWSystem.m in Sources */,

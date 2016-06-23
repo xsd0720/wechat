@@ -12,6 +12,7 @@
 #import "CustomSearchViewController.h"
 #import "SearchViewShowController.h"
 #import "KxMenu.h"
+#import "UserCenterRequest.h"
 #define SEARCHBARHEIGHT        44
 static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 
@@ -93,6 +94,26 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
     [self.searchController.searchBar sizeToFit];
     self.searchController.delegate = self;
     self.wxTableView.tableHeaderView = _searchController.searchBar;
+    
+    
+ 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+//    [UserCenterRequest loginWithMobile:@"12414234" password:@"23424" success:^(LoginResponse *responsObject) {
+//        NSLog(@"%@", responsObject);
+//    } failure:^(NSError *error) {
+//        
+//    }];
+
+    [UserCenterRequest registerWithUserName:@"datou" mobile:@"18888888888" password:@"123456" success:^(LoginResponse *responsObject) {
+        NSLog(@"%@", responsObject);
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

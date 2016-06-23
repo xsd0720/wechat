@@ -50,7 +50,7 @@ static const char associatedkey;
     //    }
     
     //拼接完整请求链接
-    URLString = [NSString stringWithFormat:@"%@%@", LWHttpHead , URLString ];
+    URLString = [NSString stringWithFormat:@"%@%@", HttpHead , URLString ];
     
     
     //发起请求
@@ -69,7 +69,7 @@ static const char associatedkey;
               */
              //判断是否有数据
              if(responseObject){
-                 
+                  success(responseObject);
                  //判断请求状态是否成功
                  if ([[responseObject objectForKey:@"status"] isEqualToString:@"OK"]) {
                      success(responseObject);
@@ -147,7 +147,7 @@ static const char associatedkey;
     LWLog(@"parameters%@", parameters);
 //    NSString *str = [[LWErrorTool sharedTool]getHttpHead];
     //拼接完整请求链接
-    URLString = [NSString stringWithFormat:@"%@%@", LWHttpHead , URLString ];
+    URLString = [NSString stringWithFormat:@"%@%@", HttpHead , URLString ];
     
     //发起请求
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
@@ -163,53 +163,53 @@ static const char associatedkey;
                */
               //判断是否有数据
               if(responseObject){
-                  
-                  //判断请求状态是否成功
-                  if ([[responseObject objectForKey:@"status"] isEqualToString:@"OK"]) {
-                      success(responseObject);
-                  }
-                  else
-                  {
-                      int status_code = [[responseObject objectForKey:@"status_code"] intValue];
-                      
-                      //如果返回9 则退出登录
-                      if ( (status_code == 9) || (status_code == 1) ) {
-//                          UIViewController *controller = KEY_WINDOW.rootViewController.presentedViewController;
-//                          LWLog(@"%@",controller);
-//                          
-//                          if (status_code == 9) {
-//                              [MBProgressHUD showError:@"用户信息过期，请重新登录"];
-//                          }else{
-//                              [MBProgressHUD showError:@"用户信息过期，请重新登录"];
-//                          }
-//                          
-//                          //                         LWNavigationController *nav = KEY_WINDOW.rootViewController.childViewControllers[0];
-//                          //
-//                          //                          UIViewController *viewcontroller = nav.viewControllers[nav.viewControllers.count-1];
-//                          //
-//                          //
-//                          //                          //如果已经推出了个人也 则把个人页拉下来
-//                          //                          if (KEY_WINDOW.rootViewController.presentedViewController && [viewcontroller isKindOfClass:[LWPersonalDataViewController class]]) {
-//                          //                              [viewcontroller.navigationController popViewControllerAnimated:YES];
-//                          //                          }
-//                          
-//                          [[LWLocalManager sharedManager]logOut];
-//                          [[LWLocalManager sharedManager]save];
-                      }
-                      
-                      
-                      NSString *domain = [responseObject objectForKey:@"status"];
-                      
-//                      if ([NSString isBlankString:domain]) {
-//                          domain = @"";
+                  success(responseObject);
+//                  //判断请求状态是否成功
+//                  if ([[responseObject objectForKey:@"status"] isEqualToString:@"OK"]) {
+//                      success(responseObject);
+//                  }
+//                  else
+//                  {
+//                      int status_code = [[responseObject objectForKey:@"status_code"] intValue];
+//                      
+//                      //如果返回9 则退出登录
+//                      if ( (status_code == 9) || (status_code == 1) ) {
+////                          UIViewController *controller = KEY_WINDOW.rootViewController.presentedViewController;
+////                          LWLog(@"%@",controller);
+////                          
+////                          if (status_code == 9) {
+////                              [MBProgressHUD showError:@"用户信息过期，请重新登录"];
+////                          }else{
+////                              [MBProgressHUD showError:@"用户信息过期，请重新登录"];
+////                          }
+////                          
+////                          //                         LWNavigationController *nav = KEY_WINDOW.rootViewController.childViewControllers[0];
+////                          //
+////                          //                          UIViewController *viewcontroller = nav.viewControllers[nav.viewControllers.count-1];
+////                          //
+////                          //
+////                          //                          //如果已经推出了个人也 则把个人页拉下来
+////                          //                          if (KEY_WINDOW.rootViewController.presentedViewController && [viewcontroller isKindOfClass:[LWPersonalDataViewController class]]) {
+////                          //                              [viewcontroller.navigationController popViewControllerAnimated:YES];
+////                          //                          }
+////                          
+////                          [[LWLocalManager sharedManager]logOut];
+////                          [[LWLocalManager sharedManager]save];
 //                      }
-                      
-                      NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"status_code"] intValue] userInfo:nil];
-                      
-                      //状态失败，返回错误信息和错误代码
-                      LWLog(@"%@😄😄😄😄😄😄😄😄", responseObject);
-                      failure(error);
-                  }
+//                      
+//                      
+//                      NSString *domain = [responseObject objectForKey:@"status"];
+//                      
+////                      if ([NSString isBlankString:domain]) {
+////                          domain = @"";
+////                      }
+//                      
+//                      NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"status_code"] intValue] userInfo:nil];
+//                      
+//                      //状态失败，返回错误信息和错误代码
+//                      LWLog(@"%@😄😄😄😄😄😄😄😄", responseObject);
+//                      failure(error);
+//                  }
                   
               }
               else

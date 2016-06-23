@@ -12,5 +12,5 @@ static const char associatedkey;
 
 #import "UIView+Extention.h"
 #import "UIImageView+WebCache.h"
-
+#import "NSString+md5.h"
 #endif

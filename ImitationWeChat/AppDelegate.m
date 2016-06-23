@@ -14,7 +14,7 @@
 #import "TopWindow.h"
 #import <iflyMSC/iflyMSC.h>
 #import "BottlerViewController.h"
-
+#import "UserCenterRequest.h"
 #define APPID_VALUE           @"569364d0"
 
 @interface AppDelegate ()
@@ -34,6 +34,9 @@
     [self loadWindow];
     
 //    [TopWindow show];
+    
+    
+    
     
     return YES;
 }

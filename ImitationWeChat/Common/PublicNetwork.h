@@ -16,18 +16,18 @@
 
 #ifdef DEBUG
 
-#define LWHttpHead            @"123.57.207.48"
+#define HttpHead            @"http://127.0.0.1:8000"
 
-//#define LWHttpHead             @"182.92.23.2"
+//#define HttpHead             @"182.92.23.2"
 
-#define LWShareHttpHead        @"http://lilslb.com"
+#define ShareHttpHead        @"http://lilslb.com"
 
 #else
 
-//#define LWHttpHead             @"182.92.23.2"
-#define LWHttpHead            @"123.57.207.48"
+//#define HttpHead             @"182.92.23.2"
+#define HttpHead            @"123.57.207.48"
 
-#define LWShareHttpHead        @"http://lilslb.com"
+#define ShareHttpHead        @"http://lilslb.com"
 
 #endif
 
@@ -36,89 +36,89 @@
 /**
  *  注册
  */
-#define LWRegisURL              @"/account/register"
+#define RegisURL              @"/account/register"
 
 /**
  *  登录
  */
-#define LWLoginURL              @"/account/login"
+#define LoginURL              @"/account/login"
 
 /**
  *  登出
  */
-#define LWLogoutURL             @"/account/logout"
+#define LogoutURL             @"/account/logout"
 
 /**
  *  忘记密码
  */
-#define LWForgetURL             @"/account/forget"
+#define ForgetURL             @"/account/forget"
 
 /**
  *  个人简介
  */
-#define LWProfileURL            @"/account/profile"
+#define ProfileURL            @"/account/profile"
 
 /**
  *  个人简介更新
  */
-#define LWUpdateURL             @"/account/update"
+#define UpdateURL             @"/account/update"
 
 /**
  *  手机号码修改
  */
-#define LWUpdatemobileURL       @"/account/updatemobile"
+#define UpdatemobileURL       @"/account/updatemobile"
 
 /**
  *  用户名修改
  */
-#define LWUpdateusernameURL     @"/account/updateusername"
+#define UpdateusernameURL     @"/account/updateusername"
 
 
 /**
  *  七牛上传图片token
  */
-#define LWQiniutokenURL         @"/account/qiniutoken"
+#define QiniutokenURL         @"/account/qiniutoken"
 
 /**
  *  发送验证码
  */
-#define LWRequestsnsURL         @"/account/requestsns"
+#define RequestsnsURL         @"/account/requestsns"
 
 /**
  *  验证验证码
  */
-#define LWCheckvcodeURL         @"/account/checkvcode"
+#define CheckvcodeURL         @"/account/checkvcode"
 
 /**
  *  三方登录
  */
-#define LWLoginFromThirdURL     @"/account/loginfromthird"
+#define LoginFromThirdURL     @"/account/loginfromthird"
 
 /**
  *  绑定第三方账号
  */
-#define LWBindThirdAccountURL   @"/account/bindthirdaccount"
+#define BindThirdAccountURL   @"/account/bindthirdaccount"
 
 /**
  *  忘记密码修改密码
  */
-#define LWUpdateuserpsdURL     @"/account/updateuserpsd"
+#define UpdateuserpsdURL     @"/account/updateuserpsd"
 
 /**
  *  修改头像
  */
-#define LWChangeheadpic         @"/account/changeheadpic"
+#define Changeheadpic         @"/account/changeheadpic"
 
 /*
  *  获取我的QA评论
  */
-#define LWGetqalist            @"/account/getqalist"
+#define Getqalist            @"/account/getqalist"
 
 
 /**
  *  更改各个通知的状态
  */
-#define LWChangenotif            @"/account/changenotif"
+#define Changenotif            @"/account/changenotif"
 
 
 #pragma mark -  video(视频) -
@@ -126,18 +126,18 @@
 /**
  *  视频列表
  */
-#define LWGetVideoListURL       @"/video/v2/getlist"
+#define GetVideoListURL       @"/video/v2/getlist"
 
 
 /**
  *  关注的自媒体人视频列表
  */
-#define LWGetFollowListURL       @"/video/getfollowlist"
+#define GetFollowListURL       @"/video/getfollowlist"
 
 /**
  *  视频详情
  */
-#define LWGetVideoDetailURL     @"/video/getdetail"
+#define GetVideoDetailURL     @"/video/getdetail"
 
 
 #pragma mark -  comment(评论) -
@@ -145,17 +145,17 @@
 /**
  *  评论列表
  */
-#define LWGetCommentListURL     @"/comment/getlist"
+#define GetCommentListURL     @"/comment/getlist"
 
 /**
  *  回答的回复列表
  */
-#define LWGetQAreplylist        @"/comment/getqareplylist"
+#define GetQAreplylist        @"/comment/getqareplylist"
 
 /**
  *  发表评论
  */
-#define LWCommentPostURL        @"/comment/post"
+#define CommentPostURL        @"/comment/post"
 
 
 
@@ -163,233 +163,233 @@
 /**
  *  评论投票
  */
-#define LWCommentVoteURL        @"/comment/vote"
+#define CommentVoteURL        @"/comment/vote"
 /**
  *  踩投票
  */
-#define LWCommentUnVoteURL      @"/comment/unvote"
+#define CommentUnVoteURL      @"/comment/unvote"
 /**
  *  获取热门评论
  */
-#define LWGethotlistURL         @"/comment/gethotlist"
+#define GethotlistURL         @"/comment/gethotlist"
 
 /**
  *  通过评论ids获取评论详情
  */
-#define LWGetCommentByIdsURL       @"/comment/getcommentbyids"
+#define GetCommentByIdsURL       @"/comment/getcommentbyids"
 
 /**
  *  获取评论总分
  */
-#define LWGetCommentGetscoreURL       @"/comment/getscore"
+#define GetCommentGetscoreURL       @"/comment/getscore"
 
 /**
  *  回复评论
  */
-#define LWReplyCommentURL             @"/comment/reply"
+#define ReplyCommentURL             @"/comment/reply"
 
 /*
  *  通过用户获取评论/回复列表
  */
-#define LWGetcommentGetlistbyuserURL       @"/comment/getlistbyuser"
+#define GetcommentGetlistbyuserURL       @"/comment/getlistbyuser"
 
 /**
  *  关注
  */
-#define LWFollowURL             @"/followship/follow"
+#define FollowURL             @"/followship/follow"
 
 
 /**
  *  取消关注
  */
-#define LWUnFollowURL           @"/followship/unfollow"
+#define UnFollowURL           @"/followship/unfollow"
 
 
 /**
  *  关注的自媒体人列表
  */
-#define LWFolloweesURL          @"/followship/getfollowees"
+#define FolloweesURL          @"/followship/getfollowees"
 
 
 /**
  *  搜索
  */
-#define LWSearchURL             @"/search/search"
+#define SearchURL             @"/search/search"
 
 
 /**
  *  热搜列表
  */
-#define LWSearchSuggestionURL   @"/search/suggest"
+#define SearchSuggestionURL   @"/search/suggest"
 
 
 /**
  *  自媒体人个人信息
  */
-#define LWJournalistsGetprofileURL     @"/journalists/getprofile"
+#define JournalistsGetprofileURL     @"/journalists/getprofile"
 
 
 /**
  *  自媒体人videolist
  */
-#define LWJournalistsGetVideosURL      @"/journalists/getvideos"
+#define JournalistsGetVideosURL      @"/journalists/getvideos"
 
 
 /**
  *  获取自媒体人评论列表
  */
-#define LWJournalistsGetcommentsURL    @"/journalists/getcomments"
+#define JournalistsGetcommentsURL    @"/journalists/getcomments"
 
 /**
  *  获取物流信息
  */
-#define LWJuheURL                      @"http://v.juhe.cn/exp/index"
+#define JuheURL                      @"http://v.juhe.cn/exp/index"
 
 /**
  *  获取自媒体人商品列表
  */
-#define LWShopGetItemsURL              @"/shop/getitems"
+#define ShopGetItemsURL              @"/shop/getitems"
 
 /**
  *  通过id列表 获取item
  */
-#define LWShopGetItemsByIdsUrl         @"/shop/getitemsbyids"
+#define ShopGetItemsByIdsUrl         @"/shop/getitemsbyids"
 
 /**
  *  获取商品详情
  */
-#define LWShopGetItemDetailURL         @"/shop/getitemdetail"
+#define ShopGetItemDetailURL         @"/shop/getitemdetail"
 
 
 /**
  *  获取预支付对象
  */
-#define LWShopAddTradeURL               @"/shop/addtrade"
+#define ShopAddTradeURL               @"/shop/addtrade"
 
 
 /**
  *  获取订单列表
  */
-#define LWShopGettradestatusURL         @"/shop/gettradestatus"
+#define ShopGettradestatusURL         @"/shop/gettradestatus"
 
 /**
  *  获取支付结果
  */
-#define LWShopGetpaymentinfoURL         @"/shop/getpaymentinfo"
+#define ShopGetpaymentinfoURL         @"/shop/getpaymentinfo"
 
 
 /**
  *  获取收货地址列表
  */
-#define LWShopGetAddressURL         @"/shop/getaddress"
+#define ShopGetAddressURL         @"/shop/getaddress"
 
 
 /**
  *  增加收货地址
  */
-#define LWShopAddAddressURL         @"/shop/addaddress"
+#define ShopAddAddressURL         @"/shop/addaddress"
 
 
 /**
  *  修改收货地址
  */
-#define LWShopUpAddressURL         @"/shop/upaddress"
+#define ShopUpAddressURL         @"/shop/upaddress"
 
 
 /**
  *  删除收货地址
  */
-#define LWShopDelAddressURL         @"/shop/deladdress"
+#define ShopDelAddressURL         @"/shop/deladdress"
 
 /**
  *  分页获取店铺
  */
-#define LWShopGetShopsURL           @"/shop/getshops"
+#define ShopGetShopsURL           @"/shop/getshops"
 
 /**
  *  获取店铺信息
  */
-#define LWShopGetInfoURL               @"/shop/getinfo"
+#define ShopGetInfoURL               @"/shop/getinfo"
 
 /**
  *  分页获取店铺商品
  */
-#define LWShopGetitemsbyshopURL        @"/shop/getitemsbyshop"
+#define ShopGetitemsbyshopURL        @"/shop/getitemsbyshop"
 
 /**
  *  检查版本
  */
-#define LWCheckVersionURL                   @"/checkversion"
+#define CheckVersionURL                   @"/checkversion"
 
-#define LWGetTabTextURL                     @"/gettabtext"
+#define GetTabTextURL                     @"/gettabtext"
 
 //tags url
-#define LWGettagsURL                        @"/getclassifies"
+#define GettagsURL                        @"/getclassifies"
 
 /**
  *  banner list
  */
 
-#define LWBannerGetListURL                  @"/barner/getlist"
+#define BannerGetListURL                  @"/barner/getlist"
 
 /**
  *  banner detial
  */
-#define LWBannerGetDetailURL                @"/barner/getdetail"
+#define BannerGetDetailURL                @"/barner/getdetail"
 
 
 /**
  *  request_dispatch
  */
-#define LWRequest_DisPathURL                @"/request_dispatch"
+#define Request_DisPathURL                @"/request_dispatch"
 
 /**
  *  我的收藏列表
  */
-#define LWVideoGetcollectlistURL            @"/video/getcollectlist"
+#define VideoGetcollectlistURL            @"/video/getcollectlist"
 
 /**
  *  获取系列url
  */
-#define LWGetSeriesURL                      @"/video/videobrief/getlist"
+#define GetSeriesURL                      @"/video/videobrief/getlist"
 
 /**
  *  获取qaurl
  */
-#define LWGetQaURL                          @"/qa/questions"
+#define GetQaURL                          @"/qa/questions"
 
 /**
  *  获取qa详情url
  */
-#define LWGetQaDetailURL                    @"/qa/refresh"
+#define GetQaDetailURL                    @"/qa/refresh"
 
 /**
  *  获取qa历史url
  */
-#define LWGetQaHisURL                       @"/qa/history"
+#define GetQaHisURL                       @"/qa/history"
 
 /**
  *  通过qaid获取评论
  */
-#define LWGetQaCommentURL                     @"/qa/getcomments"
+#define GetQaCommentURL                     @"/qa/getcomments"
 
 /**
  *  对答案进行评论
  */
-#define LWVoteChoiceURL                     @"/qa/votechoice"
+#define VoteChoiceURL                     @"/qa/votechoice"
 
 
 #pragma mark ---   notificaiton -----
 /**
  * 获取通知未读数
  */
-#define  LWNotificationUnReadCountURL        @"/notification/unreadcnt"
+#define  NotificationUnReadCountURL        @"/notification/unreadcnt"
 
 
 /**
  *  获取回应 赞 @ 列表
  */
-#define LWNotificationGetListURL            @"/notification/getlist"
+#define NotificationGetListURL            @"/notification/getlist"
 
 
 #endif

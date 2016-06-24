@@ -132,6 +132,19 @@
 		0C80CC0A1D1AB2A600D75290 /* UserCenterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC091D1AB2A600D75290 /* UserCenterRequest.m */; };
 		0C80CC0D1D1AB2FA00D75290 /* ResponseSuccessBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */; };
 		0C8873321D1C010700BF754D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8873311D1C010700BF754D /* SettingViewController.m */; };
+		0CA252E21D1D0ACB00482E9F /* mmregioncode4client.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */; };
+		0CA252E41D1D0B0000482E9F /* country_code.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252E31D1D0B0000482E9F /* country_code.txt */; };
+		0CA252EE1D1D0E3C00482E9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252F01D1D0E3C00482E9F /* Localizable.strings */; };
+		0CA252F51D1D0ECA00482E9F /* Localisator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA252F41D1D0ECA00482E9F /* Localisator.m */; };
+		0CA253041D1D130800482E9F /* CountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA252FB1D1D130800482E9F /* CountryViewController.m */; };
+		0CA253051D1D130800482E9F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA252FD1D1D130800482E9F /* LoginViewController.m */; };
+		0CA253061D1D130800482E9F /* RegisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA252FF1D1D130800482E9F /* RegisViewController.m */; };
+		0CA253071D1D130800482E9F /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA253011D1D130800482E9F /* WelcomeViewController.m */; };
+		0CA2530A1D1D134900482E9F /* MMCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA253091D1D134900482E9F /* MMCountry.m */; };
+		0CA2530D1D1D161E00482E9F /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2530C1D1D161E00482E9F /* System.m */; };
+		0CA2530F1D1D30BE00482E9F /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CA2530E1D1D30BE00482E9F /* countryCode.json */; };
+		0CA253111D1D356700482E9F /* diallingcode.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CA253101D1D356700482E9F /* diallingcode.json */; };
+		0CE198941D1CE96D003BB4AA /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */; };
 		0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA730D1C574C220020AB90 /* CycleScrollView.m */; };
 		0CEA73141C574C220020AB90 /* NSTimer+CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA73111C574C220020AB90 /* NSTimer+CycleScrollView.m */; };
 		0CEA73171C574C4E0020AB90 /* CycleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA73161C574C4E0020AB90 /* CycleImageView.m */; };
@@ -467,6 +480,27 @@
 		0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseSuccessBlocks.m; sourceTree = "<group>"; };
 		0C8873301D1C010700BF754D /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		0C8873311D1C010700BF754D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mmregioncode4client.txt; sourceTree = "<group>"; };
+		0CA252E31D1D0B0000482E9F /* country_code.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country_code.txt; sourceTree = "<group>"; };
+		0CA252EF1D1D0E3C00482E9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0CA252F11D1D0E4200482E9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0CA252F31D1D0ECA00482E9F /* Localisator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Localisator.h; sourceTree = "<group>"; };
+		0CA252F41D1D0ECA00482E9F /* Localisator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Localisator.m; sourceTree = "<group>"; };
+		0CA252FA1D1D130800482E9F /* CountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryViewController.h; sourceTree = "<group>"; };
+		0CA252FB1D1D130800482E9F /* CountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryViewController.m; sourceTree = "<group>"; };
+		0CA252FC1D1D130800482E9F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0CA252FD1D1D130800482E9F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		0CA252FE1D1D130800482E9F /* RegisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisViewController.h; sourceTree = "<group>"; };
+		0CA252FF1D1D130800482E9F /* RegisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisViewController.m; sourceTree = "<group>"; };
+		0CA253001D1D130800482E9F /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		0CA253011D1D130800482E9F /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		0CA253081D1D134900482E9F /* MMCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCountry.h; sourceTree = "<group>"; };
+		0CA253091D1D134900482E9F /* MMCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCountry.m; sourceTree = "<group>"; };
+		0CA2530B1D1D161E00482E9F /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
+		0CA2530C1D1D161E00482E9F /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.m; sourceTree = "<group>"; };
+		0CA2530E1D1D30BE00482E9F /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryCode.json; sourceTree = "<group>"; };
+		0CA253101D1D356700482E9F /* diallingcode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = diallingcode.json; sourceTree = "<group>"; };
+		0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		0CEA730C1C574C220020AB90 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
 		0CEA730D1C574C220020AB90 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
 		0CEA73101C574C220020AB90 /* NSTimer+CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+CycleScrollView.h"; sourceTree = "<group>"; };
@@ -857,6 +891,7 @@
 		0C80CAF31D1A3A8100D75290 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0CE198881D1CE815003BB4AA /* Account */,
 				0C80CAF41D1A3A8100D75290 /* CustomTabbarController */,
 				0C80CB051D1A3A8100D75290 /* Discover */,
 				0C80CB261D1A3A8100D75290 /* Loading */,
@@ -1151,6 +1186,10 @@
 		0C80CBEF1D1A4D4600D75290 /* MediaData */ = {
 			isa = PBXGroup;
 			children = (
+				0CA253101D1D356700482E9F /* diallingcode.json */,
+				0CA2530E1D1D30BE00482E9F /* countryCode.json */,
+				0CA252E31D1D0B0000482E9F /* country_code.txt */,
+				0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */,
 				0C80CBF01D1A4D4600D75290 /* 2.mp4 */,
 				0C80CBF11D1A4D4600D75290 /* longjuanfeng.lrc */,
 				0C80CBF21D1A4D4600D75290 /* longjuanfeng.mp3 */,
@@ -1189,6 +1228,64 @@
 			children = (
 			);
 			path = Collect;
+			sourceTree = "<group>";
+		};
+		0CA252F21D1D0EC500482E9F /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				0CA252F31D1D0ECA00482E9F /* Localisator.h */,
+				0CA252F41D1D0ECA00482E9F /* Localisator.m */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		0CA252F91D1D130800482E9F /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				0CA252FA1D1D130800482E9F /* CountryViewController.h */,
+				0CA252FB1D1D130800482E9F /* CountryViewController.m */,
+				0CA252FC1D1D130800482E9F /* LoginViewController.h */,
+				0CA252FD1D1D130800482E9F /* LoginViewController.m */,
+				0CA252FE1D1D130800482E9F /* RegisViewController.h */,
+				0CA252FF1D1D130800482E9F /* RegisViewController.m */,
+				0CA253001D1D130800482E9F /* WelcomeViewController.h */,
+				0CA253011D1D130800482E9F /* WelcomeViewController.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		0CA253021D1D130800482E9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CA253081D1D134900482E9F /* MMCountry.h */,
+				0CA253091D1D134900482E9F /* MMCountry.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0CA253031D1D130800482E9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CE198881D1CE815003BB4AA /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				0CA252F91D1D130800482E9F /* Control */,
+				0CA253021D1D130800482E9F /* Model */,
+				0CA253031D1D130800482E9F /* View */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		0CE198921D1CE96D003BB4AA /* LoadBigImage */ = {
+			isa = PBXGroup;
+			children = (
+				0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */,
+			);
+			path = LoadBigImage;
 			sourceTree = "<group>";
 		};
 		0CEA730B1C574C220020AB90 /* CycleScrollView */ = {
@@ -1275,6 +1372,8 @@
 				0CF9120B1C4394D900F33C89 /* SpeechTool.m */,
 				0C80CAAB1D1A2CB100D75290 /* HttpTool.h */,
 				0C80CAAC1D1A2CB100D75290 /* HttpTool.m */,
+				0CA2530B1D1D161E00482E9F /* System.h */,
+				0CA2530C1D1D161E00482E9F /* System.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1411,6 +1510,9 @@
 		7B91C63E1A3B2A5900394194 /* ImitationWeChat */ = {
 			isa = PBXGroup;
 			children = (
+				7B91C6431A3B2A5900394194 /* AppDelegate.h */,
+				7B91C6441A3B2A5900394194 /* AppDelegate.m */,
+				0CE198921D1CE96D003BB4AA /* LoadBigImage */,
 				0C80CBEF1D1A4D4600D75290 /* MediaData */,
 				0C80CB8E1D1A4ACD00D75290 /* Category */,
 				0C80CAF31D1A3A8100D75290 /* Classes */,
@@ -1422,8 +1524,6 @@
 				2E6151341B5CEB6E007196E2 /* 150511_JiveBike.mov */,
 				2EBCACFA1B58EAA6006FF4B1 /* SubClass */,
 				7B91C6691A3B2ED500394194 /* Extension */,
-				7B91C6431A3B2A5900394194 /* AppDelegate.h */,
-				7B91C6441A3B2A5900394194 /* AppDelegate.m */,
 				0C80CAAE1D1A2D6F00D75290 /* Common */,
 				7B91C63F1A3B2A5900394194 /* Supporting Files */,
 			);
@@ -1440,6 +1540,7 @@
 				7B91C6731A3B305700394194 /* ImitationWeChat-Prefix.pch */,
 				2E1F720C1B60B2B600152EE1 /* DataSource.h */,
 				2E1F720D1B60B2B600152EE1 /* DataSource.m */,
+				0CA252F01D1D0E3C00482E9F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1464,6 +1565,7 @@
 		7B91C6691A3B2ED500394194 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0CA252F21D1D0EC500482E9F /* Localizable */,
 				0C80CAC41D1A35F500D75290 /* JSONModel */,
 				0CEA730B1C574C220020AB90 /* CycleScrollView */,
 				0C043CBE1C4E42E70093410F /* AFNetworking */,
@@ -1564,6 +1666,7 @@
 				th,
 				tr,
 				vi,
+				"zh-Hans",
 			);
 			mainGroup = 7B91C6331A3B2A5900394194;
 			productRefGroup = 7B91C63D1A3B2A5900394194 /* Products */;
@@ -1588,6 +1691,7 @@
 				2E6151241B5CE71F007196E2 /* kr-video-player-fullscreen@2x.png in Resources */,
 				0CF911DA1C438A4100F33C89 /* navi_back@2x.png in Resources */,
 				2E6151221B5CE71F007196E2 /* kr-video-player-close@2x.png in Resources */,
+				0CE198941D1CE96D003BB4AA /* LaunchImage@2x.png in Resources */,
 				2E61512A1B5CE71F007196E2 /* kr-video-player-point@2x.png in Resources */,
 				0CF911DF1C438A4100F33C89 /* photo_original_sel@2x.png in Resources */,
 				0CF911DE1C438A4100F33C89 /* photo_original_def@2x.png in Resources */,
@@ -1603,6 +1707,8 @@
 				0CF911E61C438A4100F33C89 /* TZAlbumCell.xib in Resources */,
 				0CF911D81C438A4100F33C89 /* MMVideoPreviewPlay@2x.png in Resources */,
 				2E6151261B5CE71F007196E2 /* kr-video-player-pause@2x.png in Resources */,
+				0CA253111D1D356700482E9F /* diallingcode.json in Resources */,
+				0CA2530F1D1D30BE00482E9F /* countryCode.json in Resources */,
 				2E6151281B5CE71F007196E2 /* kr-video-player-play@2x.png in Resources */,
 				0CF911D91C438A4100F33C89 /* MMVideoPreviewPlayHL@2x.png in Resources */,
 				0CF911E81C438A4100F33C89 /* TZAssetCell.xib in Resources */,
@@ -1612,9 +1718,12 @@
 				2E6151351B5CEB6E007196E2 /* 150511_JiveBike.mov in Resources */,
 				2E6151231B5CE71F007196E2 /* kr-video-player-close@3x.png in Resources */,
 				0CF911DD1C438A4100F33C89 /* photo_number_icon@2x.png in Resources */,
+				0CA252EE1D1D0E3C00482E9F /* Localizable.strings in Resources */,
 				0CF911E51C438A4100F33C89 /* VideoSendIcon@2x.png in Resources */,
 				0CF911DB1C438A4100F33C89 /* photo_def_photoPickerVc@2x.png in Resources */,
 				0CF911E41C438A4100F33C89 /* TableViewArrow@2x.png in Resources */,
+				0CA252E21D1D0ACB00482E9F /* mmregioncode4client.txt in Resources */,
+				0CA252E41D1D0B0000482E9F /* country_code.txt in Resources */,
 				0CF911E11C438A4100F33C89 /* photo_sel_previewVc@2x.png in Resources */,
 				0CF659311C3A357E00B1BFDF /* Launch Screen.storyboard in Resources */,
 				2E6151291B5CE71F007196E2 /* kr-video-player-play@3x.png in Resources */,
@@ -1652,6 +1761,7 @@
 				0CF8E2AB1C4DD7C000FE8A41 /* UIPlaceHolderTextView.m in Sources */,
 				0C80CBE41D1A4ACD00D75290 /* UIImage+imageNamed_Hack.m in Sources */,
 				0C80CB621D1A3A8100D75290 /* CustomSearchViewController.m in Sources */,
+				0CA252F51D1D0ECA00482E9F /* Localisator.m in Sources */,
 				0C043CFF1C4E42E70093410F /* SDImageCache.m in Sources */,
 				0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */,
 				0C043D041C4E42E70093410F /* SDWebImageManager.m in Sources */,
@@ -1695,6 +1805,9 @@
 				0C043D031C4E42E70093410F /* SDWebImageDownloaderOperation.m in Sources */,
 				0C80CBD71D1A4ACD00D75290 /* NSString+md5.m in Sources */,
 				0C8873321D1C010700BF754D /* SettingViewController.m in Sources */,
+				0CA2530A1D1D134900482E9F /* MMCountry.m in Sources */,
+				0CA253071D1D130800482E9F /* WelcomeViewController.m in Sources */,
+				0CA253041D1D130800482E9F /* CountryViewController.m in Sources */,
 				0C043CB91C4E420B0093410F /* MJPhotoLoadingView.m in Sources */,
 				2E61510C1B5CDE0F007196E2 /* KYCuteView.m in Sources */,
 				0C0898651C3B51FD006A037F /* LWSystem.m in Sources */,
@@ -1715,6 +1828,7 @@
 				0CF9121E1C43A98100F33C89 /* PcmPlayer.m in Sources */,
 				0C80CB5B1D1A3A8100D75290 /* MyProfileViewController.m in Sources */,
 				0C80CB651D1A3A8100D75290 /* WxTableCell.m in Sources */,
+				0CA2530D1D1D161E00482E9F /* System.m in Sources */,
 				0C80CB5A1D1A3A8100D75290 /* LoadingViewController.m in Sources */,
 				0C80CB461D1A3A8100D75290 /* ContactViewController.m in Sources */,
 				2E9700041B5E663F00CA2CF1 /* ChooseTabbar.m in Sources */,
@@ -1737,6 +1851,7 @@
 				0C80CB491D1A3A8100D75290 /* MyTabBarController.m in Sources */,
 				0C043D091C4E42E70093410F /* UIImage+WebP.m in Sources */,
 				0C80CB5F1D1A3A8100D75290 /* WalletHeaderView.m in Sources */,
+				0CA253051D1D130800482E9F /* LoginViewController.m in Sources */,
 				0C61D4C61C44C04A007547FE /* KxMenu.m in Sources */,
 				7B91C6421A3B2A5900394194 /* main.m in Sources */,
 				0C80CB4D1D1A3A8100D75290 /* WaterPointControl.m in Sources */,
@@ -1747,6 +1862,7 @@
 				0C80CB551D1A3A8100D75290 /* QRCodeViewController.m in Sources */,
 				0C80CB5D1D1A3A8100D75290 /* WalletCollectionHeaderCell.m in Sources */,
 				0C80CAE91D1A35F500D75290 /* JSONKeyMapper.m in Sources */,
+				0CA253061D1D130800482E9F /* RegisViewController.m in Sources */,
 				0C80CBFE1D1AB07C00D75290 /* RequestParamBase.m in Sources */,
 				2E61512F1B5CE71F007196E2 /* KRVideoPlayerControlView.m in Sources */,
 				0C043CA41C4E35D80093410F /* SafePhotoView.m in Sources */,
@@ -1802,6 +1918,18 @@
 			targetProxy = 7B91C6561A3B2A5A00394194 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0CA252F01D1D0E3C00482E9F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CA252EF1D1D0E3C00482E9F /* en */,
+				0CA252F11D1D0E4200482E9F /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7B91C65D1A3B2A5A00394194 /* Debug */ = {

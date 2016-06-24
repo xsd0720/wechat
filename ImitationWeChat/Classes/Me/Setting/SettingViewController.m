@@ -8,15 +8,17 @@
 
 #import "SettingViewController.h"
 #import "UserCenterRequest.h"
-
+#import "LXActionSheet.h"
 #define SETTINGTABLEVIEWCELLIDENTIFIER  @"SETTINGTABLEVIEWCELLIDENTIFIER"
 
-@interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource, LXActionSheetDelegate>
 
 @property (nonatomic, strong) UITableView *settingTableView;
 @property (nonatomic, strong) NSArray *datasource;
 
 @property (nonatomic, strong) UIButton *logoutButton;
+
+@property (nonatomic, strong) LXActionSheet *actionSheet;
 
 @end
 
@@ -25,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self configNav];
     
     [self configLocalData];
     
@@ -50,15 +54,13 @@
  */
 - (UITableView *)settingTableView {
     if (!_settingTableView) {
-        _settingTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT) style:UITableViewStylePlain];
         [self.view addSubview:_settingTableView];
 
         
         _settingTableView.dataSource = self;
         _settingTableView.delegate = self;
-        
-        _settingTableView.tableFooterView = [UIView new];
-        _settingTableView.backgroundColor = [UIColor getColor:@"F0F1F3"];
+        _settingTableView.backgroundColor = self.view.backgroundColor;
         
         // 设置cell的重用
         [_settingTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:SETTINGTABLEVIEWCELLIDENTIFIER];
@@ -66,6 +68,11 @@
         _settingTableView.tableFooterView = self.logoutButton;
     }
     return _settingTableView;
+}
+
+- (void)configNav
+{
+    self.title = @"设置";
 }
 
 - (void)configLocalData
@@ -95,6 +102,20 @@
     return 20;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    v.backgroundColor = self.view.backgroundColor;
+    return v;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    v.backgroundColor = self.view.backgroundColor;
+    return v;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == _datasource.count-1) {
@@ -118,7 +139,16 @@
 
 - (void)logoutClick
 {
+    self.actionSheet = [[LXActionSheet alloc]initWithTitle:@"退出后不会删除任何历史数据，下次登录依然可以使用本账号。" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"退出登录", nil];
     
+    [self.actionSheet showInView:self.view];
+}
+
+- (void)didClickOnButtonIndex:(int)buttonIndex
+{
+    if (buttonIndex == 1) {
+        
+    }
 }
 
 @end

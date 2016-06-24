@@ -84,7 +84,7 @@
 #pragma mark - Actionsheetdelegate
 
 //点击项目
-- (void)didClickOnButtonIndex:(NSInteger *)buttonIndex
+- (void)didClickOnButtonIndex:(int)buttonIndex
 {
     if ((int)buttonIndex == 0) {
         

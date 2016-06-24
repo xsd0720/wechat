@@ -15,7 +15,7 @@
         // Add a spacer on when running lower than iOS 7.0
         UIBarButtonItem *negativeSpacer = [[ UIBarButtonItem alloc ] initWithBarButtonSystemItem : UIBarButtonSystemItemFixedSpace
                                                                                           target : nil action : nil ];
-        negativeSpacer. width = - 20 ;
+        negativeSpacer. width = - 10 ;
         [ self setLeftBarButtonItems :[ NSArray arrayWithObjects :negativeSpacer, leftBarButtonItem, nil ]];
     } else {
         // Just set the UIBarButtonItem as you would normally

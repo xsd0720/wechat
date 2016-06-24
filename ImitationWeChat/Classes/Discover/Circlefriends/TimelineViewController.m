@@ -156,7 +156,7 @@ static CGFloat USERFACESIZE = 75.0f;
 }
 
 #pragma mark - LxActionSheetDelegate
-- (void)didClickOnButtonIndex:(NSInteger *)buttonIndex
+- (void)didClickOnButtonIndex:(int)buttonIndex
 {
     switch ((int)buttonIndex) {
         case 0:

@@ -10,6 +10,9 @@
 #define ImitationWeChat_PublicHeader_h
 static const char associatedkey;
 
+#import "AppDelegate.h"
+#import "Localisator.h"
+#import "System.h"
 #import "UIView+Extention.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+md5.h"

@@ -30,7 +30,7 @@
 #define TITLE_HEIGHT                            35
 #define TITLE_INTERVAL_WIDTH                    30
 #define TITLE_WIDTH                             260
-#define TITLE_FONT                              [UIFont fontWithName:@"Helvetica-Bold" size:14]
+#define TITLE_FONT                              [UIFont systemFontOfSize:14]
 #define SHADOW_OFFSET                           CGSizeMake(0, 0.8f)
 #define TITLE_NUMBER_LINES                      2
 
@@ -156,6 +156,10 @@
         self.isHadTitle = YES;
         UILabel *titleLabel = [self creatTitleLabelWith:title];
         self.LXActionSheetHeight = self.LXActionSheetHeight + 2*TITLE_INTERVAL_HEIGHT+TITLE_HEIGHT;
+        
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(titleLabel.frame)+15, SCREEN_WIDTH, 0.5)];
+        lineView.backgroundColor = RGB(225, 225, 227);
+        [self.backGroundView addSubview:lineView];
         [self.backGroundView addSubview:titleLabel];
     }
 
@@ -289,12 +293,11 @@
     UILabel *titlelabel = [[UILabel alloc] initWithFrame:CGRectMake(TITLE_INTERVAL_WIDTH, TITLE_INTERVAL_HEIGHT, TITLE_WIDTH, TITLE_HEIGHT)];
     titlelabel.backgroundColor = [UIColor clearColor];
     titlelabel.textAlignment = NSTextAlignmentCenter;
-    titlelabel.shadowColor = [UIColor blackColor];
-    titlelabel.shadowOffset = SHADOW_OFFSET;
     titlelabel.font = TITLE_FONT;
     titlelabel.text = title;
-    titlelabel.textColor = [UIColor whiteColor];
+    titlelabel.textColor = RGB(162, 163, 165);
     titlelabel.numberOfLines = TITLE_NUMBER_LINES;
+    
     return titlelabel;
 }
 
@@ -354,7 +357,7 @@
     
     if (self.delegate) {
         if ([self.delegate respondsToSelector:@selector(didClickOnButtonIndex:)] == YES) {
-            [self.delegate didClickOnButtonIndex:(NSInteger *)button.tag];
+            [self.delegate didClickOnButtonIndex:button.tag];
         }
     }
     

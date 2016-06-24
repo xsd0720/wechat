@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol LXActionSheetDelegate <NSObject>
-- (void)didClickOnButtonIndex:(NSInteger *)buttonIndex;
+- (void)didClickOnButtonIndex:(int)buttonIndex;
 @optional
 - (void)didClickOnDestructiveButton;
 - (void)didClickOnCancelButton;

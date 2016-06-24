@@ -15,6 +15,8 @@
 #import <iflyMSC/iflyMSC.h>
 #import "BottlerViewController.h"
 #import "UserCenterRequest.h"
+#import "WelcomeViewController.h"
+#import "System.h"
 #define APPID_VALUE           @"569364d0"
 
 @interface AppDelegate ()
@@ -34,20 +36,30 @@
     [self loadWindow];
     
 //    [TopWindow show];
-    
-    
-    
-    
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[System sharedInstance] readData];
+    });
+
     return YES;
 }
 
+
+- (void)loginIn
+{
+    self.window.rootViewController = [[MyTabBarController alloc] init];
+}
+
+- (void)logout
+{
+    self.window.rootViewController = [[WelcomeViewController alloc] init];
+}
 
 -(void)loadWindow{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
 //
 //    self.window.rootViewController= sendNav;
-    self.window.rootViewController = [[MyTabBarController alloc] init];
+    self.window.rootViewController = [[WelcomeViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     

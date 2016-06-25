@@ -25,12 +25,6 @@
     return sharedInstance;
 }
 
-- (void)product
-{
-     NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"country_code.txt" ofType:@"json"]];
-    
-    
-}
 
 - (void)readData {
     
@@ -68,9 +62,9 @@
     
     for (NSString *countryCode in countryArray) {
         
-        if ( dicCode[countryCode] )
+        if ( _dicCodeDic[countryCode] )
         {
-            MMCountry *c = dicCode[countryCode];
+            MMCountry *c = _dicCodeDic[countryCode];
             
             c.name = [locale displayNameForKey:NSLocaleCountryCode value:countryCode];
             if ( [c.name isEqualToString:@"台湾"] )
@@ -89,7 +83,7 @@
     }
     
     //取得当前local
-    self.mmCountry = dicCode[[locale objectForKey:NSLocaleCountryCode]];
+    self.mmCountry = _dicCodeDic[[locale objectForKey:NSLocaleCountryCode]];
     
     //归类
     NSMutableDictionary *dicSort = [@{} mutableCopy];
@@ -145,9 +139,12 @@
         dicSort[key] = array;
     }
     
-    self.dicCode = dicSort;
-
+    self.dicCodeDic = dicSort;
     
+    
+    NSData *phoneData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"country_phonecode" ofType:@"json"]];
+    self.phoneCodeDic = [NSJSONSerialization JSONObjectWithData:phoneData options:0 error:nil];
+
 }
 
 
@@ -165,5 +162,13 @@
     
     return source;
 }
+
+
+- (MMCountry *)getMMCountryWithPhoneCode:(NSString *)phoneCode
+{
+    NSString *ab = self.phoneCodeDic[phoneCode];
+    return _dicCodeDic[ab];
+}
+
 
 @end

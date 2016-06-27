@@ -16,7 +16,7 @@
 #import "BottlerViewController.h"
 #import "UserCenterRequest.h"
 #import "WelcomeViewController.h"
-#import "System.h"
+#import "PreLoadTool.h"
 #define APPID_VALUE           @"569364d0"
 
 @interface AppDelegate ()
@@ -37,7 +37,7 @@
     
 //    [TopWindow show];
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[System sharedInstance] readData];
+        [[PreLoadTool sharedInstance] readData];
     });
 
     return YES;

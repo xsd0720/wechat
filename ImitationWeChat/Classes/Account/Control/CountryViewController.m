@@ -7,7 +7,7 @@
 //
 
 #import "CountryViewController.h"
-#import "System.h"
+#import "PreLoadTool.h"
 #import "UINavigationItem+correct_offset.h"
 #define COUNTRYTABLECELLIDENTIFIER  @"COUNTRYTABLECELLIDENTIFIER"
 
@@ -34,7 +34,7 @@
    
     [self configNav];
     
-    self.dicCode = [[System sharedInstance] dicCode];
+    self.dicCode = [[PreLoadTool sharedInstance] dicCodeDic];
     [self.countryTableView reloadData];
     
 }

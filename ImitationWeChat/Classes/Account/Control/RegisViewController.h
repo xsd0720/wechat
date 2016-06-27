@@ -6,8 +6,8 @@
 //  Copyright © 2016年 wany. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "AccountBaseViewController.h"
 
-@interface RegisViewController : BaseViewController
+@interface RegisViewController : AccountBaseViewController
 
 @end

@@ -12,7 +12,8 @@ static const char associatedkey;
 
 #import "AppDelegate.h"
 #import "Localisator.h"
-#import "System.h"
+#import "PreLoadTool.h"
+#import "ValidTool.h"
 #import "UIView+Extention.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+md5.h"

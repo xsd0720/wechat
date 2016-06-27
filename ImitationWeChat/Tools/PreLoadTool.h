@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MMCountry.h"
 
-@interface System : NSObject
+@interface PreLoadTool : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *dicCodeDic;
+
+@property (nonatomic, strong) NSMutableDictionary *dicCode;
 
 @property (nonatomic, strong) NSMutableDictionary *phoneCodeDic;
 
@@ -22,7 +24,7 @@
  *
  *  @return 单例
  */
-+ (System *)sharedInstance;
++ (PreLoadTool *)sharedInstance;
 
 - (void)readData;
 

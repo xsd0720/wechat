@@ -6,18 +6,18 @@
 //  Copyright © 2016年 wany. All rights reserved.
 //
 
-#import "System.h"
+#import "PreLoadTool.h"
 
-@implementation System
+@implementation PreLoadTool
 
 /**
  *  单例
  *
  *  @return 单例
  */
-+ (System *)sharedInstance
++ (PreLoadTool *)sharedInstance
 {
-    static System *sharedInstance = nil;
+    static PreLoadTool *sharedInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         sharedInstance = [[self alloc] init];
@@ -62,9 +62,9 @@
     
     for (NSString *countryCode in countryArray) {
         
-        if ( _dicCodeDic[countryCode] )
+        if ( dicCode[countryCode] )
         {
-            MMCountry *c = _dicCodeDic[countryCode];
+            MMCountry *c = dicCode[countryCode];
             
             c.name = [locale displayNameForKey:NSLocaleCountryCode value:countryCode];
             if ( [c.name isEqualToString:@"台湾"] )
@@ -83,8 +83,8 @@
     }
     
     //取得当前local
-    self.mmCountry = _dicCodeDic[[locale objectForKey:NSLocaleCountryCode]];
-    
+    self.mmCountry = dicCode[[locale objectForKey:NSLocaleCountryCode]];
+    self.dicCode = dicCode;
     //归类
     NSMutableDictionary *dicSort = [@{} mutableCopy];
     
@@ -166,8 +166,16 @@
 
 - (MMCountry *)getMMCountryWithPhoneCode:(NSString *)phoneCode
 {
+    
+    if ([phoneCode containsString:@"+"]) {
+        phoneCode = [phoneCode stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    }
     NSString *ab = self.phoneCodeDic[phoneCode];
-    return _dicCodeDic[ab];
+    if (ab) {
+       return self.dicCode[ab];
+    }
+    return nil;
+    
 }
 
 

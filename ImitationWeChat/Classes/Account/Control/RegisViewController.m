@@ -9,10 +9,15 @@
 #import "RegisViewController.h"
 #import "CountryViewController.h"
 #import "MyNavViewController.h"
+#import "ValidMobileViewController.h"
+#import "UserCenterRequest.h"
 
 #define  REGISGCOUNTRYTABLEVIEWCELLIDENTIFIER  @"REGISGCOUNTRYTABLEVIEWCELLIDENTIFIER"
 #define  REGISGPHONETABLEVIEWCELLIDENTIFIER  @"REGISGPHONETABLEVIEWCELLIDENTIFIER"
-#define EMPTYCELLIDENTIFIER     @"EMPTYCELLIDENTIFIER"
+#define  EMPTYCELLIDENTIFIER     @"EMPTYCELLIDENTIFIER"
+
+#define COUNRTYCODETAG      100
+#define INPUTMOBILETAG      200
 
 @interface PhoneCell : UITableViewCell
 
@@ -31,27 +36,16 @@
 
 @end
 
-@interface RegisViewController ()<UITableViewDelegate, UITableViewDataSource, CountryChoiceDelegate, UITextFieldDelegate>
+@interface RegisViewController ()<CountryChoiceDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
-//nav
-@property(nonatomic, strong) UIView *navView;
-
-@property (nonatomic, strong) UIScrollView *mainScrollView;
-
-@property (nonatomic, strong) UITableView *mainTableView;
-
-@property (nonatomic, strong) UIView *FooterView;
-
-@property (nonatomic, strong) UIButton *regisButton;
-
-@property (nonatomic, strong) UILabel *titleLabel;
-
+//Save changes to memory
 @property (nonatomic, strong) NSString *currentCountryName;
-
 @property (nonatomic, strong) NSString *currentCounryCode;
+@property (nonatomic, strong) NSString *currentInputNumberText;
 
+//Global index change object
+@property (nonatomic, strong) UILabel *countryNameLabel;
 @property (nonatomic, strong) UITextField *countrycodeTextField;
-
 @property (nonatomic, strong) UITextField *inputPhoneNumberTextField;
 
 @end
@@ -61,151 +55,107 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
- 
-    [self configNav];
-    [self configData];
+
+    [self configSuperTableData];
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
+- (void)configSuperTableData
 {
-    [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-}
 
-
-- (UILabel *)titleLabel
-{
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
-        _titleLabel.font = [UIFont systemFontOfSize:20];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.textColor = [UIColor blackColor];
-        _titleLabel.text = @"请输入你的手机号";
-    }
-    return _titleLabel;
-}
-
-
-- (UIView *)FooterView
-{
-    if (!_FooterView) {
-        _FooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60)];
-        _FooterView.backgroundColor = [UIColor whiteColor];
-        
-        [_FooterView addSubview:self.regisButton];
-    }
-    return _FooterView;
-}
-
-- (UIButton *)regisButton
-{
-    if (!_regisButton) {
-        _regisButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _regisButton.frame = CGRectMake(20, 0, SCREEN_WIDTH-40, 44);
-        _regisButton.layer.cornerRadius = 5;
-        _regisButton.backgroundColor = RGB(85, 184, 55);
-        _regisButton.titleLabel.font = [UIFont systemFontOfSize:16];
-        [_regisButton setTitle:@"注册" forState:UIControlStateNormal];
-        [_regisButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_regisButton addTarget:self action:@selector(regisButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _regisButton;
-}
-
-/**
- *  懒加载tableiview
- */
-- (UITableView *)mainTableView {
-    if (!_mainTableView) {
-        _mainTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        [self.view addSubview:_mainTableView];
-        
-        _mainTableView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0);
-        _mainTableView.dataSource = self;
-        _mainTableView.delegate = self;
-        
-        // 设置cell的重用
-        [_mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:EMPTYCELLIDENTIFIER];
-        [_mainTableView registerClass:[CountryCell class] forCellReuseIdentifier:REGISGCOUNTRYTABLEVIEWCELLIDENTIFIER];
-        [_mainTableView registerClass:[PhoneCell class] forCellReuseIdentifier:REGISGPHONETABLEVIEWCELLIDENTIFIER];
-        _mainTableView.tableHeaderView = self.titleLabel;
-        
-        _mainTableView.tableFooterView = self.FooterView;
-        _mainTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    }
-    return _mainTableView;
-}
-
-
-- (void)configNav
-{
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.currentCountryName = [PreLoadTool sharedInstance].mmCountry.name;
+    self.currentCounryCode = [PreLoadTool sharedInstance].mmCountry.dial_code;
+    [self.operationButton setTitle:@"注册" forState:UIControlStateNormal];
     
-    _navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, STATUS_AND_NAV_BAR_HEIGHT)];
-    _navView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
-    [self.view addSubview:_navView];
+    //regis table cell
+    [self.mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:EMPTYCELLIDENTIFIER];
+    [self.mainTableView registerClass:[CountryCell class] forCellReuseIdentifier:REGISGCOUNTRYTABLEVIEWCELLIDENTIFIER];
+    [self.mainTableView registerClass:[PhoneCell class] forCellReuseIdentifier:REGISGPHONETABLEVIEWCELLIDENTIFIER];
     
-    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-    cancelButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    [cancelButton setTitleColor:RGB(92, 156, 64) forState:UIControlStateNormal];
-    cancelButton.frame = CGRectMake(15, 20, 44, 44);
-    [cancelButton addTarget:self action:@selector(cancelButtonIndex) forControlEvents:UIControlEventTouchUpInside];
-    [_navView addSubview:cancelButton];
     
-    [self.view bringSubviewToFront:_navView];
-}
-
-- (void)configData
-{
-
-    
-    self.currentCountryName = [System sharedInstance].mmCountry.name;
-    self.currentCounryCode = [System sharedInstance].mmCountry.dial_code;
     [self.mainTableView reloadData];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChanged:) name:UITextFieldTextDidChangeNotification object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChanged:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
+
+#pragma mark --
+#pragma mark -- textfield delegate
 - (void)textFieldChanged:(NSNotification *)notification
 {
     UITextField *textField = (UITextField *)[notification object];
-    if (textField.tag == 100) {
-       
+    
+    //the phone code of country
+    if (textField.tag == COUNRTYCODETAG) {
+        
+        if (textField.text.length <= 1)
+        {
+            self.countryNameLabel.text = LOCALIZATION(@"SELECTFROMLIST");
+        }
+        else
+        {
+            MMCountry *mmCountry = [[PreLoadTool sharedInstance] getMMCountryWithPhoneCode:textField.text];
+            self.countryNameLabel.text = mmCountry?mmCountry.name:LOCALIZATION(@"COUNTRYCODINVALID");
+        }
     }
+    
+    //the mobile of user input
+    else if (textField.tag == INPUTMOBILETAG)
+    {
+        self.operationButton.userInteractionEnabled = textField.text.length>0?YES:NO;
+        self.currentInputNumberText = textField.text;
+    }
+    
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (textField.text.length <= 1 && string.length <=0) {
-        return NO;
+    if (textField.tag == COUNRTYCODETAG) {
+        if (textField.text.length <= 1 && string.length <=0) {
+            return NO;
+        }
+    }
+    if (textField.tag == INPUTMOBILETAG) {
+        if (textField.text.length > 10 && string.length != 0) {
+            return NO;
+        }
     }
     return YES;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+
+#pragma mark --
+#pragma mark -- heavy load superclass table method
+- (NSInteger)atableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)atableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
         CountryCell *cell = [tableView dequeueReusableCellWithIdentifier:REGISGCOUNTRYTABLEVIEWCELLIDENTIFIER forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.rightLabel.text = self.currentCountryName;
+        self.countryNameLabel = cell.rightLabel;
         return cell;
     }else if(indexPath.row == 1)
     {
         PhoneCell *cell = [tableView dequeueReusableCellWithIdentifier:REGISGPHONETABLEVIEWCELLIDENTIFIER forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         cell.leftTextField.text = self.currentCounryCode;
-        cell.leftTextField.tag = 100;
+        cell.leftTextField.tag = COUNRTYCODETAG;
         cell.leftTextField.delegate = self;
-        cell.rightTextField.tag = 200;
+        cell.rightTextField.delegate = self;
+        
+        cell.rightTextField.tag = INPUTMOBILETAG;
+        cell.rightTextField.text = self.currentInputNumberText;
+        
+        self.countrycodeTextField = cell.leftTextField;
+        self.inputPhoneNumberTextField = cell.rightTextField;
+        
         return cell;
     }
     
@@ -215,7 +165,7 @@
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)atableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
         CountryViewController *countryVC = [[CountryViewController alloc] init];
@@ -226,43 +176,64 @@
 }
 
 
+
 - (void)didChoiceCountryCode:(MMCountry *)mmCountry
 {
-    
-    self.currentCountryName = mmCountry.name;
-    self.currentCounryCode = mmCountry.dial_code;
-    [self.mainTableView reloadData];
+    if (mmCountry) {
+        
+        self.countryNameLabel.text = mmCountry.name;
+        self.countrycodeTextField.text = mmCountry.dial_code;
+        
+        self.currentCountryName = mmCountry.name;
+        self.currentCounryCode = mmCountry.dial_code;
+    }
 }
 
-- (void)cancelButtonIndex
+
+
+- (void)operationButtonClick
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //获取注册的手机号
+    NSString *phoneNumber = self.inputPhoneNumberTextField.text;
+    if (phoneNumber.length <= 0) {
+        [self.view makeToast:@"手机号为空"];
+        return;
+    }
+    if (![ValidTool validateMobile:phoneNumber]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"手机号码错误" message:@"你输入的是一个无效的手机号码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
+    NSString *message1 = @"我们将发送验证码短信到这个号码";
+    NSString *message2 = [NSString stringWithFormat:@"%@ %@", self.countrycodeTextField.text, self.inputPhoneNumberTextField.text];
+    NSString *totalMessage = [NSString stringWithFormat:@"%@\n%@", message1, message2];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认手机号码" message:totalMessage delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"好", nil];
+    [alert show];
 }
 
-- (void)regisButtonClick
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    
+    if (buttonIndex == 1) {
+        ValidMobileViewController *validMobileVC = [[ValidMobileViewController alloc] init];
+//        validMobileVC.mobile = [NSString stringWithFormat:@"%@ %@", self.countrycodeTextField.text, self.inputPhoneNumberTextField.text];
+        validMobileVC.mobile = self.inputPhoneNumberTextField.text;
+        [self presentViewController:validMobileVC animated:YES completion:nil];
+    }
 }
+
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+    [self.operationButton removeObserver:self forKeyPath:@"userInteractionEnabled"];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
 
@@ -287,7 +258,7 @@
         _rightTextField.keyboardType = UIKeyboardTypeNumberPad;
         [self addSubview:_rightTextField];
         
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+       
         
     }
     return self;
@@ -317,6 +288,8 @@
         _rightLabel.font = [UIFont systemFontOfSize:16];
         _rightLabel.textColor = [UIColor blackColor];
         [self addSubview:_rightLabel];
+        
+         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     }
     return self;

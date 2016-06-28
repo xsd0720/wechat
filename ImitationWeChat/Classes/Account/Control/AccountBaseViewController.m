@@ -58,6 +58,7 @@
         _titleLabel.font = [UIFont systemFontOfSize:20];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor blackColor];
+        _titleLabel.numberOfLines = 0;
         _titleLabel.text = @"请输入你的手机号";
     }
     return _titleLabel;

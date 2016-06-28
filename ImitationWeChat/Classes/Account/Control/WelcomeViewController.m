@@ -34,7 +34,7 @@
     [self.view addSubview:loginButton];
     
     UIButton *regisButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    regisButton.backgroundColor = RGB(85, 184, 55);
+    regisButton.backgroundColor = RGB(195, 195, 195);
     regisButton.layer.cornerRadius = 5;
     [regisButton setTitle:@"注册" forState:UIControlStateNormal];
     [regisButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

@@ -39,29 +39,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
   
+    [self sendMobileValidCode];
 //    [self.cancelButton setImage:[UIImage imageNamed:@"fts_search_backicon_ios7"] forState:UIControlStateNormal];
 //    self.cancelButton.width = 60;
     
-    [UserCenterRequest requestsnsWithMobile:self.mobile opcode:1 success:^(RequestsnsResponse *responsObject) {
-        
-        
-        
-        
-    } failure:^(NSError *error) {
-        
-    }];
-    
     [self configSuperTableData];
-    [self configTime];
+  
    
     
+}
+
+- (void)sendMobileValidCode
+{
+    [UserCenterRequest requestsnsWithMobile:self.mobile opcode:1 success:^(RequestsnsResponse *responsObject) {
+        [self configTime];
+    } failure:^(NSError *error) {
+        self.titleLabel.text = @"短信验证码发送失败，返\n回重新发送";
+    }];
 }
 
 - (void)configSuperTableData
 {
     [self.cancelButton setTitle:@"返回" forState:UIControlStateNormal];
     
-    self.titleLabel.text = @"短信验证码已发送，请填写验证码";
+    self.titleLabel.text = @"短信验证码已发送，请\n填写验证码";
+    self.titleLabel.height = 60;
+    self.tableHeaderView.height = 100;
+    
+    
+    self.mainTableView.tableHeaderView = self.tableHeaderView;
     [self.operationButton setTitle:@"提交" forState:UIControlStateNormal];
     
     //regis table cell

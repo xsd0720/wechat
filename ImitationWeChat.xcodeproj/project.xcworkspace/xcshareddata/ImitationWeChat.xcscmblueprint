@@ -1,19 +1,19 @@
 {
   "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "292BD391C956587753A1182C26500F98515D4D80",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
-    "2ea27949-02a1-5041-b92a-ece6d73cefb2++9360" : {
+    "2ea27949-02a1-5041-b92a-ece6d73cefb2++393" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "9F540E318008AF37D51ECCC33DB31C43DFEFB7CA" : 0,
-    "2ea27949-02a1-5041-b92a-ece6d73cefb2++9360" : 0,
+    "2ea27949-02a1-5041-b92a-ece6d73cefb2++393" : 0,
     "292BD391C956587753A1182C26500F98515D4D80" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "55BD33DA-2DDA-4151-BF0A-11C199964C1C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "9F540E318008AF37D51ECCC33DB31C43DFEFB7CA" : "lilworld_new\/",
-    "2ea27949-02a1-5041-b92a-ece6d73cefb2++9360" : "wechat\/ImitationWeChat\/Extension\/AFNetworking\/",
+    "2ea27949-02a1-5041-b92a-ece6d73cefb2++393" : "wechat\/ImitationWeChat\/Extension\/AFNetworking\/",
     "292BD391C956587753A1182C26500F98515D4D80" : "WeChat"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "ImitationWeChat",
@@ -28,7 +28,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/210.14.146.79\/svn\/qxproject",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2ea27949-02a1-5041-b92a-ece6d73cefb2++9360"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2ea27949-02a1-5041-b92a-ece6d73cefb2++393"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xiaowenmedia\/lilworld.git",

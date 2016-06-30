@@ -24,10 +24,10 @@
     self.uuid = [LWSystem UUID];
     self.sigtype = @"ios";
     
-//    NSString *access_token = [LWLocalManager sharedManager].access_token;
-//    if (access_token.length>0) {
-//        self.access_token = access_token;
-//    }
+    NSString *access_token = [LocalManager sharedManager].access_token;
+    if ([NSString isNotEmptyString:access_token]) {
+        self.access_token = access_token;
+    }
     
     //获取参数字典(未添加sig前)
     NSDictionary*tempParamDic = [self toDictionary];

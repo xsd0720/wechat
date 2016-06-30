@@ -19,6 +19,7 @@
 #import "PreLoadTool.h"
 #define APPID_VALUE           @"569364d0"
 
+
 @interface AppDelegate ()
 
 @end
@@ -39,9 +40,12 @@
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[PreLoadTool sharedInstance] readData];
     });
-
+    
     return YES;
 }
+
+
+
 
 
 - (void)loginIn

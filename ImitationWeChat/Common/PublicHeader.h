@@ -9,12 +9,15 @@
 #ifndef ImitationWeChat_PublicHeader_h
 #define ImitationWeChat_PublicHeader_h
 static const char associatedkey;
-
+static const char accessTokenAssociatedKey;
+#import <objc/runtime.h>
 #import "AppDelegate.h"
 #import "Localisator.h"
+#import "LocalManager.h"
 #import "PreLoadTool.h"
 #import "ValidTool.h"
 #import "UIView+Extention.h"
+#import "NSString+Category.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+md5.h"
 #endif

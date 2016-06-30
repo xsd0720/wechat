@@ -29,33 +29,33 @@
     LWLog(@"走方法");
 }
 
-+ (BOOL)isBlankString:(NSString *)string{
++ (BOOL)isNotEmptyString:(NSString *)string{
     
     if (string == nil) {
         
-        return YES;
+        return NO;
         
     }
     
     if (string == NULL) {
         
-        return YES;
+        return NO;
         
     }
     
     if ([string isKindOfClass:[NSNull class]]) {
         
-        return YES;
+        return NO;
         
     }
     
-    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {
-        
-        return YES;
-        
-    }
+//    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {
+//        
+//        return NO;
+//
+//    }
     
-    return NO;
+    return YES;
     
 }
 

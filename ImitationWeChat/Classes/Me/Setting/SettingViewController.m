@@ -140,14 +140,15 @@
 - (void)logoutClick
 {
     self.actionSheet = [[LXActionSheet alloc]initWithTitle:@"退出后不会删除任何历史数据，下次登录依然可以使用本账号。" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"退出登录", nil];
-    
+
     [self.actionSheet showInView:self.view];
 }
 
 - (void)didClickOnButtonIndex:(int)buttonIndex
 {
-    if (buttonIndex == 1) {
-        
+    if (buttonIndex == 0) {
+        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appdelegate logout];
     }
 }
 

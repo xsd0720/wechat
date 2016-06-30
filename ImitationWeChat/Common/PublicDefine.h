@@ -79,6 +79,8 @@
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
 
+#define LOCALMANGERFILEPATH  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"LocalManager.plist"]
+
 //  自定义颜色
 #define myColor_gray [UIColor colorWithRed:236 / 255.0 green:237 / 255.0 blue:240 / 255.0 alpha:1.0]
 #define myColor_lightGray [UIColor colorWithRed:129 / 255.0 green:143 / 255.0 blue:162 / 255.0 alpha:1.0]
@@ -121,6 +123,9 @@
 #define systemDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 #define systemAlertDuration              1.0
+#define IsNilOrNull(_ref)   (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]))
+
+
 
 
 //第一次启动

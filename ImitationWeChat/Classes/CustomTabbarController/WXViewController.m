@@ -109,11 +109,6 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 //        
 //    }];
 
-    [UserCenterRequest registerWithUserName:@"datou" mobile:@"18888888888" password:@"123456" success:^(LoginResponse *responsObject) {
-        NSLog(@"%@", responsObject);
-    } failure:^(NSError *error) {
-        
-    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

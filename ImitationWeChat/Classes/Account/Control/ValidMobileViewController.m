@@ -8,6 +8,7 @@
 
 #import "ValidMobileViewController.h"
 #import "UserCenterRequest.h"
+#import "FillSimpleInfoViewController.h"
 #define VALIDCELLIDENTIFIER @"VALIDCELLIDENTIFIER"
 
 #define VALIDINPUTTAG    300
@@ -55,6 +56,10 @@
         [self configTime];
     } failure:^(NSError *error) {
         self.titleLabel.text = @"短信验证码发送失败，返\n回重新发送";
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [self dismissViewControllerAnimated:YES completion:nil];
+        });
+       
     }];
 }
 
@@ -117,7 +122,7 @@
     
     ValidCell *cell = [tableView dequeueReusableCellWithIdentifier:VALIDCELLIDENTIFIER forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    
     if (indexPath.row == 0) {
         cell.enable = NO;
         cell.titLabel.text = @"手机号";
@@ -129,6 +134,10 @@
         cell.textField.tag = VALIDINPUTTAG;
         
         self.validTextField = cell.textField;
+    }
+    else
+    {
+        cell.textField.userInteractionEnabled = NO;
     }
     return cell;
 }
@@ -157,9 +166,11 @@
         [alert show];
         return;
     }
-    
+
     [UserCenterRequest checkvcodeWithMobile:self.mobile vcode:self.validTextField.text success:^(CheckvcodeResponse *responsObject) {
-        NSLog(@"成功");
+        FillSimpleInfoViewController *fillSimpleInfoVC = [[FillSimpleInfoViewController alloc] init];
+        fillSimpleInfoVC.mobile = self.mobile;
+        [self presentViewController:fillSimpleInfoVC animated:YES completion:nil];
     } failure:^(NSError *error) {
         
     }];
@@ -197,6 +208,7 @@
         
         
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_titLabel.frame)+5, 0, SCREEN_WIDTH-(CGRectGetMaxX(_titLabel.frame)+5), 44)];
+        _textField.keyboardType = UIKeyboardTypeNumberPad;
         [self addSubview:_textField];
     }
     return self;

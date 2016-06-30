@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     self.view.backgroundColor = RGB(240, 239, 245);
     /*
      默认值是YES，允许视图控制器来调整以响应状态栏，导航栏占用的屏幕区域的滚动视图插图和工具栏和标签栏。设置为NO，如果你要管理滚动视图插入调整自己，比如当在视图层次以上的滚动视图。

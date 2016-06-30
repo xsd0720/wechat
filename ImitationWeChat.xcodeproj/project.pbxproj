@@ -136,6 +136,8 @@
 		0C80CC0A1D1AB2A600D75290 /* UserCenterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC091D1AB2A600D75290 /* UserCenterRequest.m */; };
 		0C80CC0D1D1AB2FA00D75290 /* ResponseSuccessBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */; };
 		0C8873321D1C010700BF754D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8873311D1C010700BF754D /* SettingViewController.m */; };
+		0C8FCEA21D24F09600D783BD /* LocalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8FCEA11D24F09600D783BD /* LocalManager.m */; };
+		0C9768361D235EB5008C2945 /* FillSimpleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9768351D235EB5008C2945 /* FillSimpleInfoViewController.m */; };
 		0CA252E21D1D0ACB00482E9F /* mmregioncode4client.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */; };
 		0CA252E41D1D0B0000482E9F /* country_code.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252E31D1D0B0000482E9F /* country_code.txt */; };
 		0CA252EE1D1D0E3C00482E9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252F01D1D0E3C00482E9F /* Localizable.strings */; };
@@ -491,6 +493,10 @@
 		0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseSuccessBlocks.m; sourceTree = "<group>"; };
 		0C8873301D1C010700BF754D /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		0C8873311D1C010700BF754D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		0C8FCEA01D24F09600D783BD /* LocalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalManager.h; sourceTree = "<group>"; };
+		0C8FCEA11D24F09600D783BD /* LocalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalManager.m; sourceTree = "<group>"; };
+		0C9768341D235EB5008C2945 /* FillSimpleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillSimpleInfoViewController.h; sourceTree = "<group>"; };
+		0C9768351D235EB5008C2945 /* FillSimpleInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillSimpleInfoViewController.m; sourceTree = "<group>"; };
 		0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mmregioncode4client.txt; sourceTree = "<group>"; };
 		0CA252E31D1D0B0000482E9F /* country_code.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country_code.txt; sourceTree = "<group>"; };
 		0CA252EF1D1D0E3C00482E9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1254,18 +1260,20 @@
 		0CA252F91D1D130800482E9F /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				0CA253001D1D130800482E9F /* WelcomeViewController.h */,
+				0CA253011D1D130800482E9F /* WelcomeViewController.m */,
+				0CA252FC1D1D130800482E9F /* LoginViewController.h */,
+				0CA252FD1D1D130800482E9F /* LoginViewController.m */,
+				0CA252FE1D1D130800482E9F /* RegisViewController.h */,
+				0CA252FF1D1D130800482E9F /* RegisViewController.m */,
 				0C1A44CB1D20EA34008B292F /* AccountBaseViewController.h */,
 				0C1A44CC1D20EA34008B292F /* AccountBaseViewController.m */,
 				0CA252FA1D1D130800482E9F /* CountryViewController.h */,
 				0CA252FB1D1D130800482E9F /* CountryViewController.m */,
 				0C1A44C81D20E5E1008B292F /* ValidMobileViewController.h */,
 				0C1A44C91D20E5E1008B292F /* ValidMobileViewController.m */,
-				0CA252FC1D1D130800482E9F /* LoginViewController.h */,
-				0CA252FD1D1D130800482E9F /* LoginViewController.m */,
-				0CA252FE1D1D130800482E9F /* RegisViewController.h */,
-				0CA252FF1D1D130800482E9F /* RegisViewController.m */,
-				0CA253001D1D130800482E9F /* WelcomeViewController.h */,
-				0CA253011D1D130800482E9F /* WelcomeViewController.m */,
+				0C9768341D235EB5008C2945 /* FillSimpleInfoViewController.h */,
+				0C9768351D235EB5008C2945 /* FillSimpleInfoViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1392,6 +1400,8 @@
 				0CA2530C1D1D161E00482E9F /* PreLoadTool.m */,
 				0C1A44C51D20DA16008B292F /* ValidTool.h */,
 				0C1A44C61D20DA16008B292F /* ValidTool.m */,
+				0C8FCEA01D24F09600D783BD /* LocalManager.h */,
+				0C8FCEA11D24F09600D783BD /* LocalManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1838,6 +1848,7 @@
 				0C043CFE1C4E42E70093410F /* NSData+ImageContentType.m in Sources */,
 				0C80CB531D1A3A8100D75290 /* QRCodeDetailViewController.m in Sources */,
 				0C043CBA1C4E420B0093410F /* MJPhotoProgressView.m in Sources */,
+				0C9768361D235EB5008C2945 /* FillSimpleInfoViewController.m in Sources */,
 				0C80CBE51D1A4ACD00D75290 /* UIImage+MostColor.m in Sources */,
 				0C80CB5C1D1A3A8100D75290 /* TVViewController.m in Sources */,
 				0C80CAE31D1A35F500D75290 /* JSONModelClassProperty.m in Sources */,
@@ -1893,6 +1904,7 @@
 				0C80CB451D1A3A8100D75290 /* BaseViewController.m in Sources */,
 				0CEA73141C574C220020AB90 /* NSTimer+CycleScrollView.m in Sources */,
 				0C043CB61C4E420B0093410F /* MJPhoto.m in Sources */,
+				0C8FCEA21D24F09600D783BD /* LocalManager.m in Sources */,
 				0CF659391C3A62EE00B1BFDF /* LXActionSheet.m in Sources */,
 				0C80CAE71D1A35F500D75290 /* JSONHTTPClient.m in Sources */,
 				0C043CBB1C4E420B0093410F /* MJPhotoToolbar.m in Sources */,

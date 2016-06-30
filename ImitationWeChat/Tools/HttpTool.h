@@ -9,50 +9,50 @@
 #import <Foundation/Foundation.h>
 
 //网络状况监测枚举
-typedef NS_ENUM(NSInteger, LWNetworkReachableStatus) {
+typedef NS_ENUM(NSInteger, NetworkReachableStatus) {
     //未知
-    LWNetworkReachableStatusUnknown       =-1,
+    NetworkReachableStatusUnknown       =-1,
     
     //无网络
-    LWNetworkReachableStatusNotReachable  =0,
+    NetworkReachableStatusNotReachable  =0,
     
     //无线网络
-    LWNetworkReachableStatusViaWWAN       =1,
+    NetworkReachableStatusViaWWAN       =1,
     
     //Wifi
-    LWNetworkReachableStatusViaWifi       =2,
+    NetworkReachableStatusViaWifi       =2,
 };
 
-typedef NS_ENUM(NSInteger, LWBannerType) {
+typedef NS_ENUM(NSInteger, BannerType) {
     
     //无状态
-    LWBannerType_null  = 0,
+    BannerType_null  = 0,
     //商品详情
-    LWBannerType_goods  = 1,
+    BannerType_goods  = 1,
     //视频
-    LWBannerType_media = 2,
+    BannerType_media = 2,
     //是自媒体人
-    LWBannerType_media_rofile = 3,
+    BannerType_media_rofile = 3,
     //店铺
-    LWBannerType_shop = 4,
+    BannerType_shop = 4,
     //评论(自媒体人回复了评论)
-    LWBannerType_comment = 5,
+    BannerType_comment = 5,
     //聚合
-    LWBannerType_goods_and_media = 6,
+    BannerType_goods_and_media = 6,
     //html
-    LWBannerType_html = 7,
+    BannerType_html = 7,
     
     //评论
-    LWBannerType_reply = 8,
+    BannerType_reply = 8,
     
     //9为评论被赞
-    LWBannerType_agree = 9,
+    BannerType_agree = 9,
     
     //10为QA里面被@
-    LWBannerType_be_at = 10,
+    BannerType_be_at = 10,
     
     //11
-    LWBannerType_official = 11
+    BannerType_official = 11
 };
 
 
@@ -61,21 +61,21 @@ typedef NS_ENUM(NSInteger, LWBannerType) {
  *
  *  @param responsObject 返回请求的数据结果
  */
-typedef void(^LWQiniuUploadSuccessBlock)(NSDictionary *responsObject);
+typedef void(^QiniuUploadSuccessBlock)(NSDictionary *responsObject);
 
 /**
  *  请求成功回调Block
  *
  *  @param responsObject 返回请求的数据结果
  */
-typedef void(^LWHttpToolSuccessBlock)(NSDictionary *responsObject);
+typedef void(^HttpToolSuccessBlock)(NSDictionary *responsObject);
 
 /**
  *  请求失败回调Block
  *
  *  @param error 返回请求结果的错误代码
  */
-typedef void(^LWHttpToolFailBlock)(NSError *error);
+typedef void(^HttpToolFailBlock)(NSError *error);
 
 
 @interface HttpTool : NSObject
@@ -99,8 +99,8 @@ typedef void(^LWHttpToolFailBlock)(NSError *error);
  */
 + (void)GET:(NSString *)URLString
  parameters:(id)parameters
-    success:(LWHttpToolSuccessBlock)success
-    failure:(LWHttpToolFailBlock)failure;
+    success:(HttpToolSuccessBlock)success
+    failure:(HttpToolFailBlock)failure;
 
 
 /**
@@ -113,8 +113,8 @@ typedef void(^LWHttpToolFailBlock)(NSError *error);
  */
 + (void)POST:(NSString *)URLString
   parameters:(id)parameters
-     success:(LWHttpToolSuccessBlock)success
-     failure:(LWHttpToolFailBlock)failure;
+     success:(HttpToolSuccessBlock)success
+     failure:(HttpToolFailBlock)failure;
 
 
 

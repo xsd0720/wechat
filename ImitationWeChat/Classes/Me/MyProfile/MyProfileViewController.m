@@ -8,6 +8,7 @@
 
 #import "MyProfileViewController.h"
 #import "LXActionSheet.h"
+#import "UserCenterRequest.h"
 NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdentifier";
 
 @interface MyProfileTableViewCell : UITableViewCell
@@ -60,6 +61,7 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 - (UIImagePickerController *)imagePickerController {
     if (!_imagePickerController) {
         _imagePickerController = [[UIImagePickerController alloc] init];
+        [self.view addSubview:self.myProfileTableView];
         _imagePickerController.delegate = self;
         _imagePickerController.allowsEditing = YES;
         _imagePickerController.navigationBar.barTintColor = [UIColor blackColor];
@@ -74,10 +76,19 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     [self setUpNav];
+    [self sendRequestGetProfile];
     
-    [self.view addSubview:self.myProfileTableView];
+}
+
+- (void)sendRequestGetProfile
+{
+    [UserCenterRequest profileSuccess:^(ProfileResponse *responsObject) {
+        NSLog(@"%@", responsObject);
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)setUpNav

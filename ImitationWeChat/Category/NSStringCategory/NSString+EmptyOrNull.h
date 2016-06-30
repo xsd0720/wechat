@@ -12,6 +12,6 @@
 
 -(BOOL) isEmptyOrNull;
 
-+ (BOOL)isBlankString:(NSString *)string;
++ (BOOL)isNotEmptyString:(NSString *)string;
 
 @end

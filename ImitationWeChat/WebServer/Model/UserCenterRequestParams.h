@@ -53,6 +53,8 @@
 //头像
 @property (nonatomic, strong) NSString *head_pic_url;
 
+@property (nonatomic, strong) NSString *wechatnumber;
+
 
 @end
 
@@ -72,3 +74,98 @@
 @property (nonatomic, strong) NSString *vcode;
 
 @end
+
+
+/**
+ *  3.账号登出
+ */
+@interface LogoutParam : RequestParamBase
+
+//手机号
+@property (nonatomic, strong) NSString *mobile;
+
+//access_token
+//@property (nonatomic, strong) NSString *access_token;
+
+
+@end
+
+
+
+/**
+ *  4.个人简介更新
+ */
+@interface UpdateParam : RequestParamBase
+
+//access_token
+//@property (nonatomic, strong) NSString *access_token;
+
+//新密码
+@property (nonatomic, strong) NSString *password;
+
+//手机号码
+@property (nonatomic, strong) NSString *mobile;
+
+
+@end
+
+
+
+/**
+ *  5.找回密码
+ */
+@interface ForgetParam : RequestParamBase
+
+//手机号
+@property (nonatomic, strong) NSString *mobile;
+
+@end
+
+
+/**
+ *  6.获取用户个人简介
+ */
+@interface ProfileParam : RequestParamBase
+
+//access_token
+//@property (nonatomic, strong) NSString *access_token;
+
+//手机号
+@property (nonatomic, strong) NSString *mobile;
+
+
+@end
+
+/**
+ *  7.手机号修改
+ */
+@interface UpdatemobileParam : RequestParamBase
+
+//旧手机号
+@property (nonatomic, strong) NSString *mobile;
+
+//新手机号
+@property (nonatomic, strong) NSString *newmobile;
+
+//access_token
+//@property (nonatomic, strong) NSString *access_token;
+
+@end
+
+
+/**
+ *  8.用户名修改
+ */
+@interface UpdateusernameParam : RequestParamBase
+
+//手机号
+@property (nonatomic, strong) NSString *mobile;
+
+//新用户名
+@property (nonatomic, strong) NSString *newusername;
+
+//access_token
+//@property (nonatomic, strong) NSString *access_token;
+
+@end
+

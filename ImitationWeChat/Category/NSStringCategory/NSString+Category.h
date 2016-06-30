@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+EmptyOrNull.h"
 
 @interface NSString (Category)
 //获取重复字符串位置

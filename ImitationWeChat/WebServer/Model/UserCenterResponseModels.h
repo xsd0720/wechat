@@ -14,23 +14,38 @@
 //profile
 @interface profile : BaseModel
 
-//邮箱地址
-@property (nonatomic, strong) NSString *email;
-
-//性别
-@property (nonatomic, strong) NSString *gender;
-
-//头像
-@property (nonatomic, strong) NSString *head_pic_url;
+//用户id
+@property (nonatomic, copy) NSString *userID;
 
 //手机号
 @property (nonatomic, strong) NSString *mobile;
 
+//头像
+@property (nonatomic, strong) NSString *head_pic_url;
+
 //用户名
 @property (nonatomic, strong) NSString *username;
 
-//用户id
-@property (nonatomic, copy) NSString *userID;
+
+@property (nonatomic, strong) NSString *wechatnumber;
+
+//我的二维码
+@property (nonatomic, strong) NSString *myQrCode;
+
+
+@property (nonatomic, strong) NSArray *myaddresses;
+
+//性别
+@property (nonatomic, strong) NSString *gender;
+
+//地区
+@property (nonatomic, strong) NSString *location;
+
+//个性签名
+@property (nonatomic, strong) NSString *personSig;
+
+//linkedLn 账号
+@property (nonatomic, strong) NSString *linkedLnAccount;
 
 @end
 

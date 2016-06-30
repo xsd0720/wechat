@@ -9,7 +9,7 @@
 #ifndef ImitationWeChat_PublicHeader_h
 #define ImitationWeChat_PublicHeader_h
 static const char associatedkey;
-static const char accessTokenAssociatedKey;
+
 #import <objc/runtime.h>
 #import "AppDelegate.h"
 #import "Localisator.h"

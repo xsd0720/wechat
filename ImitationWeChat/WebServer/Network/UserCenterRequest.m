@@ -53,7 +53,7 @@
                      //登录返回数据模型
                      LoginResponse *loginResponse = [[LoginResponse alloc] initWithDictionary:(NSDictionary *)responsObject error:nil];
                      
-//                     [[LocalManager sharedManager]loginWithLoginResponse:loginResponse];
+                     [[LocalManager sharedManager]loginWithLoginResponse:loginResponse];
                      
                      
                      success(loginResponse);
@@ -333,10 +333,10 @@
     //个人简介参数模型
     ProfileParam *profileParam = [[ProfileParam alloc] init];
     
-
+    profileParam.mobile = [[LocalManager sharedManager] mobile];
     
     //Get 请求
-    [HttpTool GET:ProfileURL
+    [HttpTool POST:ProfileURL
          parameters:[profileParam paramDictionary]
             success:^(NSDictionary *responsObject) {
                 

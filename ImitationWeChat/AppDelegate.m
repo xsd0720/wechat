@@ -17,6 +17,7 @@
 #import "UserCenterRequest.h"
 #import "WelcomeViewController.h"
 #import "PreLoadTool.h"
+#import "LocalManager.h"
 #define APPID_VALUE           @"569364d0"
 
 
@@ -37,9 +38,7 @@
     [self loadWindow];
     
 //    [TopWindow show];
-    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[PreLoadTool sharedInstance] readData];
-    });
+
     
     return YES;
 }
@@ -59,11 +58,23 @@
 }
 
 -(void)loadWindow{
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    MyNavViewController *sendNav = [[MyNavViewController alloc] initWithRootViewController:[[SendTimeLineViewController alloc] init]];
-//
-//    self.window.rootViewController= sendNav;
-    self.window.rootViewController = [[WelcomeViewController alloc] init];
+
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    if ([LocalManager sharedManager].access_token)
+    {
+         self.window.rootViewController = [[MyTabBarController alloc] init];
+    }
+    else
+    {
+        dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[PreLoadTool sharedInstance] readData];
+        });
+        self.window.rootViewController = [[WelcomeViewController alloc] init];
+    }
+    
     [self.window makeKeyAndVisible];
     
     

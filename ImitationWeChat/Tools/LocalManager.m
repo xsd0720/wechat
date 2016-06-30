@@ -8,7 +8,9 @@
 
 #import "LocalManager.h"
 static NSString *access_token = @"access_token";
-
+static NSString *mobile = @"mobile";
+static const char accessTokenAssociatedKey;
+static const char mobileAssociatedKey;
 
 @implementation LocalManager
 + (LocalManager *)sharedManager
@@ -21,7 +23,8 @@ static NSString *access_token = @"access_token";
         NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:LOCALMANGERFILEPATH];
         if (dict) {
             if ([dict isKindOfClass:[NSDictionary class]]) {
-                 objc_setAssociatedObject(self, &access, dict[access_token], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                 objc_setAssociatedObject(sharedAccountManagerInstance, &accessTokenAssociatedKey, dict[access_token], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                 objc_setAssociatedObject(sharedAccountManagerInstance, &mobileAssociatedKey, dict[mobile], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             }
         }
     });
@@ -30,8 +33,26 @@ static NSString *access_token = @"access_token";
 
 - (NSString *)access_token
 {
-    NSString *access_tokenTmp = objc_getAssociatedObject(self, &associatedkey);
+    NSString *access_tokenTmp = objc_getAssociatedObject(self, &accessTokenAssociatedKey);
     return access_tokenTmp;
+}
+
+- (NSString *)mobile
+{
+    NSString *mobileTmp = objc_getAssociatedObject(self, &mobileAssociatedKey);
+    return mobileTmp;
+}
+
+- (void)loginWithLoginResponse:(LoginParam *)param
+{
+    objc_setAssociatedObject(self, &access, param.access_token, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [NSKeyedArchiver archiveRootObject:[param toDictionary] toFile:LOCALMANGERFILEPATH];
+}
+
+
+- (void)save
+{
+    
 }
 
 - (void)logout

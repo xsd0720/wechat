@@ -2,7 +2,7 @@
 //  NSDateFormatter+Locale.h
 //  lilworld
 //
-//  Created by 张 鹏 on 16/4/13.
+//  Created by wany on 16/4/13.
 //  Copyright © 2016年 zp. All rights reserved.
 //
 

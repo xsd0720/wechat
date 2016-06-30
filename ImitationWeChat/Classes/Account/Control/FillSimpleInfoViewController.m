@@ -248,7 +248,8 @@ static const char activeTextFieldAssociatedkey;
     
     [UserCenterRequest registerWithUserName:self.nikeNameString mobile:self.mobile wechatNumber:self.wechatNumberString password:self.passwordString success:^(LoginResponse *responsObject)
     {
-//        NSLog(@"%@", responsObject);
+        [self.view removeFromSuperview];
+        [self removeFromParentViewController];
         AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appdelegate loginIn];
     } failure:^(NSError *error) {

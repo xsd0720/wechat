@@ -37,6 +37,8 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;  //  相机
 
+@property (nonatomic, strong) ProfileResponse *profileResponse;
+
 @end
 
 @implementation MyProfileViewController
@@ -44,7 +46,8 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 - (UITableView *)myProfileTableView
 {
     if (!_myProfileTableView) {
-        _myProfileTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _myProfileTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT-20) style:UITableViewStyleGrouped];
+         [self.view addSubview:self.myProfileTableView];
         _myProfileTableView.delegate = self;
         _myProfileTableView.dataSource = self;
         _myProfileTableView.sectionFooterHeight = 1;
@@ -61,7 +64,7 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 - (UIImagePickerController *)imagePickerController {
     if (!_imagePickerController) {
         _imagePickerController = [[UIImagePickerController alloc] init];
-        [self.view addSubview:self.myProfileTableView];
+       
         _imagePickerController.delegate = self;
         _imagePickerController.allowsEditing = YES;
         _imagePickerController.navigationBar.barTintColor = [UIColor blackColor];
@@ -76,7 +79,7 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+//    self.view.backgroundColor = [UIColor whiteColor];
     [self setUpNav];
     [self sendRequestGetProfile];
     
@@ -85,7 +88,8 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 - (void)sendRequestGetProfile
 {
     [UserCenterRequest profileSuccess:^(ProfileResponse *responsObject) {
-        NSLog(@"%@", responsObject);
+        self.profileResponse = responsObject;
+        [self.myProfileTableView reloadData];
     } failure:^(NSError *error) {
         
     }];

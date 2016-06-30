@@ -121,6 +121,9 @@
 {
     [UserCenterRequest loginWithMobile:self.accountString password:self.passwordString success:^(LoginResponse *responsObject) {
 
+        
+        [self.view removeFromSuperview];
+        [self removeFromParentViewController];
         AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [appdelegate loginIn];
     

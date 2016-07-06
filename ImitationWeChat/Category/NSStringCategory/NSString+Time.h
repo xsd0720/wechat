@@ -19,4 +19,6 @@
 /*处理返回应该显示的时间*/
 + (NSString *) returnUploadTime:(NSString *)timeStr;
 
++ (NSString *)getTimeWithFormat:(NSString *)format date:(NSDate *)date;
+
 @end

@@ -234,6 +234,8 @@
     //账号登出参数模型
     LogoutParam *logoutParam = [[LogoutParam alloc] init];
     
+    logoutParam.mobile = [[LocalManager sharedManager] mobile];
+    
     //Post 请求
     [HttpTool POST:LogoutURL
           parameters:[logoutParam paramDictionary]
@@ -248,6 +250,8 @@
                      
                      //登出模型
                      LogoutResponse *logoutResponse = [[LogoutResponse alloc] initWithDictionary:responsObject error:nil];
+                     
+                    [[LocalManager sharedManager] logout];
                      
                      success(logoutResponse);
                  }

@@ -146,9 +146,15 @@
 
 - (void)didClickOnButtonIndex:(int)buttonIndex
 {
+   
     if (buttonIndex == 0) {
-        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appdelegate logout];
+        
+        [UserCenterRequest logoutSuccess:^(LogoutResponse *responsObject) {
+            AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appdelegate logout];
+        } failure:^(NSError *error) {
+            
+        }];
     }
 }
 

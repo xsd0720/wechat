@@ -24,6 +24,7 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 
 @property (nonatomic, strong) NSDictionary *datasource;
 
+@property (nonatomic, strong) NSString *abc;
 
 
 @end
@@ -140,6 +141,75 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
         cell.columnImageView.layer.cornerRadius = 0;
         cell.columnImageView.layer.borderWidth = 0;
     }
+    
+    
+    switch (indexPath.section) {
+        case 0:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    
+                }
+                    break;
+                case 1:
+                {
+                    
+                }
+                    break;
+                case 2:
+                {
+                    
+                }
+                    break;
+                case 3:
+                {
+                    
+                }
+                    break;
+                    
+                case 4:
+                {
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+          
+        case 1:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    
+                }
+                    break;
+                    
+                case 1:
+                {
+                    
+                }
+                    break;
+                    
+                case 2:
+                {
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    
     return cell;
 }
 
@@ -254,6 +324,7 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
     return self;
 }
 
+
 - (void)setDatasource:(NSDictionary *)datasource
 {
     _datasource = datasource;
@@ -264,20 +335,7 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
     NSString *text = datasource[@"text"];
     _columnNameLabel.text = text;
     
-    NSString *obj = datasource[@"obj"];
     
-    if ([datasource[@"type"] isEqualToString:@"1"]) {
-        //图片
-        _columnImageView.hidden = NO;
-        _columnImageView.image = [UIImage imageNamed:obj];
-    }
-    else
-    {
-        //文字
-        _columnDetailLabel.hidden = NO;
-        _columnDetailLabel.text = obj;
-    }
-
     
 }
 

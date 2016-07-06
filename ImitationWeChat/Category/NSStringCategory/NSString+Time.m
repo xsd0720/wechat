@@ -223,4 +223,30 @@
     return returnTimeString;
 }
 
++ (NSString *)getTimeWithFormat:(NSString *)format date:(NSDate *)date
+{
+    //实例化一个NSDateFormatter对象
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    //设定时间格式,这里可以设置成自己需要的格式
+    
+   
+    if (format) {
+        [dateFormatter setDateFormat:format];
+    }else
+    {
+        [dateFormatter setDateFormat:@"HH:mm"]; 
+    }
+    
+    //用[NSDate date]可以获取系统当前时间
+    
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    
+    //输出格式为：2010-10-27 10:22:13
+    
+    return currentDateStr;
+
+}
+
 @end

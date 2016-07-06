@@ -13,6 +13,7 @@
 #import "SearchViewShowController.h"
 #import "KxMenu.h"
 #import "UserCenterRequest.h"
+#import "MassAssistantViewController.h"
 #define SEARCHBARHEIGHT        44
 static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 
@@ -205,6 +206,9 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MassAssistantViewController *massAssistantVC = [[MassAssistantViewController alloc] init];
+    massAssistantVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:massAssistantVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

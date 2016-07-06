@@ -63,6 +63,8 @@
 
     self.window.backgroundColor = [UIColor whiteColor];
     
+//    self.window.rootViewController = [[MyTabBarController alloc] init];
+    
     if ([LocalManager sharedManager].access_token)
     {
          self.window.rootViewController = [[MyTabBarController alloc] init];

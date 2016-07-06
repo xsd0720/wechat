@@ -31,6 +31,8 @@
 
 @property (nonatomic, strong) NSString *passwordString;
 
+@property (nonatomic, strong) UIButton *questionButton;
+
 @end
 
 @implementation LoginViewController
@@ -52,6 +54,17 @@
 
     self.mainTableView.tableHeaderView = self.tableHeaderView;
     [self.operationButton setTitle:@"提交" forState:UIControlStateNormal];
+    
+    
+    self.questionButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 30)];
+    [self.questionButton setTitle:@"登录遇到问题?" forState:UIControlStateNormal];
+    [self.questionButton setTitleColor:RGB(175, 183, 204) forState:UIControlStateNormal];
+    self.questionButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [self.questionButton addTarget:self action:@selector(questionButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.tableFooterView addSubview:self.questionButton];
+    self.tableFooterView.height = 100;
+    self.mainTableView.tableFooterView = self.tableFooterView;
+
     
     //regis table cell
     [self.mainTableView registerClass:[LoginCell class] forCellReuseIdentifier:LOGINCELLIDENTIFIER];
@@ -130,6 +143,11 @@
     } failure:^(NSError *error) {
         
     }];
+}
+
+- (void)questionButtonClick
+{
+    
 }
 
 - (void)dealloc

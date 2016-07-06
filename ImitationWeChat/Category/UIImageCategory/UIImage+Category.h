@@ -10,4 +10,6 @@
 
 @interface UIImage (Category)
 
+- (CGSize)limitMaxWidthHeight;
+
 @end

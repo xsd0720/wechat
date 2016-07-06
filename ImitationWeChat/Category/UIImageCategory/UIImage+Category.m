@@ -193,5 +193,37 @@
 }
 
 
+- (CGSize)limitMaxWidthHeight
+{
+    CGFloat maxW = SCREEN_WIDTH-120;
+    CGFloat maxH = SCREEN_WIDTH-120;
+    
+    CGFloat w = self.size.width;
+    CGFloat h = self.size.height;
+    
+    //宽大于高
+    if (w > h) {
+        float scale = w/h;
+        CGFloat resultW = MIN(maxW, w);
+        CGFloat resultH = resultW/scale;
+        return CGSizeMake(resultW, resultH);
+    }
+    //宽高相等
+    else if(w == h)
+    {
+        float scale = 1;
+        CGFloat resultW = MIN(maxW, w);
+        CGFloat restultH = resultW/scale;
+        return CGSizeMake(resultW, restultH);
+    }
+    //高大于宽
+    else
+    {
+        float scale = h/w;
+        CGFloat resultH = MIN(maxH, h);
+        CGFloat resultW = resultH/scale;
+        return  CGSizeMake(resultW, resultH);
+    }
 
+}
 @end

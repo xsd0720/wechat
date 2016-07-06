@@ -29,7 +29,7 @@
         UIBarButtonItem *negativeSpacer = [[ UIBarButtonItem alloc ]
                                            initWithBarButtonSystemItem : UIBarButtonSystemItemFixedSpace
                                            target : nil action : nil ];
-        negativeSpacer. width = 10 ;
+        negativeSpacer. width = -5;
         [ self setRightBarButtonItems :[ NSArray arrayWithObjects :negativeSpacer, rightBarButtonItem, nil ]];
     } else {
         // Just set the UIBarButtonItem as you would normally

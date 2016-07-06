@@ -128,7 +128,7 @@
 
 - (void)animationWith:(CGFloat)y
 {
-    NSLog(@"%f", y);
+//    NSLog(@"%f", y);
     
     CGFloat flag = -40;
 

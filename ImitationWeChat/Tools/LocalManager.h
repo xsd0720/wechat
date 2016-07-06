@@ -7,16 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UserCenterRequestParams.h"
+#import "UserCenterResponseModels.h"
 #define LOCALMANAGER [LocalManager sharedManager]
 @interface LocalManager : NSObject
 
 @property (nonatomic, strong) NSString *access_token;
 
 @property (nonatomic, strong) NSString *mobile;
+@property (nonatomic, assign) BOOL isopen;
 
 + (LocalManager *)sharedManager;
 
-- (void)loginWithLoginResponse:(LoginParam *)param;
+- (void)loginWithLoginResponse:(LoginResponse *)param;
+
+- (void)logout;
 
 @end

@@ -149,17 +149,19 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
             switch (indexPath.row) {
                 case 0:
                 {
-                    
+                    cell.columnImageView.image = [UIImage imageNamed:@"000"];
+                    cell.columnImageView.hidden = NO;
+                    cell.columnDetailLabel.hidden = YES;
                 }
                     break;
                 case 1:
                 {
-                    
+                    cell.columnDetailLabel.text = self.profileResponse.profile.username;
                 }
                     break;
                 case 2:
                 {
-                    
+                    cell.columnDetailLabel.text = self.profileResponse.profile.wechatnumber;
                 }
                     break;
                 case 3:
@@ -185,13 +187,13 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
             switch (indexPath.row) {
                 case 0:
                 {
-                    
+                    cell.columnDetailLabel.text = self.profileResponse.profile.showGender;
                 }
                     break;
                     
                 case 1:
                 {
-                    
+                    cell.columnDetailLabel.text = @"";
                 }
                     break;
                     
@@ -315,11 +317,12 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
         _columnDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 30 - 100, 0, 100, 20)];
         _columnDetailLabel.font = [UIFont systemFontOfSize:16];
         _columnDetailLabel.textAlignment = 2;
+        _columnImageView.backgroundColor = [UIColor redColor];
         _columnDetailLabel.textColor = RGBCOLOR(155, 155, 155);
         [self addSubview:_columnDetailLabel];
         
         _columnImageView.hidden = YES;
-        _columnDetailLabel.hidden = YES;
+
     }
     return self;
 }
@@ -329,8 +332,7 @@ NSString *const myProfileTableViewCellIdentifier = @"myProfileTableViewCellIdent
 {
     _datasource = datasource;
     
-    _columnImageView.hidden = YES;
-    _columnDetailLabel.hidden = YES;
+
     
     NSString *text = datasource[@"text"];
     _columnNameLabel.text = text;

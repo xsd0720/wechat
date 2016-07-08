@@ -172,6 +172,7 @@ static const char associatedkey;
                       
                       //如果返回9 则退出登录
                       if ( (status_code == 9) || (status_code == 1) ) {
+                        
 //                          UIViewController *controller = KEY_WINDOW.rootViewController.presentedViewController;
 //                          Log(@"%@",controller);
 //                          
@@ -193,6 +194,9 @@ static const char associatedkey;
 //                          
 //                          [[LocalManager sharedManager]logOut];
 //                          [[LocalManager sharedManager]save];
+                          
+//                          AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//                          [appdelegate logout];
                       }
                       
                       

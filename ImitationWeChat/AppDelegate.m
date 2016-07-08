@@ -54,6 +54,7 @@
 
 - (void)logout
 {
+    [[LocalManager sharedManager] logout];
     self.window.rootViewController = [[WelcomeViewController alloc] init];
 }
 

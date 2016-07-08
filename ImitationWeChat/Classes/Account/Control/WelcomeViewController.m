@@ -29,7 +29,7 @@
     loginButton.layer.cornerRadius = 5;
     [loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    loginButton.frame = CGRectMake(SCREEN_WIDTH/12, SCREEN_HEIGHT-100, SCREEN_WIDTH/3, 35);
+    loginButton.frame = CGRectMake(SCREEN_WIDTH/12, SCREEN_HEIGHT-100, SCREEN_WIDTH/3, 40);
     loginButton.titleLabel.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:loginButton];
     
@@ -39,7 +39,7 @@
     [regisButton setTitle:@"注册" forState:UIControlStateNormal];
     [regisButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     regisButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    regisButton.frame = CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/12-SCREEN_WIDTH/3, SCREEN_HEIGHT-100, SCREEN_WIDTH/3, 35);
+    regisButton.frame = CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/12-SCREEN_WIDTH/3, SCREEN_HEIGHT-100, SCREEN_WIDTH/3, 40);
     [self.view addSubview:regisButton];
     
     

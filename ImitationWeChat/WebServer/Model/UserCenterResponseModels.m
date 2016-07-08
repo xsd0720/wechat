@@ -67,3 +67,17 @@
 @implementation UpdateusernameResponse
 
 @end
+
+@implementation profile
+
+- (void)setGender:(NSString *)gender
+{
+    if ([gender isEqualToString:@"female"]){
+        self.showGender = @"男";
+    }else
+    {
+        self.showGender = @"女";
+    }
+
+}
+@end

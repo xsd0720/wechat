@@ -38,6 +38,8 @@
 //性别
 @property (nonatomic, strong) NSString *gender;
 
+@property (nonatomic, strong) NSString *showGender;
+
 //地区
 @property (nonatomic, strong) NSString *location;
 

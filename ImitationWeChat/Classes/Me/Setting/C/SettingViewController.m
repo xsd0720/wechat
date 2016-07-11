@@ -9,6 +9,10 @@
 #import "SettingViewController.h"
 #import "UserCenterRequest.h"
 #import "LXActionSheet.h"
+#import "NewXinNotifiViewController.h"
+#import "PrivacyViewController.h"
+#import "CurrencyViewController.h"
+#import "AboutWechatViewController.h"
 #define SETTINGTABLEVIEWCELLIDENTIFIER  @"SETTINGTABLEVIEWCELLIDENTIFIER"
 
 @interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource, LXActionSheetDelegate>
@@ -40,7 +44,7 @@
     if (!_logoutButton) {
         _logoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _logoutButton.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44);
-        _logoutButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        _logoutButton.titleLabel.font = [UIFont systemFontOfSize:17];
         _logoutButton.backgroundColor = [UIColor whiteColor];
         [_logoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
         [_logoutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -54,7 +58,7 @@
  */
 - (UITableView *)settingTableView {
     if (!_settingTableView) {
-        _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT) style:UITableViewStylePlain];
+        _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT) style:UITableViewStyleGrouped];
         [self.view addSubview:_settingTableView];
 
         
@@ -99,7 +103,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 20;
+    return section==0?20:1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -135,6 +139,80 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.section) {
+        case 0:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+            
+        case 1:
+        {
+            switch (indexPath.row) {
+                    //新消息通知
+                case 0:
+                {
+                    NewXinNotifiViewController *newXinNotifiVC = [[NewXinNotifiViewController alloc] init];
+                    [self.navigationController pushViewController:newXinNotifiVC animated:YES];
+                }
+                    break;
+                    
+                case 1:
+                {
+                    PrivacyViewController *privacyVC = [[PrivacyViewController alloc] init];
+                    [self.navigationController pushViewController:privacyVC animated:YES];
+                }
+                    break;
+                    
+                case 2:
+                {
+                    CurrencyViewController *currencyVC = [[CurrencyViewController alloc] init];
+                    [self.navigationController pushViewController:currencyVC animated:YES];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+
+        }
+            break;
+            
+        case 2:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    
+                }
+                    break;
+                    
+                case 1:
+                {
+                    AboutWechatViewController *aboutWechatVC = [[AboutWechatViewController alloc] init];
+                    [self.navigationController pushViewController:aboutWechatVC animated:YES];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)logoutClick

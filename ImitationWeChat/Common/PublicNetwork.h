@@ -16,7 +16,7 @@
 
 #ifdef DEBUG
 
-#define HttpHead            @"http://127.0.0.1:8000"
+#define HttpHead            @"http://192.168.20.247:8000"
 
 //#define HttpHead             @"182.92.23.2"
 

@@ -12,4 +12,11 @@
 @interface NSString (Category)
 //获取重复字符串位置
 - (NSMutableArray *)getRangeStr:(NSString *)text findText:(NSString *)findText;
+- (void)findSameStringPostion:(NSString *)contentString AttributedString:(NSMutableAttributedString *)attributedString;
+
+
+- (CGSize)CalculationStringSizeInView:(UIView *)showView;
+
+- (CGSize)CalculationStringSizeWithWidth:(CGFloat)showWidth font:(UIFont *)showFont;
+
 @end

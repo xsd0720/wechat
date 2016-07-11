@@ -1,3 +1,4 @@
+
 //
 //  DataSource.m
 //  ImitationWeChat
@@ -501,6 +502,273 @@
                  @"imageName":@"bottleButtonMine",
                  @"text":@"我的瓶子"
                  }
+             ];
+}
+
+- (NSArray *)newXinNotificationData
+{
+    return @[
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"接收新消息通知",
+                             @"type":@"label",
+                             }
+                         
+                         ],
+                 newXinNotificationFooterStr:@"如果你要关闭或开启微信的新消息通知，请在iPhone的”设置“ - ”通知“功能中，找到应用程序”微信“更改。"
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"通知显示消息详情",
+                             @"type":@"switch",
+                             }
+                         
+                         ],
+                 newXinNotificationFooterStr:@"关闭后，当收到微信消息时，通知提示将不显示发信人和内容摘要。"
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"功能消息免打扰",
+                             @"type":@"system",
+                             }
+                         
+                         ],
+                 newXinNotificationFooterStr:@"设置系统功能消息提示声音和振动的时段。"
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"声音",
+                             @"type":@"switch",
+                             },
+                         @{
+                             @"text":@"振动",
+                             @"type":@"switch",
+                             },
+                         ],
+                 newXinNotificationFooterStr:@"当微信运行时，你可以设置是否需要声音或者振动。"
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"朋友圈照片更新",
+                             @"type":@"switch",
+                             }
+                         
+                         ],
+                 newXinNotificationFooterStr:@"关闭后，有朋友更新照片时，界面下面的“发现”切换按钮上不再显示红点提示。"
+                 },
+             ];
+}
+
+- (NSArray *)funXinNotDisturbData
+{
+    return @[
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"开启",
+                             },
+                         @{
+                             @"text":@"只在夜间开启",
+                             },
+                         @{
+                             @"text":@"关闭",
+                             }
+                         ],
+                 newXinNotificationFooterStr:@"开启后，“QQ邮箱提醒”在收到邮件后，手机不会震动于发出提示音。如果设置为“只在夜间开启”，则只在22:00到8:00生效。"
+                 },
+             ];
+}
+
+
+- (NSArray *)privacyData
+{
+    return @[
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"加我为朋友时需要验证",
+                             @"type":@"switch",
+                             }
+                         ],
+                 newXinNotificationHeaderStr:@"通讯录",
+                 newXinNotificationFooterStr:@"",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"通过QQ号搜索到我",
+                             @"type":@"switch",
+                             }
+                         ],
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"可通过手机号搜索到我",
+                             @"type":@"switch",
+                             },
+                         @{
+                             @"text":@"向我推荐通讯录好友",
+                             @"type":@"switch",
+                             }
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"开启后，为你推荐已经开通微信的手机联系人",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"通过微信号搜索到我",
+                             @"type":@"switch",
+                             }
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"关闭后，其他用户将不能通过微信号搜索到你",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"通讯录黑名单",
+                             @"type":@"system",
+                             }
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"",
+                 },
+             
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"不让他(她)看我的朋友圈",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"不看他(她)的朋友圈",
+                             @"type":@"system",
+                             },
+                         ],
+                 newXinNotificationHeaderStr:@"朋友圈",
+                 newXinNotificationFooterStr:@"",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"允许陌生人查看十张照片",
+                             @"type":@"switch",
+                             }
+                         ],
+                 newXinNotificationFooterStr:@"",
+                 newXinNotificationHeaderStr:@"",
+                 },
+
+             
+             ];
+}
+
+
+- (NSArray *)currencyData
+{
+    return @[
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"多语言",
+                             @"type":@"system",
+                             }
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"字体大小",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"聊天背景",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"我的表情",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"朋友圈小视频",
+                             @"type":@"system",
+                             },
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"听筒模式",
+                             @"type":@"switch",
+                             },
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"功能",
+                             @"type":@"system",
+                             }
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"",
+                 },
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"聊天记录迁移",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"清理微信存储空间",
+                             @"type":@"system",
+                             },
+                         ],
+                 newXinNotificationHeaderStr:@"",
+                 newXinNotificationFooterStr:@"",
+                 },
+             
+             
+             ];
+
+}
+
+- (NSArray *)aboutWechatData
+{
+    return @[
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"去评分",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"功能介绍",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"系统通知",
+                             @"type":@"system",
+                             },
+                         @{
+                             @"text":@"投诉",
+                             @"type":@"system",
+                             },
+                         ],
+                 },
              ];
 }
 

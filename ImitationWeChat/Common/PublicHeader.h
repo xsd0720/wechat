@@ -14,6 +14,7 @@ static const char associatedkey;
 #import "AppDelegate.h"
 #import "Localisator.h"
 #import "LocalManager.h"
+#import "SystemManager.h"
 #import "PreLoadTool.h"
 #import "ValidTool.h"
 #import "UIView+Extention.h"

@@ -49,11 +49,11 @@
         
     }
     
-//    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {
-//        
-//        return NO;
-//
-//    }
+    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {
+        
+        return NO;
+
+    }
     
     return YES;
     

@@ -54,4 +54,71 @@
 
     return nil;
 }
+
+- (void)findSameStringPostion:(NSString *)contentString AttributedString:(NSMutableAttributedString *)attributedString
+{
+    //1.建立正则表达式的匹配
+    //    NSString *pattern = @"@(\\S+)($|\\s)";
+    
+    int asciiCode = 8197;
+    NSString *string = [NSString stringWithFormat:@"%c", asciiCode];
+    
+    NSString *pattern = [NSString stringWithFormat:@"@([^%@]+)(%@)",string,string];
+    
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:kNilOptions error:nil];
+    
+    
+    //2.将满足正则表达式的字段挑出来
+    NSArray *match = [regex matchesInString:contentString
+                                    options:NSMatchingReportCompletion
+                                      range:NSMakeRange(0, [contentString length])];
+    
+    NSDictionary *attributeDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [UIFont systemFontOfSize:13.0],NSFontAttributeName,
+                                   [UIColor getColor:@"3DC2D5"],NSForegroundColorAttributeName, nil];
+    
+    //set or return nsrange array
+    if(match.count != 0)
+    {
+        for (NSTextCheckingResult *matc in match)
+        {
+            NSRange range = [matc range];
+            
+            [attributedString setAttributes:attributeDict range:range];
+        }
+    }
+}
+
+
+
+- (CGSize)CalculationStringSizeInView:(UIView *)showView
+{
+    if (![NSString isNotEmptyString:self]) {
+        return CGSizeZero;
+    }
+    if ([showView isKindOfClass:[UILabel class]]) {
+        UILabel *label = (UILabel *)showView;
+        
+        CGSize size = CGSizeMake(showView.width,MAXFLOAT); //设置一个行高上限
+        NSDictionary *attribute = @{NSFontAttributeName: label.font};
+        CGSize labelsize = [self boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+        labelsize.height += 10;
+        return labelsize;
+    }
+    return CGSizeZero;
+}
+
+- (CGSize)CalculationStringSizeWithWidth:(CGFloat)showWidth font:(UIFont *)showFont
+{
+    if (![NSString isNotEmptyString:self]) {
+        return CGSizeZero;
+    }
+    CGSize size = CGSizeMake(showWidth,MAXFLOAT); //设置一个行高上限
+    NSDictionary *attribute = @{NSFontAttributeName: showFont};
+    CGSize labelsize = [self boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+    labelsize.height += 10;
+    return labelsize;
+
+}
+
 @end

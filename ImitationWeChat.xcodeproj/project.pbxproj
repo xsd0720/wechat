@@ -60,6 +60,16 @@
 		0C61D4BA1C449842007547FE /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4B91C449842007547FE /* IATConfig.m */; };
 		0C61D4C01C44A06C007547FE /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4BF1C44A06C007547FE /* ISRDataHelper.m */; };
 		0C61D4C61C44C04A007547FE /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4C51C44C04A007547FE /* KxMenu.m */; };
+		0C6CA7941D335FE30003B88A /* NewXinNotifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA78D1D335FE30003B88A /* NewXinNotifiViewController.m */; };
+		0C6CA7951D335FE30003B88A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA78F1D335FE30003B88A /* SettingViewController.m */; };
+		0C6CA7991D336F150003B88A /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7981D336F150003B88A /* SystemManager.m */; };
+		0C6CA79C1D33718F0003B88A /* FunXinNotDisturbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA79B1D33718F0003B88A /* FunXinNotDisturbViewController.m */; };
+		0C6CA79F1D3377170003B88A /* FunXinNotDisturbTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA79E1D3377170003B88A /* FunXinNotDisturbTableViewCell.m */; };
+		0C6CA7A21D337E470003B88A /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A11D337E470003B88A /* PrivacyViewController.m */; };
+		0C6CA7A51D3393750003B88A /* CurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A41D3393750003B88A /* CurrencyViewController.m */; };
+		0C6CA7A81D3394730003B88A /* SettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */; };
+		0C6CA7AB1D3395AB0003B88A /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */; };
+		0C6CA7AE1D33A0110003B88A /* AboutWechatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7AD1D33A0110003B88A /* AboutWechatViewController.m */; };
 		0C80CAAD1D1A2CB100D75290 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CAAC1D1A2CB100D75290 /* HttpTool.m */; };
 		0C80CAE01D1A35F500D75290 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CAC71D1A35F500D75290 /* JSONModel+CoreData.m */; };
 		0C80CAE11D1A35F500D75290 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CAC91D1A35F500D75290 /* JSONModel.m */; };
@@ -138,7 +148,6 @@
 		0C80CC071D1AB25400D75290 /* UserCenterResponseModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC061D1AB25400D75290 /* UserCenterResponseModels.m */; };
 		0C80CC0A1D1AB2A600D75290 /* UserCenterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC091D1AB2A600D75290 /* UserCenterRequest.m */; };
 		0C80CC0D1D1AB2FA00D75290 /* ResponseSuccessBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */; };
-		0C8873321D1C010700BF754D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8873311D1C010700BF754D /* SettingViewController.m */; };
 		0C8FCEA21D24F09600D783BD /* LocalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8FCEA11D24F09600D783BD /* LocalManager.m */; };
 		0C9768361D235EB5008C2945 /* FillSimpleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9768351D235EB5008C2945 /* FillSimpleInfoViewController.m */; };
 		0CA252E21D1D0ACB00482E9F /* mmregioncode4client.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */; };
@@ -346,6 +355,26 @@
 		0C61D4BF1C44A06C007547FE /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
 		0C61D4C41C44C04A007547FE /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		0C61D4C51C44C04A007547FE /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		0C6CA78C1D335FE30003B88A /* NewXinNotifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewXinNotifiViewController.h; sourceTree = "<group>"; };
+		0C6CA78D1D335FE30003B88A /* NewXinNotifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewXinNotifiViewController.m; sourceTree = "<group>"; };
+		0C6CA78E1D335FE30003B88A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		0C6CA78F1D335FE30003B88A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		0C6CA7971D336F150003B88A /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
+		0C6CA7981D336F150003B88A /* SystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemManager.m; sourceTree = "<group>"; };
+		0C6CA79A1D33718F0003B88A /* FunXinNotDisturbViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunXinNotDisturbViewController.h; sourceTree = "<group>"; };
+		0C6CA79B1D33718F0003B88A /* FunXinNotDisturbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunXinNotDisturbViewController.m; sourceTree = "<group>"; };
+		0C6CA79D1D3377170003B88A /* FunXinNotDisturbTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunXinNotDisturbTableViewCell.h; sourceTree = "<group>"; };
+		0C6CA79E1D3377170003B88A /* FunXinNotDisturbTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunXinNotDisturbTableViewCell.m; sourceTree = "<group>"; };
+		0C6CA7A01D337E470003B88A /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
+		0C6CA7A11D337E470003B88A /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
+		0C6CA7A31D3393750003B88A /* CurrencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyViewController.h; sourceTree = "<group>"; };
+		0C6CA7A41D3393750003B88A /* CurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyViewController.m; sourceTree = "<group>"; };
+		0C6CA7A61D3394730003B88A /* SettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingBaseViewController.h; sourceTree = "<group>"; };
+		0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseViewController.m; sourceTree = "<group>"; };
+		0C6CA7A91D3395AB0003B88A /* SettingBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableViewCell.h; sourceTree = "<group>"; };
+		0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableViewCell.m; sourceTree = "<group>"; };
+		0C6CA7AC1D33A0110003B88A /* AboutWechatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWechatViewController.h; sourceTree = "<group>"; };
+		0C6CA7AD1D33A0110003B88A /* AboutWechatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWechatViewController.m; sourceTree = "<group>"; };
 		0C80CAAB1D1A2CB100D75290 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		0C80CAAC1D1A2CB100D75290 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		0C80CAAF1D1A2D6F00D75290 /* PublicDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicDefine.h; sourceTree = "<group>"; };
@@ -502,8 +531,6 @@
 		0C80CC091D1AB2A600D75290 /* UserCenterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterRequest.m; sourceTree = "<group>"; };
 		0C80CC0B1D1AB2FA00D75290 /* ResponseSuccessBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseSuccessBlocks.h; sourceTree = "<group>"; };
 		0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseSuccessBlocks.m; sourceTree = "<group>"; };
-		0C8873301D1C010700BF754D /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		0C8873311D1C010700BF754D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		0C8FCEA01D24F09600D783BD /* LocalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalManager.h; sourceTree = "<group>"; };
 		0C8FCEA11D24F09600D783BD /* LocalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalManager.m; sourceTree = "<group>"; };
 		0C9768341D235EB5008C2945 /* FillSimpleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillSimpleInfoViewController.h; sourceTree = "<group>"; };
@@ -825,6 +852,45 @@
 				0C61D4B91C449842007547FE /* IATConfig.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		0C6CA78B1D335FE30003B88A /* C */ = {
+			isa = PBXGroup;
+			children = (
+				0C6CA78E1D335FE30003B88A /* SettingViewController.h */,
+				0C6CA78F1D335FE30003B88A /* SettingViewController.m */,
+				0C6CA7A61D3394730003B88A /* SettingBaseViewController.h */,
+				0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */,
+				0C6CA78C1D335FE30003B88A /* NewXinNotifiViewController.h */,
+				0C6CA78D1D335FE30003B88A /* NewXinNotifiViewController.m */,
+				0C6CA79A1D33718F0003B88A /* FunXinNotDisturbViewController.h */,
+				0C6CA79B1D33718F0003B88A /* FunXinNotDisturbViewController.m */,
+				0C6CA7A01D337E470003B88A /* PrivacyViewController.h */,
+				0C6CA7A11D337E470003B88A /* PrivacyViewController.m */,
+				0C6CA7A31D3393750003B88A /* CurrencyViewController.h */,
+				0C6CA7A41D3393750003B88A /* CurrencyViewController.m */,
+				0C6CA7AC1D33A0110003B88A /* AboutWechatViewController.h */,
+				0C6CA7AD1D33A0110003B88A /* AboutWechatViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0C6CA7901D335FE30003B88A /* V */ = {
+			isa = PBXGroup;
+			children = (
+				0C6CA7A91D3395AB0003B88A /* SettingBaseTableViewCell.h */,
+				0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */,
+				0C6CA79D1D3377170003B88A /* FunXinNotDisturbTableViewCell.h */,
+				0C6CA79E1D3377170003B88A /* FunXinNotDisturbTableViewCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		0C6CA7931D335FE30003B88A /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
 			sourceTree = "<group>";
 		};
 		0C80CAAE1D1A2D6F00D75290 /* Common */ = {
@@ -1277,8 +1343,9 @@
 		0C88732D1D1C00E300BF754D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				0C8873301D1C010700BF754D /* SettingViewController.h */,
-				0C8873311D1C010700BF754D /* SettingViewController.m */,
+				0C6CA78B1D335FE30003B88A /* C */,
+				0C6CA7901D335FE30003B88A /* V */,
+				0C6CA7931D335FE30003B88A /* M */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1451,6 +1518,8 @@
 				0C1A44C61D20DA16008B292F /* ValidTool.m */,
 				0C8FCEA01D24F09600D783BD /* LocalManager.h */,
 				0C8FCEA11D24F09600D783BD /* LocalManager.m */,
+				0C6CA7971D336F150003B88A /* SystemManager.h */,
+				0C6CA7981D336F150003B88A /* SystemManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1827,9 +1896,12 @@
 				0C80CAF11D1A373500D75290 /* BaseModel.m in Sources */,
 				0C043D061C4E42E70093410F /* UIButton+WebCache.m in Sources */,
 				0C61D4BA1C449842007547FE /* IATConfig.m in Sources */,
+				0C6CA7A21D337E470003B88A /* PrivacyViewController.m in Sources */,
 				0C80CAE51D1A35F500D75290 /* NSArray+JSONModel.m in Sources */,
 				0C80CB601D1A3A8100D75290 /* WalletViewController.m in Sources */,
 				0C80CBDF1D1A4ACD00D75290 /* WJPhotoTool.m in Sources */,
+				0C6CA79C1D33718F0003B88A /* FunXinNotDisturbViewController.m in Sources */,
+				0C6CA7941D335FE30003B88A /* NewXinNotifiViewController.m in Sources */,
 				0C043CFB1C4E42E70093410F /* AFURLResponseSerialization.m in Sources */,
 				0CF911E71C438A4100F33C89 /* TZAssetCell.m in Sources */,
 				0C80CBE81D1A4ACD00D75290 /* UIView+Extension.m in Sources */,
@@ -1843,6 +1915,7 @@
 				0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */,
 				0C043D041C4E42E70093410F /* SDWebImageManager.m in Sources */,
 				0C043CF91C4E42E70093410F /* AFURLConnectionOperation.m in Sources */,
+				0C6CA7AE1D33A0110003B88A /* AboutWechatViewController.m in Sources */,
 				7B91C6451A3B2A5900394194 /* AppDelegate.m in Sources */,
 				0CF911EE1C438A4100F33C89 /* TZPhotoPreviewController.m in Sources */,
 				0C80CB561D1A3A8100D75290 /* FMLrcView.m in Sources */,
@@ -1878,6 +1951,7 @@
 				0C80CBDD1D1A4ACD00D75290 /* PHAsset+WJ.m in Sources */,
 				0C043D071C4E42E70093410F /* UIImage+GIF.m in Sources */,
 				0C80CAE41D1A35F500D75290 /* JSONModelError.m in Sources */,
+				0C6CA7AB1D3395AB0003B88A /* SettingBaseTableViewCell.m in Sources */,
 				0C80CBEB1D1A4ACD00D75290 /* UIWindow+Motion.m in Sources */,
 				0CF911ED1C438A4100F33C89 /* TZPhotoPreviewCell.m in Sources */,
 				0C80CBDE1D1A4ACD00D75290 /* WJAsset.m in Sources */,
@@ -1885,7 +1959,6 @@
 				0CBA10301D2A3758006ADF76 /* MassAssistantCellConfig.m in Sources */,
 				0C043D031C4E42E70093410F /* SDWebImageDownloaderOperation.m in Sources */,
 				0C80CBD71D1A4ACD00D75290 /* NSString+md5.m in Sources */,
-				0C8873321D1C010700BF754D /* SettingViewController.m in Sources */,
 				0CA2530A1D1D134900482E9F /* MMCountry.m in Sources */,
 				0C0414541D2657A2003CD82A /* MassAssistantViewController.m in Sources */,
 				0CA253071D1D130800482E9F /* WelcomeViewController.m in Sources */,
@@ -1896,6 +1969,7 @@
 				0C80CB501D1A3A8100D75290 /* SightViewController.m in Sources */,
 				0C043CF51C4E42E70093410F /* AFHTTPRequestOperationManager.m in Sources */,
 				0C80CB511D1A3A8100D75290 /* TimelineViewController.m in Sources */,
+				0C6CA79F1D3377170003B88A /* FunXinNotDisturbTableViewCell.m in Sources */,
 				0C043CFE1C4E42E70093410F /* NSData+ImageContentType.m in Sources */,
 				0C80CB531D1A3A8100D75290 /* QRCodeDetailViewController.m in Sources */,
 				0C043CBA1C4E420B0093410F /* MJPhotoProgressView.m in Sources */,
@@ -1941,6 +2015,7 @@
 				7B91C6421A3B2A5900394194 /* main.m in Sources */,
 				0C80CB4D1D1A3A8100D75290 /* WaterPointControl.m in Sources */,
 				0CF911EC1C438A4100F33C89 /* TZPhotoPickerController.m in Sources */,
+				0C6CA7951D335FE30003B88A /* SettingViewController.m in Sources */,
 				0C80CC071D1AB25400D75290 /* UserCenterResponseModels.m in Sources */,
 				0C80CBEA1D1A4ACD00D75290 /* UIView+Toast.m in Sources */,
 				2E9700011B5E58C800CA2CF1 /* ShakeHalfView.m in Sources */,
@@ -1949,9 +2024,11 @@
 				0C80CAE91D1A35F500D75290 /* JSONKeyMapper.m in Sources */,
 				0CA253061D1D130800482E9F /* RegisViewController.m in Sources */,
 				0C80CBFE1D1AB07C00D75290 /* RequestParamBase.m in Sources */,
+				0C6CA7991D336F150003B88A /* SystemManager.m in Sources */,
 				2E61512F1B5CE71F007196E2 /* KRVideoPlayerControlView.m in Sources */,
 				0C043CA41C4E35D80093410F /* SafePhotoView.m in Sources */,
 				0C043D001C4E42E70093410F /* SDWebImageCompat.m in Sources */,
+				0C6CA7A51D3393750003B88A /* CurrencyViewController.m in Sources */,
 				0C80CBEE1D1A4B8900D75290 /* NSDateFormatter+Locale.m in Sources */,
 				0C0414571D2657A2003CD82A /* WxTableCell.m in Sources */,
 				0CEA73171C574C4E0020AB90 /* CycleImageView.m in Sources */,
@@ -1981,6 +2058,7 @@
 				0C80CC0A1D1AB2A600D75290 /* UserCenterRequest.m in Sources */,
 				0C1AE7301C4652750080567C /* GradientLayerView.m in Sources */,
 				0C043CF61C4E42E70093410F /* AFHTTPSessionManager.m in Sources */,
+				0C6CA7A81D3394730003B88A /* SettingBaseViewController.m in Sources */,
 				0C80CBE71D1A4ACD00D75290 /* UINavigationItem+correct_offset.m in Sources */,
 				0C043D021C4E42E70093410F /* SDWebImageDownloader.m in Sources */,
 				0C043CBD1C4E420B0093410F /* SDWebImageManager+MJ.m in Sources */,

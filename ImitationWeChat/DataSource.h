@@ -8,8 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *newXinNotificationItemStr = @"newXinNotificationItemStr";
+static NSString *newXinNotificationFooterStr = @"newXinNotificationFooterStr";
+static NSString *newXinNotificationHeaderStr = @"newXinNotificationHeaderStr";
 
 #define DS        [DataSource getInstance]
+
+
+typedef NS_ENUM(NSInteger, AccessoryType) {
+    AccessoryNone,
+    AccessoryNoneLabel,
+    AccessoryArrow,
+    AccessorySwitch,
+};
+
+
 @interface DataSource : NSObject
 
 /*
@@ -53,6 +66,22 @@
  */
 @property (nonatomic, strong) NSArray *myProfileTableData;
 
+/*
+ newxinnotfication tableviewdatasouce
+*/
+@property (nonatomic, strong) NSArray *newXinNotificationData;
+
+/*
+ funXinNotDisturbData tableviewdatasouce
+ */
+@property (nonatomic, strong) NSArray *funXinNotDisturbData;
+
+
+@property (nonatomic, strong) NSArray *privacyData;
+
+@property (nonatomic, strong) NSArray *currencyData;
+
+@property (nonatomic, strong) NSArray *aboutWechatData;
 /*
  ShakeViewController   SetTableViewDataSource
  */

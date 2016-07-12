@@ -46,6 +46,7 @@ static const char mobileAssociatedKey;
 - (void)loginWithLoginResponse:(LoginResponse *)param
 {
     objc_setAssociatedObject(self, &accessTokenAssociatedKey, param.access_token, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &mobileAssociatedKey, param.mobile, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [NSKeyedArchiver archiveRootObject:[param toDictionary] toFile:LOCALMANGERFILEPATH];
 }
 

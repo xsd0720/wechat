@@ -55,6 +55,11 @@
 - (void)logout
 {
     [[LocalManager sharedManager] logout];
+    
+    
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[PreLoadTool sharedInstance] readData];
+    });
     self.window.rootViewController = [[WelcomeViewController alloc] init];
 }
 

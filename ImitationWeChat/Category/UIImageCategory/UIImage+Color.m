@@ -14,7 +14,7 @@
 + (UIImage *) ImageWithColor: (UIColor *) color frame:(CGRect)aFrame
 {
     aFrame = CGRectMake(0, 0, aFrame.size.width, aFrame.size.height);
-    UIGraphicsBeginImageContext(aFrame.size);
+    UIGraphicsBeginImageContextWithOptions(aFrame.size, 0, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [color CGColor]);
     CGContextFillRect(context, aFrame);

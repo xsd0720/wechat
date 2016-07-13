@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) NSArray *baseDataSource;
 
+- (void)basetableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
-@interface FunXinNotDisturbViewController : BaseViewController
+#import "SettingBaseViewController.h"
+@interface FunXinNotDisturbViewController : SettingBaseViewController
 
 @end

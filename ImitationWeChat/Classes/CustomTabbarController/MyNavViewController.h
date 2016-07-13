@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UINavigationItem+correct_offset.h"
 @interface MyNavViewController : UINavigationController
 
 @end

@@ -116,6 +116,7 @@
 
 - (void)showInView:(UIView *)view
 {
+    [getWindow endEditing:YES];
     [[UIApplication sharedApplication].delegate.window addSubview:self];
     self.alpha = 0.0f;
     

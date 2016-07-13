@@ -1,38 +1,48 @@
 //
-//  NewXinNotifiViewController.m
+//  FunXinNotDisturbViewController.m
 //  ImitationWeChat
 //
 //  Created by xwmedia01 on 16/7/11.
 //  Copyright © 2016年 wany. All rights reserved.
 //
 
-#import "NewXinNotifiViewController.h"
 #import "FunXinNotDisturbViewController.h"
 
-@interface NewXinNotifiViewController ()
+@interface FunXinNotDisturbViewController ()
+
+
 
 @end
 
-@implementation NewXinNotifiViewController
+@implementation FunXinNotDisturbViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"新消息通知";
-    self.baseDataSource = DS.newXinNotificationData;
+    self.title = @"功能消息免打扰";
 
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FunXinNotDisturbViewController *funxinNotDisturbVC = [[FunXinNotDisturbViewController alloc] init];
-    [self.navigationController pushViewController:funxinNotDisturbVC animated:YES];
+    self.baseDataSource = DS.funXinNotDisturbData;
     
+//    [self.funXinNotDisturbTableView reloadData];
+//    
+    NSArray *arr = [self.settingBaseTableView visibleCells];
+    UITableViewCell *cell = arr[0];
+    cell.accessoryView.hidden = NO;
 }
-//
+
+
+- (void)basetableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *arr = [tableView visibleCells];
+    for (UITableViewCell *cell in arr) {
+        cell.accessoryView.hidden = YES;
+    }
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryView.hidden = NO;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

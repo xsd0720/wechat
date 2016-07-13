@@ -125,7 +125,7 @@
 #define systemAlertDuration              1.0
 #define IsNilOrNull(_ref)   (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]))
 
-
+#define wechatGraycolor     [UIColor colorWithRed:228 / 255.0 green:229 / 255.0 blue:230 / 255.0 alpha:1.0]
 
 
 //第一次启动

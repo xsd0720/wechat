@@ -12,11 +12,14 @@
 
 @property (nonatomic, strong) UIView *tableHeaderView;
 
-@property (nonatomic, strong) UIView *footerView;
 
 @property (nonatomic, strong) UIButton *tableHeaderButton;
 
 @property (nonatomic, strong) UILabel *tableHeaderLabel;
+
+@property (nonatomic, strong) UIButton *serviceAgreementButton;
+
+@property (nonatomic, strong) UILabel *banquanLabel;
 
 @end
 
@@ -31,6 +34,23 @@
   
 
     self.settingBaseTableView.tableHeaderView = self.tableHeaderView;
+    
+    
+    _serviceAgreementButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.settingBaseTableView.height-60, SCREEN_WIDTH, 20)];
+    [_serviceAgreementButton setTitle:@"微信软件许可服务协议" forState:UIControlStateNormal];
+    [_serviceAgreementButton setTitleColor:RGB(101, 107, 120) forState:UIControlStateNormal];
+    _serviceAgreementButton.titleLabel.font = [UIFont systemFontOfSize:11];
+    [_serviceAgreementButton addTarget:self action:@selector(serviceAgreementButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.settingBaseTableView addSubview:_serviceAgreementButton];
+    
+    
+    _banquanLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_serviceAgreementButton.frame)+5, SCREEN_WIDTH, 30)];
+    _banquanLabel.font = [UIFont systemFontOfSize:11];
+    _banquanLabel.textAlignment = 1;
+    _banquanLabel.numberOfLines = 0;
+    _banquanLabel.text = @"腾讯公司 版权所有\nCopyright © 2011-2016 Tencent.All Rights Reserved.";
+    _banquanLabel.textColor = RGB(159, 159, 159);
+    [self.settingBaseTableView addSubview:_banquanLabel];
     
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -87,15 +107,18 @@
     }
 }
 
-
-- (UIView *)footerView
+- (void)serviceAgreementButtonClick
 {
-    if (!_footerView) {
-        _footerView = [[UIView alloc] init];
-        _footerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 140);
-    }
-    return _footerView;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"好" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alert show];
 }
+
+
+- (void)basetableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

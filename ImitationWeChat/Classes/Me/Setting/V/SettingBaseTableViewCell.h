@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UISwitch *statusSwitch;
 
+@property (nonatomic, strong) UIImageView *accessViewImageView;
+
 @property (nonatomic, strong) NSDictionary *datasource;
 
 @end

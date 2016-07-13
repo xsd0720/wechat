@@ -7,7 +7,9 @@
 //
 
 #import "CurrencyViewController.h"
-
+#import "MultiLanguageViewController.h"
+#import "MyNavViewController.h"
+#import "TimeLineSmallMovieViewController.h"
 @interface CurrencyViewController ()
 
 @property (nonatomic, strong) UIView *footerView;
@@ -55,6 +57,84 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"清空完毕" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
     [alert show];
+}
+
+- (void)basetableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                
+                    
+                    MultiLanguageViewController *multiLanguageVC = [[MultiLanguageViewController alloc] init];
+                    
+                    MyNavViewController *nav = [[MyNavViewController alloc] initWithRootViewController:multiLanguageVC];
+                    
+                    [self presentViewController:nav animated:YES completion:nil];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+          
+        case 1:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    
+                }
+                    break;
+                case 1:
+                {
+                    
+                }
+                    break;
+                case 2:
+                {
+                    
+                }
+                    break;
+                    
+                case 3:
+                {
+                    TimeLineSmallMovieViewController *timelineSmallMovieVC = [[TimeLineSmallMovieViewController alloc] init];
+                    [self.navigationController pushViewController:timelineSmallMovieVC animated:YES];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+            
+        case 2:
+        {
+            
+        }
+            break;
+            
+        case 3:
+        {
+            
+        }
+            break;
+            
+        case 4:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

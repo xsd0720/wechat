@@ -78,7 +78,11 @@ static const char associatedkey;
                      int status_code = [[responseObject objectForKey:@"status_code"] intValue];
                      
 //                     //如果返回9 则退出登录
-//                     if ( (status_code == 9) || (status_code == 1) ) {
+                    if ( (status_code == 9) || (status_code == 1) ) {
+                        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                        [appdelegate logout];
+                    
+                    }
 //                         UIViewController *controller = KEY_WINDOW.rootViewController.presentedViewController;
 //                         Log(@"%@",controller);
 //                         
@@ -195,8 +199,8 @@ static const char associatedkey;
 //                          [[LocalManager sharedManager]logOut];
 //                          [[LocalManager sharedManager]save];
                           
-//                          AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//                          [appdelegate logout];
+                          AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                          [appdelegate logout];
                       }
                       
                       

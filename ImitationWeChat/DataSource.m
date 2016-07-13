@@ -564,6 +564,93 @@
              ];
 }
 
+- (NSArray *)multiLanguageData
+{
+    return @[
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"简体中文",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"繁體中文(台灣)",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"繁體中文(香港)",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Bahasa Indonesia",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Bahasa Melayu",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Español",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"한국어",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"にほんご",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Polski",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Português",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Русский",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"తెలుగు",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Tiếng Việt",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"ગુજરાતી",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"ქართული",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Български",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Türkçe",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Deutsch",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"Français",
+                             @"type":@"right",
+                             },
+                         ],
+                 },
+             ];
+}
+
+
 - (NSArray *)funXinNotDisturbData
 {
     return @[
@@ -571,12 +658,15 @@
                  newXinNotificationItemStr:@[
                          @{
                              @"text":@"开启",
+                             @"type":@"right",
                              },
                          @{
                              @"text":@"只在夜间开启",
+                             @"type":@"right",
                              },
                          @{
                              @"text":@"关闭",
+                             @"type":@"right",
                              }
                          ],
                  newXinNotificationFooterStr:@"开启后，“QQ邮箱提醒”在收到邮件后，手机不会震动于发出提示音。如果设置为“只在夜间开启”，则只在22:00到8:00生效。"
@@ -584,6 +674,30 @@
              ];
 }
 
+
+- (NSArray *)timeLineSmallMovieData
+{
+    return @[
+             @{
+                 newXinNotificationItemStr:@[
+                         @{
+                             @"text":@"3G/4G 和 WIFI",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"仅WIFI",
+                             @"type":@"right",
+                             },
+                         @{
+                             @"text":@"关闭",
+                             @"type":@"right",
+                             }
+                         ],
+                 newXinNotificationHeaderStr:@"朋友圈自动播放小视频"
+                 },
+             ];
+
+}
 
 - (NSArray *)privacyData
 {

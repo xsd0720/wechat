@@ -16,9 +16,11 @@ static const char associatedkey;
 #import "LocalManager.h"
 #import "SystemManager.h"
 #import "PreLoadTool.h"
+#import "MyNavViewController.h"
 #import "ValidTool.h"
 #import "UIView+Extention.h"
 #import "NSString+Category.h"
 #import "UIImageView+WebCache.h"
+#import "UIImage+Category.h"
 #import "NSString+md5.h"
 #endif

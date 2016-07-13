@@ -46,6 +46,13 @@
     [self createViewControllers];
     [self createTabBarItems];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 -(void)createTabBarBackground{
     UIImageView  *customView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, self.tabBar.frame.size.width, self.tabBar.frame.size.height)];
     customView.userInteractionEnabled = YES;

@@ -68,13 +68,19 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
     NSDictionary *dic = _baseDataSource[section];
     NSString *footerString = dic[newXinNotificationHeaderStr];
     CGSize returnSize = [footerString CalculationStringSizeWithWidth:SCREEN_WIDTH-40 font:[UIFont systemFontOfSize:12]];
-    return MAX(returnSize.height, 5);
+    if (section == 0 && returnSize.height <= 0) {
+        return 20;
+    }
+    if (returnSize.height <= 0) {
+        return 1;
+    }
+    return returnSize.height;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-40, 13)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-40, 15)];
     headerLabel.font = [UIFont systemFontOfSize:13];
     headerLabel.numberOfLines = 0;
     headerLabel.textColor = RGB(128, 127, 132);
@@ -82,10 +88,11 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
     NSDictionary *dic = _baseDataSource[section];
     NSString *headerString = dic[newXinNotificationHeaderStr];
     CGSize labelSize = [headerString CalculationStringSizeInView:headerLabel];
-    headerLabel.height = labelSize.height;
+    headerLabel.height = (labelSize.height/4)*3;
+    headerLabel.originY = labelSize.height/4;
     headerLabel.text = headerString;
     
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, headerLabel.height)];
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, MAX(1, labelSize.height))];
     [v addSubview:headerLabel];
     
     return v;
@@ -96,7 +103,12 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
     NSDictionary *dic = _baseDataSource[section];
     NSString *footerString = dic[newXinNotificationFooterStr];
     CGSize returnSize = [footerString CalculationStringSizeWithWidth:SCREEN_WIDTH-40 font:[UIFont systemFontOfSize:15]];
-    return MAX(returnSize.height, 10);
+    
+    if (returnSize.height <= 0) {
+        return 20;
+    }
+    
+    return returnSize.height;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -129,9 +141,18 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
     NSArray *itemArr = dic[newXinNotificationItemStr];
     cell.datasource = itemArr[indexPath.row];
     
-    cell.selectionStyle = (indexPath.section == 4 || indexPath.section == 5)?UITableViewCellSelectionStyleGray:UITableViewCellSelectionStyleNone;
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self basetableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+- (void)basetableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

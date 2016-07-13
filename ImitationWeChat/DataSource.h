@@ -76,12 +76,17 @@ typedef NS_ENUM(NSInteger, AccessoryType) {
  */
 @property (nonatomic, strong) NSArray *funXinNotDisturbData;
 
+@property (nonatomic, strong) NSArray *multiLanguageData;
+
 
 @property (nonatomic, strong) NSArray *privacyData;
 
 @property (nonatomic, strong) NSArray *currencyData;
 
 @property (nonatomic, strong) NSArray *aboutWechatData;
+
+@property (nonatomic, strong) NSArray *timeLineSmallMovieData;
+
 /*
  ShakeViewController   SetTableViewDataSource
  */

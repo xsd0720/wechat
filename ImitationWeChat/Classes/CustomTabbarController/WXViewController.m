@@ -14,6 +14,8 @@
 #import "KxMenu.h"
 #import "UserCenterRequest.h"
 #import "MassAssistantViewController.h"
+#import "QRCodeViewController.h"
+#import "PaymentReceiptViewController.h"
 #define SEARCHBARHEIGHT        44
 static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 
@@ -64,6 +66,8 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
     }
     return _wxTableView;
 }
+
+
 
 - (UIView *)wxTableHeaderView
 {
@@ -180,13 +184,18 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 //扫一扫
 - (void)pushMenuItem3
 {
-    
+    QRCodeViewController *qrCodeVc = [[QRCodeViewController alloc] init];
+    qrCodeVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:qrCodeVc animated:YES];
     NSLog(@"扫一扫");
 }
 
 //收付款
 - (void)pushMenuItem4
 {
+    PaymentReceiptViewController *paymentReceiptVC = [[PaymentReceiptViewController alloc] init];
+//    MyNavViewController *nav = [[MyNavViewController alloc] initWithRootViewController:paymentReceiptVC];
+    [self presentViewController:paymentReceiptVC animated:YES completion:nil];
     
     NSLog(@"收付款");
 }

@@ -337,7 +337,7 @@ static const char activeTextFieldAssociatedkey;
     
     CGRect keyboardRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
-    CGFloat keyboardOrginY = keyboardRect.origin.y;
+    CGFloat keyboardOrginY = keyboardRect.origin.y-40;
 
     
     CGPoint currentTextFieldOrgin = [self.currentTextField.superview convertPoint:self.currentTextField.origin toView:getWindow];

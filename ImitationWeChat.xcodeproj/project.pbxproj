@@ -60,16 +60,13 @@
 		0C61D4BA1C449842007547FE /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4B91C449842007547FE /* IATConfig.m */; };
 		0C61D4C01C44A06C007547FE /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4BF1C44A06C007547FE /* ISRDataHelper.m */; };
 		0C61D4C61C44C04A007547FE /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4C51C44C04A007547FE /* KxMenu.m */; };
-		0C6CA7941D335FE30003B88A /* NewXinNotifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA78D1D335FE30003B88A /* NewXinNotifiViewController.m */; };
 		0C6CA7951D335FE30003B88A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA78F1D335FE30003B88A /* SettingViewController.m */; };
 		0C6CA7991D336F150003B88A /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7981D336F150003B88A /* SystemManager.m */; };
-		0C6CA79C1D33718F0003B88A /* FunXinNotDisturbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA79B1D33718F0003B88A /* FunXinNotDisturbViewController.m */; };
-		0C6CA79F1D3377170003B88A /* FunXinNotDisturbTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA79E1D3377170003B88A /* FunXinNotDisturbTableViewCell.m */; };
-		0C6CA7A21D337E470003B88A /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A11D337E470003B88A /* PrivacyViewController.m */; };
-		0C6CA7A51D3393750003B88A /* CurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A41D3393750003B88A /* CurrencyViewController.m */; };
 		0C6CA7A81D3394730003B88A /* SettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */; };
 		0C6CA7AB1D3395AB0003B88A /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */; };
-		0C6CA7AE1D33A0110003B88A /* AboutWechatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7AD1D33A0110003B88A /* AboutWechatViewController.m */; };
+		0C808B4B1D362A6D00A49679 /* PaymentReceiptDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C808B4A1D362A6D00A49679 /* PaymentReceiptDetailViewController.m */; };
+		0C808B4E1D36322C00A49679 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C808B4D1D36322C00A49679 /* QRCode.m */; };
+		0C808B511D36402900A49679 /* PresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C808B501D36402900A49679 /* PresentAnimator.m */; };
 		0C80CAAD1D1A2CB100D75290 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CAAC1D1A2CB100D75290 /* HttpTool.m */; };
 		0C80CAE01D1A35F500D75290 /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CAC71D1A35F500D75290 /* JSONModel+CoreData.m */; };
 		0C80CAE11D1A35F500D75290 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CAC91D1A35F500D75290 /* JSONModel.m */; };
@@ -162,6 +159,18 @@
 		0CA2530D1D1D161E00482E9F /* PreLoadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2530C1D1D161E00482E9F /* PreLoadTool.m */; };
 		0CA2530F1D1D30BE00482E9F /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CA2530E1D1D30BE00482E9F /* countryCode.json */; };
 		0CA253111D1D356700482E9F /* diallingcode.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CA253101D1D356700482E9F /* diallingcode.json */; };
+		0CAFD0D71D34DDD100C295D6 /* bottleNightBkg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CAFD0D61D34DDD100C295D6 /* bottleNightBkg@2x.jpg */; };
+		0CAFD0D91D34DDFD00C295D6 /* bottleBkgSpotLight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CAFD0D81D34DDFD00C295D6 /* bottleBkgSpotLight@2x.png */; };
+		0CAFD0DB1D34DE0A00C295D6 /* bottleBkg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CAFD0DA1D34DE0A00C295D6 /* bottleBkg@2x.jpg */; };
+		0CAFD1051D34EE4B00C295D6 /* AboutWechatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD0E61D34EE4B00C295D6 /* AboutWechatViewController.m */; };
+		0CAFD1061D34EE4B00C295D6 /* CurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD0EC1D34EE4B00C295D6 /* CurrencyViewController.m */; };
+		0CAFD1071D34EE4B00C295D6 /* MultiLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD0EE1D34EE4B00C295D6 /* MultiLanguageViewController.m */; };
+		0CAFD1081D34EE4B00C295D6 /* TimeLineSmallMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD0F01D34EE4B00C295D6 /* TimeLineSmallMovieViewController.m */; };
+		0CAFD1091D34EE4B00C295D6 /* FunXinNotDisturbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD0FA1D34EE4B00C295D6 /* FunXinNotDisturbViewController.m */; };
+		0CAFD10A1D34EE4B00C295D6 /* NewXinNotifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD0FC1D34EE4B00C295D6 /* NewXinNotifiViewController.m */; };
+		0CAFD10B1D34EE4B00C295D6 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD1021D34EE4B00C295D6 /* PrivacyViewController.m */; };
+		0CAFD10D1D34EF4B00C295D6 /* coffe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CAFD10C1D34EF4B00C295D6 /* coffe.jpg */; };
+		0CAFD1101D34FCF000C295D6 /* PaymentReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD10F1D34FCF000C295D6 /* PaymentReceiptViewController.m */; };
 		0CBA102D1D2A34F8006ADF76 /* QunFaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA102C1D2A34F8006ADF76 /* QunFaViewController.m */; };
 		0CBA10301D2A3758006ADF76 /* MassAssistantCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA102F1D2A3758006ADF76 /* MassAssistantCellConfig.m */; };
 		0CE198941D1CE96D003BB4AA /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */; };
@@ -355,26 +364,20 @@
 		0C61D4BF1C44A06C007547FE /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
 		0C61D4C41C44C04A007547FE /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		0C61D4C51C44C04A007547FE /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
-		0C6CA78C1D335FE30003B88A /* NewXinNotifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewXinNotifiViewController.h; sourceTree = "<group>"; };
-		0C6CA78D1D335FE30003B88A /* NewXinNotifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewXinNotifiViewController.m; sourceTree = "<group>"; };
 		0C6CA78E1D335FE30003B88A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		0C6CA78F1D335FE30003B88A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		0C6CA7971D336F150003B88A /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
 		0C6CA7981D336F150003B88A /* SystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemManager.m; sourceTree = "<group>"; };
-		0C6CA79A1D33718F0003B88A /* FunXinNotDisturbViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunXinNotDisturbViewController.h; sourceTree = "<group>"; };
-		0C6CA79B1D33718F0003B88A /* FunXinNotDisturbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunXinNotDisturbViewController.m; sourceTree = "<group>"; };
-		0C6CA79D1D3377170003B88A /* FunXinNotDisturbTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunXinNotDisturbTableViewCell.h; sourceTree = "<group>"; };
-		0C6CA79E1D3377170003B88A /* FunXinNotDisturbTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunXinNotDisturbTableViewCell.m; sourceTree = "<group>"; };
-		0C6CA7A01D337E470003B88A /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
-		0C6CA7A11D337E470003B88A /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
-		0C6CA7A31D3393750003B88A /* CurrencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyViewController.h; sourceTree = "<group>"; };
-		0C6CA7A41D3393750003B88A /* CurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyViewController.m; sourceTree = "<group>"; };
 		0C6CA7A61D3394730003B88A /* SettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingBaseViewController.h; sourceTree = "<group>"; };
 		0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseViewController.m; sourceTree = "<group>"; };
 		0C6CA7A91D3395AB0003B88A /* SettingBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableViewCell.h; sourceTree = "<group>"; };
 		0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableViewCell.m; sourceTree = "<group>"; };
-		0C6CA7AC1D33A0110003B88A /* AboutWechatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWechatViewController.h; sourceTree = "<group>"; };
-		0C6CA7AD1D33A0110003B88A /* AboutWechatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWechatViewController.m; sourceTree = "<group>"; };
+		0C808B491D362A6D00A49679 /* PaymentReceiptDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentReceiptDetailViewController.h; sourceTree = "<group>"; };
+		0C808B4A1D362A6D00A49679 /* PaymentReceiptDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentReceiptDetailViewController.m; sourceTree = "<group>"; };
+		0C808B4C1D36322C00A49679 /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
+		0C808B4D1D36322C00A49679 /* QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
+		0C808B4F1D36402900A49679 /* PresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAnimator.h; sourceTree = "<group>"; };
+		0C808B501D36402900A49679 /* PresentAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentAnimator.m; sourceTree = "<group>"; };
 		0C80CAAB1D1A2CB100D75290 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		0C80CAAC1D1A2CB100D75290 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		0C80CAAF1D1A2D6F00D75290 /* PublicDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicDefine.h; sourceTree = "<group>"; };
@@ -555,6 +558,26 @@
 		0CA2530C1D1D161E00482E9F /* PreLoadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreLoadTool.m; sourceTree = "<group>"; };
 		0CA2530E1D1D30BE00482E9F /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryCode.json; sourceTree = "<group>"; };
 		0CA253101D1D356700482E9F /* diallingcode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = diallingcode.json; sourceTree = "<group>"; };
+		0CAFD0D61D34DDD100C295D6 /* bottleNightBkg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bottleNightBkg@2x.jpg"; sourceTree = "<group>"; };
+		0CAFD0D81D34DDFD00C295D6 /* bottleBkgSpotLight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottleBkgSpotLight@2x.png"; sourceTree = "<group>"; };
+		0CAFD0DA1D34DE0A00C295D6 /* bottleBkg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bottleBkg@2x.jpg"; sourceTree = "<group>"; };
+		0CAFD0E51D34EE4B00C295D6 /* AboutWechatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWechatViewController.h; sourceTree = "<group>"; };
+		0CAFD0E61D34EE4B00C295D6 /* AboutWechatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWechatViewController.m; sourceTree = "<group>"; };
+		0CAFD0EB1D34EE4B00C295D6 /* CurrencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyViewController.h; sourceTree = "<group>"; };
+		0CAFD0EC1D34EE4B00C295D6 /* CurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyViewController.m; sourceTree = "<group>"; };
+		0CAFD0ED1D34EE4B00C295D6 /* MultiLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiLanguageViewController.h; sourceTree = "<group>"; };
+		0CAFD0EE1D34EE4B00C295D6 /* MultiLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiLanguageViewController.m; sourceTree = "<group>"; };
+		0CAFD0EF1D34EE4B00C295D6 /* TimeLineSmallMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineSmallMovieViewController.h; sourceTree = "<group>"; };
+		0CAFD0F01D34EE4B00C295D6 /* TimeLineSmallMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineSmallMovieViewController.m; sourceTree = "<group>"; };
+		0CAFD0F91D34EE4B00C295D6 /* FunXinNotDisturbViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunXinNotDisturbViewController.h; sourceTree = "<group>"; };
+		0CAFD0FA1D34EE4B00C295D6 /* FunXinNotDisturbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunXinNotDisturbViewController.m; sourceTree = "<group>"; };
+		0CAFD0FB1D34EE4B00C295D6 /* NewXinNotifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewXinNotifiViewController.h; sourceTree = "<group>"; };
+		0CAFD0FC1D34EE4B00C295D6 /* NewXinNotifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewXinNotifiViewController.m; sourceTree = "<group>"; };
+		0CAFD1011D34EE4B00C295D6 /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
+		0CAFD1021D34EE4B00C295D6 /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
+		0CAFD10C1D34EF4B00C295D6 /* coffe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coffe.jpg; sourceTree = "<group>"; };
+		0CAFD10E1D34FCF000C295D6 /* PaymentReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentReceiptViewController.h; sourceTree = "<group>"; };
+		0CAFD10F1D34FCF000C295D6 /* PaymentReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentReceiptViewController.m; sourceTree = "<group>"; };
 		0CBA102B1D2A34F8006ADF76 /* QunFaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QunFaViewController.h; sourceTree = "<group>"; };
 		0CBA102C1D2A34F8006ADF76 /* QunFaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QunFaViewController.m; sourceTree = "<group>"; };
 		0CBA102E1D2A3758006ADF76 /* MassAssistantCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MassAssistantCellConfig.h; sourceTree = "<group>"; };
@@ -706,6 +729,10 @@
 				0C04144C1D2657A2003CD82A /* SearchViewShowController.m */,
 				0CBA102B1D2A34F8006ADF76 /* QunFaViewController.h */,
 				0CBA102C1D2A34F8006ADF76 /* QunFaViewController.m */,
+				0CAFD10E1D34FCF000C295D6 /* PaymentReceiptViewController.h */,
+				0CAFD10F1D34FCF000C295D6 /* PaymentReceiptViewController.m */,
+				0C808B491D362A6D00A49679 /* PaymentReceiptDetailViewController.h */,
+				0C808B4A1D362A6D00A49679 /* PaymentReceiptDetailViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -730,6 +757,10 @@
 			children = (
 				0CBA102E1D2A3758006ADF76 /* MassAssistantCellConfig.h */,
 				0CBA102F1D2A3758006ADF76 /* MassAssistantCellConfig.m */,
+				0C808B4C1D36322C00A49679 /* QRCode.h */,
+				0C808B4D1D36322C00A49679 /* QRCode.m */,
+				0C808B4F1D36402900A49679 /* PresentAnimator.h */,
+				0C808B501D36402900A49679 /* PresentAnimator.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -857,20 +888,16 @@
 		0C6CA78B1D335FE30003B88A /* C */ = {
 			isa = PBXGroup;
 			children = (
+				0CAFD0DF1D34EE4B00C295D6 /* AccountAndSecurity */,
+				0CAFD0E31D34EE4B00C295D6 /* AboutWechat */,
+				0CAFD0E91D34EE4B00C295D6 /* Currency */,
+				0CAFD0F31D34EE4B00C295D6 /* HelpAndFeedBack */,
+				0CAFD0F71D34EE4B00C295D6 /* NewXinNotification */,
+				0CAFD0FF1D34EE4B00C295D6 /* Privacy */,
 				0C6CA78E1D335FE30003B88A /* SettingViewController.h */,
 				0C6CA78F1D335FE30003B88A /* SettingViewController.m */,
 				0C6CA7A61D3394730003B88A /* SettingBaseViewController.h */,
 				0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */,
-				0C6CA78C1D335FE30003B88A /* NewXinNotifiViewController.h */,
-				0C6CA78D1D335FE30003B88A /* NewXinNotifiViewController.m */,
-				0C6CA79A1D33718F0003B88A /* FunXinNotDisturbViewController.h */,
-				0C6CA79B1D33718F0003B88A /* FunXinNotDisturbViewController.m */,
-				0C6CA7A01D337E470003B88A /* PrivacyViewController.h */,
-				0C6CA7A11D337E470003B88A /* PrivacyViewController.m */,
-				0C6CA7A31D3393750003B88A /* CurrencyViewController.h */,
-				0C6CA7A41D3393750003B88A /* CurrencyViewController.m */,
-				0C6CA7AC1D33A0110003B88A /* AboutWechatViewController.h */,
-				0C6CA7AD1D33A0110003B88A /* AboutWechatViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -880,8 +907,6 @@
 			children = (
 				0C6CA7A91D3395AB0003B88A /* SettingBaseTableViewCell.h */,
 				0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */,
-				0C6CA79D1D3377170003B88A /* FunXinNotDisturbTableViewCell.h */,
-				0C6CA79E1D3377170003B88A /* FunXinNotDisturbTableViewCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1410,6 +1435,206 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0CAFD0DF1D34EE4B00C295D6 /* AccountAndSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0E01D34EE4B00C295D6 /* C */,
+				0CAFD0E11D34EE4B00C295D6 /* M */,
+				0CAFD0E21D34EE4B00C295D6 /* V */,
+			);
+			path = AccountAndSecurity;
+			sourceTree = "<group>";
+		};
+		0CAFD0E01D34EE4B00C295D6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0CAFD0E11D34EE4B00C295D6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0CAFD0E21D34EE4B00C295D6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		0CAFD0E31D34EE4B00C295D6 /* AboutWechat */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0E41D34EE4B00C295D6 /* C */,
+				0CAFD0E71D34EE4B00C295D6 /* M */,
+				0CAFD0E81D34EE4B00C295D6 /* V */,
+			);
+			path = AboutWechat;
+			sourceTree = "<group>";
+		};
+		0CAFD0E41D34EE4B00C295D6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0E51D34EE4B00C295D6 /* AboutWechatViewController.h */,
+				0CAFD0E61D34EE4B00C295D6 /* AboutWechatViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0CAFD0E71D34EE4B00C295D6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0CAFD0E81D34EE4B00C295D6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		0CAFD0E91D34EE4B00C295D6 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0EA1D34EE4B00C295D6 /* C */,
+				0CAFD0F11D34EE4B00C295D6 /* M */,
+				0CAFD0F21D34EE4B00C295D6 /* V */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		0CAFD0EA1D34EE4B00C295D6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0EB1D34EE4B00C295D6 /* CurrencyViewController.h */,
+				0CAFD0EC1D34EE4B00C295D6 /* CurrencyViewController.m */,
+				0CAFD0ED1D34EE4B00C295D6 /* MultiLanguageViewController.h */,
+				0CAFD0EE1D34EE4B00C295D6 /* MultiLanguageViewController.m */,
+				0CAFD0EF1D34EE4B00C295D6 /* TimeLineSmallMovieViewController.h */,
+				0CAFD0F01D34EE4B00C295D6 /* TimeLineSmallMovieViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0CAFD0F11D34EE4B00C295D6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0CAFD0F21D34EE4B00C295D6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		0CAFD0F31D34EE4B00C295D6 /* HelpAndFeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0F41D34EE4B00C295D6 /* C */,
+				0CAFD0F51D34EE4B00C295D6 /* M */,
+				0CAFD0F61D34EE4B00C295D6 /* V */,
+			);
+			path = HelpAndFeedBack;
+			sourceTree = "<group>";
+		};
+		0CAFD0F41D34EE4B00C295D6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0CAFD0F51D34EE4B00C295D6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0CAFD0F61D34EE4B00C295D6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		0CAFD0F71D34EE4B00C295D6 /* NewXinNotification */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0F81D34EE4B00C295D6 /* C */,
+				0CAFD0FD1D34EE4B00C295D6 /* M */,
+				0CAFD0FE1D34EE4B00C295D6 /* V */,
+			);
+			path = NewXinNotification;
+			sourceTree = "<group>";
+		};
+		0CAFD0F81D34EE4B00C295D6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD0F91D34EE4B00C295D6 /* FunXinNotDisturbViewController.h */,
+				0CAFD0FA1D34EE4B00C295D6 /* FunXinNotDisturbViewController.m */,
+				0CAFD0FB1D34EE4B00C295D6 /* NewXinNotifiViewController.h */,
+				0CAFD0FC1D34EE4B00C295D6 /* NewXinNotifiViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0CAFD0FD1D34EE4B00C295D6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0CAFD0FE1D34EE4B00C295D6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		0CAFD0FF1D34EE4B00C295D6 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD1001D34EE4B00C295D6 /* C */,
+				0CAFD1031D34EE4B00C295D6 /* M */,
+				0CAFD1041D34EE4B00C295D6 /* V */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+		0CAFD1001D34EE4B00C295D6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				0CAFD1011D34EE4B00C295D6 /* PrivacyViewController.h */,
+				0CAFD1021D34EE4B00C295D6 /* PrivacyViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0CAFD1031D34EE4B00C295D6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0CAFD1041D34EE4B00C295D6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 		0CE198881D1CE815003BB4AA /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -1423,6 +1648,10 @@
 		0CE198921D1CE96D003BB4AA /* LoadBigImage */ = {
 			isa = PBXGroup;
 			children = (
+				0CAFD10C1D34EF4B00C295D6 /* coffe.jpg */,
+				0CAFD0DA1D34DE0A00C295D6 /* bottleBkg@2x.jpg */,
+				0CAFD0D81D34DDFD00C295D6 /* bottleBkgSpotLight@2x.png */,
+				0CAFD0D61D34DDD100C295D6 /* bottleNightBkg@2x.jpg */,
 				0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */,
 			);
 			path = LoadBigImage;
@@ -1840,6 +2069,7 @@
 				0CE198941D1CE96D003BB4AA /* LaunchImage@2x.png in Resources */,
 				2E61512A1B5CE71F007196E2 /* kr-video-player-point@2x.png in Resources */,
 				0CF911DF1C438A4100F33C89 /* photo_original_sel@2x.png in Resources */,
+				0CAFD0D71D34DDD100C295D6 /* bottleNightBkg@2x.jpg in Resources */,
 				0CF911DE1C438A4100F33C89 /* photo_original_def@2x.png in Resources */,
 				0C80CBF41D1A4D4600D75290 /* 2.mp4 in Resources */,
 				2E61512D1B5CE71F007196E2 /* kr-video-player-shrinkscreen@3x.png in Resources */,
@@ -1856,6 +2086,7 @@
 				2E6151261B5CE71F007196E2 /* kr-video-player-pause@2x.png in Resources */,
 				0CA253111D1D356700482E9F /* diallingcode.json in Resources */,
 				0CA2530F1D1D30BE00482E9F /* countryCode.json in Resources */,
+				0CAFD10D1D34EF4B00C295D6 /* coffe.jpg in Resources */,
 				2E6151281B5CE71F007196E2 /* kr-video-player-play@2x.png in Resources */,
 				0CF911D91C438A4100F33C89 /* MMVideoPreviewPlayHL@2x.png in Resources */,
 				0CF911E81C438A4100F33C89 /* TZAssetCell.xib in Resources */,
@@ -1867,11 +2098,13 @@
 				0CF911DD1C438A4100F33C89 /* photo_number_icon@2x.png in Resources */,
 				0CA252EE1D1D0E3C00482E9F /* Localizable.strings in Resources */,
 				0CF911E51C438A4100F33C89 /* VideoSendIcon@2x.png in Resources */,
+				0CAFD0D91D34DDFD00C295D6 /* bottleBkgSpotLight@2x.png in Resources */,
 				0CF911DB1C438A4100F33C89 /* photo_def_photoPickerVc@2x.png in Resources */,
 				0CF911E41C438A4100F33C89 /* TableViewArrow@2x.png in Resources */,
 				0CA252E21D1D0ACB00482E9F /* mmregioncode4client.txt in Resources */,
 				0CA252E41D1D0B0000482E9F /* country_code.txt in Resources */,
 				0CF911E11C438A4100F33C89 /* photo_sel_previewVc@2x.png in Resources */,
+				0CAFD0DB1D34DE0A00C295D6 /* bottleBkg@2x.jpg in Resources */,
 				0CF659311C3A357E00B1BFDF /* Launch Screen.storyboard in Resources */,
 				2E6151291B5CE71F007196E2 /* kr-video-player-play@3x.png in Resources */,
 			);
@@ -1896,12 +2129,10 @@
 				0C80CAF11D1A373500D75290 /* BaseModel.m in Sources */,
 				0C043D061C4E42E70093410F /* UIButton+WebCache.m in Sources */,
 				0C61D4BA1C449842007547FE /* IATConfig.m in Sources */,
-				0C6CA7A21D337E470003B88A /* PrivacyViewController.m in Sources */,
 				0C80CAE51D1A35F500D75290 /* NSArray+JSONModel.m in Sources */,
 				0C80CB601D1A3A8100D75290 /* WalletViewController.m in Sources */,
+				0CAFD10A1D34EE4B00C295D6 /* NewXinNotifiViewController.m in Sources */,
 				0C80CBDF1D1A4ACD00D75290 /* WJPhotoTool.m in Sources */,
-				0C6CA79C1D33718F0003B88A /* FunXinNotDisturbViewController.m in Sources */,
-				0C6CA7941D335FE30003B88A /* NewXinNotifiViewController.m in Sources */,
 				0C043CFB1C4E42E70093410F /* AFURLResponseSerialization.m in Sources */,
 				0CF911E71C438A4100F33C89 /* TZAssetCell.m in Sources */,
 				0C80CBE81D1A4ACD00D75290 /* UIView+Extension.m in Sources */,
@@ -1915,7 +2146,6 @@
 				0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */,
 				0C043D041C4E42E70093410F /* SDWebImageManager.m in Sources */,
 				0C043CF91C4E42E70093410F /* AFURLConnectionOperation.m in Sources */,
-				0C6CA7AE1D33A0110003B88A /* AboutWechatViewController.m in Sources */,
 				7B91C6451A3B2A5900394194 /* AppDelegate.m in Sources */,
 				0CF911EE1C438A4100F33C89 /* TZPhotoPreviewController.m in Sources */,
 				0C80CB561D1A3A8100D75290 /* FMLrcView.m in Sources */,
@@ -1957,6 +2187,7 @@
 				0C80CBDE1D1A4ACD00D75290 /* WJAsset.m in Sources */,
 				0C80CBE61D1A4ACD00D75290 /* UIImage+type.m in Sources */,
 				0CBA10301D2A3758006ADF76 /* MassAssistantCellConfig.m in Sources */,
+				0CAFD1071D34EE4B00C295D6 /* MultiLanguageViewController.m in Sources */,
 				0C043D031C4E42E70093410F /* SDWebImageDownloaderOperation.m in Sources */,
 				0C80CBD71D1A4ACD00D75290 /* NSString+md5.m in Sources */,
 				0CA2530A1D1D134900482E9F /* MMCountry.m in Sources */,
@@ -1969,13 +2200,13 @@
 				0C80CB501D1A3A8100D75290 /* SightViewController.m in Sources */,
 				0C043CF51C4E42E70093410F /* AFHTTPRequestOperationManager.m in Sources */,
 				0C80CB511D1A3A8100D75290 /* TimelineViewController.m in Sources */,
-				0C6CA79F1D3377170003B88A /* FunXinNotDisturbTableViewCell.m in Sources */,
 				0C043CFE1C4E42E70093410F /* NSData+ImageContentType.m in Sources */,
 				0C80CB531D1A3A8100D75290 /* QRCodeDetailViewController.m in Sources */,
 				0C043CBA1C4E420B0093410F /* MJPhotoProgressView.m in Sources */,
 				0C9768361D235EB5008C2945 /* FillSimpleInfoViewController.m in Sources */,
 				0C80CBE51D1A4ACD00D75290 /* UIImage+MostColor.m in Sources */,
 				0C80CB5C1D1A3A8100D75290 /* TVViewController.m in Sources */,
+				0CAFD1081D34EE4B00C295D6 /* TimeLineSmallMovieViewController.m in Sources */,
 				0C80CAE31D1A35F500D75290 /* JSONModelClassProperty.m in Sources */,
 				0C80CB521D1A3A8100D75290 /* MyQRCodeViewController.m in Sources */,
 				0C80CBE11D1A4ACD00D75290 /* UIImage+Antialiase.m in Sources */,
@@ -1991,6 +2222,7 @@
 				2E9700041B5E663F00CA2CF1 /* ChooseTabbar.m in Sources */,
 				0C80CB4E1D1A3A8100D75290 /* SendSigntViewController.m in Sources */,
 				0C80CC011D1AB19E00D75290 /* UserCenterRequestParams.m in Sources */,
+				0C808B511D36402900A49679 /* PresentAnimator.m in Sources */,
 				0C80CBD91D1A4ACD00D75290 /* NSString+Time.m in Sources */,
 				0CBA102D1D2A34F8006ADF76 /* QunFaViewController.m in Sources */,
 				0C043CFC1C4E42E70093410F /* AFURLSessionManager.m in Sources */,
@@ -2006,9 +2238,11 @@
 				0C04145A1D2657C3003CD82A /* TableViewTimeCell.m in Sources */,
 				0CF911E91C438A4100F33C89 /* TZAssetModel.m in Sources */,
 				0C043CF41C4E42E70093410F /* AFHTTPRequestOperation.m in Sources */,
+				0CAFD1091D34EE4B00C295D6 /* FunXinNotDisturbViewController.m in Sources */,
 				0CF911EB1C438A4100F33C89 /* TZImagePickerController.m in Sources */,
 				0C80CB491D1A3A8100D75290 /* MyTabBarController.m in Sources */,
 				0C043D091C4E42E70093410F /* UIImage+WebP.m in Sources */,
+				0CAFD10B1D34EE4B00C295D6 /* PrivacyViewController.m in Sources */,
 				0C80CB5F1D1A3A8100D75290 /* WalletHeaderView.m in Sources */,
 				0CA253051D1D130800482E9F /* LoginViewController.m in Sources */,
 				0C61D4C61C44C04A007547FE /* KxMenu.m in Sources */,
@@ -2021,6 +2255,7 @@
 				2E9700011B5E58C800CA2CF1 /* ShakeHalfView.m in Sources */,
 				0C80CB551D1A3A8100D75290 /* QRCodeViewController.m in Sources */,
 				0C80CB5D1D1A3A8100D75290 /* WalletCollectionHeaderCell.m in Sources */,
+				0C808B4E1D36322C00A49679 /* QRCode.m in Sources */,
 				0C80CAE91D1A35F500D75290 /* JSONKeyMapper.m in Sources */,
 				0CA253061D1D130800482E9F /* RegisViewController.m in Sources */,
 				0C80CBFE1D1AB07C00D75290 /* RequestParamBase.m in Sources */,
@@ -2028,7 +2263,7 @@
 				2E61512F1B5CE71F007196E2 /* KRVideoPlayerControlView.m in Sources */,
 				0C043CA41C4E35D80093410F /* SafePhotoView.m in Sources */,
 				0C043D001C4E42E70093410F /* SDWebImageCompat.m in Sources */,
-				0C6CA7A51D3393750003B88A /* CurrencyViewController.m in Sources */,
+				0CAFD1051D34EE4B00C295D6 /* AboutWechatViewController.m in Sources */,
 				0C80CBEE1D1A4B8900D75290 /* NSDateFormatter+Locale.m in Sources */,
 				0C0414571D2657A2003CD82A /* WxTableCell.m in Sources */,
 				0CEA73171C574C4E0020AB90 /* CycleImageView.m in Sources */,
@@ -2046,6 +2281,7 @@
 				0C80CAAD1D1A2CB100D75290 /* HttpTool.m in Sources */,
 				0C80CBD61D1A4ACD00D75290 /* NSString+EmptyOrNull.m in Sources */,
 				0C043CFD1C4E42E70093410F /* MKAnnotationView+WebCache.m in Sources */,
+				0C808B4B1D362A6D00A49679 /* PaymentReceiptDetailViewController.m in Sources */,
 				0C80CB471D1A3A8100D75290 /* FoundViewController.m in Sources */,
 				2EFF2C3E1B63784800F0CF75 /* Contact.m in Sources */,
 				2E61512E1B5CE71F007196E2 /* KRVideoPlayerController.m in Sources */,
@@ -2060,7 +2296,9 @@
 				0C043CF61C4E42E70093410F /* AFHTTPSessionManager.m in Sources */,
 				0C6CA7A81D3394730003B88A /* SettingBaseViewController.m in Sources */,
 				0C80CBE71D1A4ACD00D75290 /* UINavigationItem+correct_offset.m in Sources */,
+				0CAFD1061D34EE4B00C295D6 /* CurrencyViewController.m in Sources */,
 				0C043D021C4E42E70093410F /* SDWebImageDownloader.m in Sources */,
+				0CAFD1101D34FCF000C295D6 /* PaymentReceiptViewController.m in Sources */,
 				0C043CBD1C4E420B0093410F /* SDWebImageManager+MJ.m in Sources */,
 				0C1910661C5A03FF00EF7B92 /* TopWindow.m in Sources */,
 				0C80CBE01D1A4ACD00D75290 /* UIColor+Category.m in Sources */,

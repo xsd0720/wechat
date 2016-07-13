@@ -12,4 +12,8 @@
 
 - (CGSize)limitMaxWidthHeight;
 
++ (UIImage *)drawDashLineRect:(CGRect)rect;
+
++ (UIImage *)createRoundedRectImage:(UIImage *)image withSize:(CGSize)size withRadius:(NSInteger)radius;
+
 @end

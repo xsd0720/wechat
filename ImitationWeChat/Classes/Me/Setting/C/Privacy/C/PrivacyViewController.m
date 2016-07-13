@@ -26,9 +26,8 @@ static NSString *PRIVACYTABLEVIEWCELLIDENTIFIER = @"PRIVACYTABLEVIEWCELLIDENTIFI
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)basetableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 

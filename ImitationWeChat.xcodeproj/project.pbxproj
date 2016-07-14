@@ -57,6 +57,11 @@
 		0C1A44CA1D20E5E1008B292F /* ValidMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A44C91D20E5E1008B292F /* ValidMobileViewController.m */; };
 		0C1A44CD1D20EA34008B292F /* AccountBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A44CC1D20EA34008B292F /* AccountBaseViewController.m */; };
 		0C1AE7301C4652750080567C /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AE72F1C4652750080567C /* GradientLayerView.m */; };
+		0C4014B11D3746C100F8827F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4014B01D3746C100F8827F /* 1.png */; };
+		0C4014B51D37916700F8827F /* NSTimer+CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4014B41D37916700F8827F /* NSTimer+CycleScrollView.m */; };
+		0C4014BE1D379DE500F8827F /* PaymentReceiptDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4014B91D379DE500F8827F /* PaymentReceiptDetailViewController.m */; };
+		0C4014BF1D379DE500F8827F /* PaymentReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4014BB1D379DE500F8827F /* PaymentReceiptViewController.m */; };
+		0C4014C91D379F7700F8827F /* AddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4014C61D379F7700F8827F /* AddFriendsViewController.m */; };
 		0C61D4BA1C449842007547FE /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4B91C449842007547FE /* IATConfig.m */; };
 		0C61D4C01C44A06C007547FE /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4BF1C44A06C007547FE /* ISRDataHelper.m */; };
 		0C61D4C61C44C04A007547FE /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4C51C44C04A007547FE /* KxMenu.m */; };
@@ -64,7 +69,6 @@
 		0C6CA7991D336F150003B88A /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7981D336F150003B88A /* SystemManager.m */; };
 		0C6CA7A81D3394730003B88A /* SettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */; };
 		0C6CA7AB1D3395AB0003B88A /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */; };
-		0C808B4B1D362A6D00A49679 /* PaymentReceiptDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C808B4A1D362A6D00A49679 /* PaymentReceiptDetailViewController.m */; };
 		0C808B4E1D36322C00A49679 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C808B4D1D36322C00A49679 /* QRCode.m */; };
 		0C808B511D36402900A49679 /* PresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C808B501D36402900A49679 /* PresentAnimator.m */; };
 		0C80CAAD1D1A2CB100D75290 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CAAC1D1A2CB100D75290 /* HttpTool.m */; };
@@ -170,7 +174,6 @@
 		0CAFD10A1D34EE4B00C295D6 /* NewXinNotifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD0FC1D34EE4B00C295D6 /* NewXinNotifiViewController.m */; };
 		0CAFD10B1D34EE4B00C295D6 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD1021D34EE4B00C295D6 /* PrivacyViewController.m */; };
 		0CAFD10D1D34EF4B00C295D6 /* coffe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CAFD10C1D34EF4B00C295D6 /* coffe.jpg */; };
-		0CAFD1101D34FCF000C295D6 /* PaymentReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAFD10F1D34FCF000C295D6 /* PaymentReceiptViewController.m */; };
 		0CBA102D1D2A34F8006ADF76 /* QunFaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA102C1D2A34F8006ADF76 /* QunFaViewController.m */; };
 		0CBA10301D2A3758006ADF76 /* MassAssistantCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA102F1D2A3758006ADF76 /* MassAssistantCellConfig.m */; };
 		0CE198941D1CE96D003BB4AA /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */; };
@@ -358,6 +361,15 @@
 		0C1A44CC1D20EA34008B292F /* AccountBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBaseViewController.m; sourceTree = "<group>"; };
 		0C1AE72E1C4652750080567C /* GradientLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientLayerView.h; sourceTree = "<group>"; };
 		0C1AE72F1C4652750080567C /* GradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientLayerView.m; sourceTree = "<group>"; };
+		0C4014B01D3746C100F8827F /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		0C4014B31D37916700F8827F /* NSTimer+CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+CycleScrollView.h"; sourceTree = "<group>"; };
+		0C4014B41D37916700F8827F /* NSTimer+CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+CycleScrollView.m"; sourceTree = "<group>"; };
+		0C4014B81D379DE500F8827F /* PaymentReceiptDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentReceiptDetailViewController.h; sourceTree = "<group>"; };
+		0C4014B91D379DE500F8827F /* PaymentReceiptDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentReceiptDetailViewController.m; sourceTree = "<group>"; };
+		0C4014BA1D379DE500F8827F /* PaymentReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentReceiptViewController.h; sourceTree = "<group>"; };
+		0C4014BB1D379DE500F8827F /* PaymentReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentReceiptViewController.m; sourceTree = "<group>"; };
+		0C4014C51D379F7700F8827F /* AddFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsViewController.h; sourceTree = "<group>"; };
+		0C4014C61D379F7700F8827F /* AddFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsViewController.m; sourceTree = "<group>"; };
 		0C61D4B81C449842007547FE /* IATConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATConfig.h; sourceTree = "<group>"; };
 		0C61D4B91C449842007547FE /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
 		0C61D4BE1C44A06C007547FE /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRDataHelper.h; sourceTree = "<group>"; };
@@ -372,8 +384,6 @@
 		0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseViewController.m; sourceTree = "<group>"; };
 		0C6CA7A91D3395AB0003B88A /* SettingBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableViewCell.h; sourceTree = "<group>"; };
 		0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableViewCell.m; sourceTree = "<group>"; };
-		0C808B491D362A6D00A49679 /* PaymentReceiptDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentReceiptDetailViewController.h; sourceTree = "<group>"; };
-		0C808B4A1D362A6D00A49679 /* PaymentReceiptDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentReceiptDetailViewController.m; sourceTree = "<group>"; };
 		0C808B4C1D36322C00A49679 /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
 		0C808B4D1D36322C00A49679 /* QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
 		0C808B4F1D36402900A49679 /* PresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAnimator.h; sourceTree = "<group>"; };
@@ -576,8 +586,6 @@
 		0CAFD1011D34EE4B00C295D6 /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
 		0CAFD1021D34EE4B00C295D6 /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
 		0CAFD10C1D34EF4B00C295D6 /* coffe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coffe.jpg; sourceTree = "<group>"; };
-		0CAFD10E1D34FCF000C295D6 /* PaymentReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentReceiptViewController.h; sourceTree = "<group>"; };
-		0CAFD10F1D34FCF000C295D6 /* PaymentReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentReceiptViewController.m; sourceTree = "<group>"; };
 		0CBA102B1D2A34F8006ADF76 /* QunFaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QunFaViewController.h; sourceTree = "<group>"; };
 		0CBA102C1D2A34F8006ADF76 /* QunFaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QunFaViewController.m; sourceTree = "<group>"; };
 		0CBA102E1D2A3758006ADF76 /* MassAssistantCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MassAssistantCellConfig.h; sourceTree = "<group>"; };
@@ -721,6 +729,8 @@
 		0C0414461D2657A2003CD82A /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				0C4014C01D379F0700F8827F /* AddFriends */,
+				0C4014B61D379DE500F8827F /* PaymentReceipt */,
 				0C0414471D2657A2003CD82A /* CustomSearchViewController.h */,
 				0C0414481D2657A2003CD82A /* CustomSearchViewController.m */,
 				0C0414491D2657A2003CD82A /* MassAssistantViewController.h */,
@@ -729,10 +739,6 @@
 				0C04144C1D2657A2003CD82A /* SearchViewShowController.m */,
 				0CBA102B1D2A34F8006ADF76 /* QunFaViewController.h */,
 				0CBA102C1D2A34F8006ADF76 /* QunFaViewController.m */,
-				0CAFD10E1D34FCF000C295D6 /* PaymentReceiptViewController.h */,
-				0CAFD10F1D34FCF000C295D6 /* PaymentReceiptViewController.m */,
-				0C808B491D362A6D00A49679 /* PaymentReceiptDetailViewController.h */,
-				0C808B4A1D362A6D00A49679 /* PaymentReceiptDetailViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -874,6 +880,83 @@
 				0C0898641C3B51FD006A037F /* LWSystem.m */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		0C4014B21D37916700F8827F /* NSTimerCategory */ = {
+			isa = PBXGroup;
+			children = (
+				0C4014B31D37916700F8827F /* NSTimer+CycleScrollView.h */,
+				0C4014B41D37916700F8827F /* NSTimer+CycleScrollView.m */,
+			);
+			path = NSTimerCategory;
+			sourceTree = "<group>";
+		};
+		0C4014B61D379DE500F8827F /* PaymentReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				0C4014B71D379DE500F8827F /* C */,
+				0C4014BC1D379DE500F8827F /* M */,
+				0C4014BD1D379DE500F8827F /* V */,
+			);
+			path = PaymentReceipt;
+			sourceTree = "<group>";
+		};
+		0C4014B71D379DE500F8827F /* C */ = {
+			isa = PBXGroup;
+			children = (
+				0C4014B81D379DE500F8827F /* PaymentReceiptDetailViewController.h */,
+				0C4014B91D379DE500F8827F /* PaymentReceiptDetailViewController.m */,
+				0C4014BA1D379DE500F8827F /* PaymentReceiptViewController.h */,
+				0C4014BB1D379DE500F8827F /* PaymentReceiptViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0C4014BC1D379DE500F8827F /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0C4014BD1D379DE500F8827F /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		0C4014C01D379F0700F8827F /* AddFriends */ = {
+			isa = PBXGroup;
+			children = (
+				0C4014C41D379F7700F8827F /* C */,
+				0C4014C71D379F7700F8827F /* M */,
+				0C4014C81D379F7700F8827F /* V */,
+			);
+			path = AddFriends;
+			sourceTree = "<group>";
+		};
+		0C4014C41D379F7700F8827F /* C */ = {
+			isa = PBXGroup;
+			children = (
+				0C4014C51D379F7700F8827F /* AddFriendsViewController.h */,
+				0C4014C61D379F7700F8827F /* AddFriendsViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		0C4014C71D379F7700F8827F /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		0C4014C81D379F7700F8827F /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
 			sourceTree = "<group>";
 		};
 		0C61D4B71C449832007547FE /* Model */ = {
@@ -1223,6 +1306,7 @@
 		0C80CB8E1D1A4ACD00D75290 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				0C4014B21D37916700F8827F /* NSTimerCategory */,
 				0C80CBF81D1A9F8400D75290 /* NSArrayCategory */,
 				0C80CBEC1D1A4B8900D75290 /* NSDateFormatter+Locale.h */,
 				0C80CBED1D1A4B8900D75290 /* NSDateFormatter+Locale.m */,
@@ -1343,6 +1427,7 @@
 		0C80CBEF1D1A4D4600D75290 /* MediaData */ = {
 			isa = PBXGroup;
 			children = (
+				0C4014B01D3746C100F8827F /* 1.png */,
 				0C1A44C31D20C5C7008B292F /* country_phonecode.json */,
 				0CA253101D1D356700482E9F /* diallingcode.json */,
 				0CA2530E1D1D30BE00482E9F /* countryCode.json */,
@@ -2086,6 +2171,7 @@
 				2E6151261B5CE71F007196E2 /* kr-video-player-pause@2x.png in Resources */,
 				0CA253111D1D356700482E9F /* diallingcode.json in Resources */,
 				0CA2530F1D1D30BE00482E9F /* countryCode.json in Resources */,
+				0C4014B11D3746C100F8827F /* 1.png in Resources */,
 				0CAFD10D1D34EF4B00C295D6 /* coffe.jpg in Resources */,
 				2E6151281B5CE71F007196E2 /* kr-video-player-play@2x.png in Resources */,
 				0CF911D91C438A4100F33C89 /* MMVideoPreviewPlayHL@2x.png in Resources */,
@@ -2141,12 +2227,14 @@
 				0C043D0C1C4E42E70093410F /* UIView+WebCacheOperation.m in Sources */,
 				0CF8E2AB1C4DD7C000FE8A41 /* UIPlaceHolderTextView.m in Sources */,
 				0C80CBE41D1A4ACD00D75290 /* UIImage+imageNamed_Hack.m in Sources */,
+				0C4014BE1D379DE500F8827F /* PaymentReceiptDetailViewController.m in Sources */,
 				0CA252F51D1D0ECA00482E9F /* Localisator.m in Sources */,
 				0C043CFF1C4E42E70093410F /* SDImageCache.m in Sources */,
 				0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */,
 				0C043D041C4E42E70093410F /* SDWebImageManager.m in Sources */,
 				0C043CF91C4E42E70093410F /* AFURLConnectionOperation.m in Sources */,
 				7B91C6451A3B2A5900394194 /* AppDelegate.m in Sources */,
+				0C4014B51D37916700F8827F /* NSTimer+CycleScrollView.m in Sources */,
 				0CF911EE1C438A4100F33C89 /* TZPhotoPreviewController.m in Sources */,
 				0C80CB561D1A3A8100D75290 /* FMLrcView.m in Sources */,
 				0C1A44CA1D20E5E1008B292F /* ValidMobileViewController.m in Sources */,
@@ -2210,7 +2298,9 @@
 				0C80CAE31D1A35F500D75290 /* JSONModelClassProperty.m in Sources */,
 				0C80CB521D1A3A8100D75290 /* MyQRCodeViewController.m in Sources */,
 				0C80CBE11D1A4ACD00D75290 /* UIImage+Antialiase.m in Sources */,
+				0C4014C91D379F7700F8827F /* AddFriendsViewController.m in Sources */,
 				0C80CB541D1A3A8100D75290 /* QrCodeHollowView.m in Sources */,
+				0C4014BF1D379DE500F8827F /* PaymentReceiptViewController.m in Sources */,
 				0C80CBE21D1A4ACD00D75290 /* UIImage+Category.m in Sources */,
 				0C0414561D2657A2003CD82A /* EyeLayer.m in Sources */,
 				0C80CB481D1A3A8100D75290 /* MyNavViewController.m in Sources */,
@@ -2281,7 +2371,6 @@
 				0C80CAAD1D1A2CB100D75290 /* HttpTool.m in Sources */,
 				0C80CBD61D1A4ACD00D75290 /* NSString+EmptyOrNull.m in Sources */,
 				0C043CFD1C4E42E70093410F /* MKAnnotationView+WebCache.m in Sources */,
-				0C808B4B1D362A6D00A49679 /* PaymentReceiptDetailViewController.m in Sources */,
 				0C80CB471D1A3A8100D75290 /* FoundViewController.m in Sources */,
 				2EFF2C3E1B63784800F0CF75 /* Contact.m in Sources */,
 				2E61512E1B5CE71F007196E2 /* KRVideoPlayerController.m in Sources */,
@@ -2298,7 +2387,6 @@
 				0C80CBE71D1A4ACD00D75290 /* UINavigationItem+correct_offset.m in Sources */,
 				0CAFD1061D34EE4B00C295D6 /* CurrencyViewController.m in Sources */,
 				0C043D021C4E42E70093410F /* SDWebImageDownloader.m in Sources */,
-				0CAFD1101D34FCF000C295D6 /* PaymentReceiptViewController.m in Sources */,
 				0C043CBD1C4E420B0093410F /* SDWebImageManager+MJ.m in Sources */,
 				0C1910661C5A03FF00EF7B92 /* TopWindow.m in Sources */,
 				0C80CBE01D1A4ACD00D75290 /* UIColor+Category.m in Sources */,

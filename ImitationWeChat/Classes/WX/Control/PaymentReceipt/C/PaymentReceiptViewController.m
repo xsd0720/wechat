@@ -116,13 +116,19 @@
 {
     for (UIView *v in _fuButton.subviews) {
         if ([v isKindOfClass:[UIButton class]]) {
-            self.presentAnimator.startPoint = v.center;
+            CGRect rr = [_fuButton convertRect:v.frame toView:self.view];
+            self.presentAnimator.startRect = rr;
             self.presentAnimator.startViewColor = v.backgroundColor;
-            
-            
             break;
         }
     }
+    
+    PaymentReceiptDetailViewController *paymentReceiptDetailVC = [[PaymentReceiptDetailViewController alloc] init];
+    paymentReceiptDetailVC.moneyType = MoneyTypePay;
+    paymentReceiptDetailVC.transitioningDelegate = self;
+    paymentReceiptDetailVC.view.backgroundColor = self.presentAnimator.startViewColor;
+    [self presentViewController:paymentReceiptDetailVC animated:YES completion:nil];
+    
 }
 
 - (void)shouButtonClick
@@ -138,7 +144,9 @@
     }
     
     PaymentReceiptDetailViewController *paymentReceiptDetailVC = [[PaymentReceiptDetailViewController alloc] init];
+    paymentReceiptDetailVC.moneyType = MoneyTypeReceive;
     paymentReceiptDetailVC.transitioningDelegate = self;
+    paymentReceiptDetailVC.view.backgroundColor = self.presentAnimator.startViewColor;
     [self presentViewController:paymentReceiptDetailVC animated:YES completion:nil];
 }
 

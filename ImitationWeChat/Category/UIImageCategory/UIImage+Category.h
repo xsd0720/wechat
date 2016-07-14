@@ -16,4 +16,10 @@
 
 + (UIImage *)createRoundedRectImage:(UIImage *)image withSize:(CGSize)size withRadius:(NSInteger)radius;
 
++ (UIImage *)generateQRCode:(NSString *)code size:(CGSize)size;
+
++ (UIImage *)generateBarCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height;
+
++ (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size;
+
 @end

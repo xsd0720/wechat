@@ -675,6 +675,37 @@
 }
 
 
+- (NSArray *)addfriendsData
+{
+    return @[
+             @{
+                 @"text":@"雷达加朋友",
+                 @"dText":@"添加身边的朋友",
+                 @"image":@"add_friend_icon_reda"
+                 },
+             @{
+                 @"text":@"面对面建群",
+                 @"dText":@"与身边的朋友进入同一个群聊",
+                 @"image":@"add_friend_icon_addgroup"
+                 },
+             @{
+                 @"text":@"扫一扫",
+                 @"dText":@"扫描二维码名片",
+                 @"image":@"add_friend_icon_scanqr"
+                 },
+             @{
+                 @"text":@"手机联系人",
+                 @"dText":@"添加通讯录中的朋友",
+                 @"image":@"add_friend_icon_contacts"
+                 },
+             @{
+                 @"text":@"公众号",
+                 @"dText":@"获取更多资讯和服务",
+                 @"image":@"add_friend_icon_offical"
+                 },
+             ];
+}
+
 - (NSArray *)timeLineSmallMovieData
 {
     return @[

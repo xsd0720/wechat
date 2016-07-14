@@ -827,7 +827,7 @@ static UIFont *gTitleFont;
 
 + (UIFont *) titleFont
 {
-    return [UIFont systemFontOfSize:14];
+    return [UIFont systemFontOfSize:16];
 }
 
 + (void) setTitleFont: (UIFont *) titleFont

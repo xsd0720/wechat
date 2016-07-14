@@ -273,25 +273,139 @@ static void addRoundedRectToPath(CGContextRef contextRef, CGRect rect, float wid
 
  #pragma mark - Public Methods
 + (UIImage *)createRoundedRectImage:(UIImage *)image withSize:(CGSize)size withRadius:(NSInteger)radius {
-     int w = size.width;
-     int h = size.height;
+    // the size of CGContextRef
+   
+        float scaleFactor = 1;
+    int w = size.width*scaleFactor;
+    int h = size.height*scaleFactor;
+   
+//    UIImage *img = image;
+//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, kCGImageAlphaPremultipliedFirst);
+//    CGRect rect = CGRectMake(0, 0, w, h);
+//    
+//    CGContextBeginPath(context);
+//    addRoundedRectToPath(context, rect, radius, radius);
+//    CGContextClosePath(context);
+//    CGContextClip(context);
+//    CGContextSetShouldAntialias(context, YES);
+////    CGContextSetAllowAntialiasing(context, YES);
+//    CGContextSetInterpolationQuality(context, kCGInterpolationDefault);
+////    CGContextDrawImage(context, layer.bounds, flipImage
+//    CGContextDrawImage(context, CGRectMake(0, 0, w, h), img.CGImage);
+//    CGImageRef imageMasked = CGBitmapContextCreateImage(context);
+//    img = [UIImage imageWithCGImage:imageMasked];
+//    
+//    CGContextRelease(context);
+//    CGColorSpaceRelease(colorSpace);
+//    CGImageRelease(imageMasked);
+//    
+//    return img;
 
-     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-     CGContextRef contextRef = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpaceRef, (CGBitmapInfo)kCGImageAlphaPremultipliedFirst);
-     CGRect rect = CGRectMake(0, 0, w, h);
+//    CGRect extent = CGRectIntegral(image.extent);
+//    CGFloat scale = MIN(size.width/CGRectGetWidth(extent), size.width/CGRectGetHeight(extent));
+//
+   
+//    addRoundedRectToPath(contextRef, rect, 5, 5);
+//    CGContextSetInterpolationQuality(contextRef, kCGInterpolationNone);
+//    CGContextScaleCTM(contextRef, 2, 2);
+    
+//    CGContextTranslateCTM(contextRef, 0, h);
 
-     CGContextBeginPath(contextRef);
-     addRoundedRectToPath(contextRef, rect, radius, radius);
-     CGContextClosePath(contextRef);
-     CGContextClip(contextRef);
-     CGContextDrawImage(contextRef, CGRectMake(0, 0, w, h), image.CGImage);
-     CGImageRef imageMasked = CGBitmapContextCreateImage(contextRef);
-     UIImage *img = [UIImage imageWithCGImage:imageMasked];
- 
-     CGContextRelease(contextRef);
-     CGColorSpaceRelease(colorSpaceRef);
-     CGImageRelease(imageMasked);
-     return img;
+//    CGContextScaleCTM(contextRef, 1.0, -1.0);
+
+//    CGContextDrawImage(contextRef, CGRectMake(0, 0, w, h), image.CGImage);
+    UIGraphicsBeginImageContextWithOptions(size, 0, [UIScreen mainScreen].scale);
+    CGRect rrr = CGRectMake(0, 0, w, h);
+//    CGContextAddEllipseInRect(contextRef, rrr);
+//    CGContextClip(contextRef);
+    [[UIBezierPath bezierPathWithRoundedRect:rrr cornerRadius:radius] addClip];
+
+    [image drawInRect:rrr];
+    UIImage *dashImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return dashImage;
+
+
+}
+
++ (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size
+{
+    CGRect extent = CGRectIntegral(image.extent);
+    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
+    size_t width = CGRectGetWidth(extent) * scale;
+    size_t height = CGRectGetHeight(extent) * scale;
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceGray();
+    
+    CGContextRef contextRef = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpaceRef, (CGBitmapInfo)kCGImageAlphaNone);
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef imageRef = [context createCGImage:image fromRect:extent];
+    CGContextSetInterpolationQuality(contextRef, kCGInterpolationNone);
+    CGContextScaleCTM(contextRef, scale, scale);
+    CGContextDrawImage(contextRef, extent, imageRef);
+    
+    CGImageRef imageRefResized = CGBitmapContextCreateImage(contextRef);
+    
+    //Release
+    CGContextRelease(contextRef);
+    CGImageRelease(imageRef);
+    return [UIImage imageWithCGImage:imageRefResized];
+    
+}
+
++ (UIImage *)generateQRCode:(NSString *)code size:(CGSize)size {
+    
+    // 生成条形码图片
+    
+    CIImage *qrcodeImage;
+    
+    NSData *data = [code dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:false];
+    
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    
+    [filter setValue:data forKey:@"inputMessage"];
+    
+    [filter setValue:@"H" forKey:@"inputCorrectionLevel"];
+    
+    qrcodeImage = [filter outputImage];
+    
+    CGFloat scaleX = size.width / qrcodeImage.extent.size.width; // extent 返回图片的frame
+    
+    CGFloat scaleY = size.height / qrcodeImage.extent.size.height;
+    
+    CIImage *transformedImage = [qrcodeImage imageByApplyingTransform:CGAffineTransformScale(CGAffineTransformIdentity, scaleX, scaleY)];
+    
+    return [UIImage imageWithCIImage:transformedImage];
+    
+}
+
+
++ (UIImage *)generateBarCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height {
+    
+    // 生成二维码图片
+    
+    CIImage *barcodeImage;
+    
+    NSData *data = [code dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:false];
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CICode128BarcodeGenerator"];
+    
+    [filter setValue:data forKey:@"inputMessage"];
+    
+    barcodeImage = [filter outputImage];
+    
+    // 消除模糊
+    
+    CGFloat scaleX = width / barcodeImage.extent.size.width; // extent 返回图片的frame
+    
+    CGFloat scaleY = height / barcodeImage.extent.size.height;
+    
+    CIImage *transformedImage = [barcodeImage imageByApplyingTransform:CGAffineTransformScale(CGAffineTransformIdentity, scaleX, scaleY)];
+    
+    return [UIImage imageWithCIImage:transformedImage];
+    
 }
 
 @end

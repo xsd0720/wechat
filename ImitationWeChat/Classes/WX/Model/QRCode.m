@@ -25,6 +25,33 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     return filter.outputImage;
 }
 
++ (UIImage *)createQRCodeImage:(NSString *)source size:(CGFloat)size {
+    NSData *data = [source dataUsingEncoding:NSUTF8StringEncoding];
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [filter setValue:data forKey:@"inputMessage"];
+    [filter setValue:@"Q" forKey:@"inputCorrectionLevel"]; //设置纠错等级越高；即识别越容易，值可设置为L(Low) |  M(Medium) | Q | H(High)
+    UIImage *im = [self resizeQRCodeImage:filter.outputImage withSize:size];
+    
+    return im;
+}
+
++ (UIImage *)createQRCodeImage:(NSString *)source size:(CGFloat)size icon:(NSString *)iconName{
+    NSData *data = [source dataUsingEncoding:NSUTF8StringEncoding];
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [filter setValue:data forKey:@"inputMessage"];
+    [filter setValue:@"Q" forKey:@"inputCorrectionLevel"]; //设置纠错等级越高；即识别越容易，值可设置为L(Low) |  M(Medium) | Q | H(High)
+    UIImage *imgAdaptiveQRCode = [self resizeQRCodeImage:filter.outputImage withSize:size];
+    UIImage *imgIcon = [UIImage createRoundedRectImage:[UIImage imageNamed:@"000"]
+                                              withSize:CGSizeMake(44, 44)
+                                            withRadius:2];
+    imgAdaptiveQRCode = [QRCode addIconToQRCodeImage:imgAdaptiveQRCode
+                                            withIcon:imgIcon
+                                        withIconSize:imgIcon.size];
+    return imgAdaptiveQRCode;
+}
+
 + (UIImage *)resizeQRCodeImage:(CIImage *)image withSize:(CGFloat)size {
     CGRect extent = CGRectIntegral(image.extent);
     CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
@@ -90,7 +117,7 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
 }
 
 +(UIImage *)addIconToQRCodeImage:(UIImage *)image withIcon:(UIImage *)icon withIconSize:(CGSize)iconSize {
-    UIGraphicsBeginImageContext(image.size);
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
     //通过两张图片进行位置和大小的绘制，实现两张图片的合并；其实此原理做法也可以用于多张图片的合并
     CGFloat widthOfImage = image.size.width;
     CGFloat heightOfImage = image.size.height;
@@ -107,7 +134,7 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
 }
 
 +(UIImage *)addIconToQRCodeImage:(UIImage *)image withIcon:(UIImage *)icon withScale:(CGFloat)scale {
-    UIGraphicsBeginImageContext(image.size);
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
 
     //通过两张图片进行位置和大小的绘制，实现两张图片的合并；其实此原理做法也可以用于多张图片的合并
     CGFloat widthOfImage = image.size.width;

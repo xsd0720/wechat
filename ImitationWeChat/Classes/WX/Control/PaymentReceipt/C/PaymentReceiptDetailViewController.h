@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, MoneyType) {
+    MoneyTypePay,
+    MoneyTypeReceive,
+};
+
 @interface PaymentReceiptDetailViewController : BaseViewController
+
+@property (nonatomic) MoneyType moneyType;
 
 @end

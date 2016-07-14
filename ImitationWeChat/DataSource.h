@@ -90,8 +90,9 @@ typedef NS_ENUM(NSInteger, AccessoryType) {
 /*
  ShakeViewController   SetTableViewDataSource
  */
-@property (nonatomic,strong) NSArray *shakeSetTableData;
+@property (nonatomic, strong) NSArray *shakeSetTableData;
 
+@property (nonatomic, strong) NSArray *addfriendsData;
 
 /*
  BottleViewController ChooseTabbar Datasource

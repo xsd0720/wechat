@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) UITextField *searchBarTextField;
 
+@property (nonatomic, assign) BOOL isTabbarHidden;
+
 @end
 
 @implementation CustomSearchViewController
@@ -48,7 +50,10 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
-    tempTabBarController.tabBar.hidden = YES;
+    self.isTabbarHidden = tempTabBarController.tabBar.isHidden;
+    if (!tempTabBarController.tabBar.isHidden) {
+        tempTabBarController.tabBar.hidden = YES;
+    }
     
     if (!self.voiceSearchStartBtn.superview) {
         for (UIView *subView in self.searchBar.subviews) {
@@ -84,8 +89,11 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
-    tempTabBarController.tabBar.hidden = NO;
+    if (self.isTabbarHidden == NO) {
+        UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+        tempTabBarController.tabBar.hidden = NO;
+    }
+ 
     
     self.searchBarTextField.rightViewMode = UITextFieldViewModeNever;
    

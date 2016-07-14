@@ -16,6 +16,7 @@
 #import "MassAssistantViewController.h"
 #import "QRCodeViewController.h"
 #import "PaymentReceiptViewController.h"
+#import "AddFriendsViewController.h"
 #define SEARCHBARHEIGHT        44
 static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 
@@ -177,6 +178,10 @@ static NSString *WXTABLECELLIDENTIFIER = @"wxtablecellidentifier";
 //添加朋友
 - (void)pushMenuItem2
 {
+    
+    AddFriendsViewController *addFriendsVC = [[AddFriendsViewController alloc] init];
+    addFriendsVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:addFriendsVC animated:YES];
     
     NSLog(@"添加朋友");
 }

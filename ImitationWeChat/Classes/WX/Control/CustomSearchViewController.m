@@ -9,6 +9,10 @@
 #import "CustomSearchViewController.h"
 #import "SpeechTool.h"
 #import "UIImage+Color.h"
+@interface fugaiView :UIView
+
+@end
+
 @interface CustomSearchViewController ()
 
 @property (nonatomic, strong) UIButton *voiceSearchStartBtn;
@@ -16,6 +20,8 @@
 @property (nonatomic, strong) UITextField *searchBarTextField;
 
 @property (nonatomic, assign) BOOL isTabbarHidden;
+
+@property (nonatomic, strong) UIView *fuGaiSearchBarView;
 
 @end
 
@@ -26,6 +32,8 @@
     self = [super initWithSearchResultsController:searchResultsController];
     if (self) {
 
+        self.isAddFriendsController = NO;
+        
         self.searchBar.placeholder = @"搜索";
 //        self.searchBar.backgroundImage = [UIImage imageWithColor:NAVGATIONBAR_BARTINTCOLOR frame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
         self.searchBar.scopeBarBackgroundImage = [UIImage new];
@@ -35,7 +43,6 @@
         self.searchBar.tintColor = RGBCOLOR(78, 184, 82);
         self.searchBar.layer.borderWidth = 1;
         self.searchBar.delegate = self;
-        
         
         UIImage *voiceSearchStartBtnImage = [UIImage imageNamed:@"VoiceSearchStartBtn"];
         self.voiceSearchStartBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -47,30 +54,70 @@
     
 }
 
+- (void)setUpSearBarFuGaiView
+{
+    self.isAddFriendsController = YES;
+    self.searchBar.placeholder = @"微信号/手机号";
+    [self.searchBar addSubview:self.fuGaiSearchBarView];
+    
+}
+
+
+- (UIView *)fuGaiSearchBarView
+{
+    if (!_fuGaiSearchBarView) {
+        CGFloat sh = self.searchBar.height;
+        
+        _fuGaiSearchBarView= [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.searchBar.width, sh)];
+        _fuGaiSearchBarView.backgroundColor = [UIColor whiteColor];
+        
+        
+        UIButton *searchIcon = [[UIButton alloc] initWithFrame:CGRectMake(15, 0, sh, sh)];
+        [searchIcon setImage:[UIImage imageNamed:@"add_friend_searchicon"] forState:UIControlStateNormal];
+        [_fuGaiSearchBarView addSubview:searchIcon];
+        
+        UILabel *searchLabelText = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(searchIcon.frame) + 10, 0, SCREEN_WIDTH - (CGRectGetMaxX(searchIcon.frame) + 10) , sh)];
+        searchLabelText.font = [UIFont systemFontOfSize:15];
+        searchLabelText.textColor = wechatGraycolor;
+        searchLabelText.text = @"微信号/手机号";
+        [_fuGaiSearchBarView addSubview:searchLabelText];
+       
+    }
+    return _fuGaiSearchBarView;
+}
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
+    if (self.isAddFriendsController) {
+        self.fuGaiSearchBarView.hidden = YES;
+    }
+    
     UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
     self.isTabbarHidden = tempTabBarController.tabBar.isHidden;
     if (!tempTabBarController.tabBar.isHidden) {
         tempTabBarController.tabBar.hidden = YES;
     }
     
-    if (!self.voiceSearchStartBtn.superview) {
-        for (UIView *subView in self.searchBar.subviews) {
-            for (UIView *subsubView in subView.subviews) {
-                if ([subsubView isKindOfClass:[UITextField class]]) {
-                    [self.voiceSearchStartBtn setFrame:CGRectMake(0, 0, 30, CGRectGetMaxY(subsubView.bounds))];
-                    self.voiceSearchStartBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-                    self.voiceSearchStartBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-                    
-                    UITextField *textField = (UITextField *)subsubView;
-                    self.searchBarTextField = textField;
-                    textField.rightViewMode = UITextFieldViewModeAlways;
-                    textField.rightView = self.voiceSearchStartBtn;
+    if (!self.isAddFriendsController) {
+        if (!self.voiceSearchStartBtn.superview) {
+            for (UIView *subView in self.searchBar.subviews) {
+                for (UIView *subsubView in subView.subviews) {
+                    if ([subsubView isKindOfClass:[UITextField class]]) {
+                        [self.voiceSearchStartBtn setFrame:CGRectMake(0, 0, 30, CGRectGetMaxY(subsubView.bounds))];
+                        self.voiceSearchStartBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+                        self.voiceSearchStartBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+                        
+                        UITextField *textField = (UITextField *)subsubView;
+                        self.searchBarTextField = textField;
+                        textField.rightViewMode = UITextFieldViewModeAlways;
+                        textField.rightView = self.voiceSearchStartBtn;
+                    }
                 }
             }
         }
     }
+    
+   
 }
 
 
@@ -89,6 +136,10 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    if (self.isAddFriendsController) {
+        self.fuGaiSearchBarView.hidden = NO;
+    }
+    
     if (self.isTabbarHidden == NO) {
         UITabBarController *tempTabBarController = (UITabBarController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
         tempTabBarController.tabBar.hidden = NO;
@@ -96,7 +147,8 @@
  
     
     self.searchBarTextField.rightViewMode = UITextFieldViewModeNever;
-   
+ 
+    
 }
 
 
@@ -120,14 +172,15 @@
     self.searchBar.delegate = nil;
     self.voiceSearchStartBtn = nil;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+@end
+
+@implementation fugaiView
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    return self.superview;
 }
-*/
+
 
 @end

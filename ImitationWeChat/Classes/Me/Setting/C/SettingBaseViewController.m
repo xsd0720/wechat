@@ -67,7 +67,7 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
 {
     NSDictionary *dic = _baseDataSource[section];
     NSString *footerString = dic[newXinNotificationHeaderStr];
-    CGSize returnSize = [footerString CalculationStringSizeWithWidth:SCREEN_WIDTH-40 font:[UIFont systemFontOfSize:12]];
+    CGSize returnSize = [footerString CalculationStringSizeWithWidth:SCREEN_WIDTH-40 font:[UIFont systemFontOfSize:12] space:15];
     if (section == 0 && returnSize.height <= 0) {
         return 20;
     }
@@ -87,7 +87,7 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
     
     NSDictionary *dic = _baseDataSource[section];
     NSString *headerString = dic[newXinNotificationHeaderStr];
-    CGSize labelSize = [headerString CalculationStringSizeInView:headerLabel];
+    CGSize labelSize = [headerString CalculationStringSizeInView:headerLabel space:15];
     headerLabel.height = (labelSize.height/4)*3;
     headerLabel.originY = labelSize.height/4;
     headerLabel.text = headerString;
@@ -102,7 +102,7 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
 {
     NSDictionary *dic = _baseDataSource[section];
     NSString *footerString = dic[newXinNotificationFooterStr];
-    CGSize returnSize = [footerString CalculationStringSizeWithWidth:SCREEN_WIDTH-40 font:[UIFont systemFontOfSize:15]];
+    CGSize returnSize = [footerString CalculationStringSizeWithWidth:SCREEN_WIDTH-40 font:[UIFont systemFontOfSize:15] space:15];
     
     if (returnSize.height <= 0) {
         return 20;
@@ -120,7 +120,7 @@ static NSString *SETTINGBASECELLIDENTIFER = @"SETTINGBASECELLIDENTIFER";
     
     NSDictionary *dic = _baseDataSource[section];
     NSString *footerString = dic[newXinNotificationFooterStr];
-    CGSize labelSize = [footerString CalculationStringSizeInView:footerLabel];
+    CGSize labelSize = [footerString CalculationStringSizeInView:footerLabel space:15];
     footerLabel.height = labelSize.height;
     footerLabel.text = footerString;
     

@@ -8,7 +8,7 @@
 
 #import "AddFriendsViewController.h"
 #import "CustomSearchViewController.h"
-#import "SearchViewShowController.h"
+#import "AddFriendsSearchViewController.h"
 
 #define  MAINTCELLIDENTIFIER  @"MAINTCELLIDENTIFIER"
 
@@ -22,7 +22,9 @@
 
 @property (nonatomic, strong) CustomSearchViewController *searchController;
 
-@property (nonatomic, strong) SearchViewShowController *searchShowVC;
+@property (nonatomic, strong) AddFriendsSearchViewController *searchShowVC;
+
+@property (nonatomic, strong) UIView *tableHeaderView;
 
 @property (nonatomic, strong) UITableView *mainTableView;
 
@@ -38,14 +40,38 @@
     [self configNav];
     
     
-    self.searchShowVC = [[SearchViewShowController alloc] init];
+    self.searchShowVC = [[AddFriendsSearchViewController alloc] init];
     
     self.searchController = [[CustomSearchViewController alloc] initWithSearchResultsController:_searchShowVC];
     self.searchController.searchResultsUpdater = self;
+    [self.searchController setUpSearBarFuGaiView];
     [self.searchController.searchBar sizeToFit];
     self.searchController.delegate = self;
-    self.mainTableView.tableHeaderView = _searchController.searchBar;
     
+
+    self.mainTableView.tableHeaderView = self.tableHeaderView;
+    
+}
+
+- (UIView *)tableHeaderView
+{
+    if (!_tableHeaderView) {
+        _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 88)];
+        _tableHeaderView.backgroundColor = self.view.backgroundColor;
+        [self.tableHeaderView addSubview:_searchController.searchBar];
+        
+        UILabel *mywechatNumber = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_searchController.searchBar.frame)+5, 200, 20)];
+        mywechatNumber.text = @"我的微信号：aywanghui";
+        mywechatNumber.font = [UIFont systemFontOfSize:12];
+        mywechatNumber.textAlignment = 2;
+        [_tableHeaderView addSubview:mywechatNumber];
+        
+        UIButton *qrcode = [UIButton buttonWithType:UIButtonTypeCustom];
+        [qrcode setImage:[UIImage imageNamed:@"add_friend_myQR"] forState:UIControlStateNormal];
+        qrcode.frame = CGRectMake(CGRectGetMaxX(mywechatNumber.frame)+5, mywechatNumber.originY, 20, 20);
+        [_tableHeaderView addSubview:qrcode];
+    }
+    return _tableHeaderView;
 }
 
 - (UITableView *)mainTableView
@@ -53,8 +79,9 @@
     if (!_mainTableView) {
         _mainTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT) style:UITableViewStylePlain];
         [self.view addSubview:_mainTableView];
-//        [_mainTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+
         [_mainTableView setSeparatorInset:UIEdgeInsetsZero];
+        _mainTableView.backgroundColor = self.view.backgroundColor;
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;
         _mainTableView.tableFooterView = [UIView new];
@@ -74,9 +101,14 @@
 #pragma mark --
 #pragma mark -- tableview delegate
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 1;
+//}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 55;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -92,6 +124,12 @@
     cell.datasource = dic;
   
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,54 +157,6 @@
     _fts_eduScrollview.tag= 100;
     _fts_eduScrollview.contentSize = CGSizeMake(_fts_eduScrollview.bounds.size.width, _fts_eduScrollview.bounds.size.height+1);
     [self.navigationController.view addSubview:_fts_eduScrollview];
-//
-//    
-//    _buttonLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 100)];
-//    [_fts_eduScrollview addSubview:_buttonLineView];
-//    
-//    
-//    CGFloat buttonBgWidth = SCREEN_WIDTH/3;
-//    CGFloat imagebuttonSize = 67;
-//    NSArray *titleArray = @[@"朋友圈", @"文章", @"公众号"];
-//    NSArray *imageNameArray = @[@"fts_edu_sns_icon", @"fts_edu_article_icon", @"fts_edu_brandcontact_icon"];
-//    for (int i = 0; i<3; i++) {
-//        
-//        //图片和文字的父视图
-//        UIButton *buttonBgView = [UIButton buttonWithType:UIButtonTypeCustom];
-//        buttonBgView.backgroundColor = [UIColor clearColor];
-//        buttonBgView.frame = CGRectMake(i*buttonBgWidth, 0, buttonBgWidth, CGRectGetMaxY(_buttonLineView.bounds));
-//        [_buttonLineView addSubview:buttonBgView];
-//        
-//        
-//        //图片视图
-//        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [imageButton setImage:[UIImage imageNamed:imageNameArray[i]] forState:UIControlStateNormal];
-//        imageButton.frame = CGRectMake(0, 0, imagebuttonSize, imagebuttonSize);
-//        imageButton.backgroundColor = RGBCOLOR(229, 229, 231);
-//        imageButton.center = CGPointMake(CGRectGetMaxX(buttonBgView.bounds)/2, imageButton.centerY);
-//        imageButton.layer.cornerRadius = imagebuttonSize/2;
-//        imageButton.clipsToBounds = YES;
-//        imageButton.userInteractionEnabled = NO;
-//        [buttonBgView addSubview:imageButton];
-//        
-//        
-//        //文字视图
-//        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(buttonBgView.bounds)-20, CGRectGetMaxX(buttonBgView.bounds), 15)];
-//        titleLabel.text = titleArray[i];
-//        titleLabel.font = [UIFont systemFontOfSize:14];
-//        titleLabel.textColor = RGBCOLOR(160, 159, 159);
-//        titleLabel.textAlignment = 1;
-//        [buttonBgView addSubview:titleLabel];
-//    }
-//    
-//    _buttonLineView.transform = CGAffineTransformMakeTranslation(0, 20);
-//    [UIView animateWithDuration:0.2f animations:^{
-//        _buttonLineView.transform = CGAffineTransformIdentity;
-//    }];
-    
-}
-- (void)aaa
-{
     
 }
 
@@ -181,14 +171,16 @@
         self.mainTableView.transform = CGAffineTransformIdentity;
         self.mainTableView.height = SCREEN_HEIGHT-STATUS_AND_NAV_BAR_HEIGHT;
     }];
-//
+
     [[self.navigationController.view viewWithTag:100] removeFromSuperview];
+    
 }
 
 
 - (void)didDismissSearchController:(UISearchController *)searchController
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
 }
 
 #pragma mark - UISearchResultsUpdating
@@ -210,7 +202,9 @@
 {
     self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     if (self) {
-        
+        self.textLabel.font = [UIFont systemFontOfSize:15];
+        self.detailTextLabel.textColor = [UIColor grayColor];
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return self;
 }
@@ -219,12 +213,11 @@
 {
     _datasource = datasource;
     
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     self.imageView.image = [UIImage imageNamed:datasource[@"image"]];
     self.textLabel.text = datasource[@"text"];
     self.detailTextLabel.text = datasource[@"dText"];
-    self.detailTextLabel.textColor = [UIColor grayColor];
-    
+
 }
 
 @end

@@ -91,7 +91,7 @@
 
 
 
-- (CGSize)CalculationStringSizeInView:(UIView *)showView
+- (CGSize)CalculationStringSizeInView:(UIView *)showView space:(CGFloat)space
 {
     if (![NSString isNotEmptyString:self]) {
         return CGSizeZero;
@@ -102,13 +102,13 @@
         CGSize size = CGSizeMake(showView.width,MAXFLOAT); //设置一个行高上限
         NSDictionary *attribute = @{NSFontAttributeName: label.font};
         CGSize labelsize = [self boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-        labelsize.height += 15;
+        labelsize.height += space;
         return labelsize;
     }
     return CGSizeZero;
 }
 
-- (CGSize)CalculationStringSizeWithWidth:(CGFloat)showWidth font:(UIFont *)showFont
+- (CGSize)CalculationStringSizeWithWidth:(CGFloat)showWidth font:(UIFont *)showFont space:(CGFloat)space
 {
     if (![NSString isNotEmptyString:self]) {
         return CGSizeZero;
@@ -116,7 +116,7 @@
     CGSize size = CGSizeMake(showWidth,MAXFLOAT); //设置一个行高上限
     NSDictionary *attribute = @{NSFontAttributeName: showFont};
     CGSize labelsize = [self boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-    labelsize.height += 15;
+    labelsize.height += space;
     return labelsize;
 
 }

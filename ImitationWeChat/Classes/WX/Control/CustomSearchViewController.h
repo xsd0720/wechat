@@ -10,4 +10,8 @@
 
 @interface CustomSearchViewController : UISearchController<UISearchBarDelegate>
 
+@property (nonatomic, assign) BOOL isAddFriendsController;
+
+- (void)setUpSearBarFuGaiView;
+
 @end

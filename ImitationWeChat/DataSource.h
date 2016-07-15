@@ -13,7 +13,7 @@ static NSString *newXinNotificationFooterStr = @"newXinNotificationFooterStr";
 static NSString *newXinNotificationHeaderStr = @"newXinNotificationHeaderStr";
 
 #define DS        [DataSource getInstance]
-
+static NSString *requestResult = @"requestResult";
 
 typedef NS_ENUM(NSInteger, AccessoryType) {
     AccessoryNone,
@@ -93,6 +93,8 @@ typedef NS_ENUM(NSInteger, AccessoryType) {
 @property (nonatomic, strong) NSArray *shakeSetTableData;
 
 @property (nonatomic, strong) NSArray *addfriendsData;
+
+@property (nonatomic, strong) NSDictionary *addfriendsSearchTestData;
 
 /*
  BottleViewController ChooseTabbar Datasource

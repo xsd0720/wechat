@@ -15,8 +15,8 @@
 - (void)findSameStringPostion:(NSString *)contentString AttributedString:(NSMutableAttributedString *)attributedString;
 
 
-- (CGSize)CalculationStringSizeInView:(UIView *)showView;
+- (CGSize)CalculationStringSizeInView:(UIView *)showView space:(CGFloat)space;
 
-- (CGSize)CalculationStringSizeWithWidth:(CGFloat)showWidth font:(UIFont *)showFont;
+- (CGSize)CalculationStringSizeWithWidth:(CGFloat)showWidth font:(UIFont *)showFont space:(CGFloat)space;
 
 @end

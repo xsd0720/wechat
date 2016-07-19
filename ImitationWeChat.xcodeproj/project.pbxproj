@@ -69,6 +69,9 @@
 		0C6CA7991D336F150003B88A /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7981D336F150003B88A /* SystemManager.m */; };
 		0C6CA7A81D3394730003B88A /* SettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */; };
 		0C6CA7AB1D3395AB0003B88A /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */; };
+		0C6DB7621D3E2C22008398A4 /* SimpleProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DB7611D3E2C22008398A4 /* SimpleProfileViewController.m */; };
+		0C6DB7661D3E322C008398A4 /* SimpleProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DB7651D3E322C008398A4 /* SimpleProfileHeaderCell.m */; };
+		0C6DB7691D3E3256008398A4 /* SimpleProfileAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DB7681D3E3256008398A4 /* SimpleProfileAlbumCell.m */; };
 		0C7871961D3C9BCB00206FD2 /* around-friends_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C7871951D3C9BCB00206FD2 /* around-friends_bg@2x.jpg */; };
 		0C7871991D3C9C7B00206FD2 /* FaceCreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7871981D3C9C7B00206FD2 /* FaceCreateGroupViewController.m */; };
 		0C7871A51D3CA43100206FD2 /* MyQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C78719D1D3CA43100206FD2 /* MyQRCodeViewController.m */; };
@@ -404,6 +407,12 @@
 		0C6CA7A71D3394730003B88A /* SettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseViewController.m; sourceTree = "<group>"; };
 		0C6CA7A91D3395AB0003B88A /* SettingBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableViewCell.h; sourceTree = "<group>"; };
 		0C6CA7AA1D3395AB0003B88A /* SettingBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableViewCell.m; sourceTree = "<group>"; };
+		0C6DB7601D3E2C22008398A4 /* SimpleProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleProfileViewController.h; sourceTree = "<group>"; };
+		0C6DB7611D3E2C22008398A4 /* SimpleProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleProfileViewController.m; sourceTree = "<group>"; };
+		0C6DB7641D3E322C008398A4 /* SimpleProfileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleProfileHeaderCell.h; sourceTree = "<group>"; };
+		0C6DB7651D3E322C008398A4 /* SimpleProfileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleProfileHeaderCell.m; sourceTree = "<group>"; };
+		0C6DB7671D3E3256008398A4 /* SimpleProfileAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleProfileAlbumCell.h; sourceTree = "<group>"; };
+		0C6DB7681D3E3256008398A4 /* SimpleProfileAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleProfileAlbumCell.m; sourceTree = "<group>"; };
 		0C7871951D3C9BCB00206FD2 /* around-friends_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "around-friends_bg@2x.jpg"; sourceTree = "<group>"; };
 		0C7871971D3C9C7B00206FD2 /* FaceCreateGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceCreateGroupViewController.h; sourceTree = "<group>"; };
 		0C7871981D3C9C7B00206FD2 /* FaceCreateGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceCreateGroupViewController.m; sourceTree = "<group>"; };
@@ -1058,6 +1067,17 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+		0C6DB7631D3E3202008398A4 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				0C6DB7641D3E322C008398A4 /* SimpleProfileHeaderCell.h */,
+				0C6DB7651D3E322C008398A4 /* SimpleProfileHeaderCell.m */,
+				0C6DB7671D3E3256008398A4 /* SimpleProfileAlbumCell.h */,
+				0C6DB7681D3E3256008398A4 /* SimpleProfileAlbumCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 		0C78719A1D3CA43100206FD2 /* M */ = {
 			isa = PBXGroup;
 			children = (
@@ -1594,6 +1614,8 @@
 				0C1A44C91D20E5E1008B292F /* ValidMobileViewController.m */,
 				0C9768341D235EB5008C2945 /* FillSimpleInfoViewController.h */,
 				0C9768351D235EB5008C2945 /* FillSimpleInfoViewController.m */,
+				0C6DB7601D3E2C22008398A4 /* SimpleProfileViewController.h */,
+				0C6DB7611D3E2C22008398A4 /* SimpleProfileViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1605,13 +1627,6 @@
 				0CA253091D1D134900482E9F /* MMCountry.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		0CA253031D1D130800482E9F /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		0CA39FFB1D38C2B90021F416 /* texthead */ = {
@@ -1836,9 +1851,9 @@
 		0CE198881D1CE815003BB4AA /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				0C6DB7631D3E3202008398A4 /* V */,
 				0CA252F91D1D130800482E9F /* Control */,
 				0CA253021D1D130800482E9F /* Model */,
-				0CA253031D1D130800482E9F /* View */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2383,6 +2398,7 @@
 				0C04145D1D265DAF003CD82A /* MassAssistantCell.m in Sources */,
 				0C80CBD51D1A4ACD00D75290 /* NSString+Category.m in Sources */,
 				2E1F720E1B60B2B600152EE1 /* DataSource.m in Sources */,
+				0C6DB7621D3E2C22008398A4 /* SimpleProfileViewController.m in Sources */,
 				0C80CB591D1A3A8100D75290 /* ShakeViewController.m in Sources */,
 				0C80CB611D1A3A8100D75290 /* TestViewController.m in Sources */,
 				0C80CB4C1D1A3A8100D75290 /* BottlerViewController.m in Sources */,
@@ -2444,6 +2460,7 @@
 				0C80CC011D1AB19E00D75290 /* UserCenterRequestParams.m in Sources */,
 				0C808B511D36402900A49679 /* PresentAnimator.m in Sources */,
 				0C80CBD91D1A4ACD00D75290 /* NSString+Time.m in Sources */,
+				0C6DB7661D3E322C008398A4 /* SimpleProfileHeaderCell.m in Sources */,
 				0CBA102D1D2A34F8006ADF76 /* QunFaViewController.m in Sources */,
 				0C043CFC1C4E42E70093410F /* AFURLSessionManager.m in Sources */,
 				0CA39FF81D388B550021F416 /* AddFriendsSearchPublicNCell.m in Sources */,
@@ -2452,6 +2469,7 @@
 				0C7871A71D3CA43100206FD2 /* QRCodeViewController.m in Sources */,
 				0CF911EA1C438A4100F33C89 /* TZImageManager.m in Sources */,
 				0C043D0A1C4E42E70093410F /* UIImageView+HighlightedWebCache.m in Sources */,
+				0C6DB7691D3E3256008398A4 /* SimpleProfileAlbumCell.m in Sources */,
 				0C7871AB1D3CA45100206FD2 /* MyQRCodeView.m in Sources */,
 				0C043CA31C4E35D80093410F /* SafePhoto.m in Sources */,
 				0C80CAE61D1A35F500D75290 /* JSONAPI.m in Sources */,

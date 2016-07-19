@@ -455,9 +455,9 @@
         }
            
         _peoplesView.contentSize = CGSizeMake(_peoplesView.width, MAX(CGRectGetMaxY(_findImageView.frame)+ definePadding, _peoplesView.height));
-        [UIView animateWithDuration:0.2 animations:^{
-            [_peoplesView setContentOffset:CGPointMake(0, _peoplesView.contentSize.height-_peoplesView.height)];
-        }];
+        [_peoplesView setContentOffset:CGPointMake(0, _peoplesView.contentSize.height-_peoplesView.height) animated:YES];
+//        [_peoplesView scrollRectToVisible:CGRectMake(_peoplesView.contentSize.width - 1,_peoplesView.contentSize.height - 1, 1, 1) animated:YES];
+
         
         
         _peoples = peoples;

@@ -10,6 +10,7 @@
 #import "Contact.h"
 #import "CustomSearchViewController.h"
 #import "SearchViewShowController.h"
+#import "AddFriendsViewController.h"
 static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 
 
@@ -92,7 +93,9 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 
 - (void)barbuttonicon_addfriendsClick
 {
-    
+    AddFriendsViewController *addFriendsVC = [[AddFriendsViewController alloc] init];
+    addFriendsVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:addFriendsVC animated:YES];
 }
 
 #pragma mark - TableView section

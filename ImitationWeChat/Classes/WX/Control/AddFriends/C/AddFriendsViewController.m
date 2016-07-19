@@ -9,7 +9,9 @@
 #import "AddFriendsViewController.h"
 #import "CustomSearchViewController.h"
 #import "AddFriendsSearchViewController.h"
-
+#import "QRCodeViewController.h"
+#import "FaceCreateGroupViewController.h"
+#import "MyQRCodeView.h"
 #define  MAINTCELLIDENTIFIER  @"MAINTCELLIDENTIFIER"
 
 @interface TableViewCell : UITableViewCell
@@ -30,6 +32,10 @@
 
 @property (nonatomic, strong) UIScrollView *fts_eduScrollview;
 
+@property (nonatomic, strong) MyQRCodeView *myQrCodeView;
+
+@property (nonatomic, strong) UIControl *showMyQrCodeBg;
+
 @end
 
 @implementation AddFriendsViewController
@@ -45,6 +51,7 @@
     self.searchController = [[CustomSearchViewController alloc] initWithSearchResultsController:_searchShowVC];
     self.searchController.searchResultsUpdater = self;
     [self.searchController setUpSearBarFuGaiView];
+    self.searchController.dimsBackgroundDuringPresentation = NO;
     [self.searchController.searchBar sizeToFit];
     self.searchController.delegate = self;
     
@@ -69,6 +76,7 @@
         UIButton *qrcode = [UIButton buttonWithType:UIButtonTypeCustom];
         [qrcode setImage:[UIImage imageNamed:@"add_friend_myQR"] forState:UIControlStateNormal];
         qrcode.frame = CGRectMake(CGRectGetMaxX(mywechatNumber.frame)+5, mywechatNumber.originY, 20, 20);
+        [qrcode addTarget:self action:@selector(qrCodeClick) forControlEvents:UIControlEventTouchUpInside];
         [_tableHeaderView addSubview:qrcode];
     }
     return _tableHeaderView;
@@ -92,9 +100,44 @@
 }
 
 
+- (UIControl *)showMyQrCodeBg
+{
+    if (!_showMyQrCodeBg) {
+        
+        _showMyQrCodeBg = [[UIControl alloc] initWithFrame:self.view.bounds];
+        _showMyQrCodeBg.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        [_showMyQrCodeBg addTarget:self action:@selector(showMyQrCodeBgClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_showMyQrCodeBg];
+        
+        _myQrCodeView = [[MyQRCodeView alloc] initWithFrame:CGRectMake(22, 60+64, (SCREEN_WIDTH - 44), (SCREEN_HEIGHT-120 - 64))];
+        [_showMyQrCodeBg addSubview:_myQrCodeView];
+    }
+    return _showMyQrCodeBg;
+}
+
 - (void)configNav
 {
     self.title = @"添加朋友";
+}
+
+- (void)qrCodeClick
+{
+    if (!self.showMyQrCodeBg.superview) {
+        [self.view addSubview:self.showMyQrCodeBg];
+    }
+    self.showMyQrCodeBg.alpha = 0;
+    [UIView animateWithDuration:0.2 animations:^{
+        self.showMyQrCodeBg.alpha = 1;
+    }];
+}
+
+- (void)showMyQrCodeBgClick
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.showMyQrCodeBg.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.showMyQrCodeBg removeFromSuperview];
+    }];
 }
 
 
@@ -130,6 +173,41 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    switch (indexPath.row) {
+        case 0:
+        {
+            
+        }
+            break;
+        
+        case 1:
+        {
+            FaceCreateGroupViewController *faceGreateGroupVC = [[FaceCreateGroupViewController alloc] init];
+            [self.navigationController pushViewController:faceGreateGroupVC animated:YES];
+        }
+            break;
+            
+        case 2:
+        {
+            QRCodeViewController *qrcodeVC = [[QRCodeViewController alloc] init];
+            [self.navigationController pushViewController:qrcodeVC animated:YES];
+        }
+            break;
+            
+        case 3:
+        {
+            
+        }
+            break;
+            
+        case 4:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

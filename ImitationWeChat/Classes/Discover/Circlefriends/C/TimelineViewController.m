@@ -12,6 +12,7 @@
 #import "MyNavViewController.h"
 #import "SendTimeLineViewController.h"
 #import "SightViewController.h"
+#import "TimelineCell.h"
 static NSString *TIMELINECELLIDENTIFIER = @"timeLineCellIdentifier";
 static CGFloat TABLEHEADERVIEHEIGHT = 300.0f;
 static CGFloat REFLASHMAXCENTERY = 100.0f;
@@ -40,6 +41,8 @@ static CGFloat USERFACESIZE = 75.0f;
 @property (nonatomic, strong) TZImagePickerController *tzImagePickerController;
 
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
+
+@property (nonatomic, strong) NSArray *datasource;
 @end
 
 @implementation TimelineViewController
@@ -97,11 +100,15 @@ static CGFloat USERFACESIZE = 75.0f;
         
         _timeLineTableView.delegate = self;
         _timeLineTableView.dataSource = self;
-        _timeLineTableView.tableFooterView = [UIView new];
+        
+        _timeLineTableView.separatorInset = UIEdgeInsetsZero;
+        
+        
         _timeLineTableView.sectionIndexColor = [UIColor grayColor];
         _timeLineTableView.sectionIndexBackgroundColor = [UIColor clearColor];
+        _timeLineTableView.backgroundColor = self.view.backgroundColor;
         _timeLineTableView.tableHeaderView = self.tableViewHeaderView;
-        [_timeLineTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:TIMELINECELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimelineCell class] forCellReuseIdentifier:TIMELINECELLIDENTIFIER];
     }
     return _timeLineTableView;
 }
@@ -128,6 +135,8 @@ static CGFloat USERFACESIZE = 75.0f;
   
     //加载导航设置
     [self setUpNav];
+    
+    self.datasource = DS.timeLineData[requestResult];
     
     [self.timeLineTableView reloadData];
     [self.view addSubview:self.albumReflashImageView];
@@ -235,13 +244,19 @@ static CGFloat USERFACESIZE = 75.0f;
 
 
 #pragma mark - TableView Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _datasource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TIMELINECELLIDENTIFIER forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"index %li",indexPath.row];
+    TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:TIMELINECELLIDENTIFIER forIndexPath:indexPath];
+    cell.datasource =_datasource[indexPath.row];
     return cell;
 }
 

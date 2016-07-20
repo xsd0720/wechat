@@ -1094,4 +1094,78 @@
 
 }
 
+
+- (NSDictionary *)testProfileData
+{
+    return @{
+             @"status":@"OK",
+             @"status_code":@"200",
+             @"profile":@{
+                     @"image":@"anglebady.jpg",
+                     @"username":@"杨颖",
+                     @"wechatnumber":@"anglebady_1989",
+                     @"nikename":@"Molly",
+                     @"area":@"上海 福东新区",
+                     },
+             
+             @"alb":@[
+                     
+                     @{
+                         @"text":@"地区",
+                         @"type":@"text",
+                         @"data":@"北京 朝阳",
+                         },
+                     @{
+                         @"text":@"个人相册",
+                         @"type":@"album",
+                         @"data":@[
+                                 @"anglebady1.jpg",
+                                 @"anglebady2.jpg",
+                                 @"anglebady3.jpg",
+                                 ],
+                         },
+                     
+                     @{
+                         @"text":@"更多",
+                         @"type":@"more",
+                         @"data":@[
+                                 
+                                 @{
+                                     @"text":@"个性签名",
+                                     @"qianming":@"秋天，秋天，你来了？",
+                                     },
+                                 @{
+                                     @"text":@"来源",
+                                     @"from":@"通过扫一扫添加",
+                                     },
+                                 ]
+                         }
+                     ],
+             };
+}
+
+
+- (NSDictionary *)timeLineData
+{
+    return @{
+             @"status":@"OK",
+             @"status_code":@"200",
+             requestResult:@[
+                     @{
+                         @"image":@"haoyou2.jpg",
+                         @"username":@"好友1",
+                         @"detail":@"宝宝这会多想有条船",
+                         @"time":@"1分钟前",
+                         },
+                     
+                     @{
+                         @"image":@"haoyou3.jpg",
+                         @"username":@"好友2",
+                         @"detail":@"今天者大雨天有着凉了，闹肚子闹一天，转被窝还直打喷嚏，晚上吃什么呢😄",
+                         @"time":@"2分钟前",
+                         },
+                     ],
+             };
+}
+
 @end

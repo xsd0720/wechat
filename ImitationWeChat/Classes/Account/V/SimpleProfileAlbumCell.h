@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) UIView *someAlbumView;
 
+@property (nonatomic, strong) NSDictionary *datasource;
+
 @end

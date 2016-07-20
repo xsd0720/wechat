@@ -108,6 +108,10 @@ typedef NS_ENUM(NSInteger, AccessoryType) {
 
 @property (nonatomic, strong) NSArray *walletData;
 
+@property (nonatomic, strong) NSDictionary *testProfileData;
+
+@property (nonatomic, strong) NSDictionary *timeLineData;
+
 /*
  @pragma: Initialize a singleton
  */

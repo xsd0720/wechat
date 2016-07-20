@@ -11,6 +11,7 @@
 #import "CustomSearchViewController.h"
 #import "SearchViewShowController.h"
 #import "AddFriendsViewController.h"
+#import "SimpleProfileViewController.h"
 static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 
 
@@ -153,6 +154,10 @@ static NSString *CONTACTCELLIDENTIFIER  = @"contactcellidentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SimpleProfileViewController *simpleProfileVC = [[SimpleProfileViewController alloc] init];
+    simpleProfileVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:simpleProfileVC animated:YES];
 }
 
 /*

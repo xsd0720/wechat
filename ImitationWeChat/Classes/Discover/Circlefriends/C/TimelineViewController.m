@@ -102,8 +102,9 @@ static CGFloat USERFACESIZE = 75.0f;
         _timeLineTableView.dataSource = self;
         
         _timeLineTableView.separatorInset = UIEdgeInsetsZero;
-        
-        
+
+        _timeLineTableView.layoutMargins = UIEdgeInsetsZero;
+    
         _timeLineTableView.sectionIndexColor = [UIColor grayColor];
         _timeLineTableView.sectionIndexBackgroundColor = [UIColor clearColor];
         _timeLineTableView.backgroundColor = self.view.backgroundColor;
@@ -247,7 +248,50 @@ static CGFloat USERFACESIZE = 75.0f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    NSDictionary *dic = _datasource[indexPath.row];
+    NSString *detailtext = dic[@"detail"];
+    NSString *mediaType = dic[@"mediaType"];
+    CGFloat detailTextLabelHeight = [detailtext CalculationStringSizeWithWidth:timeLineDetailTextLabelWidth font:timeLineDetailTextLabelFont space:0].height;
+    
+    
+    CGFloat dataImgHeight = 0;
+    if ([mediaType isEqualToString:@"image"]) {
+        NSArray *imgarr = dic[@"data"];
+        if (imgarr.count>0) {
+            
+            if (imgarr.count > 1) {
+                int rowCount = 0;
+                if (imgarr.count % 3 ==0) {
+                    rowCount = (int)imgarr.count/3;
+                }else
+                {
+                    rowCount = (int)imgarr.count/3+1;
+                }
+                if (rowCount > 9) {
+                    rowCount = 9;
+                }
+                dataImgHeight = rowCount*timeLineCollectionItemSize+((rowCount-1)*timeLineCollectionItemPadding) + 8;
+            }else
+            {
+                UIImage *onlyImage = [UIImage imageNamed:imgarr[0]];
+                
+                CGSize onlysize = [onlyImage limitMaxWidthHeight:150 maxH:150];
+                dataImgHeight = onlysize.height+8;
+            }
+            
+            
+        }
+    }
+    else if ([mediaType isEqualToString:@"video"])
+    {
+        dataImgHeight = 150+8;
+    }
+    else if ([mediaType isEqualToString:@"link"])
+    {
+        dataImgHeight = 50+8;
+    }
+    
+    return timeLineDetailTextLabelOrginY+detailTextLabelHeight+8+dataImgHeight+timeLineTimeLabelHeight+15;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -347,6 +391,13 @@ static CGFloat USERFACESIZE = 75.0f;
 
     
 }
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+}
+
 /*
 #pragma mark - Navigation
 

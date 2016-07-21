@@ -23,6 +23,24 @@ typedef NS_ENUM(NSInteger, AccessoryType) {
 };
 
 
+/**
+ 微信内容类型
+ */
+typedef NS_ENUM(NSInteger, WXMessageType){
+    WXMessageTypeNone = 0,
+    WXMessageTypeText = 1,      //微信消息文本类型
+    WXMessageTypeImage = 2,     //微信消息图片类型
+    WXMessageTypeApp = 3,       //微信消息应用类型
+    WXMessageTypeWeb = 4,       //微信消息网页类型
+    WXMessageTypeMusic = 5,     //微信消息音乐类型
+    WXMessageTypeVideo = 6,     //微信消息视频类型
+    WXMessageTypeEmotion = 7,   //微信消息表情类型
+    WXMessageTypeOther = 8      //微信消息其他多媒体类型
+};
+
+
+static NSString *WXMessageTypeStr = @"WXMessageType";
+
 @interface DataSource : NSObject
 
 /*

@@ -154,6 +154,12 @@
 		0C80CC0D1D1AB2FA00D75290 /* ResponseSuccessBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */; };
 		0C8FCEA21D24F09600D783BD /* LocalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8FCEA11D24F09600D783BD /* LocalManager.m */; };
 		0C9768361D235EB5008C2945 /* FillSimpleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9768351D235EB5008C2945 /* FillSimpleInfoViewController.m */; };
+		0C99EFB41D40ABBD006F7AA3 /* testonly.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99EFB31D40ABBD006F7AA3 /* testonly.jpg */; };
+		0C99EFB61D40AF92006F7AA3 /* abc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99EFB51D40AF92006F7AA3 /* abc.jpg */; };
+		0C99EFB81D40BA2B006F7AA3 /* hhh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99EFB71D40BA2B006F7AA3 /* hhh.jpg */; };
+		0C99EFBA1D40BDAC006F7AA3 /* tttt1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C99EFB91D40BDAC006F7AA3 /* tttt1.png */; };
+		0C99EFBC1D40C153006F7AA3 /* 4564.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99EFBB1D40C153006F7AA3 /* 4564.jpg */; };
+		0C99EFBE1D40D7AE006F7AA3 /* 11111.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C99EFBD1D40D7AE006F7AA3 /* 11111.jpg */; };
 		0CA252E21D1D0ACB00482E9F /* mmregioncode4client.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */; };
 		0CA252E41D1D0B0000482E9F /* country_code.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252E31D1D0B0000482E9F /* country_code.txt */; };
 		0CA252EE1D1D0E3C00482E9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CA252F01D1D0E3C00482E9F /* Localizable.strings */; };
@@ -598,6 +604,12 @@
 		0C8FCEA11D24F09600D783BD /* LocalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalManager.m; sourceTree = "<group>"; };
 		0C9768341D235EB5008C2945 /* FillSimpleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillSimpleInfoViewController.h; sourceTree = "<group>"; };
 		0C9768351D235EB5008C2945 /* FillSimpleInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillSimpleInfoViewController.m; sourceTree = "<group>"; };
+		0C99EFB31D40ABBD006F7AA3 /* testonly.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testonly.jpg; sourceTree = "<group>"; };
+		0C99EFB51D40AF92006F7AA3 /* abc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = abc.jpg; sourceTree = "<group>"; };
+		0C99EFB71D40BA2B006F7AA3 /* hhh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hhh.jpg; sourceTree = "<group>"; };
+		0C99EFB91D40BDAC006F7AA3 /* tttt1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tttt1.png; sourceTree = "<group>"; };
+		0C99EFBB1D40C153006F7AA3 /* 4564.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4564.jpg; sourceTree = "<group>"; };
+		0C99EFBD1D40D7AE006F7AA3 /* 11111.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11111.jpg; sourceTree = "<group>"; };
 		0CA252E11D1D0ACB00482E9F /* mmregioncode4client.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mmregioncode4client.txt; sourceTree = "<group>"; };
 		0CA252E31D1D0B0000482E9F /* country_code.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country_code.txt; sourceTree = "<group>"; };
 		0CA252EF1D1D0E3C00482E9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1673,6 +1685,10 @@
 		0CA39FFB1D38C2B90021F416 /* texthead */ = {
 			isa = PBXGroup;
 			children = (
+				0C99EFBD1D40D7AE006F7AA3 /* 11111.jpg */,
+				0C99EFBB1D40C153006F7AA3 /* 4564.jpg */,
+				0C99EFB91D40BDAC006F7AA3 /* tttt1.png */,
+				0C99EFB71D40BA2B006F7AA3 /* hhh.jpg */,
 				0CB923E51D3F5CC600B4105F /* anglebady.jpg */,
 				0CB923DF1D3F301A00B4105F /* anglebady2.jpg */,
 				0CB923E01D3F301A00B4105F /* anglebady1.jpg */,
@@ -1961,6 +1977,8 @@
 		0CE198921D1CE96D003BB4AA /* LoadBigImage */ = {
 			isa = PBXGroup;
 			children = (
+				0C99EFB51D40AF92006F7AA3 /* abc.jpg */,
+				0C99EFB31D40ABBD006F7AA3 /* testonly.jpg */,
 				0C7871951D3C9BCB00206FD2 /* around-friends_bg@2x.jpg */,
 				0CAFD10C1D34EF4B00C295D6 /* coffe.jpg */,
 				0CAFD0DA1D34DE0A00C295D6 /* bottleBkg@2x.jpg */,
@@ -2373,6 +2391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C99EFB81D40BA2B006F7AA3 /* hhh.jpg in Resources */,
 				2E6151251B5CE71F007196E2 /* kr-video-player-fullscreen@3x.png in Resources */,
 				2E6151271B5CE71F007196E2 /* kr-video-player-pause@3x.png in Resources */,
 				0CF911E31C438A4100F33C89 /* preview_original_def@2x.png in Resources */,
@@ -2399,9 +2418,13 @@
 				0CA3A00D1D38C2B90021F416 /* head7.jpg in Resources */,
 				0CB923FA1D3F714F00B4105F /* haoyou14.jpg in Resources */,
 				0C043CB71C4E420B0093410F /* MJPhotoBrowser.bundle in Resources */,
+				0C99EFBE1D40D7AE006F7AA3 /* 11111.jpg in Resources */,
 				0CB923F91D3F714F00B4105F /* haoyou13.jpg in Resources */,
+				0C99EFB41D40ABBD006F7AA3 /* testonly.jpg in Resources */,
+				0C99EFBA1D40BDAC006F7AA3 /* tttt1.png in Resources */,
 				0CB923DE1D3F2F2600B4105F /* album1.jpg in Resources */,
 				2E61512C1B5CE71F007196E2 /* kr-video-player-shrinkscreen@2x.png in Resources */,
+				0C99EFB61D40AF92006F7AA3 /* abc.jpg in Resources */,
 				0C80CBF51D1A4D4600D75290 /* longjuanfeng.lrc in Resources */,
 				0CB923FC1D3F714F00B4105F /* haoyou2.jpg in Resources */,
 				0CA3A00E1D38C2B90021F416 /* head8.jpg in Resources */,
@@ -2441,6 +2464,7 @@
 				0CAFD0D91D34DDFD00C295D6 /* bottleBkgSpotLight@2x.png in Resources */,
 				0CB923FB1D3F714F00B4105F /* haoyou15.jpg in Resources */,
 				0CF911DB1C438A4100F33C89 /* photo_def_photoPickerVc@2x.png in Resources */,
+				0C99EFBC1D40C153006F7AA3 /* 4564.jpg in Resources */,
 				0CB923F71D3F714F00B4105F /* haoyou11.jpg in Resources */,
 				0CB923E31D3F301A00B4105F /* anglebady1.jpg in Resources */,
 				0CF911E41C438A4100F33C89 /* TableViewArrow@2x.png in Resources */,

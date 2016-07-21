@@ -74,10 +74,11 @@
 }
 
 //调节图片清晰度并且重绘制
-- (UIImage *)scaleAndCutSize:(CGSize)size
++ (UIImage *)scaleToSize:(CGSize)size cut:(SaveType)type image:(UIImage *)img
 {
-    CGFloat width = CGImageGetWidth(self.CGImage);
-    CGFloat height = CGImageGetHeight(self.CGImage);
+    
+    CGFloat width = CGImageGetWidth(img.CGImage);
+    CGFloat height = CGImageGetHeight(img.CGImage);
     
     CGFloat originP = width/height;
     
@@ -93,6 +94,13 @@
         pp = size.height*originP;
         
         x = -fabs(pp-size.width)/2;
+        if (type == SaveTop) {
+            x = 0;
+        }else if (type == SaveBottom)
+        {
+            x = -fabs(pp-size.width);
+        }
+        
         y = 0;
         w = pp;
         h = size.height;
@@ -102,6 +110,12 @@
     {
         x = 0;
         y = -fabs(pp-size.height)/2;
+        if (type == SaveTop) {
+            y = 0;
+        }else if (type == SaveBottom)
+        {
+            y = -fabs(pp-size.height);
+        }
         w = size.width;
         h = pp;
         
@@ -109,9 +123,14 @@
     
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContextWithOptions(size, TRUE, [[UIScreen mainScreen] scale]+0.5);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef con = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(con, [UIColor whiteColor].CGColor);
+    
+    CGContextFillRect(con, CGRectMake(0, 0, size.width, size.height));
     // 绘制改变大小的图片
-    [self drawInRect:CGRectMake(x, y, w, h)];
+    [img drawInRect:CGRectMake(x, y, w, h)];
     // 从当前context中创建一个改变大小后的图片
     UIImage* scaledImage =UIGraphicsGetImageFromCurrentImageContext();
     // 使当前的context出堆栈
@@ -119,5 +138,8 @@
     //返回新的改变大小后的图片
     return scaledImage;
 }
+
+
+
 
 @end

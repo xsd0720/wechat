@@ -113,7 +113,7 @@
 
 - (void)setSendContentImage:(UIImage *)sendContentImage
 {
-    CGSize resultSize = [sendContentImage limitMaxWidthHeight];
+    CGSize resultSize = [sendContentImage limitMaxWidthHeight:SCREEN_WIDTH-120 maxH:SCREEN_WIDTH-120];
     
     _sendContentImageView.image = sendContentImage;
     _sendContentView.frame = CGRectMake(0, CGRectGetMaxY(_receiveTitleView.frame), CGRectGetMaxX(_bgButtonView.bounds), resultSize.height+40);

@@ -193,11 +193,8 @@
 }
 
 
-- (CGSize)limitMaxWidthHeight
+- (CGSize)limitMaxWidthHeight:(CGFloat)maxW maxH:(CGFloat)maxH
 {
-    CGFloat maxW = SCREEN_WIDTH-120;
-    CGFloat maxH = SCREEN_WIDTH-120;
-    
     CGFloat w = self.size.width;
     CGFloat h = self.size.height;
     

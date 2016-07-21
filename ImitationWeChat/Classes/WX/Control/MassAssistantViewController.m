@@ -125,7 +125,7 @@
         labelsize.height = 15*3;
     }
     
-    CGSize resultSize = [self.imim limitMaxWidthHeight];
+    CGSize resultSize = [self.imim limitMaxWidthHeight:SCREEN_WIDTH-120 maxH:SCREEN_WIDTH-120];
     
     return 10+10+labelsize.height+10+20+resultSize.height+20+25+10;
 }

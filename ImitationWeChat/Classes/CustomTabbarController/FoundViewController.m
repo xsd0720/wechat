@@ -30,6 +30,8 @@ static NSString *DISCOVERCELLIDEITIFIER  = @"discovercellidentifier";
         _discoverTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64,SCREEN_WIDTH, SCREEN_HEIGHT-64-44)  style:UITableViewStyleGrouped];
         [self.view addSubview:_discoverTableView];
         
+        _discoverTableView.separatorInset = UIEdgeInsetsZero;
+        
         _discoverTableView.delegate = self;
         _discoverTableView.dataSource = self;
         _discoverTableView.sectionHeaderHeight = 10;

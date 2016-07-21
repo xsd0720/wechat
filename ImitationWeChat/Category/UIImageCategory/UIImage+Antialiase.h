@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef NS_ENUM(NSUInteger, SaveType) {
+    SaveCenter = 0,
+    SaveTop = 1,
+    SaveBottom = 2,
+};
+
 @interface UIImage (Antialiase)
 
 //创建抗锯齿头像
@@ -22,6 +29,8 @@
 //调节图片清晰度(全局)
 + (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size;
 
-//调节图片清晰度并且重绘制
-- (UIImage *)scaleAndCutSize:(CGSize)size;
+////调节图片清晰度并且重绘制
+//- (UIImage *)scaleAndCutSize:(CGSize)size;
+
++ (UIImage *)scaleToSize:(CGSize)size cut:(SaveType)type image:(UIImage *)img;
 @end

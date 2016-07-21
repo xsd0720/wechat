@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIImage+Antialiase.h"
 @interface UIImage (Category)
 
-- (CGSize)limitMaxWidthHeight;
+- (CGSize)limitMaxWidthHeight:(CGFloat)maxW maxH:(CGFloat)maxH;
 
 + (UIImage *)drawDashLineRect:(CGRect)rect;
 

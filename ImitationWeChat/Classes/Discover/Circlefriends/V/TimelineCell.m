@@ -8,6 +8,7 @@
 
 #import "TimelineCell.h"
 #import "UIImage+Antialiase.h"
+
 #define TIMELINECELLCOLLECTIONCELLIDENTIFIER @"TIMELINECELLCOLLECTIONCELLIDENTIFIER"
 
 
@@ -98,15 +99,48 @@
     return _moreImageCollectionView;
 }
 
-- (UIView *)playView
-{
-    if (!_playView) {
-        _playView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 150)];
-        _playView.backgroundColor = [UIColor cyanColor];
-        [self addSubview:_playView];
-    }
-    return _playView;
-}
+//- (MPMoviePlayerViewController *)playView
+//{
+//    if (!_playView) {
+//        _playView = [[MPMoviePlayerController alloc] initWithFrame:CGRectMake(0, 0, 200, 150)];
+//        _playView.backgroundColor = [UIColor cyanColor];
+//        [self addSubview:_playView];
+//        
+//        
+////        NSString *file = [[NSBundle mainBundle] pathForResource:@"150511_JiveBike" ofType:@"mov"];
+////        NSURL *url = [NSURL fileURLWithPath:file];
+////        if (_moviePlayer == nil) {
+////            _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+////        }else {
+////            [_moviePlayer setContentURL:url];
+////        }
+////        _moviePlayer.controlStyle = MPMovieControlStyleNone;
+////        _moviePlayer.shouldAutoplay = YES;
+////        _moviePlayer.repeatMode = MPMovieRepeatModeOne;
+////        [_moviePlayer setFullscreen:YES animated:YES];
+////        _moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
+////        [_moviePlayer play];
+////        [_playView addSubview:_moviePlayer.view];
+//
+//        NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"150511_JiveBike" ofType:@"mov"];
+//        self.player = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL fileURLWithPath:videoPath]];
+//        // 网络视频使用
+//        // NSURL*videoPath = [NSURL URLWithString:@"http://www.xxx.com/1.mp4"]
+//        self.player.view.frame = _playView.bounds;
+//        [_playView addSubview:self.player.view];
+//        // 不需要进度条
+//        self.player.controlStyle = MPMovieControlStyleNone;
+//        // 是否自动播放（默认为YES）
+//        self.player.shouldAutoplay = YES;
+//        // 播放本地视频时需要
+//        self.player.movieSourceType = MPMovieSourceTypeFile;
+//        // 开始播放
+//        [self.player play];
+//
+//    
+//    }
+//    return _playView;
+//}
 
 - (UIView *)linkView
 {
@@ -117,6 +151,9 @@
     }
     return _linkView;
 }
+
+
+
 
 - (void)setDatasource:(NSDictionary *)datasource
 {
@@ -234,12 +271,6 @@
     
 }
 
-////定义每个Item 的大小
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return CGSizeMake(ItemImageViewSizeWidth, collectionView.height);
-//}
-
 #pragma mark --UICollectionViewDelegate
 
 //UICollectionView被选中时调用的方法
@@ -298,6 +329,16 @@
     
     self.delButton.frame = CGRectMake(CGRectGetMaxX(self.timeLabel.frame), CGRectGetMinY(self.timeLabel.frame), 50, 15);
     self.delButton.centerY = self.timeLabel.centerY;
+}
+
+- (void)willDisplayCell
+{
+    NSLog(@"willDisplayCell");
+}
+
+- (void)didEndDisplayingCell
+{
+    NSLog(@"didEndDisplayingCell");
 }
 
 @end

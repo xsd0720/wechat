@@ -7,13 +7,47 @@
 //
 
 #import "TimelineViewController.h"
-#import "LXActionSheet.h"
+
 #import "TZImagePickerController.h"
 #import "MyNavViewController.h"
 #import "SendTimeLineViewController.h"
 #import "SightViewController.h"
-#import "TimelineCell.h"
-static NSString *TIMELINECELLIDENTIFIER = @"timeLineCellIdentifier";
+
+#import "LXActionSheet.h"
+
+#import "TimelineMsgTypeDefaultCell.h"
+#import "TimelineMsgTypeTextCell.h"
+#import "TimelineMsgTypeImageCell.h"
+#import "TimelineMsgTypeAppCell.h"
+#import "TimelineMsgTypeWebCell.h"
+#import "TimelineMsgTypeMusicCell.h"
+#import "TimelineMsgTypeVideoCell.h"
+#import "TimeLineMsgTypeEmotionCell.h"
+
+
+
+//CELL IDENTFIIER
+//default style
+static NSString *WXMESSAGETYPEDEFAULTCELLIDENTIFIER = @"WXMESSAGETYPEDEFAULTCELLIDENTIFIER";
+//text style
+static NSString *WXMESSAGETYPETEXTCELLIDENTIFIER    = @"WXMESSAGETYPETEXTCELLIDENTIFIER";
+//image style
+static NSString *WXMESSAGETYPEIMAGECELLIDENTIFIER   = @"WXMESSAGETYPEIMAGECELLIDENTIFIER";
+//app style
+static NSString *WXMESSAGETYPEAPPCELLIDENTIFIER     = @"WXMESSAGETYPEAPPCELLIDENTIFIER";
+//web style
+static NSString *WXMESSAGETYPEWEBCELLIDENTIFIER     = @"WXMESSAGETYPEWEBCELLIDENTIFIER";
+//music style
+static NSString *WXMESSAGETYPEMUSICCELLIDENTIFIER   = @"WXMESSAGETYPEMUSICCELLIDENTIFIER";
+//video style
+static NSString *WXMESSAGETYPEVIDEOCELLIDENTIFIER   = @"WXMESSAGETYPEVIDEOCELLIDENTIFIER";
+//enotion style
+static NSString *WXMESSAGETYPEEMOTIONCELLIDENTIFIER = @"WXMESSAGETYPEEMOTIONCELLIDENTIFIER";
+
+
+
+
+
 static CGFloat TABLEHEADERVIEHEIGHT = 300.0f;
 static CGFloat REFLASHMAXCENTERY = 100.0f;
 static CGFloat REFLSAHINITCENTERY = 40.0f;
@@ -93,27 +127,6 @@ static CGFloat USERFACESIZE = 75.0f;
     return _tableViewHeaderView;
 }
 
--(UITableView *)timeLineTableView{
-    if (!_timeLineTableView) {
-        _timeLineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT+STATUS_AND_NAV_BAR_HEIGHT) style:UITableViewStylePlain];
-        [self.view addSubview:_timeLineTableView];
-        
-        _timeLineTableView.delegate = self;
-        _timeLineTableView.dataSource = self;
-        
-        _timeLineTableView.separatorInset = UIEdgeInsetsZero;
-
-        _timeLineTableView.layoutMargins = UIEdgeInsetsZero;
-    
-        _timeLineTableView.sectionIndexColor = [UIColor grayColor];
-        _timeLineTableView.sectionIndexBackgroundColor = [UIColor clearColor];
-        _timeLineTableView.backgroundColor = self.view.backgroundColor;
-        _timeLineTableView.tableHeaderView = self.tableViewHeaderView;
-        [_timeLineTableView registerClass:[TimelineCell class] forCellReuseIdentifier:TIMELINECELLIDENTIFIER];
-    }
-    return _timeLineTableView;
-}
-
 -(UIImagePickerController *)imagePickerController{
     if (!_imagePickerController) {
         _imagePickerController = [[UIImagePickerController alloc]init];
@@ -126,6 +139,43 @@ static CGFloat USERFACESIZE = 75.0f;
     }
     return _imagePickerController;
 }
+
+
+#pragma mark -
+#pragma mark - tableview lazy load
+
+-(UITableView *)timeLineTableView{
+    if (!_timeLineTableView) {
+        _timeLineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -STATUS_AND_NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT+STATUS_AND_NAV_BAR_HEIGHT) style:UITableViewStylePlain];
+        [self.view addSubview:_timeLineTableView];
+        
+        _timeLineTableView.delegate = self;
+        _timeLineTableView.dataSource = self;
+        
+        _timeLineTableView.separatorInset = UIEdgeInsetsZero;
+        _timeLineTableView.layoutMargins = UIEdgeInsetsZero;
+        _timeLineTableView.sectionIndexColor = [UIColor grayColor];
+        _timeLineTableView.sectionIndexBackgroundColor = [UIColor clearColor];
+        
+        _timeLineTableView.backgroundColor = self.view.backgroundColor;
+        
+        _timeLineTableView.tableHeaderView = self.tableViewHeaderView;
+        
+        
+        [_timeLineTableView registerClass:[TimelineMsgTypeDefaultCell class] forCellReuseIdentifier:WXMESSAGETYPEDEFAULTCELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimelineMsgTypeTextCell class] forCellReuseIdentifier:WXMESSAGETYPETEXTCELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimelineMsgTypeImageCell class] forCellReuseIdentifier:WXMESSAGETYPEIMAGECELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimelineMsgTypeAppCell class] forCellReuseIdentifier:WXMESSAGETYPEAPPCELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimelineMsgTypeWebCell class] forCellReuseIdentifier:WXMESSAGETYPEWEBCELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimelineMsgTypeMusicCell class] forCellReuseIdentifier:WXMESSAGETYPEMUSICCELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimelineMsgTypeVideoCell class] forCellReuseIdentifier:WXMESSAGETYPEVIDEOCELLIDENTIFIER];
+        [_timeLineTableView registerClass:[TimeLineMsgTypeEmotionCell class] forCellReuseIdentifier:WXMESSAGETYPEEMOTIONCELLIDENTIFIER];
+        
+    }
+    return _timeLineTableView;
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -246,52 +296,111 @@ static CGFloat USERFACESIZE = 75.0f;
 
 #pragma mark - TableView Delegate
 
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(TimelineBaseCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [cell willDisplayCell];
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(TimelineBaseCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [cell didEndDisplayingCell];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = _datasource[indexPath.row];
     NSString *detailtext = dic[@"detail"];
-    NSString *mediaType = dic[@"mediaType"];
     CGFloat detailTextLabelHeight = [detailtext CalculationStringSizeWithWidth:timeLineDetailTextLabelWidth font:timeLineDetailTextLabelFont space:0].height;
     
     
-    CGFloat dataImgHeight = 0;
-    if ([mediaType isEqualToString:@"image"]) {
-        NSArray *imgarr = dic[@"data"];
-        if (imgarr.count>0) {
-            
-            if (imgarr.count > 1) {
-                int rowCount = 0;
-                if (imgarr.count % 3 ==0) {
-                    rowCount = (int)imgarr.count/3;
-                }else
-                {
-                    rowCount = (int)imgarr.count/3+1;
-                }
-                if (rowCount > 9) {
-                    rowCount = 9;
-                }
-                dataImgHeight = rowCount*timeLineCollectionItemSize+((rowCount-1)*timeLineCollectionItemPadding) + 8;
-            }else
-            {
-                UIImage *onlyImage = [UIImage imageNamed:imgarr[0]];
-                
-                CGSize onlysize = [onlyImage limitMaxWidthHeight:150 maxH:150];
-                dataImgHeight = onlysize.height+8;
-            }
-            
+    
+    NSString *messageType = dic[WXMessageTypeStr];
+    
+    switch (messageType.intValue) {
+        case WXMessageTypeText:
+        {
             
         }
-    }
-    else if ([mediaType isEqualToString:@"video"])
-    {
-        dataImgHeight = 150+8;
-    }
-    else if ([mediaType isEqualToString:@"link"])
-    {
-        dataImgHeight = 50+8;
-    }
+            break;
+        case WXMessageTypeImage:
+        {
     
-    return timeLineDetailTextLabelOrginY+detailTextLabelHeight+8+dataImgHeight+timeLineTimeLabelHeight+15;
+        }
+            break;
+        case WXMessageTypeApp:
+        {
+   
+        }
+            break;
+        case WXMessageTypeWeb:
+        {
+    
+        }
+            break;
+        case WXMessageTypeMusic:
+        {
+
+        }
+            break;
+        case WXMessageTypeVideo:
+        {
+     
+        }
+            break;
+        case WXMessageTypeEmotion:
+        {
+     
+        }
+            break;
+            
+        default:
+        {
+        
+        }
+            break;
+    }
+
+    
+    
+//    CGFloat dataImgHeight = 0;
+//    if ([mediaType isEqualToString:@"image"]) {
+//        NSArray *imgarr = dic[@"data"];
+//        if (imgarr.count>0) {
+//            
+//            if (imgarr.count > 1) {
+//                int rowCount = 0;
+//                if (imgarr.count % 3 ==0) {
+//                    rowCount = (int)imgarr.count/3;
+//                }else
+//                {
+//                    rowCount = (int)imgarr.count/3+1;
+//                }
+//                if (rowCount > 9) {
+//                    rowCount = 9;
+//                }
+//                dataImgHeight = rowCount*timeLineCollectionItemSize+((rowCount-1)*timeLineCollectionItemPadding) + 8;
+//            }else
+//            {
+//                UIImage *onlyImage = [UIImage imageNamed:imgarr[0]];
+//                
+//                CGSize onlysize = [onlyImage limitMaxWidthHeight:150 maxH:150];
+//                dataImgHeight = onlysize.height+8;
+//            }
+//            
+//            
+//        }
+//    }
+//    else if ([mediaType isEqualToString:@"video"])
+//    {
+//        dataImgHeight = 150+8;
+//    }
+//    else if ([mediaType isEqualToString:@"link"])
+//    {
+//        dataImgHeight = 50+8;
+//    }
+    
+    return timeLineDetailTextLabelOrginY+detailTextLabelHeight+8+timeLineTimeLabelHeight+15;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -299,9 +408,70 @@ static CGFloat USERFACESIZE = 75.0f;
     return _datasource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:TIMELINECELLIDENTIFIER forIndexPath:indexPath];
-    cell.datasource =_datasource[indexPath.row];
-    return cell;
+    
+    NSDictionary *dic = _datasource[indexPath.row];
+    NSString *messageType = dic[WXMessageTypeStr];
+ 
+    switch (messageType.intValue) {
+        case WXMessageTypeText:
+        {
+            TimelineMsgTypeTextCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPETEXTCELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+        case WXMessageTypeImage:
+        {
+            TimelineMsgTypeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPEIMAGECELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+        case WXMessageTypeApp:
+        {
+            TimelineMsgTypeAppCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPEAPPCELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+        case WXMessageTypeWeb:
+        {
+            TimelineMsgTypeWebCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPEWEBCELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+        case WXMessageTypeMusic:
+        {
+            TimelineMsgTypeMusicCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPEMUSICCELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+        case WXMessageTypeVideo:
+        {
+            TimelineMsgTypeVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPEVIDEOCELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+        case WXMessageTypeEmotion:
+        {
+            TimeLineMsgTypeEmotionCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPEEMOTIONCELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+            
+        default:
+        {
+            TimelineMsgTypeTextCell *cell = [tableView dequeueReusableCellWithIdentifier:WXMESSAGETYPEDEFAULTCELLIDENTIFIER forIndexPath:indexPath];
+            cell.datasource =_datasource[indexPath.row];
+            return cell;
+        }
+            break;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

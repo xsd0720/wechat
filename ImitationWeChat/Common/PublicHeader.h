@@ -11,6 +11,7 @@
 static const char associatedkey;
 
 #import <objc/runtime.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "AppDelegate.h"
 #import "Localisator.h"
 #import "LocalManager.h"

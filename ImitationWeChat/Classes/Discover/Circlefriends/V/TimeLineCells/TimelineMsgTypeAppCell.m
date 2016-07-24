@@ -10,12 +10,14 @@
 
 @implementation TimelineMsgTypeAppCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setDatasource:(NSDictionary *)datasource
+{
+    [super setDatasource:datasource];
 }
-*/
+
+- (CGFloat)MsgTypeHeight:(CGFloat)startOrginY
+{
+    return startOrginY;
+}
 
 @end

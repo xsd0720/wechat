@@ -11,6 +11,39 @@
 @implementation WXAVPlayer
 
 
+- (UIButton *)playblastViewPlayButton
+{
+    if (!_playblastViewPlayButton) {
+        _playblastViewPlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_playblastViewPlayButton setImage:[UIImage imageNamed:@"play_btn_normal"] forState:UIControlStateNormal];
+        _playblastViewPlayButton.frame = self.bounds;
+        [_playblastViewPlayButton addTarget:self action:@selector(readyPlay) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _playblastViewPlayButton;
+}
+
+- (UIImageView *)playblastImageView
+{
+    if (!_playblastImageView) {
+        _playblastImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    }
+    return _playblastImageView;
+}
+
+
+- (UIView *)playblastView{
+    if (!_playblastView) {
+        _playblastView = [[UIView alloc] initWithFrame:self.bounds];
+//        _playblastView.backgroundColor = [UIColor blackColor];
+
+
+        [_playblastView addSubview:self.playblastImageView];
+        [_playblastView addSubview:self.playblastViewPlayButton];
+    }
+    return _playblastView;
+}
+
 /**
  *  播放器视觉输出
  */
@@ -63,6 +96,11 @@
         
         //添加自定义控制层
         [self addSubview:self.mAVPlayerControl];
+        
+     
+        //配置播放预览图
+        [self addSubview:self.playblastView];
+        
     
     }
     return self;
@@ -70,9 +108,13 @@
 
 - (void)setContentURL:(NSURL *)contentURL
 {
-    if (_contentURL != contentURL && contentURL)
-    {
-        
+//    if (_contentURL != contentURL && contentURL)
+//    {
+        _contentURL = contentURL;
+    
+        //加载播放预览图
+        self.playblastImageView.image = [UIImage thumbnailImageForVideo:contentURL atTime:0];
+    
         //创建 asset 加载 url 对应资源,创建缓存关键字
         AVURLAsset *asset = [AVURLAsset URLAssetWithURL:_contentURL options:nil];
         
@@ -88,7 +130,7 @@
                             });
          }];
 
-    }
+//    }
 }
 
 
@@ -139,6 +181,9 @@
         [self.mAVPlayer replaceCurrentItemWithPlayerItem:self.mPlayerItem];
         [self.mAVPlayerLayer setPlayer:self.mAVPlayer];
     }
+
+    
+
 }
 
 
@@ -149,6 +194,28 @@
  */
 -(void)assetFailedToPrepareForPlayback:(NSError *)error{
     NSLog(@"assetFailedToPrepareForPlayback=====>>%@", [error description]);
+}
+
+- (void)readyPlay
+{
+    //do play action
+    [self.playblastView removeFromSuperview];
+    
+    NSArray *audioTracks = [self.mPlayerItem.asset tracksWithMediaType:AVMediaTypeAudio];
+    
+    NSMutableArray * allAudioParams = [NSMutableArray array];
+    for (AVAssetTrack *track in audioTracks) {
+        AVMutableAudioMixInputParameters *audioInputParams =[AVMutableAudioMixInputParameters audioMixInputParameters];
+        [audioInputParams setVolume:0.0 atTime:kCMTimeZero ];
+        [audioInputParams setTrackID:[track trackID]];
+        [allAudioParams addObject:audioInputParams];
+    }
+    AVMutableAudioMix * audioZeroMix = [AVMutableAudioMix audioMix];
+    [audioZeroMix setInputParameters:allAudioParams];
+    
+    [self.mPlayerItem setAudioMix:audioZeroMix];
+    
+    [self play];
 }
 
 
@@ -165,5 +232,6 @@
         [self.mAVPlayer pause];
     }
 }
+
 
 @end

@@ -38,7 +38,6 @@
     [self loadWindow];
     
 //    [TopWindow show];
-
     
     return YES;
 }

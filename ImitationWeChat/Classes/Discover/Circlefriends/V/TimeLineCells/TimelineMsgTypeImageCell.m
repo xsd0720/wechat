@@ -80,6 +80,12 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
     
     self.imageDataSource = datasource[@"data"];
     
+    NSArray *images = datasource[WXMessageTypeDataKey];
+    _imageDataSource = images;
+
+    self.moreImageCollectionView.height = [TimelineCellHeight imagesHeight:datasource];
+    
+    
     [self reloadCollectionView:self.moreImageCollectionView animated:NO];
     
 }
@@ -88,7 +94,7 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
 - (CGFloat)MsgTypeHeight:(CGFloat)startOrginY
 {
     CGFloat moreImageCollectionViewHeight = self.moreImageCollectionView.frame.size.height;
-    self.moreImageCollectionView.frame = CGRectMake(CGRectGetMinX(self.textLabel.frame), startOrginY+8, 235, moreImageCollectionViewHeight);
+    self.moreImageCollectionView.frame = CGRectMake(CGRectGetMinX(self.textLabel.frame), startOrginY+MsgTypeMarginTop, 235, moreImageCollectionViewHeight);
     return  CGRectGetMaxY(self.moreImageCollectionView.frame);
 }
 

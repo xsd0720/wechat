@@ -128,4 +128,14 @@
     return CGRectGetMaxY(self.detailTextLabel.frame);
 }
 
+- (void)willDisplayCell
+{
+    
+}
+
+- (void)didEndDisplayingCell
+{
+    
+}
+
 @end

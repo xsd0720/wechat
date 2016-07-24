@@ -7,7 +7,9 @@
 //
 
 #import "TimelineBaseCell.h"
-
+#import "WXAVPlayer.h"
 @interface TimelineMsgTypeVideoCell : TimelineBaseCell
+
+@property (nonatomic, strong) WXAVPlayer *wxAVPlayer;
 
 @end

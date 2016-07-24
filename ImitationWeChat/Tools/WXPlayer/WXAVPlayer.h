@@ -11,6 +11,10 @@
 #import "WXAVPlayerControl.h"
 @interface WXAVPlayer : UIView
 
+@property (nonatomic, strong) UIView *playblastView;
+@property (nonatomic, strong) UIImageView *playblastImageView;
+@property (nonatomic, strong) UIButton *playblastViewPlayButton;
+
 /**
  *  播放器视觉输出
  */

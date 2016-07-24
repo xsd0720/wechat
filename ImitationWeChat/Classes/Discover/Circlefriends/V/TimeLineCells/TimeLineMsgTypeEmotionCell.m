@@ -10,5 +10,14 @@
 
 @implementation TimeLineMsgTypeEmotionCell
 
+- (void)setDatasource:(NSDictionary *)datasource
+{
+    [super setDatasource:datasource];
+}
+
+- (CGFloat)MsgTypeHeight:(CGFloat)startOrginY
+{
+    return startOrginY;
+}
 
 @end

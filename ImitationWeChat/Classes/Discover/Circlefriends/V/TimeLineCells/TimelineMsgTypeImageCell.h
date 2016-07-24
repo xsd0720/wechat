@@ -8,9 +8,6 @@
 
 #import "TimelineBaseCell.h"
 
-#define timeLineCollectionItemSize      75.0f
-#define timeLineCollectionItemPadding   5.0f
-
 @interface TimelineMsgTypeImageCell : TimelineBaseCell<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *moreImageCollectionView;

@@ -24,6 +24,7 @@
 #import "TimelineMsgTypeVideoCell.h"
 #import "TimeLineMsgTypeEmotionCell.h"
 
+#import "TimelineCellHeight.h"
 
 
 //CELL IDENTFIIER
@@ -299,108 +300,17 @@ static CGFloat USERFACESIZE = 75.0f;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(TimelineBaseCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [cell willDisplayCell];
+    [cell willDisplayCell];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(TimelineBaseCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [cell didEndDisplayingCell];
+    [cell didEndDisplayingCell];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dic = _datasource[indexPath.row];
-    NSString *detailtext = dic[@"detail"];
-    CGFloat detailTextLabelHeight = [detailtext CalculationStringSizeWithWidth:timeLineDetailTextLabelWidth font:timeLineDetailTextLabelFont space:0].height;
-    
-    
-    
-    NSString *messageType = dic[WXMessageTypeStr];
-    
-    switch (messageType.intValue) {
-        case WXMessageTypeText:
-        {
-            
-        }
-            break;
-        case WXMessageTypeImage:
-        {
-    
-        }
-            break;
-        case WXMessageTypeApp:
-        {
-   
-        }
-            break;
-        case WXMessageTypeWeb:
-        {
-    
-        }
-            break;
-        case WXMessageTypeMusic:
-        {
-
-        }
-            break;
-        case WXMessageTypeVideo:
-        {
-     
-        }
-            break;
-        case WXMessageTypeEmotion:
-        {
-     
-        }
-            break;
-            
-        default:
-        {
-        
-        }
-            break;
-    }
-
-    
-    
-//    CGFloat dataImgHeight = 0;
-//    if ([mediaType isEqualToString:@"image"]) {
-//        NSArray *imgarr = dic[@"data"];
-//        if (imgarr.count>0) {
-//            
-//            if (imgarr.count > 1) {
-//                int rowCount = 0;
-//                if (imgarr.count % 3 ==0) {
-//                    rowCount = (int)imgarr.count/3;
-//                }else
-//                {
-//                    rowCount = (int)imgarr.count/3+1;
-//                }
-//                if (rowCount > 9) {
-//                    rowCount = 9;
-//                }
-//                dataImgHeight = rowCount*timeLineCollectionItemSize+((rowCount-1)*timeLineCollectionItemPadding) + 8;
-//            }else
-//            {
-//                UIImage *onlyImage = [UIImage imageNamed:imgarr[0]];
-//                
-//                CGSize onlysize = [onlyImage limitMaxWidthHeight:150 maxH:150];
-//                dataImgHeight = onlysize.height+8;
-//            }
-//            
-//            
-//        }
-//    }
-//    else if ([mediaType isEqualToString:@"video"])
-//    {
-//        dataImgHeight = 150+8;
-//    }
-//    else if ([mediaType isEqualToString:@"link"])
-//    {
-//        dataImgHeight = 50+8;
-//    }
-    
-    return timeLineDetailTextLabelOrginY+detailTextLabelHeight+8+timeLineTimeLabelHeight+15;
+    return [TimelineCellHeight height:_datasource[indexPath.row]];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -410,7 +320,7 @@ static CGFloat USERFACESIZE = 75.0f;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSDictionary *dic = _datasource[indexPath.row];
-    NSString *messageType = dic[WXMessageTypeStr];
+    NSString *messageType = dic[WXMessageTypeKey];
  
     switch (messageType.intValue) {
         case WXMessageTypeText:

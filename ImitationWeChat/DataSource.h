@@ -39,7 +39,8 @@ typedef NS_ENUM(NSInteger, WXMessageType){
 };
 
 
-static NSString *WXMessageTypeStr = @"WXMessageType";
+static NSString *WXMessageTypeKey = @"WXMessageType";
+static NSString *WXMessageTypeDataKey = @"WXMessageTypeDataKey";
 
 @interface DataSource : NSObject
 

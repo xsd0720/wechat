@@ -305,6 +305,7 @@
 		2E97FFEC1B5E341400CA2CF1 /* WHAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E97FFEB1B5E341400CA2CF1 /* WHAudioTool.m */; };
 		2EBCACBB1B58D372006FF4B1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBCACBA1B58D372006FF4B1 /* AVFoundation.framework */; };
 		2EBCACFD1B58EB26006FF4B1 /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCACFC1B58EB26006FF4B1 /* TabBarItem.m */; };
+		2EE42E861D44B85600E4DB0E /* TimelineCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE42E851D44B85600E4DB0E /* TimelineCellHeight.m */; };
 		2EFF2C3E1B63784800F0CF75 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF2C3D1B63784800F0CF75 /* Contact.m */; };
 		7B91C6421A3B2A5900394194 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B91C6411A3B2A5900394194 /* main.m */; };
 		7B91C6451A3B2A5900394194 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B91C6441A3B2A5900394194 /* AppDelegate.m */; };
@@ -828,6 +829,8 @@
 		2EBCACBA1B58D372006FF4B1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2EBCACFB1B58EB26006FF4B1 /* TabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarItem.h; sourceTree = "<group>"; };
 		2EBCACFC1B58EB26006FF4B1 /* TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItem.m; sourceTree = "<group>"; };
+		2EE42E841D44B85600E4DB0E /* TimelineCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCellHeight.h; sourceTree = "<group>"; };
+		2EE42E851D44B85600E4DB0E /* TimelineCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCellHeight.m; sourceTree = "<group>"; };
 		2EFF2C3C1B63784800F0CF75 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		2EFF2C3D1B63784800F0CF75 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		7B91C63C1A3B2A5900394194 /* ImitationWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImitationWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2013,6 +2016,8 @@
 		0CB924041D3F829700B4105F /* M */ = {
 			isa = PBXGroup;
 			children = (
+				2EE42E841D44B85600E4DB0E /* TimelineCellHeight.h */,
+				2EE42E851D44B85600E4DB0E /* TimelineCellHeight.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -2768,6 +2773,7 @@
 				0C80CB581D1A3A8100D75290 /* ShakeSettingViewController.m in Sources */,
 				0C043CBC1C4E420B0093410F /* MJPhotoView.m in Sources */,
 				0C0414531D2657A2003CD82A /* CustomSearchViewController.m in Sources */,
+				2EE42E861D44B85600E4DB0E /* TimelineCellHeight.m in Sources */,
 				0C80CC0A1D1AB2A600D75290 /* UserCenterRequest.m in Sources */,
 				0C1AE7301C4652750080567C /* GradientLayerView.m in Sources */,
 				0C043CF61C4E42E70093410F /* AFHTTPSessionManager.m in Sources */,

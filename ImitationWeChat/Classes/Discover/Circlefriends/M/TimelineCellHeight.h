@@ -36,6 +36,6 @@
 
 + (CGFloat)height:(NSDictionary *)datasource;
 
-+ (CGFloat)imagesHeight:(NSDictionary *)datasource;
++ (CGSize)imagesHeight:(NSDictionary *)datasource;
 
 @end

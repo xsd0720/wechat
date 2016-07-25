@@ -11,13 +11,13 @@
 #import "MyQRCodeViewController.h"
 
 #import "QRCodeDetailViewController.h"
-
+#import "QRCode.h"
 //自定义tabbar
 #import "ChooseTabbar.h"
 
 static float QRBorderMarginTop = 80.f;
 
-@interface QRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate,ChooseTabbarDelegate>
+@interface QRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate,ChooseTabbarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     CABasicAnimation *animation;
     QrCodeHollowView *hollowView;
@@ -29,6 +29,7 @@ static float QRBorderMarginTop = 80.f;
 }
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property (nonatomic, strong) UIImagePickerController *imagePickerController;
 
 
 @property (nonatomic,strong) NSMutableArray *chooseItemArray;
@@ -36,6 +37,25 @@ static float QRBorderMarginTop = 80.f;
 @end
 
 @implementation QRCodeViewController
+
+/**
+ *  设置相机
+ */
+- (UIImagePickerController *)imagePickerController {
+    if (!_imagePickerController) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
+        _imagePickerController.allowsEditing = NO;
+        _imagePickerController.navigationBar.barTintColor = [UIColor blackColor];
+        _imagePickerController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+        
+        //系统返回默认蓝色 改成白色
+        _imagePickerController.navigationBar.tintColor = [UIColor whiteColor];
+    }
+    return _imagePickerController;
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,6 +76,48 @@ static float QRBorderMarginTop = 80.f;
     self.navigationItem.title = @"二维码/条码";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    
+    UIButton *rightBarItemButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBarItemButton.frame = CGRectMake(0, 0, 44, 30);
+    [rightBarItemButton setTitle:@"相册" forState:UIControlStateNormal];
+    rightBarItemButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [rightBarItemButton addTarget:self action:@selector(rightBarItemButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarItemButton];
+    
+    //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barbuttonicon_set-new"] style:UIBarButtonItemStylePlain target:self action:@selector(barbuttonicon_setClick)];
+    [self.navigationItem addRightBarButtonItem:rightBarItem];
+    
+}
+
+- (void)rightBarItemButtonClick
+{
+    //  系统相册
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:self.imagePickerController animated:YES completion:^{
+    }];
+}
+
+
+#pragma mark - imagepickerDelgate
+
+//  用户选中图片后的回调
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+   //获得编辑过的图片
+    UIImage* image = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
+//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+
+    [QRCode recognizeImage:image block:^(ZXBarcodeFormat barcodeFormat, NSString *str) {
+       
+        NSLog(@"%@", str);
+        [self.view makeToast:str];
+    }];
+    
+    
 }
 
 //加载二维码扫描UI
@@ -182,6 +244,7 @@ static float QRBorderMarginTop = 80.f;
     
     AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
     [_captureSession addOutput:captureMetadataOutput];
+//    captureMetadataOutput.rectOfInterest = CGRectMake(0, 0, 100, 100);
     
     dispatch_queue_t dispatchQueue;
     dispatchQueue = dispatch_queue_create("myQueue", NULL);

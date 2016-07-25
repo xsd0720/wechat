@@ -10,6 +10,7 @@
 
 static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTIONCELLIDENTIFIER";
 
+
 @interface TimelineMsgTypeImageCollectionCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
@@ -33,7 +34,7 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
 
 - (void)setImageName:(NSString *)imageName
 {
-    _imageName = imageName;
+    _imageView.frame = self.bounds;
     _imageView.image = [UIImage scaleToSize:_imageView.bounds.size cut:0 image:[UIImage imageNamed:imageName]];
 }
 
@@ -45,6 +46,8 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
 
 @property (nonatomic, strong) NSArray *imageDataSource;
 
+@property (nonatomic, assign) CGSize  oneImageSize;
+
 @end
 
 @implementation TimelineMsgTypeImageCell
@@ -55,7 +58,6 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
         UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
         flowLayout.minimumLineSpacing = 5;
         flowLayout.minimumInteritemSpacing = 5;
-        flowLayout.itemSize = CGSizeMake(timeLineCollectionItemSize, timeLineCollectionItemSize);
         _moreImageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 235, 75) collectionViewLayout:flowLayout];
         _moreImageCollectionView.scrollsToTop = NO; //关闭小scrollview top回顶部
         _moreImageCollectionView.showsHorizontalScrollIndicator = NO;
@@ -78,23 +80,27 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
 {
     [super setDatasource:datasource];
     
-    self.imageDataSource = datasource[@"data"];
-    
     NSArray *images = datasource[WXMessageTypeDataKey];
     _imageDataSource = images;
-
-    self.moreImageCollectionView.height = [TimelineCellHeight imagesHeight:datasource];
     
+    
+    CGSize size = [TimelineCellHeight imagesHeight:datasource];
+    self.oneImageSize = size;
+    
+    self.moreImageCollectionView.height = size.height;
+    self.moreImageCollectionView.width = size.width;
     
     [self reloadCollectionView:self.moreImageCollectionView animated:NO];
-    
+
 }
 
 
 - (CGFloat)MsgTypeHeight:(CGFloat)startOrginY
 {
+    CGFloat moreImageCollectionViewWidth = self.moreImageCollectionView.frame.size.width;
     CGFloat moreImageCollectionViewHeight = self.moreImageCollectionView.frame.size.height;
-    self.moreImageCollectionView.frame = CGRectMake(CGRectGetMinX(self.textLabel.frame), startOrginY+MsgTypeMarginTop, 235, moreImageCollectionViewHeight);
+    
+    self.moreImageCollectionView.frame = CGRectMake(CGRectGetMinX(self.textLabel.frame), startOrginY+MsgTypeMarginTop, moreImageCollectionViewWidth, moreImageCollectionViewHeight);
     return  CGRectGetMaxY(self.moreImageCollectionView.frame);
 }
 
@@ -111,6 +117,17 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
     }];
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_imageDataSource.count > 1) {
+       return CGSizeMake(timeLineCollectionItemSize, timeLineCollectionItemSize);
+    }else
+    {
+        return self.oneImageSize;
+    }
+    
+}
+
 //定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -121,10 +138,14 @@ static NSString *TIMELINECELLCOLLECTIONCELLIDENTIFIER = @"TIMELINECELLCOLLECTION
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    TimelineMsgTypeImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TIMELINECELLCOLLECTIONCELLIDENTIFIER forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
-    cell.imageName = _imageDataSource[indexPath.row];
-    return cell;
+//    if (_imageDataSource.count > 1) {
+        TimelineMsgTypeImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TIMELINECELLCOLLECTIONCELLIDENTIFIER forIndexPath:indexPath];
+        cell.imageName = _imageDataSource[indexPath.row];
+        return cell;
+//    }
+//    TimelineOneMsgTypeImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TIMELINEONECELLCOLLECTIONCELLIDENTIFIER forIndexPath:indexPath];
+//    cell.imageName = _imageDataSource[indexPath.row];
+//    return cell;
     
 }
 

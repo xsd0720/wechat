@@ -1232,11 +1232,27 @@
                          @"time":@"2分钟前",
                          WXMessageTypeKey:[NSString stringWithFormat:@"%li", (long)WXMessageTypeWeb],
                          WXMessageTypeDataKey:@[
-                                 @"testonly.jpg",
+                                 @{
+                                     @"image":@"head7.jpg",
+                                   @"text":@"如何设置uicollectionview两个cell的距离_百度知道",
+                                     }
                                  ]
                          },
 
+
                      
+                     @{
+                         @"image":@"haoyou3.jpg",
+                         @"username":@"陈建勋",
+                         @"detail":@"今天者大雨天有着凉了，闹肚子闹一天，转被窝还直打喷嚏，晚上吃什么呢😄",
+                         @"time":@"2分钟前",
+                         WXMessageTypeKey:[NSString stringWithFormat:@"%li", (long)WXMessageTypeImage],
+                         WXMessageTypeDataKey:@[
+                                 @"11111.jpg",
+                                 
+                                 ]
+                         },
+
                      ],
              };
 }

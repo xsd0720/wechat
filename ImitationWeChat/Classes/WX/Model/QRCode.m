@@ -151,4 +151,35 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     return img;
 }
 
+
++ (void)recognizeImage:(UIImage*)image block:(void(^)(ZXBarcodeFormat barcodeFormat,NSString *str))block;
+{
+    ZXCGImageLuminanceSource *source = [[ZXCGImageLuminanceSource alloc] initWithCGImage:image.CGImage];
+    
+    ZXHybridBinarizer *binarizer = [[ZXHybridBinarizer alloc] initWithSource: source];
+    
+    ZXBinaryBitmap *bitmap = [[ZXBinaryBitmap alloc] initWithBinarizer:binarizer];
+    
+    NSError *error;
+    
+    id<ZXReader> reader;
+    
+    if (NSClassFromString(@"ZXMultiFormatReader")) {
+        reader = [NSClassFromString(@"ZXMultiFormatReader") performSelector:@selector(reader)];
+    }
+    
+    ZXDecodeHints *_hints = [ZXDecodeHints hints];
+    ZXResult *result = [reader decode:bitmap hints:_hints error:&error];
+    
+    if (result == nil) {
+        
+        block(kBarcodeFormatQRCode,nil);
+        return;
+    }
+    
+    block(result.barcodeFormat,result.text);
+}
+
+
+
 @end

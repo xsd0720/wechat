@@ -27,7 +27,7 @@
             break;
         case WXMessageTypeImage:
         {
-            messageTypeHeight = [self imagesHeight:datasource];
+            messageTypeHeight = [self imagesHeight:datasource].height;
             
         }
             break;
@@ -65,17 +65,27 @@
     }
     
     if (messageTypeHeight > 0) {
-        messageTypeHeight += 8;
+        messageTypeHeight += padding;
     }
     
     return timeLineDetailTextLabelOrginY+detailTextLabelHeight+8+messageTypeHeight+timeLineTimeLabelHeight+15;
 }
 
-+ (CGFloat)imagesHeight:(NSDictionary *)datasource
++ (CGSize)imagesHeight:(NSDictionary *)datasource
 {
     NSArray *images = datasource[WXMessageTypeDataKey];
-    CGFloat totalRowCount = images.count>3?images.count/3+fmod(images.count, 3):1;
-    return totalRowCount*timeLineCollectionItemSize+((totalRowCount-1)*timeLineCollectionItemPadding);
+    if (images.count > 0) {
+        if (images.count > 1) {
+            CGFloat totalRowCount = images.count>3?images.count/3+fmod(images.count, 3):1;
+            return CGSizeMake(235, totalRowCount*timeLineCollectionItemSize+((totalRowCount-1)*timeLineCollectionItemPadding));
+        }else
+        {
+            UIImage *image = [UIImage imageNamed:[images firstObject]];
+            CGSize oneSize = [image limitMaxWidthHeight:150 maxH:150];
+            return oneSize;
+        }
+    }
+    return CGSizeZero;
 }
 
 @end

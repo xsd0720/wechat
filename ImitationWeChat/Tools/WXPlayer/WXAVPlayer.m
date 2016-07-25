@@ -51,7 +51,7 @@
 {
     if (!_mAVPlayerLayer) {
         _mAVPlayerLayer = [[AVPlayerLayer alloc] init];
-        _mAVPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        _mAVPlayerLayer.videoGravity = AVLayerVideoGravityResize;
         _mAVPlayerLayer.frame = self.bounds;
 
     }
@@ -182,8 +182,6 @@
         [self.mAVPlayerLayer setPlayer:self.mAVPlayer];
     }
 
-    
-
 }
 
 
@@ -228,6 +226,10 @@
 
 - (void)pause
 {
+    
+    if (!self.playblastView.superview) {
+        [self addSubview:self.playblastView];
+    }
     if (self.mAVPlayer.currentItem) {
         [self.mAVPlayer pause];
     }

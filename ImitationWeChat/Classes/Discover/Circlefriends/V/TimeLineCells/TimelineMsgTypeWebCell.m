@@ -51,7 +51,7 @@
 {
     if (!_label) {
         _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 40)];
-        _label.font = [UIFont systemFontOfSize:14];
+        _label.font = [UIFont systemFontOfSize:13];
         _label.numberOfLines = 0;
     }
     return _label;
@@ -75,9 +75,9 @@
 {
     [super layoutSubviews];
 
-    self.imageView.centerY = self.height/2;
-    self.label.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame)+5, 0, self.width-CGRectGetMaxX(self.imageView.frame)-5, 40);
-    self.label.centerY = self.height/2;
+    self.imageView.centerY = CGRectGetMaxY(self.bounds)/2;
+    self.label.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame)+5, 0, self.width-CGRectGetMaxX(self.imageView.frame)-10, 40);
+    self.label.centerY = CGRectGetMaxY(self.bounds)/2;
 }
 
 @end

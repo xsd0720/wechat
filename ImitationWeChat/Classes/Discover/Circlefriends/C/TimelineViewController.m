@@ -78,9 +78,11 @@ static CGFloat USERFACESIZE = 75.0f;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 
 @property (nonatomic, strong) NSArray *datasource;
+@property (nonatomic, strong) MPMoviePlayerController *moviePlayerView;
 @end
 
 @implementation TimelineViewController
+@synthesize moviePlayerView;
 -(UIImageView *)userFaceImageView{
     if (!_userFaceImageView) {
         _userFaceImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-USERFACESIZE-10, TABLEHEADERVIEHEIGHT-USERFACESIZE/3*2,USERFACESIZE , USERFACESIZE)];
@@ -181,18 +183,31 @@ static CGFloat USERFACESIZE = 75.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     
-    startRefreshing = NO;
-    isRefreshing = NO;
-  
-    //加载导航设置
-    [self setUpNav];
+    moviePlayerView = [[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:      [[NSBundle mainBundle]pathForResource:@"150511_JiveBike" ofType:@"mov"]]];
+    //设定播放模式
+//    MPMoviePlayerController.controlStyle = MPMovieControlStyleFullscreen;
+    //控制模式(触摸)
+//    MPMoviePlayerController.scalingMode = MPMovieScalingModeAspectFill;
+    moviePlayerView.controlStyle = MPMovieControlStyleFullscreen;
+    [self.view addSubview:moviePlayerView.view];
+    moviePlayerView.view.frame = self.view.bounds;
     
-    self.datasource = DS.timeLineData[requestResult];
+    [moviePlayerView play];
     
-    [self.timeLineTableView reloadData];
-    [self.view addSubview:self.albumReflashImageView];
-    [self.tableViewHeaderView addSubview:self.userFaceImageView];
+    
+//    startRefreshing = NO;
+//    isRefreshing = NO;
+//  
+//    //加载导航设置
+//    [self setUpNav];
+//    
+//    self.datasource = DS.timeLineData[requestResult];
+//    
+//    [self.timeLineTableView reloadData];
+//    [self.view addSubview:self.albumReflashImageView];
+//    [self.tableViewHeaderView addSubview:self.userFaceImageView];
 }
 -(void)setUpNav{
     self.view.backgroundColor = [UIColor whiteColor];

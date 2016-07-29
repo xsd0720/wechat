@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "WXAVPlayerControl.h"
+#import "WXAVPlayerLoading.h"
 @interface WXAVPlayer : UIView
-
-@property (nonatomic, strong) UIView *playblastView;
-@property (nonatomic, strong) UIImageView *playblastImageView;
-@property (nonatomic, strong) UIButton *playblastViewPlayButton;
 
 /**
  *  播放器视觉输出
@@ -28,13 +25,19 @@
 /**
  *  播放项
  */
-@property (strong) AVPlayerItem          *mPlayerItem;
+@property (nonatomic, strong) AVPlayerItem          *mPlayerItem;
 
 
 /**
  *  自定义控制层
  */
 @property (nonatomic, strong) WXAVPlayerControl *mAVPlayerControl;
+
+
+/**
+ *
+ */
+@property (nonatomic, strong) WXAVPlayerLoading *wxAVPlayerLoading;
 
 /**
  *  播放URL
@@ -45,5 +48,9 @@
 - (void)play;
 
 - (void)pause;
+
+- (void)audioMute;
+
+- (void)audioNormal;
 
 @end

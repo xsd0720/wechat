@@ -24,7 +24,7 @@
 {
     [super setDatasource:datasource];
     
-    NSString *file = [[NSBundle mainBundle] pathForResource:@"150511_JiveBike" ofType:@"mov"];
+    NSString *file = [[NSBundle mainBundle] pathForResource:@"782" ofType:@"mp4"];
     self.wxAVPlayer.contentURL = [NSURL fileURLWithPath:file];
    
 }

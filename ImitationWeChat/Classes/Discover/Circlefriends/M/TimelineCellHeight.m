@@ -33,7 +33,7 @@
             break;
         case WXMessageTypeApp:
         {
-            
+            messageTypeHeight = 50;
         }
             break;
         case WXMessageTypeWeb:
@@ -43,7 +43,7 @@
             break;
         case WXMessageTypeMusic:
         {
-            
+            messageTypeHeight = 50;
         }
             break;
         case WXMessageTypeVideo:

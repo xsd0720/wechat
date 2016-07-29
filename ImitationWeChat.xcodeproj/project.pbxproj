@@ -153,6 +153,10 @@
 		0C80CC0A1D1AB2A600D75290 /* UserCenterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC091D1AB2A600D75290 /* UserCenterRequest.m */; };
 		0C80CC0D1D1AB2FA00D75290 /* ResponseSuccessBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */; };
 		0C8FCEA21D24F09600D783BD /* LocalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8FCEA11D24F09600D783BD /* LocalManager.m */; };
+		0C9159E31D4707B30045DA98 /* 5555.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C9159E21D4707B30045DA98 /* 5555.jpg */; };
+		0C9159E71D470EC40045DA98 /* WXAVPlayerLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9159E61D470EC40045DA98 /* WXAVPlayerLoading.m */; };
+		0C9159EA1D47291B0045DA98 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9159E91D47291B0045DA98 /* CircleProgressView.m */; };
+		0C9159EC1D475C940045DA98 /* 782.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C9159EB1D475C220045DA98 /* 782.mp4 */; };
 		0C91BB581D41F06400F2A925 /* WXAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C91BB571D41F06400F2A925 /* WXAVPlayer.m */; };
 		0C91BB5C1D41F0AD00F2A925 /* WXAVPlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C91BB5B1D41F0AD00F2A925 /* WXAVPlayerControl.m */; };
 		0C91BB711D420B6400F2A925 /* TimelineBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C91BB6E1D420B6400F2A925 /* TimelineBaseCell.m */; };
@@ -458,6 +462,7 @@
 		0CC07C131D45B361008C0CD1 /* ZXQRCodeWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC07B341D45B361008C0CD1 /* ZXQRCodeWriter.m */; };
 		0CC07C141D45B361008C0CD1 /* ZXMultiFormatReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC07B371D45B361008C0CD1 /* ZXMultiFormatReader.m */; };
 		0CC07C151D45B361008C0CD1 /* ZXMultiFormatWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC07B391D45B361008C0CD1 /* ZXMultiFormatWriter.m */; };
+		0CDEE2A61D488A16008F880C /* WXMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDEE2A51D488A16008F880C /* WXMoviePlayerController.m */; };
 		0CE198941D1CE96D003BB4AA /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */; };
 		0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA730D1C574C220020AB90 /* CycleScrollView.m */; };
 		0CEA73141C574C220020AB90 /* NSTimer+CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA73111C574C220020AB90 /* NSTimer+CycleScrollView.m */; };
@@ -834,6 +839,12 @@
 		0C80CC0C1D1AB2FA00D75290 /* ResponseSuccessBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseSuccessBlocks.m; sourceTree = "<group>"; };
 		0C8FCEA01D24F09600D783BD /* LocalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalManager.h; sourceTree = "<group>"; };
 		0C8FCEA11D24F09600D783BD /* LocalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalManager.m; sourceTree = "<group>"; };
+		0C9159E21D4707B30045DA98 /* 5555.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5555.jpg; sourceTree = "<group>"; };
+		0C9159E51D470EC40045DA98 /* WXAVPlayerLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXAVPlayerLoading.h; sourceTree = "<group>"; };
+		0C9159E61D470EC40045DA98 /* WXAVPlayerLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXAVPlayerLoading.m; sourceTree = "<group>"; };
+		0C9159E81D47291B0045DA98 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
+		0C9159E91D47291B0045DA98 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
+		0C9159EB1D475C220045DA98 /* 782.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 782.mp4; sourceTree = "<group>"; };
 		0C91BB561D41F06400F2A925 /* WXAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXAVPlayer.h; sourceTree = "<group>"; };
 		0C91BB571D41F06400F2A925 /* WXAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXAVPlayer.m; sourceTree = "<group>"; };
 		0C91BB5A1D41F0AD00F2A925 /* WXAVPlayerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXAVPlayerControl.h; sourceTree = "<group>"; };
@@ -1414,6 +1425,8 @@
 		0CC07B371D45B361008C0CD1 /* ZXMultiFormatReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXMultiFormatReader.m; sourceTree = "<group>"; };
 		0CC07B381D45B361008C0CD1 /* ZXMultiFormatWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXMultiFormatWriter.h; sourceTree = "<group>"; };
 		0CC07B391D45B361008C0CD1 /* ZXMultiFormatWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXMultiFormatWriter.m; sourceTree = "<group>"; };
+		0CDEE2A41D488A16008F880C /* WXMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMoviePlayerController.h; sourceTree = "<group>"; };
+		0CDEE2A51D488A16008F880C /* WXMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMoviePlayerController.m; sourceTree = "<group>"; };
 		0CE198931D1CE96D003BB4AA /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		0CEA730C1C574C220020AB90 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
 		0CEA730D1C574C220020AB90 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
@@ -2354,12 +2367,26 @@
 			path = Collect;
 			sourceTree = "<group>";
 		};
+		0C9159E41D470EAB0045DA98 /* WXAVPlayerLoading */ = {
+			isa = PBXGroup;
+			children = (
+				0C9159E51D470EC40045DA98 /* WXAVPlayerLoading.h */,
+				0C9159E61D470EC40045DA98 /* WXAVPlayerLoading.m */,
+				0C9159E81D47291B0045DA98 /* CircleProgressView.h */,
+				0C9159E91D47291B0045DA98 /* CircleProgressView.m */,
+			);
+			path = WXAVPlayerLoading;
+			sourceTree = "<group>";
+		};
 		0C91BB551D41F06400F2A925 /* WXPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				0C9159E41D470EAB0045DA98 /* WXAVPlayerLoading */,
 				0C91BB591D41F08300F2A925 /* WXAVPlayerControl */,
 				0C91BB561D41F06400F2A925 /* WXAVPlayer.h */,
 				0C91BB571D41F06400F2A925 /* WXAVPlayer.m */,
+				0CDEE2A41D488A16008F880C /* WXMoviePlayerController.h */,
+				0CDEE2A51D488A16008F880C /* WXMoviePlayerController.m */,
 			);
 			path = WXPlayer;
 			sourceTree = "<group>";
@@ -2442,6 +2469,7 @@
 		0CA39FFB1D38C2B90021F416 /* texthead */ = {
 			isa = PBXGroup;
 			children = (
+				0C9159E21D4707B30045DA98 /* 5555.jpg */,
 				0C99EFBD1D40D7AE006F7AA3 /* 11111.jpg */,
 				0C99EFBB1D40C153006F7AA3 /* 4564.jpg */,
 				0C99EFB91D40BDAC006F7AA3 /* tttt1.png */,
@@ -3710,6 +3738,7 @@
 				0CF912061C43941900F33C89 /* Tools */,
 				2EFF2C3B1B63783D00F0CF75 /* Model */,
 				2E6151341B5CEB6E007196E2 /* 150511_JiveBike.mov */,
+				0C9159EB1D475C220045DA98 /* 782.mp4 */,
 				2EBCACFA1B58EAA6006FF4B1 /* SubClass */,
 				7B91C6691A3B2ED500394194 /* Extension */,
 				0C80CAAE1D1A2D6F00D75290 /* Common */,
@@ -3873,6 +3902,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C9159EC1D475C940045DA98 /* 782.mp4 in Resources */,
 				0C99EFB81D40BA2B006F7AA3 /* hhh.jpg in Resources */,
 				2E6151251B5CE71F007196E2 /* kr-video-player-fullscreen@3x.png in Resources */,
 				2E6151271B5CE71F007196E2 /* kr-video-player-pause@3x.png in Resources */,
@@ -3920,6 +3950,7 @@
 				0CF911D81C438A4100F33C89 /* MMVideoPreviewPlay@2x.png in Resources */,
 				2E6151261B5CE71F007196E2 /* kr-video-player-pause@2x.png in Resources */,
 				0CA253111D1D356700482E9F /* diallingcode.json in Resources */,
+				0C9159E31D4707B30045DA98 /* 5555.jpg in Resources */,
 				0CA2530F1D1D30BE00482E9F /* countryCode.json in Resources */,
 				0CA3A00A1D38C2B90021F416 /* head4.jpg in Resources */,
 				0CB924031D3F714F00B4105F /* haoyou9.jpg in Resources */,
@@ -3984,6 +4015,7 @@
 				0CF9120C1C4394D900F33C89 /* SpeechTool.m in Sources */,
 				0CC07B7A1D45B361008C0CD1 /* ZXDecoderResult.m in Sources */,
 				0C80CAF11D1A373500D75290 /* BaseModel.m in Sources */,
+				0CDEE2A61D488A16008F880C /* WXMoviePlayerController.m in Sources */,
 				0C043D061C4E42E70093410F /* UIButton+WebCache.m in Sources */,
 				0C61D4BA1C449842007547FE /* IATConfig.m in Sources */,
 				0C91BB711D420B6400F2A925 /* TimelineBaseCell.m in Sources */,
@@ -4079,6 +4111,7 @@
 				0C043CB81C4E420B0093410F /* MJPhotoBrowser.m in Sources */,
 				0CC07BD81D45B361008C0CD1 /* ZXOneDReader.m in Sources */,
 				0C80CAE81D1A35F500D75290 /* JSONModel+networking.m in Sources */,
+				0C9159EA1D47291B0045DA98 /* CircleProgressView.m in Sources */,
 				0CC07BB51D45B361008C0CD1 /* ZXRSSExpandedBlockParsedResult.m in Sources */,
 				0CC07B7E1D45B361008C0CD1 /* ZXGridSampler.m in Sources */,
 				0CC07B801D45B361008C0CD1 /* ZXIntArray.m in Sources */,
@@ -4274,6 +4307,7 @@
 				0C04145A1D2657C3003CD82A /* TableViewTimeCell.m in Sources */,
 				0CF911E91C438A4100F33C89 /* TZAssetModel.m in Sources */,
 				0CC07B651D45B361008C0CD1 /* ZXVEventResultParser.m in Sources */,
+				0C9159E71D470EC40045DA98 /* WXAVPlayerLoading.m in Sources */,
 				0CC07BE61D45B361008C0CD1 /* ZXPDF417BoundingBox.m in Sources */,
 				0C91BB841D420C7600F2A925 /* TimeLineMsgTypeEmotionCell.m in Sources */,
 				0CC07BF31D45B361008C0CD1 /* ZXPDF417Dimensions.m in Sources */,

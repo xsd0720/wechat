@@ -8,40 +8,40 @@
 
 #import "WXAVPlayer.h"
 
+//播放状态
+static void *AVPlayerStatusObservationContext = &AVPlayerStatusObservationContext;
+
+//监听播放暂停
+static void *AVPlayerRateObservationContext = &AVPlayerRateObservationContext;
+
+//播放资源发生改变
+static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObservationContext;
+
+//缓冲进度
+static void *AVPlayerloadedTimeRangesObservationContext = &AVPlayerloadedTimeRangesObservationContext;
+
+//播放buffer为空
+static void *AVPlayerPlaybackBufferEmptyObservationContext = &AVPlayerPlaybackBufferEmptyObservationContext;
+
+//buffer 缓存完成
+static void *AVPlayerPlaybackBufferFullObservationContext = &AVPlayerPlaybackBufferFullObservationContext;
+
+//可以正常播放缓存
+static void *AVPlayerPlaybackLikelyToKeepUpObservationContext = &AVPlayerPlaybackLikelyToKeepUpObservationContext;
+
+
 @implementation WXAVPlayer
 
+#pragma mark -
+#pragma mark -- get method group
 
-- (UIButton *)playblastViewPlayButton
+
+- (WXAVPlayerLoading *)wxAVPlayerLoading
 {
-    if (!_playblastViewPlayButton) {
-        _playblastViewPlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_playblastViewPlayButton setImage:[UIImage imageNamed:@"play_btn_normal"] forState:UIControlStateNormal];
-        _playblastViewPlayButton.frame = self.bounds;
-        [_playblastViewPlayButton addTarget:self action:@selector(readyPlay) forControlEvents:UIControlEventTouchUpInside];
-        
+    if (!_wxAVPlayerLoading) {
+        _wxAVPlayerLoading = [[WXAVPlayerLoading alloc] initWithFrame:self.bounds];
     }
-    return _playblastViewPlayButton;
-}
-
-- (UIImageView *)playblastImageView
-{
-    if (!_playblastImageView) {
-        _playblastImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    }
-    return _playblastImageView;
-}
-
-
-- (UIView *)playblastView{
-    if (!_playblastView) {
-        _playblastView = [[UIView alloc] initWithFrame:self.bounds];
-//        _playblastView.backgroundColor = [UIColor blackColor];
-
-
-        [_playblastView addSubview:self.playblastImageView];
-        [_playblastView addSubview:self.playblastViewPlayButton];
-    }
-    return _playblastView;
+    return _wxAVPlayerLoading;
 }
 
 /**
@@ -58,17 +58,19 @@
     return _mAVPlayerLayer;
 }
 
-/**
- *  播放器
- */
+
 - (AVPlayer *)mAVPlayer
 {
     if (!_mAVPlayer) {
         _mAVPlayer = [[AVPlayer alloc] init];
+        _mAVPlayer.usesExternalPlaybackWhileExternalScreenIsActive = YES;
+        [_mAVPlayer addObserver:self
+                         forKeyPath:@"currentItem"
+                            options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                            context:AVPlayerCurrentItemObservationContext];
     }
     return _mAVPlayer;
 }
-
 
 /**
  *  播放器控制层
@@ -80,6 +82,49 @@
         _mAVPlayerControl = [[WXAVPlayerControl alloc] initWithFrame:self.bounds];
     }
     return _mAVPlayerControl;
+}
+
+#pragma mark -
+#pragma mark -- set method group
+
+/**
+ *  播放器控制层
+ */
+- (void)setMPlayerItem:(AVPlayerItem *)mPlayerItem
+{
+    _mPlayerItem = mPlayerItem;
+    
+    //mPlayerItem 准备播放时, 监听AVPlayerItem "status" 属性
+    [self.mPlayerItem addObserver:self
+                       forKeyPath:@"status"
+                          options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                          context:AVPlayerStatusObservationContext];
+    
+    
+//    [self.mPlayerItem addObserver:self
+//                       forKeyPath:@"playbackBufferEmpty"
+//                          options:NSKeyValueObservingOptionNew
+//                          context:AVPlayerPlaybackBufferEmptyObservationContext];
+//    
+//    [self.mPlayerItem addObserver:self
+//                       forKeyPath:@"playbackBufferFull"
+//                          options:NSKeyValueObservingOptionNew
+//                          context:AVPlayerPlaybackBufferFullObservationContext];
+//    
+//    [self.mPlayerItem addObserver:self
+//                       forKeyPath:@"playbackLikelyToKeepUp"
+//                          options:NSKeyValueObservingOptionNew
+//                          context:AVPlayerPlaybackLikelyToKeepUpObservationContext];
+    
+//    //监听缓冲进度
+//    [self.mPlayerItem addObserver:self
+//                     forKeyPath:@"loadedTimeRanges"
+//                        options:NSKeyValueObservingOptionNew
+//                        context:AVPlayerloadedTimeRangesObservationContext];
+
+
+    
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -96,25 +141,19 @@
         
         //添加自定义控制层
         [self addSubview:self.mAVPlayerControl];
-        
-     
-        //配置播放预览图
-        [self addSubview:self.playblastView];
-        
-    
     }
     return self;
 }
 
 - (void)setContentURL:(NSURL *)contentURL
 {
-//    if (_contentURL != contentURL && contentURL)
-//    {
+    if (! [_contentURL isEqual:contentURL] && contentURL)
+    {
         _contentURL = contentURL;
-    
-        //加载播放预览图
-        self.playblastImageView.image = [UIImage thumbnailImageForVideo:contentURL atTime:0];
-    
+        
+        
+//        self.wxAVPlayerLoading.c
+        
         //创建 asset 加载 url 对应资源,创建缓存关键字
         AVURLAsset *asset = [AVURLAsset URLAssetWithURL:_contentURL options:nil];
         
@@ -130,7 +169,7 @@
                             });
          }];
 
-//    }
+    }
 }
 
 
@@ -173,15 +212,17 @@
     
     //使用正确加载的asset资源创建 AVPlayerItem 实例
     self.mPlayerItem = [AVPlayerItem playerItemWithAsset:asset];
- 
+
     //确保播放新的资源
     if (self.mAVPlayer.currentItem != self.mPlayerItem)
     {
         //替换新的播放资源
         [self.mAVPlayer replaceCurrentItemWithPlayerItem:self.mPlayerItem];
+        
         [self.mAVPlayerLayer setPlayer:self.mAVPlayer];
     }
 
+    [self.mAVPlayer seekToTime:CMTimeMakeWithSeconds(5, NSEC_PER_SEC)];
 }
 
 
@@ -194,26 +235,170 @@
     NSLog(@"assetFailedToPrepareForPlayback=====>>%@", [error description]);
 }
 
-- (void)readyPlay
+
+
+/**
+ *  播放结束
+ *
+ *  @param notification 消息
+ */
+- (void)playerItemDidReachEnd:(NSNotification *)notification
 {
-    //do play action
-    [self.playblastView removeFromSuperview];
     
-    NSArray *audioTracks = [self.mPlayerItem.asset tracksWithMediaType:AVMediaTypeAudio];
+}
+
+
+/**
+ *  缓冲播放完,AVPlayer自动暂停
+ *
+ *  @param notification 消息
+ */
+- (void)playerItemPlaybackStalled:(NSNotification *)notification
+{
     
-    NSMutableArray * allAudioParams = [NSMutableArray array];
-    for (AVAssetTrack *track in audioTracks) {
-        AVMutableAudioMixInputParameters *audioInputParams =[AVMutableAudioMixInputParameters audioMixInputParameters];
-        [audioInputParams setVolume:0.0 atTime:kCMTimeZero ];
-        [audioInputParams setTrackID:[track trackID]];
-        [allAudioParams addObject:audioInputParams];
+}
+
+
+
+/**
+ *  AVPlayerItem "status" 发生改变,更新相关UI
+ *  AVPlayerItem "currentItem" 发生改变
+ *  AVPlayerItem "rate" 发生改变
+ *
+ *  @param path    监听属性名称
+ *  @param object  监听的对象
+ *  @param change  属性的变化
+ *  @param context 监听属性的key
+ */
+- (void)observeValueForKeyPath:(NSString*) path
+                      ofObject:(id)object
+                        change:(NSDictionary*)change
+                       context:(void*)context
+{
+    
+    //status 发生改变
+    if (context == AVPlayerStatusObservationContext)
+    {
+        
+        AVPlayerItemStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+        switch (status)
+        {
+                
+                //未知原因无法正常播放
+            case AVPlayerItemStatusUnknown:
+            {
+//                [self.mAVPlayer seekToTime:CMTimeMakeWithSeconds(0.1, NSEC_PER_SEC)];
+//                [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(availableDuration) userInfo:nil repeats:YES];
+                
+            }
+                break;
+                
+            case AVPlayerItemStatusReadyToPlay:
+            {
+            }
+                break;
+                
+            case AVPlayerItemStatusFailed:
+            {
+                
+                AVPlayerItem *playerItem = (AVPlayerItem *)object;
+                [self assetFailedToPrepareForPlayback:playerItem.error];
+            }
+                
+                break;
+        }
+        
     }
-    AVMutableAudioMix * audioZeroMix = [AVMutableAudioMix audioMix];
-    [audioZeroMix setInputParameters:allAudioParams];
     
-    [self.mPlayerItem setAudioMix:audioZeroMix];
+    //rate 发生改变
+    else if (context == AVPlayerRateObservationContext)
+    {
+        
+    }
     
-    [self play];
+    //currentItem 发生改变
+    else if (context == AVPlayerCurrentItemObservationContext)
+    {
+    
+    }
+    
+    else if (context == AVPlayerloadedTimeRangesObservationContext)
+    {
+
+//        //缓冲进度
+//        NSTimeInterval timeInterval = [self availableDuration];
+//        CGFloat totalDuration = CMTimeGetSeconds(self.mPlayerItem.duration);
+//        
+//        CGFloat progress = self.videoControl.bottomBar.progressView.cacheProgressView.progress;
+//        
+//        if (isfinite(totalDuration)) {
+//            if (!isnan(totalDuration)) {
+//                if (!isnan(timeInterval)) {
+//                    if (self.mPlayerItem.isPlaybackLikelyToKeepUp) {
+//                        self.videoControl.bottomBar.progressView.cacheProgressView.progress = MAX(timeInterval / totalDuration, progress);
+//                    }
+//                    else
+//                    {
+//                        self.videoControl.bottomBar.progressView.cacheProgressView.progress = timeInterval / totalDuration;
+//                    }
+//                    
+//                }
+//                
+//            }
+//            
+//        }
+        
+    }
+    
+    //没有缓存可以播放
+    else if (context == AVPlayerPlaybackBufferEmptyObservationContext)
+    {
+        NSLog(@"AVPlayerPlaybackBufferEmptyObservationContext %@", change);
+//        AVPlayerItem *playerItem = (AVPlayerItem *)object;
+//        if (playerItem.isPlaybackBufferEmpty) {
+//            if (self.isPlaying) {
+//                [self.videoControl startLoading];
+//                [self.mAVPlayer pause];
+//            }
+//            
+//        }
+    }
+    
+    
+    else if (context == AVPlayerPlaybackBufferFullObservationContext)
+    {
+        LWLog(@"AVPlayerPlaybackBufferFullObservationContext %@", change);
+    }
+    
+    //有缓存可以播放了
+    else if (context == AVPlayerPlaybackLikelyToKeepUpObservationContext)
+    {
+
+    }
+    
+    else
+    {
+        [super observeValueForKeyPath:path ofObject:object change:change context:context];
+    }
+    
+}
+
+/**
+ *  计算缓冲进度0
+ *
+ *  @return 返回缓冲的时间总长
+ */
+- (NSTimeInterval)availableDuration
+{
+    NSArray *loadedTimeRanges = [[self.mAVPlayer currentItem] loadedTimeRanges];
+    CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
+    NSTimeInterval result = 0.0;
+    if (!CMTimeRangeEqual(timeRange, kCMTimeRangeZero)) {
+        result = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration));// 计算缓冲总进度
+    }
+    NSLog(@"%f", result);
+    
+    return result;
 }
 
 
@@ -226,14 +411,33 @@
 
 - (void)pause
 {
-    
-    if (!self.playblastView.superview) {
-        [self addSubview:self.playblastView];
-    }
     if (self.mAVPlayer.currentItem) {
         [self.mAVPlayer pause];
     }
 }
 
+
+- (void)audioMute
+{
+    if (self.mPlayerItem) {
+        NSArray *audioTracks = [self.mPlayerItem.asset tracksWithMediaType:AVMediaTypeAudio];
+        NSMutableArray * allAudioParams = [NSMutableArray array];
+        for (AVAssetTrack *track in audioTracks) {
+            AVMutableAudioMixInputParameters *audioInputParams =[AVMutableAudioMixInputParameters audioMixInputParameters];
+            [audioInputParams setVolume:0.0 atTime:kCMTimeZero ];
+            [audioInputParams setTrackID:[track trackID]];
+            [allAudioParams addObject:audioInputParams];
+        }
+        AVMutableAudioMix * audioZeroMix = [AVMutableAudioMix audioMix];
+        [audioZeroMix setInputParameters:allAudioParams];
+        
+        [self.mPlayerItem setAudioMix:audioZeroMix];
+    }
+}
+
+- (void)audioNormal
+{
+    [self.mPlayerItem setAudioMix:nil];
+}
 
 @end

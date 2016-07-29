@@ -22,6 +22,11 @@
 
 + (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size;
 
-+ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
+/**
+ *  获取视频封面，本地视频，网络视频都可以用
+ *
+ *  @param videoURL video的Url
+ */
++ (void)thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)tt completion:(void(^)(UIImage *image))completion;
 
 @end

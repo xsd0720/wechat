@@ -185,29 +185,29 @@ static CGFloat USERFACESIZE = 75.0f;
     // Do any additional setup after loading the view.
 
     
-    moviePlayerView = [[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:      [[NSBundle mainBundle]pathForResource:@"150511_JiveBike" ofType:@"mov"]]];
-    //设定播放模式
-//    MPMoviePlayerController.controlStyle = MPMovieControlStyleFullscreen;
-    //控制模式(触摸)
-//    MPMoviePlayerController.scalingMode = MPMovieScalingModeAspectFill;
-    moviePlayerView.controlStyle = MPMovieControlStyleFullscreen;
-    [self.view addSubview:moviePlayerView.view];
-    moviePlayerView.view.frame = self.view.bounds;
-    
-    [moviePlayerView play];
-    
-    
-//    startRefreshing = NO;
-//    isRefreshing = NO;
-//  
-//    //加载导航设置
-//    [self setUpNav];
+//    moviePlayerView = [[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:      [[NSBundle mainBundle]pathForResource:@"150511_JiveBike" ofType:@"mov"]]];
+//    //设定播放模式
+////    MPMoviePlayerController.controlStyle = MPMovieControlStyleFullscreen;
+//    //控制模式(触摸)
+////    MPMoviePlayerController.scalingMode = MPMovieScalingModeAspectFill;
+//    moviePlayerView.controlStyle = MPMovieControlStyleFullscreen;
+//    [self.view addSubview:moviePlayerView.view];
+//    moviePlayerView.view.frame = self.view.bounds;
 //    
-//    self.datasource = DS.timeLineData[requestResult];
-//    
-//    [self.timeLineTableView reloadData];
-//    [self.view addSubview:self.albumReflashImageView];
-//    [self.tableViewHeaderView addSubview:self.userFaceImageView];
+//    [moviePlayerView play];
+    
+    
+    startRefreshing = NO;
+    isRefreshing = NO;
+  
+    //加载导航设置
+    [self setUpNav];
+    
+    self.datasource = DS.timeLineData[requestResult];
+    
+    [self.timeLineTableView reloadData];
+    [self.view addSubview:self.albumReflashImageView];
+    [self.tableViewHeaderView addSubview:self.userFaceImageView];
 }
 -(void)setUpNav{
     self.view.backgroundColor = [UIColor whiteColor];

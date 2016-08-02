@@ -57,6 +57,12 @@
 		0C1A44CA1D20E5E1008B292F /* ValidMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A44C91D20E5E1008B292F /* ValidMobileViewController.m */; };
 		0C1A44CD1D20EA34008B292F /* AccountBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A44CC1D20EA34008B292F /* AccountBaseViewController.m */; };
 		0C1AE7301C4652750080567C /* GradientLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AE72F1C4652750080567C /* GradientLayerView.m */; };
+		0C35EC151D506C160062AF99 /* WXAVPlayerControlTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C35EC141D506C160062AF99 /* WXAVPlayerControlTopBar.m */; };
+		0C35EC181D506C290062AF99 /* WXAVPlayerControlBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C35EC171D506C290062AF99 /* WXAVPlayerControlBottomBar.m */; };
+		0C35EC1B1D506C800062AF99 /* WXAVPlayerControlMainBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C35EC1A1D506C800062AF99 /* WXAVPlayerControlMainBar.m */; };
+		0C35EC1E1D506D460062AF99 /* WXAVPlayerGestureControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C35EC1D1D506D460062AF99 /* WXAVPlayerGestureControl.m */; };
+		0C35EC211D507CD30062AF99 /* TestVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C35EC201D507CD30062AF99 /* TestVideoViewController.m */; };
+		0C35EC251D5090600062AF99 /* WXMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C35EC241D5090600062AF99 /* WXMoviePlayerViewController.m */; };
 		0C4014B11D3746C100F8827F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4014B01D3746C100F8827F /* 1.png */; };
 		0C4014B51D37916700F8827F /* NSTimer+CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4014B41D37916700F8827F /* NSTimer+CycleScrollView.m */; };
 		0C4014BE1D379DE500F8827F /* PaymentReceiptDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4014B91D379DE500F8827F /* PaymentReceiptDetailViewController.m */; };
@@ -649,6 +655,19 @@
 		0C1A44CC1D20EA34008B292F /* AccountBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBaseViewController.m; sourceTree = "<group>"; };
 		0C1AE72E1C4652750080567C /* GradientLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientLayerView.h; sourceTree = "<group>"; };
 		0C1AE72F1C4652750080567C /* GradientLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientLayerView.m; sourceTree = "<group>"; };
+		0C35EC131D506C160062AF99 /* WXAVPlayerControlTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXAVPlayerControlTopBar.h; sourceTree = "<group>"; };
+		0C35EC141D506C160062AF99 /* WXAVPlayerControlTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXAVPlayerControlTopBar.m; sourceTree = "<group>"; };
+		0C35EC161D506C290062AF99 /* WXAVPlayerControlBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXAVPlayerControlBottomBar.h; sourceTree = "<group>"; };
+		0C35EC171D506C290062AF99 /* WXAVPlayerControlBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXAVPlayerControlBottomBar.m; sourceTree = "<group>"; };
+		0C35EC191D506C800062AF99 /* WXAVPlayerControlMainBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXAVPlayerControlMainBar.h; sourceTree = "<group>"; };
+		0C35EC1A1D506C800062AF99 /* WXAVPlayerControlMainBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXAVPlayerControlMainBar.m; sourceTree = "<group>"; };
+		0C35EC1C1D506D460062AF99 /* WXAVPlayerGestureControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXAVPlayerGestureControl.h; sourceTree = "<group>"; };
+		0C35EC1D1D506D460062AF99 /* WXAVPlayerGestureControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXAVPlayerGestureControl.m; sourceTree = "<group>"; };
+		0C35EC1F1D507CD30062AF99 /* TestVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVideoViewController.h; sourceTree = "<group>"; };
+		0C35EC201D507CD30062AF99 /* TestVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVideoViewController.m; sourceTree = "<group>"; };
+		0C35EC231D5090600062AF99 /* WXMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMoviePlayerViewController.h; sourceTree = "<group>"; };
+		0C35EC241D5090600062AF99 /* WXMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMoviePlayerViewController.m; sourceTree = "<group>"; };
+		0C35EC261D509E8D0062AF99 /* WXAVPlayerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXAVPlayerConfig.h; sourceTree = "<group>"; };
 		0C4014B01D3746C100F8827F /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		0C4014B31D37916700F8827F /* NSTimer+CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+CycleScrollView.h"; sourceTree = "<group>"; };
 		0C4014B41D37916700F8827F /* NSTimer+CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+CycleScrollView.m"; sourceTree = "<group>"; };
@@ -1721,6 +1740,13 @@
 			path = System;
 			sourceTree = "<group>";
 		};
+		0C35EC221D5090140062AF99 /* WXAVPlayerEHM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WXAVPlayerEHM;
+			sourceTree = "<group>";
+		};
 		0C4014B21D37916700F8827F /* NSTimerCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -2381,12 +2407,16 @@
 		0C91BB551D41F06400F2A925 /* WXPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				0C35EC221D5090140062AF99 /* WXAVPlayerEHM */,
 				0C9159E41D470EAB0045DA98 /* WXAVPlayerLoading */,
 				0C91BB591D41F08300F2A925 /* WXAVPlayerControl */,
 				0C91BB561D41F06400F2A925 /* WXAVPlayer.h */,
 				0C91BB571D41F06400F2A925 /* WXAVPlayer.m */,
 				0CDEE2A41D488A16008F880C /* WXMoviePlayerController.h */,
 				0CDEE2A51D488A16008F880C /* WXMoviePlayerController.m */,
+				0C35EC231D5090600062AF99 /* WXMoviePlayerViewController.h */,
+				0C35EC241D5090600062AF99 /* WXMoviePlayerViewController.m */,
+				0C35EC261D509E8D0062AF99 /* WXAVPlayerConfig.h */,
 			);
 			path = WXPlayer;
 			sourceTree = "<group>";
@@ -2396,6 +2426,14 @@
 			children = (
 				0C91BB5A1D41F0AD00F2A925 /* WXAVPlayerControl.h */,
 				0C91BB5B1D41F0AD00F2A925 /* WXAVPlayerControl.m */,
+				0C35EC191D506C800062AF99 /* WXAVPlayerControlMainBar.h */,
+				0C35EC1A1D506C800062AF99 /* WXAVPlayerControlMainBar.m */,
+				0C35EC131D506C160062AF99 /* WXAVPlayerControlTopBar.h */,
+				0C35EC141D506C160062AF99 /* WXAVPlayerControlTopBar.m */,
+				0C35EC161D506C290062AF99 /* WXAVPlayerControlBottomBar.h */,
+				0C35EC171D506C290062AF99 /* WXAVPlayerControlBottomBar.m */,
+				0C35EC1C1D506D460062AF99 /* WXAVPlayerGestureControl.h */,
+				0C35EC1D1D506D460062AF99 /* WXAVPlayerGestureControl.m */,
 			);
 			path = WXAVPlayerControl;
 			sourceTree = "<group>";
@@ -3728,6 +3766,8 @@
 			children = (
 				7B91C6431A3B2A5900394194 /* AppDelegate.h */,
 				7B91C6441A3B2A5900394194 /* AppDelegate.m */,
+				0C35EC1F1D507CD30062AF99 /* TestVideoViewController.h */,
+				0C35EC201D507CD30062AF99 /* TestVideoViewController.m */,
 				0CE198921D1CE96D003BB4AA /* LoadBigImage */,
 				0C80CBEF1D1A4D4600D75290 /* MediaData */,
 				0C80CB8E1D1A4ACD00D75290 /* Category */,
@@ -4060,6 +4100,7 @@
 				0C80CBE41D1A4ACD00D75290 /* UIImage+imageNamed_Hack.m in Sources */,
 				0C4014BE1D379DE500F8827F /* PaymentReceiptDetailViewController.m in Sources */,
 				0CA252F51D1D0ECA00482E9F /* Localisator.m in Sources */,
+				0C35EC1E1D506D460062AF99 /* WXAVPlayerGestureControl.m in Sources */,
 				0CC07BB61D45B361008C0CD1 /* ZXRSSExpandedCurrentParsingState.m in Sources */,
 				0CC07C0A1D45B361008C0CD1 /* ZXQRCode.m in Sources */,
 				0CC07C0E1D45B361008C0CD1 /* ZXQRCodeMatrixUtil.m in Sources */,
@@ -4067,6 +4108,7 @@
 				0CC07BC21D45B361008C0CD1 /* ZXRSS14Reader.m in Sources */,
 				0CEA73121C574C220020AB90 /* CycleScrollView.m in Sources */,
 				0CC07BF01D45B361008C0CD1 /* ZXPDF417.m in Sources */,
+				0C35EC211D507CD30062AF99 /* TestVideoViewController.m in Sources */,
 				0CC07B421D45B361008C0CD1 /* ZXAztecToken.m in Sources */,
 				0C043D041C4E42E70093410F /* SDWebImageManager.m in Sources */,
 				0C043CF91C4E42E70093410F /* AFURLConnectionOperation.m in Sources */,
@@ -4091,6 +4133,7 @@
 				0CC07B431D45B361008C0CD1 /* ZXAztecDetectorResult.m in Sources */,
 				0C7871991D3C9C7B00206FD2 /* FaceCreateGroupViewController.m in Sources */,
 				0CC07B621D45B361008C0CD1 /* ZXURIResultParser.m in Sources */,
+				0C35EC251D5090600062AF99 /* WXMoviePlayerViewController.m in Sources */,
 				0CC07BD71D45B361008C0CD1 /* ZXOneDimensionalCodeWriter.m in Sources */,
 				0C0414551D2657A2003CD82A /* SearchViewShowController.m in Sources */,
 				0CC07B4B1D45B361008C0CD1 /* ZXBookmarkDoCoMoResultParser.m in Sources */,
@@ -4183,6 +4226,7 @@
 				0C80CBEB1D1A4ACD00D75290 /* UIWindow+Motion.m in Sources */,
 				0CF911ED1C438A4100F33C89 /* TZPhotoPreviewCell.m in Sources */,
 				0C80CBDE1D1A4ACD00D75290 /* WJAsset.m in Sources */,
+				0C35EC181D506C290062AF99 /* WXAVPlayerControlBottomBar.m in Sources */,
 				0CC07BE41D45B361008C0CD1 /* ZXPDF417BarcodeMetadata.m in Sources */,
 				0CC07BA51D45B361008C0CD1 /* ZXMaxiCodeDecodedBitStreamParser.m in Sources */,
 				0CC07BAD1D45B361008C0CD1 /* ZXAI01392xDecoder.m in Sources */,
@@ -4267,6 +4311,7 @@
 				0CC07B701D45B361008C0CD1 /* ZXGenericGF.m in Sources */,
 				0CC07B441D45B361008C0CD1 /* ZXAztecReader.m in Sources */,
 				0CC07BD11D45B361008C0CD1 /* ZXEAN8Writer.m in Sources */,
+				0C35EC151D506C160062AF99 /* WXAVPlayerControlTopBar.m in Sources */,
 				0CC07C121D45B361008C0CD1 /* ZXQRCodeReader.m in Sources */,
 				0CBA102D1D2A34F8006ADF76 /* QunFaViewController.m in Sources */,
 				0C91BB751D420B9F00F2A925 /* TimelineMsgTypeImageCell.m in Sources */,
@@ -4353,6 +4398,7 @@
 				0C043CA41C4E35D80093410F /* SafePhotoView.m in Sources */,
 				0CB924111D3F829700B4105F /* SightViewController.m in Sources */,
 				0C043D001C4E42E70093410F /* SDWebImageCompat.m in Sources */,
+				0C35EC1B1D506C800062AF99 /* WXAVPlayerControlMainBar.m in Sources */,
 				0CAFD1051D34EE4B00C295D6 /* AboutWechatViewController.m in Sources */,
 				0CC07C0F1D45B361008C0CD1 /* ZXMultiDetector.m in Sources */,
 				0C80CBEE1D1A4B8900D75290 /* NSDateFormatter+Locale.m in Sources */,

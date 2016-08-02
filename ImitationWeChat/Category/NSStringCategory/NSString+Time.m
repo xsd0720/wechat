@@ -17,14 +17,14 @@
     NSDate *now = [NSDate date];
 
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
 
-    int year = [dateComponent year];
-    int month = [dateComponent month];
-    int day = [dateComponent day];
-    int hour = [dateComponent hour];
-    int minute = [dateComponent minute];
+    int year = (int)[dateComponent year];
+    int month = (int)[dateComponent month];
+    int day = (int)[dateComponent day];
+    int hour = (int)[dateComponent hour];
+    int minute = (int)[dateComponent minute];
 //    int second = [dateComponent second];
 
     NSString *str = [NSString stringWithFormat:@"%i年%i月%i日\n%i:%i", year, month, day, hour,minute];
@@ -37,12 +37,12 @@
     NSDate *now = [NSDate dateWithTimeIntervalSince1970:s.doubleValue];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
     
-    int year = [dateComponent year];
-    int month = [dateComponent month];
-    int day = [dateComponent day];
+    int year = (int)[dateComponent year];
+    int month = (int)[dateComponent month];
+    int day = (int)[dateComponent day];
     double hour = [dateComponent hour];
     double minute = [dateComponent minute];
     

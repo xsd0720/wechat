@@ -87,62 +87,75 @@ static void *AVPlayerPlaybackLikelyToKeepUpObservationContext = &AVPlayerPlaybac
 #pragma mark -
 #pragma mark -- set method group
 
-/**
- *  播放器控制层
- */
-- (void)setMPlayerItem:(AVPlayerItem *)mPlayerItem
-{
-    _mPlayerItem = mPlayerItem;
-    
-    //mPlayerItem 准备播放时, 监听AVPlayerItem "status" 属性
-    [self.mPlayerItem addObserver:self
-                       forKeyPath:@"status"
-                          options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
-                          context:AVPlayerStatusObservationContext];
-    
-    
-//    [self.mPlayerItem addObserver:self
-//                       forKeyPath:@"playbackBufferEmpty"
-//                          options:NSKeyValueObservingOptionNew
-//                          context:AVPlayerPlaybackBufferEmptyObservationContext];
+///**
+// *  播放器控制层
+// */
+//- (void)setMPlayerItem:(AVPlayerItem *)mPlayerItem
+//{
+//    _mPlayerItem = mPlayerItem;
 //    
+//    //mPlayerItem 准备播放时, 监听AVPlayerItem "status" 属性
 //    [self.mPlayerItem addObserver:self
-//                       forKeyPath:@"playbackBufferFull"
-//                          options:NSKeyValueObservingOptionNew
-//                          context:AVPlayerPlaybackBufferFullObservationContext];
+//                       forKeyPath:@"status"
+//                          options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+//                          context:AVPlayerStatusObservationContext];
 //    
-//    [self.mPlayerItem addObserver:self
-//                       forKeyPath:@"playbackLikelyToKeepUp"
-//                          options:NSKeyValueObservingOptionNew
-//                          context:AVPlayerPlaybackLikelyToKeepUpObservationContext];
-    
-//    //监听缓冲进度
-//    [self.mPlayerItem addObserver:self
-//                     forKeyPath:@"loadedTimeRanges"
-//                        options:NSKeyValueObservingOptionNew
-//                        context:AVPlayerloadedTimeRangesObservationContext];
-
-
-    
-    
-}
+//    
+////    [self.mPlayerItem addObserver:self
+////                       forKeyPath:@"playbackBufferEmpty"
+////                          options:NSKeyValueObservingOptionNew
+////                          context:AVPlayerPlaybackBufferEmptyObservationContext];
+////    
+////    [self.mPlayerItem addObserver:self
+////                       forKeyPath:@"playbackBufferFull"
+////                          options:NSKeyValueObservingOptionNew
+////                          context:AVPlayerPlaybackBufferFullObservationContext];
+////    
+////    [self.mPlayerItem addObserver:self
+////                       forKeyPath:@"playbackLikelyToKeepUp"
+////                          options:NSKeyValueObservingOptionNew
+////                          context:AVPlayerPlaybackLikelyToKeepUpObservationContext];
+//    
+////    //监听缓冲进度
+////    [self.mPlayerItem addObserver:self
+////                     forKeyPath:@"loadedTimeRanges"
+////                        options:NSKeyValueObservingOptionNew
+////                        context:AVPlayerloadedTimeRangesObservationContext];
+//
+//
+//    
+//    
+//}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+
+        _button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button setTitle:@"播放控件的样式。默认为WXMovieControlStyleDefault。" forState:UIControlStateNormal];
+        _button.backgroundColor = [UIColor darkGrayColor];
+        _button.titleLabel.font = [UIFont systemFontOfSize:13];
+        [_button addTarget:self action:@selector(abc) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_button];
         
-        NSError *error;
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:&error];
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
-        
-        //播放器载体
-        [self.layer addSublayer:self.mAVPlayerLayer];
-        
-        //添加自定义控制层
-        [self addSubview:self.mAVPlayerControl];
+//        NSError *error;
+//        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:&error];
+//        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+//        
+//        //播放器载体
+//        [self.layer addSublayer:self.mAVPlayerLayer];
+//        
+//        //添加自定义控制层
+//        [self addSubview:self.mAVPlayerControl];
     }
     return self;
+}
+
+- (void)abc
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜获得二等奖" delegate:nil cancelButtonTitle:@"晓得了" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)setContentURL:(NSURL *)contentURL
@@ -150,9 +163,7 @@ static void *AVPlayerPlaybackLikelyToKeepUpObservationContext = &AVPlayerPlaybac
     if (! [_contentURL isEqual:contentURL] && contentURL)
     {
         _contentURL = contentURL;
-        
-        
-//        self.wxAVPlayerLoading.c
+
         
         //创建 asset 加载 url 对应资源,创建缓存关键字
         AVURLAsset *asset = [AVURLAsset URLAssetWithURL:_contentURL options:nil];
@@ -221,8 +232,6 @@ static void *AVPlayerPlaybackLikelyToKeepUpObservationContext = &AVPlayerPlaybac
         
         [self.mAVPlayerLayer setPlayer:self.mAVPlayer];
     }
-
-    [self.mAVPlayer seekToTime:CMTimeMakeWithSeconds(5, NSEC_PER_SEC)];
 }
 
 
@@ -287,8 +296,6 @@ static void *AVPlayerPlaybackLikelyToKeepUpObservationContext = &AVPlayerPlaybac
                 //未知原因无法正常播放
             case AVPlayerItemStatusUnknown:
             {
-//                [self.mAVPlayer seekToTime:CMTimeMakeWithSeconds(0.1, NSEC_PER_SEC)];
-//                [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(availableDuration) userInfo:nil repeats:YES];
                 
             }
                 break;
@@ -416,7 +423,9 @@ static void *AVPlayerPlaybackLikelyToKeepUpObservationContext = &AVPlayerPlaybac
     }
 }
 
-
+/**
+ *  静音
+ */
 - (void)audioMute
 {
     if (self.mPlayerItem) {
@@ -435,9 +444,21 @@ static void *AVPlayerPlaybackLikelyToKeepUpObservationContext = &AVPlayerPlaybac
     }
 }
 
+
+/**
+ *  恢复声音
+ */
 - (void)audioNormal
 {
     [self.mPlayerItem setAudioMix:nil];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.button.frame = CGRectMake(0, 100, CGRectGetMaxX(self.bounds), 60);
+    self.button.centerY = CGRectGetMaxY(self.bounds)/2;
 }
 
 @end

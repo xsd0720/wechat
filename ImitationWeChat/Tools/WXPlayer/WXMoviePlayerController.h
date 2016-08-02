@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, WXMovieScalingMode) {
     WXMovieScalingModeAspectFit,  // Uniform scale until one dimension fits
     WXMovieScalingModeAspectFill, // Uniform scale until the movie fills the visible bounds. One dimension may have clipped contents
     WXMovieScalingModeFill        // Non-uniform scale. Both render dimensions will exactly match the visible bounds
-} NS_DEPRECATED_IOS(2_0, 9_0) __TVOS_PROHIBITED;
+} ;
 
 typedef NS_ENUM(NSInteger, WXMoviePlaybackState) {
     WXMoviePlaybackStateStopped,
@@ -23,19 +23,19 @@ typedef NS_ENUM(NSInteger, WXMoviePlaybackState) {
     WXMoviePlaybackStateInterrupted,
     WXMoviePlaybackStateSeekingForward,
     WXMoviePlaybackStateSeekingBackward
-} NS_DEPRECATED_IOS(3_2, 9_0) __TVOS_PROHIBITED;
+} ;
 
 typedef NS_OPTIONS(NSUInteger, WXMovieLoadState) {
     WXMovieLoadStateUnknown        = 0,
     WXMovieLoadStatePlayable       = 1 << 0,
     WXMovieLoadStatePlaythroughOK  = 1 << 1, // Playback will be automatically started in this state when shouldAutoplay is YES
     WXMovieLoadStateStalled        = 1 << 2, // Playback will be automatically paused in this state, if started
-} NS_DEPRECATED_IOS(3_2, 9_0) __TVOS_PROHIBITED;
+} ;
 
 typedef NS_ENUM(NSInteger, WXMovieRepeatMode) {
     WXMovieRepeatModeNone,
     WXMovieRepeatModeOne
-} NS_DEPRECATED_IOS(3_2, 9_0) __TVOS_PROHIBITED;
+} ;
 
 typedef NS_ENUM(NSInteger, WXMovieControlStyle) {
     WXMovieControlStyleNone,       // No controls
@@ -43,13 +43,13 @@ typedef NS_ENUM(NSInteger, WXMovieControlStyle) {
     WXMovieControlStyleFullscreen, // Controls for fullscreen playback
     
     WXMovieControlStyleDefault = WXMovieControlStyleEmbedded
-} NS_DEPRECATED_IOS(3_2, 9_0) __TVOS_PROHIBITED;
+} ;
 
 typedef NS_ENUM(NSInteger, WXMovieFinishReason) {
     WXMovieFinishReasonPlaybackEnded,
     WXMovieFinishReasonPlaybackError,
     WXMovieFinishReasonUserExited
-} NS_DEPRECATED_IOS(3_2, 9_0) __TVOS_PROHIBITED;
+} ;
 
 // -----------------------------------------------------------------------------
 // Movie Property Types
@@ -58,19 +58,28 @@ typedef NS_OPTIONS(NSUInteger, WXMovieMediaTypeMask) {
     WXMovieMediaTypeMaskNone  = 0,
     WXMovieMediaTypeMaskVideo = 1 << 0,
     WXMovieMediaTypeMaskAudio = 1 << 1
-} NS_DEPRECATED_IOS(3_2, 9_0) __TVOS_PROHIBITED;
+} ;
 
 typedef NS_ENUM(NSInteger, WXMovieSourceType) {
     WXMovieSourceTypeUnknown,
     WXMovieSourceTypeFile,     // Local or progressively downloaded network content
     WXMovieSourceTypeStreaming // Live or on-demand streaming content
-} NS_DEPRECATED_IOS(3_2, 9_0) __TVOS_PROHIBITED;
+} ;
+
+
+typedef NS_OPTIONS(NSUInteger, WXMovieControlShowOptions) {
+    WXMovieControlShowNone       = 1 << 0,
+    WXMovieControlShowBottomBar    = 1 << 1,
+    WXMovieControlShowMainBar      = 1 << 2,
+    WXMovieControlShowTopBar         = 1 << 3,
+    WXMovieControlShowAll         = 1 << 4,
+} ;
 
 
 
 @interface WXMoviePlayerController : NSObject
 
-- (instancetype)initWithContentURL:(NSURL *)url NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithContentURL:(NSURL *)url;
 
 @property (nonatomic, copy) NSURL *contentURL;
 
@@ -88,6 +97,9 @@ typedef NS_ENUM(NSInteger, WXMovieSourceType) {
 
 // The style of the playback controls. Defaults to WXMovieControlStyleDefault.
 @property (nonatomic) WXMovieControlStyle controlStyle;
+
+//The show option of the playback controls. Defaults to WXMovieControlShowNone.
+@property (nonatomic) WXMovieControlShowOptions controlShowOptions;
 
 // Determines how the movie player repeats when reaching the end of playback. Defaults to WXMovieRepeatModeNone.
 @property (nonatomic) WXMovieRepeatMode repeatMode;
@@ -107,5 +119,5 @@ typedef NS_ENUM(NSInteger, WXMovieSourceType) {
 // Will remain NO for items that do not have video tracks associated.
 @property (nonatomic, readonly) BOOL readyForDisplay NS_AVAILABLE_IOS(6_0);
 
-
 @end
+

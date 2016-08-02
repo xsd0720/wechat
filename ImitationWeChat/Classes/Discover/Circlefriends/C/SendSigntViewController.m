@@ -105,6 +105,9 @@
                                              selector:@selector(playerItemDidReachEnd:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:self.mPlayerItem];
+    
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

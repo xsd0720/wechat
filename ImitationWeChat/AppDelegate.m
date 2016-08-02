@@ -18,6 +18,7 @@
 #import "WelcomeViewController.h"
 #import "PreLoadTool.h"
 #import "LocalManager.h"
+#import "TestVideoViewController.h"
 #define APPID_VALUE           @"569364d0"
 
 
@@ -35,7 +36,7 @@
 //    [self loadXunFei];
     
     //加载windows rootViewController
-    [self loadWindow];
+    [self loadTestWindow];
     
 //    [TopWindow show];
     
@@ -88,6 +89,20 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
 }
+
+- (void)loadTestWindow
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+
+    self.window.rootViewController = [[TestVideoViewController alloc] init];
+
+    
+    [self.window makeKeyAndVisible];
+}
+
 - (void)loadXunFei
 {
     //设置sdk的log等级，log保存在下面设置的工作路径中
@@ -111,6 +126,11 @@
     //所有服务启动前，需要确保执行createUtility
 #pragma message "'createUtility' should be call before any business using."
     [IFlySpeechUtility createUtility:initString];
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -200,6 +200,8 @@ static  NSString *remoteNotificationStatus = @"remoteNotificationStatus";
     }
     else
     {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wimplicit-function-declaration"
         UIRemoteNotificationType type = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
         int typeBadge = (type & UIRemoteNotificationTypeBadge);
         int typeSound = (type & UIRemoteNotificationTypeSound);
@@ -207,6 +209,8 @@ static  NSString *remoteNotificationStatus = @"remoteNotificationStatus";
         BOOL ret =  typeBadge || typeSound || typeAlert;
         
         return ret;
+        
+        #pragma clang diagnostic pop
     }
 }
 

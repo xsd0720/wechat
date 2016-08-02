@@ -45,6 +45,8 @@
 @property (nonatomic, strong) NSURL             *contentURL;
 
 
+@property (nonatomic, strong) UIButton *button;
+
 - (void)play;
 
 - (void)pause;

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WXAVPlayerControlTopBar.h"
+#import "WXAVPlayerControlMainBar.h"
+#import "WXAVPlayerControlBottomBar.h"
 @interface WXAVPlayerControl : UIView
+
+
 
 @end

@@ -23,4 +23,5 @@
 #import "PublicDefine.h"
 #import "PublicHeader.h"
 #import "PublicNetwork.h"
+#import "WXAVPlayerConfig.h"
 #endif

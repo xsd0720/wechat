@@ -95,6 +95,12 @@ static float QRBorderMarginTop = 80.f;
 {
     //  系统相册
     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+//    {
+//        // Only movie
+//        NSArray* availableMedia = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+//        self.imagePickerController.mediaTypes = [NSArray arrayWithObject:availableMedia[1]];
+//    }
     [self presentViewController:self.imagePickerController animated:YES completion:^{
     }];
 }

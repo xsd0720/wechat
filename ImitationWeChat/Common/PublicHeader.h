@@ -25,4 +25,5 @@ static const char associatedkey;
 #import "UIImage+Category.h"
 #import "NSString+md5.h"
 #import "UIView+SubView.h"
+#import "NSObject+MovieAttributes.h"
 #endif

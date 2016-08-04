@@ -7,15 +7,27 @@
 //
 
 #import "TestVideoViewController.h"
-
+#import "GPUImage.h"
 #import "WXMoviePlayerController.h"
-
+#import <AssetsLibrary/AssetsLibrary.h>
 @interface TestVideoViewController ()
+{
+    
+    GPUImageMovie *_movieFile;
+    GPUImageOutput<GPUImageInput> *_filter;
+    GPUImageMovieWriter *_movieWriter;
+ 
+}
 
+@property (retain, nonatomic) GPUImageMovie *movieFile;
+@property (retain, nonatomic) GPUImageOutput<GPUImageInput> *filter;
+@property (retain, nonatomic) GPUImageMovieWriter *movieWriter;
 @end
 
 @implementation TestVideoViewController
-
+@synthesize movieFile = _movieFile;
+@synthesize filter = _filter;
+@synthesize movieWriter = _movieWriter;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -32,7 +44,8 @@
     WXMoviePlayerController *wxMovide = [[WXMoviePlayerController alloc] initWithContentURL:nil];
     wxMovide.view.frame = CGRectMake(0, 0, 320, 180);
     [self.view addSubview:wxMovide.view];
-    
+
+
 }
 
 

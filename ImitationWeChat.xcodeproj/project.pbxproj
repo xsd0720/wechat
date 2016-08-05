@@ -71,6 +71,7 @@
 		0C61D4BA1C449842007547FE /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4B91C449842007547FE /* IATConfig.m */; };
 		0C61D4C01C44A06C007547FE /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4BF1C44A06C007547FE /* ISRDataHelper.m */; };
 		0C61D4C61C44C04A007547FE /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61D4C51C44C04A007547FE /* KxMenu.m */; };
+		0C668B5F1D530069000FC15A /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C668B5E1D530069000FC15A /* GPUImageBeautifyFilter.m */; };
 		0C6935CF1D519D0C005C42E0 /* NSObject+MovieAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6935CE1D519D0C005C42E0 /* NSObject+MovieAttributes.m */; };
 		0C6CA7951D335FE30003B88A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA78F1D335FE30003B88A /* SettingViewController.m */; };
 		0C6CA7991D336F150003B88A /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CA7981D336F150003B88A /* SystemManager.m */; };
@@ -910,6 +911,8 @@
 		0C61D4BF1C44A06C007547FE /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
 		0C61D4C41C44C04A007547FE /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		0C61D4C51C44C04A007547FE /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		0C668B5D1D530069000FC15A /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
+		0C668B5E1D530069000FC15A /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
 		0C6935CD1D519D0C005C42E0 /* NSObject+MovieAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MovieAttributes.h"; sourceTree = "<group>"; };
 		0C6935CE1D519D0C005C42E0 /* NSObject+MovieAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MovieAttributes.m"; sourceTree = "<group>"; };
 		0C6CA78E1D335FE30003B88A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -4396,6 +4399,8 @@
 				0CD088D31D51C1700035DA43 /* GPUImageMissEtikateFilter.m */,
 				0CD088D41D51C1700035DA43 /* GPUImageMonochromeFilter.h */,
 				0CD088D51D51C1700035DA43 /* GPUImageMonochromeFilter.m */,
+				0C668B5D1D530069000FC15A /* GPUImageBeautifyFilter.h */,
+				0C668B5E1D530069000FC15A /* GPUImageBeautifyFilter.m */,
 				0CD088D61D51C1700035DA43 /* GPUImageMosaicFilter.h */,
 				0CD088D71D51C1700035DA43 /* GPUImageMosaicFilter.m */,
 				0CD088D81D51C1700035DA43 /* GPUImageMotionBlurFilter.h */,
@@ -5449,6 +5454,7 @@
 				0CD089FE1D51C1700035DA43 /* GPUImageHistogramFilter.m in Sources */,
 				0CC07B771D45B361008C0CD1 /* ZXBoolArray.m in Sources */,
 				0CD089CE1D51C1700035DA43 /* GPUImageBrightnessFilter.m in Sources */,
+				0C668B5F1D530069000FC15A /* GPUImageBeautifyFilter.m in Sources */,
 				0CC07B9F1D45B361008C0CD1 /* ZXDataMatrixSymbolInfo144.m in Sources */,
 				0CC07BF51D45B361008C0CD1 /* ZXPDF417HighLevelEncoder.m in Sources */,
 				0CD08A371D51C1700035DA43 /* GPUImageSaturationBlendFilter.m in Sources */,
@@ -5923,6 +5929,7 @@
 					"$(PROJECT_DIR)/ImitationWeChat",
 					"$(PROJECT_DIR)/ImitationWeChat/Frameworks",
 				);
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ImitationWeChat/ImitationWeChat-Prefix.pch";
 				INFOPLIST_FILE = ImitationWeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -5943,6 +5950,7 @@
 					"$(PROJECT_DIR)/ImitationWeChat",
 					"$(PROJECT_DIR)/ImitationWeChat/Frameworks",
 				);
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ImitationWeChat/ImitationWeChat-Prefix.pch";
 				INFOPLIST_FILE = ImitationWeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

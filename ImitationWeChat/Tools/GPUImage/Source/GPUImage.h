@@ -33,6 +33,7 @@
 
 // Filters
 #import "GPUImageFilter.h"
+#import "GPUImageBeautifyFilter.h" //美颜磨皮
 #import "GPUImageTwoInputFilter.h"
 #import "GPUImagePixellateFilter.h"
 #import "GPUImagePixellatePositionFilter.h"
@@ -75,7 +76,7 @@
 #import "GPUImageSaturationBlendFilter.h"
 #import "GPUImageLuminosityBlendFilter.h"
 #import "GPUImageCropFilter.h"
-#import "GPUImageGrayscaleFilter.h"
+#import "GPUImageGrayscaleFilter.h"  //灰度化
 #import "GPUImageTransformFilter.h"
 #import "GPUImageChromaKeyBlendFilter.h"
 #import "GPUImageHazeFilter.h"

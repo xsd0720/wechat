@@ -262,8 +262,8 @@ static CGFloat USERFACESIZE = 75.0f;
         {
             NSLog(@"从手机相册选择");
             _tzImagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
-            _tzImagePickerController.allowPickingVideo = NO;
-            _tzImagePickerController.allowPickingOriginalPhoto = NO;
+//            _tzImagePickerController.allowPickingVideo = NO;
+//            _tzImagePickerController.allowPickingOriginalPhoto = NO;
             _tzImagePickerController.delegate = self;
             [self presentViewController:_tzImagePickerController animated:YES completion:nil];
             

@@ -36,8 +36,8 @@
 //    [self loadXunFei];
     
     //加载windows rootViewController
-    [self loadTestWindow];
-    
+//    [self loadTestWindow];
+    [self loadWindow];
 //    [TopWindow show];
     
     return YES;

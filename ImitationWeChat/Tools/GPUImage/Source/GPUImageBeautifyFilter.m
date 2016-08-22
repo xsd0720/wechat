@@ -68,6 +68,15 @@ NSString *const kGPUImageBeautifyFragmentShaderString = SHADER_STRING
 
 @end
 
+@interface GPUImageBeautifyFilter()
+{
+    GPUImageBilateralFilter *bilateralFilter;
+    GPUImageCannyEdgeDetectionFilter *cannyEdgeFilter;
+    GPUImageCombinationFilter *combinationFilter;
+    GPUImageHSBFilter *hsbFilter;
+}
+@end
+
 @implementation GPUImageBeautifyFilter
 
 - (id)init;

@@ -10,10 +10,10 @@
 
 
 typedef NS_ENUM(NSInteger, WXMovieScalingMode) {
-    WXMovieScalingModeNone,       // No scaling
-    WXMovieScalingModeAspectFit,  // Uniform scale until one dimension fits
-    WXMovieScalingModeAspectFill, // Uniform scale until the movie fills the visible bounds. One dimension may have clipped contents
-    WXMovieScalingModeFill        // Non-uniform scale. Both render dimensions will exactly match the visible bounds
+    WXMovieScalingModeNone          = 1 << 0,       // No scaling
+    WXMovieScalingModeAspectFit     = 1 << 1,  // Uniform scale until one dimension fits
+    WXMovieScalingModeAspectFill    = 1 << 2, // Uniform scale until the movie fills the visible bounds. One dimension may have clipped contents
+    WXMovieScalingModeFill          = 1 << 3, // Non-uniform scale. Both render dimensions will exactly match the visible bounds
 } ;
 
 typedef NS_ENUM(NSInteger, WXMoviePlaybackState) {
@@ -68,11 +68,11 @@ typedef NS_ENUM(NSInteger, WXMovieSourceType) {
 
 
 typedef NS_OPTIONS(NSUInteger, WXMovieControlShowOptions) {
-    WXMovieControlShowNone       = 1 << 0,
-    WXMovieControlShowBottomBar    = 1 << 1,
-    WXMovieControlShowMainBar      = 1 << 2,
-    WXMovieControlShowTopBar         = 1 << 3,
-    WXMovieControlShowAll         = 1 << 4,
+    WXMovieControlShowNone          = 1 << 0,
+    WXMovieControlShowBottomBar     = 1 << 1,
+    WXMovieControlShowMainBar       = 1 << 2,
+    WXMovieControlShowTopBar        = 1 << 3,
+    WXMovieControlShowAll           = 1 << 4,
 } ;
 
 

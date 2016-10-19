@@ -11,50 +11,17 @@
 //网络状况监测枚举
 typedef NS_ENUM(NSInteger, NetworkReachableStatus) {
     //未知
-    NetworkReachableStatusUnknown       =-1,
+    NetworkReachableStatusUnknown       = 1 << 0,
     
     //无网络
-    NetworkReachableStatusNotReachable  =0,
+    NetworkReachableStatusNotReachable  = 1 << 1,
     
     //无线网络
-    NetworkReachableStatusViaWWAN       =1,
+    NetworkReachableStatusViaWWAN       = 1 << 2,
     
     //Wifi
-    NetworkReachableStatusViaWifi       =2,
+    NetworkReachableStatusViaWifi       = 1 << 3,
 };
-
-typedef NS_ENUM(NSInteger, BannerType) {
-    
-    //无状态
-    BannerType_null  = 0,
-    //商品详情
-    BannerType_goods  = 1,
-    //视频
-    BannerType_media = 2,
-    //是自媒体人
-    BannerType_media_rofile = 3,
-    //店铺
-    BannerType_shop = 4,
-    //评论(自媒体人回复了评论)
-    BannerType_comment = 5,
-    //聚合
-    BannerType_goods_and_media = 6,
-    //html
-    BannerType_html = 7,
-    
-    //评论
-    BannerType_reply = 8,
-    
-    //9为评论被赞
-    BannerType_agree = 9,
-    
-    //10为QA里面被@
-    BannerType_be_at = 10,
-    
-    //11
-    BannerType_official = 11
-};
-
 
 /**
  *  七牛图片上传成功回调

@@ -9,8 +9,8 @@
 #import "BaseViewController.h"
 
 typedef NS_ENUM(NSInteger, MoneyType) {
-    MoneyTypePay,
-    MoneyTypeReceive,
+    MoneyTypePay       = 1 << 0,
+    MoneyTypeReceive   = 1 << 1,
 };
 
 @interface PaymentReceiptDetailViewController : BaseViewController

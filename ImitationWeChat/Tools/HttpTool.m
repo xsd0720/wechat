@@ -43,12 +43,7 @@ static const char associatedkey;
     success:(HttpToolSuccessBlock)success
     failure:(HttpToolFailBlock)failure{
     
-//    NSString *str = [[ErrorTool sharedTool]getHttpHead];
-    
-    //    if ([URLString isEqualToString:GetQaURL] || [URLString isEqualToString:GetQaCommentURL]) {
-    //        str = @"http://123.57.207.48";
-    //    }
-    
+
     //拼接完整请求链接
     URLString = [NSString stringWithFormat:@"%@%@", HttpHead , URLString ];
     
@@ -83,25 +78,9 @@ static const char associatedkey;
                         [appdelegate logout];
                     
                     }
-//                         UIViewController *controller = KEY_WINDOW.rootViewController.presentedViewController;
-//                         Log(@"%@",controller);
-//                         
-//                         if (status_code == 9) {
-////                             [MBProgressHUD showError:@"用户信息过期，请重新登录"];
-//                         }else{
-////                             [MBProgressHUD showError:@"用户信息过期，请重新登录"];
-//                         }
-//                         
-//                         [[LocalManager sharedManager]logOut];
-//                         [[LocalManager sharedManager] save];
-//                     }
-//                     
+ 
                      NSString *domain = [responseObject objectForKey:@"status"];
-//
-//                     if ([NSString isBlankString:domain]) {
-//                         domain = @"";
-//                     }
-//                     
+                  
                      NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"status_code"] intValue] userInfo:nil];
                      //状态失败，返回错误信息和错误代码
                      failure(error);
@@ -176,29 +155,7 @@ static const char associatedkey;
                       
                       //如果返回9 则退出登录
                       if ( (status_code == 9) || (status_code == 1) ) {
-                        
-//                          UIViewController *controller = KEY_WINDOW.rootViewController.presentedViewController;
-//                          Log(@"%@",controller);
-//                          
-//                          if (status_code == 9) {
-//                              [MBProgressHUD showError:@"用户信息过期，请重新登录"];
-//                          }else{
-//                              [MBProgressHUD showError:@"用户信息过期，请重新登录"];
-//                          }
-//                          
-//                          //                         NavigationController *nav = KEY_WINDOW.rootViewController.childViewControllers[0];
-//                          //
-//                          //                          UIViewController *viewcontroller = nav.viewControllers[nav.viewControllers.count-1];
-//                          //
-//                          //
-//                          //                          //如果已经推出了个人也 则把个人页拉下来
-//                          //                          if (KEY_WINDOW.rootViewController.presentedViewController && [viewcontroller isKindOfClass:[PersonalDataViewController class]]) {
-//                          //                              [viewcontroller.navigationController popViewControllerAnimated:YES];
-//                          //                          }
-//                          
-//                          [[LocalManager sharedManager]logOut];
-//                          [[LocalManager sharedManager]save];
-                          
+      
                           AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                           [appdelegate logout];
                       }
@@ -209,15 +166,11 @@ static const char associatedkey;
                       NSLog(@"%@", domain);
                       
                       [getWindow makeToast:domain];
-                      
-//                      if ([NSString isBlankString:domain]) {
-//                          domain = @"";
-//                      }
+
                       
                       NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"status_code"] intValue] userInfo:nil];
-                      
-                      //状态失败，返回错误信息和错误代码
-                      NSLog(@"%@😄😄😄😄😄😄😄😄", responseObject);
+            
+  
                       failure(error);
                   }
                   
@@ -226,8 +179,7 @@ static const char associatedkey;
               {
                   //无数据返回，返回错误信息
                   NSError *error = [NSError errorWithDomain:@"no data result" code:0 userInfo:nil];
-                  NSLog(@"%@😢😢😢😢😢😢😢😢😢", [error description]);
-                 
+      
                   failure(error);
               }
               

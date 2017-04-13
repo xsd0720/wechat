@@ -30,10 +30,10 @@
     LoginParam *loginParam = [[LoginParam alloc] init];
     
     //手机号
-    loginParam.mobile = mobile;
+    loginParam.name = mobile;
     
     //密码(md5加密)
-    loginParam.password = [password md5HexDigest];
+    loginParam.pwd = [password md5HexDigest];
     
     //设备uuid
     //    loginParam.uuid = [System UUID];

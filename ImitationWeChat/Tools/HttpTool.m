@@ -146,7 +146,7 @@ static const char associatedkey;
               //判断是否有数据
               if(responseObject){
                   //判断请求状态是否成功
-                  if ([[responseObject objectForKey:@"status"] isEqualToString:@"OK"]) {
+                  if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"]) {
                       success(responseObject);
                   }
                   else

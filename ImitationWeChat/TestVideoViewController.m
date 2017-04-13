@@ -19,6 +19,7 @@
  
 }
 
+    
 @property (retain, nonatomic) GPUImageMovie *movieFile;
 @property (retain, nonatomic) GPUImageOutput<GPUImageInput> *filter;
 @property (retain, nonatomic) GPUImageMovieWriter *movieWriter;

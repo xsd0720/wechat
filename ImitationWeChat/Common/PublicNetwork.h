@@ -16,18 +16,10 @@
 
 #ifdef DEBUG
 
-#define HttpHead            @"http://192.168.20.247:8000"
+#define HttpHead            @"http://bxu2359600252.my3w.com/wechat/public/index.php"
 
-//#define HttpHead             @"182.92.23.2"
-
-#define ShareHttpHead        @"http://lilslb.com"
 
 #else
-
-//#define HttpHead             @"182.92.23.2"
-#define HttpHead            @"123.57.207.48"
-
-#define ShareHttpHead        @"http://lilslb.com"
 
 #endif
 

@@ -141,7 +141,8 @@
         [appdelegate loginIn];
     
     } failure:^(NSError *error) {
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:@"error" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        [alert show];
     }];
 }
 

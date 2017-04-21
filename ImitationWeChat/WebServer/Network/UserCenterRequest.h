@@ -54,6 +54,12 @@
                      success:(RequestsnsSuccessBlock)success
                      failure:(HttpToolFailBlock)failure;
 
+/**
+ *  查看验证码
+ */
++ (void)toukan:(NSString *)mobile
+                     success:(HttpToolSuccessBlock)success
+                     failure:(HttpToolFailBlock)failure;
 
 //验证验证码
 + (void)checkvcodeWithMobile:(NSString *)mobile

@@ -46,7 +46,6 @@
     
     [self configSuperTableData];
   
-   
     
 }
 
@@ -84,9 +83,18 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChanged:) name:UITextFieldTextDidChangeNotification object:nil];
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [UserCenterRequest toukan:self.mobile success:^(NSDictionary *responsObject) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"验证码" message:responsObject[@"data"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+        [alert show];
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (void)configTime
 {
+
     
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 30)];
     self.timeLabel.textColor = RGB(117, 118, 119);

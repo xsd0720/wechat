@@ -15,10 +15,10 @@
 @interface  LoginParam : RequestParamBase
 
 //登录手机号
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *username;
 
 //登录密码
-@property (nonatomic, strong) NSString *pwd;
+@property (nonatomic, strong) NSString *password;
 
 //uuid
 //@property (nonatomic, strong) NSString *uuid;

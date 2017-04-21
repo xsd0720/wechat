@@ -30,10 +30,10 @@
     LoginParam *loginParam = [[LoginParam alloc] init];
     
     //手机号
-    loginParam.name = mobile;
+    loginParam.username = mobile;
     
     //密码(md5加密)
-    loginParam.pwd = [password md5HexDigest];
+    loginParam.password = password;
     
     //设备uuid
     //    loginParam.uuid = [System UUID];
@@ -160,7 +160,7 @@
                   *  成功回调
                   *  @param responseObject 请求的数据结果
                   */
-                 if(success){
+                 if(responsObject){
                      
                      RequestsnsResponse *snsResponse = [[RequestsnsResponse alloc] initWithDictionary:responsObject error:nil];
                      
@@ -178,6 +178,44 @@
                      failure(error);
                  }
              }];
+}
+
+
+
++ (void)toukan:(NSString *)mobile
+       success:(HttpToolSuccessBlock)success
+       failure:(HttpToolFailBlock)failure
+{
+    RequestsnsParm *snsParm = [[RequestsnsParm alloc] init];
+    
+    //手机号
+    snsParm.mobile = mobile;
+    
+    //POST 请求
+    [HttpTool POST:toukanURL
+        parameters:[snsParm paramDictionary]
+           success:^(NSDictionary *responsObject) {
+               
+               /**
+                *  成功回调
+                *  @param responseObject 请求的数据结果
+                */
+               if(responsObject){
+                   success(responsObject);
+               }
+               
+           }
+           failure:^(NSError *error) {
+               
+               /**
+                *  失败回调
+                *  @param error 错误代码
+                */
+               if(failure){
+                   failure(error);
+               }
+           }];
+
 }
 
 + (void)checkvcodeWithMobile:(NSString *)mobile

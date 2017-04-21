@@ -16,8 +16,8 @@
 
 #ifdef DEBUG
 
-#define HttpHead            @"http://bxu2359600252.my3w.com/wechat/public/index.php"
-
+//#define HttpHead            @"http://bxu2359600252.my3w.com/wechat/public/index.php/mobileapi"
+#define HttpHead            @"http://192.168.20.218/wechat/public/index.php/mobileapi"
 
 #else
 
@@ -71,6 +71,11 @@
  *  发送验证码
  */
 #define RequestsnsURL         @"/account/requestsns"
+
+/**
+ *  偷看验证码
+ */
+#define toukanURL         @"/account/toukan"
 
 /**
  *  验证验证码

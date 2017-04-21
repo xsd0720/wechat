@@ -134,15 +134,13 @@
 {
     [UserCenterRequest loginWithMobile:self.accountString password:self.passwordString success:^(LoginResponse *responsObject) {
 
-        
         [self.view removeFromSuperview];
         [self removeFromParentViewController];
         AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [appdelegate loginIn];
     
     } failure:^(NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:@"error" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
-        [alert show];
+        
     }];
 }
 

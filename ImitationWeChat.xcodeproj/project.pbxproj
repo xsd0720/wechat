@@ -4989,8 +4989,8 @@
 				TargetAttributes = {
 					7B91C63B1A3B2A5900394194 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = U7ZS2JEVUH;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = S5N3E58Y68;
+						ProvisioningStyle = Automatic;
 					};
 					7B91C6541A3B2A5A00394194 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -5924,8 +5924,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = U7ZS2JEVUH;
+				DEVELOPMENT_TEAM = S5N3E58Y68;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5936,9 +5938,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ImitationWeChat/ImitationWeChat-Prefix.pch";
 				INFOPLIST_FILE = ImitationWeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faiwong.ImitationWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "644c59d7-db70-4d60-9512-1d2ab76d9e12";
-				PROVISIONING_PROFILE_SPECIFIER = lilworldDevelopment;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -5948,8 +5951,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = U7ZS2JEVUH;
+				DEVELOPMENT_TEAM = S5N3E58Y68;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5960,9 +5965,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ImitationWeChat/ImitationWeChat-Prefix.pch";
 				INFOPLIST_FILE = ImitationWeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faiwong.ImitationWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "644c59d7-db70-4d60-9512-1d2ab76d9e12";
-				PROVISIONING_PROFILE_SPECIFIER = lilworldDevelopment;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

@@ -39,7 +39,7 @@
     //    loginParam.uuid = [System UUID];
     
     //Post 请求
-    [HttpTool POST:LoginURL
+    [HttpTool GET:LoginURL
           parameters:[loginParam paramDictionary]
              success:^(NSDictionary *responsObject) {
                  
@@ -49,7 +49,7 @@
                   *  @param responseObject 请求的数据结果
                   */
                  if(responsObject){
-                     NSLog(@"%@", responsObject);
+                     NSLog(@"=====%@", responsObject);
                      //登录返回数据模型
                      LoginResponse *loginResponse = [[LoginResponse alloc] initWithDictionary:(NSDictionary *)responsObject error:nil];
                      

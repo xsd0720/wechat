@@ -17,7 +17,7 @@
 #ifdef DEBUG
 
 //#define HttpHead            @"http://bxu2359600252.my3w.com/wechat/public/index.php/mobileapi"
-#define HttpHead            @"http://192.168.20.218/wechat/public/index.php/mobileapi"
+#define HttpHead            @"http://wechat.breaker.club"
 
 #else
 

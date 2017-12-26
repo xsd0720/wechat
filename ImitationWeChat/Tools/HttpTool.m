@@ -51,7 +51,7 @@ static const char associatedkey;
     //发起请求
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:URLString
+    [manager POST:URLString
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation,
                    id responseObject) {
@@ -65,7 +65,7 @@ static const char associatedkey;
              if(responseObject){
                   success(responseObject);
                  //判断请求状态是否成功
-                 if ([[responseObject objectForKey:@"return_message"] isEqualToString:@"OK"]) {
+                 if ([[responseObject objectForKey:@"status_code"] intValue] == 0) {
                      success(responseObject);
                  }
                  else
@@ -138,7 +138,7 @@ static const char associatedkey;
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation,
                     id responseObject) {
-              
+              NSLog(@"========");
               /**
                *  成功回调
                *  @param responseObject 请求的数据结果
@@ -187,6 +187,7 @@ static const char associatedkey;
           }
           failure:^(AFHTTPRequestOperation *operation,
                     NSError *error) {
+              NSLog(@"%@", error);
               /**
                *  失败回调
                *  @param error 错误代码

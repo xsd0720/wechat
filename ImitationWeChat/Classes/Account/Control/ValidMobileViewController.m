@@ -45,13 +45,19 @@
 //    self.cancelButton.width = 60;
     
     [self configSuperTableData];
+    
+    UIButton *bb = [UIButton buttonWithType:UIButtonTypeCustom];
+    [bb setTitle:@"say" forState:UIControlStateNormal];
+    bb.frame = CGRectMake(0, SCREEN_HEIGHT-50, 50, 50);
+    [self.view addSubview:bb];
   
     
 }
 
 - (void)sendMobileValidCode
 {
-    [UserCenterRequest requestsnsWithMobile:self.mobile opcode:1 success:^(RequestsnsResponse *responsObject) {
+    [UserCenterRequest requestsnsWithMobile:self.mobile opcode:0 success:^(RequestsnsResponse *responsObject) {
+        NSLog(@"%@", responsObject);
         [self configTime];
     } failure:^(NSError *error) {
         self.titleLabel.text = @"短信验证码发送失败，返\n回重新发送";

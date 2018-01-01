@@ -64,6 +64,8 @@
 /***  手机号*/
 @property (nonatomic, strong) NSString *mobile;
 
+@property (nonatomic) int opcode;
+
 
 @end
 

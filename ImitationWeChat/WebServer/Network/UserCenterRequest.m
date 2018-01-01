@@ -33,13 +33,13 @@
     loginParam.username = mobile;
     
     //密码(md5加密)
-    loginParam.password = password;
+    loginParam.password = [password md5HexDigest];
     
     //设备uuid
     //    loginParam.uuid = [System UUID];
     
     //Post 请求
-    [HttpTool GET:LoginURL
+    [HttpTool POST:LoginURL
           parameters:[loginParam paramDictionary]
              success:^(NSDictionary *responsObject) {
                  
@@ -150,6 +150,7 @@
     
     //手机号
     snsParm.mobile = mobile;
+    snsParm.opcode = opcode;
     
     //POST 请求
     [HttpTool POST:RequestsnsURL

@@ -63,14 +63,15 @@ static const char associatedkey;
               */
              //判断是否有数据
              if(responseObject){
-                  success(responseObject);
+                 int status_code = [[responseObject objectForKey:@"status_code"] intValue];
+                 NSLog(@"%@", responseObject);
                  //判断请求状态是否成功
-                 if ([[responseObject objectForKey:@"status_code"] intValue] == 0) {
+                 if (status_code == 0) {
                      success(responseObject);
                  }
                  else
                  {
-                     int status_code = [[responseObject objectForKey:@"return_code"] intValue];
+                     int status_code = [[responseObject objectForKey:@"status_code"] intValue];
                      
 //                     //如果返回9 则退出登录
                     if ( (status_code == 9) || (status_code == 1) ) {
@@ -79,9 +80,9 @@ static const char associatedkey;
                     
                     }
  
-                     NSString *domain = [responseObject objectForKey:@"return_message"];
+                     NSString *domain = [responseObject objectForKey:@"status"];
                   
-                     NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"return_code"] intValue] userInfo:nil];
+                     NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"status_code"] intValue] userInfo:nil];
                      //状态失败，返回错误信息和错误代码
                      failure(error);
                  }
@@ -138,21 +139,20 @@ static const char associatedkey;
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation,
                     id responseObject) {
-              NSLog(@"========");
+
               /**
                *  成功回调
                *  @param responseObject 请求的数据结果
                */
               //判断是否有数据
               if(responseObject){
+                  int status_code = [[responseObject objectForKey:@"status_code"] intValue];
                   //判断请求状态是否成功
-                  if ([[responseObject objectForKey:@"return_message"] isEqualToString:@"OK"]) {
+                  if (status_code == 0) {
                       success(responseObject);
                   }
                   else
                   {
-                      int status_code = [[responseObject objectForKey:@"return_code"] intValue];
-                      
                       //如果返回9 则退出登录
                       if ( (status_code == 9) || (status_code == 1) ) {
       
@@ -161,14 +161,14 @@ static const char associatedkey;
                       }
                       
                       
-                      NSString *domain = [responseObject objectForKey:@"return_message"];
+                      NSString *domain = [responseObject objectForKey:@"status"];
                       
                       NSLog(@"%@", domain);
                       
                       [getWindow makeToast:domain];
 
-                      
-                      NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"return_code"] intValue] userInfo:nil];
+
+                      NSError *error = [NSError errorWithDomain:domain code:[[responseObject objectForKey:@"status_code"] intValue] userInfo:nil];
             
   
                       failure(error);
